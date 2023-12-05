@@ -1,0 +1,11 @@
+---
+interface Props {
+    class?: string;
+}
+
+const props = Astro.props as Props;
+---
+
+<button class={"border-2 px-12 py-2" + (props.class ? " " + props.class : "")}>
+    <slot />
+</button>
