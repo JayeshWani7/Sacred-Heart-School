@@ -1,0 +1,28 @@
+---
+interface Props {
+  Title: string;
+  Image: string;
+  Description: string;
+  //RTL: string;
+  RTL?: boolean;
+}
+
+const { Title, Image, Description, RTL } = Astro.props as Props;
+---
+<!-- container -->
+<div>
+  <!-- inner -->
+  <div class={`flex flex-col text-white md:${RTL ? 'flex-row' : 'flex-row-reverse'}`}>
+    <!-- Text -->
+    <div>
+      <!-- Title -->
+      <h3>{Title}</h3>
+      <!-- Desc -->
+      <p>{Description}</p>
+    </div>
+    <!-- Image -->
+    <div>
+    <img src={Image} alt={Title + " image"}/>
+    </div>
+  </div>
+</div>

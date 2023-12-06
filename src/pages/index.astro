@@ -3,7 +3,8 @@ import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import OutlineBtn from "../components/OutlineBtn.astro";
 import Section from "../components/Section.astro";
-
+import VisionMission from '../components/VisionMission.astro';
+import Objective from '../components/Objective.astro';
 import HeroImg from "../assets/images/home.jpg";
 
 const heroImageSrc = "../assets/images/home.jpg";
@@ -34,6 +35,30 @@ const heroImageSrc = "../assets/images/home.jpg";
 		molestiae tempore architecto laudantium incidunt aspernatur aut
 		provident esse quo quod eum.
 	</Section>
+  <!-- Vision / Mission -->
+  <Section>
+    <!-- Mission -->
+    <VisionMission
+      Title="Our Mission"
+      Image={heroImageSrc}
+      Description="To imbibe aptitude and skills in students required for solving problems of humanity who empathetically find joy in making eveyone's life beautiful"
+      RTL=true
+    />
+    <!-- Objectives -->
+    <div class="flex flex-col md:flex-row">
+      <Objective/>
+      <Objective/>
+      <Objective/>
+      <Objective/>
+    </div>
+    <!-- Vision -->
+    <VisionMission
+      Title="Our Vision"
+      Image={HeroImg}
+      Description="To be a hub of ideation and creativity, nurturing future citizen leaders instilled with indispensible values for ethical, healthy and joyful life"
+      RTL=false
+    />
+  </Section>
 </Layout>
 
 <style define:vars={{ heroImageSrc }}>

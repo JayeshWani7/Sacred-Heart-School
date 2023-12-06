@@ -1,0 +1,14 @@
+---
+interface Props {
+    class?: string;
+}
+
+const props = Astro.props as Props;
+---
+
+<section
+    class={"w-full px-4 md:px-12 xl:px-32 py-8" +
+        (props.class ? " " + props.class : "")}
+>
+    <slot />
+</section>
