@@ -15,7 +15,7 @@ const props = Astro.props as Props;
 <header
     class={"fixed z-50 flex items-center justify-between w-full px-4 md:px-12 xl:px-32 py-8" +
         (props.transparent === true
-            ? " hover:bg-black transition-colors duration-500"
+            ? " hover:bg-black/75 transition-colors duration-500"
             : " bg-white")}
 >
     <!-- Brand -->

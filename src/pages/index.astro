@@ -1,31 +1,35 @@
 ---
-import { Image } from "astro:assets";
+// Layout
 import Layout from "../layouts/Layout.astro";
+// Components
 import OutlineBtn from "../components/OutlineBtn.astro";
 import Section from "../components/Section.astro";
-
-import HeroImg from "../assets/images/home.jpg";
-
-const heroImageSrc = "../assets/images/home.jpg";
+import SocialBtn from "../components/SocialBtn.astro";
 ---
 
 <Layout title="Home">
 	<!-- <Image class="opacity-40" src={HeroImg} alt="hero img" /> -->
-	<div class="hero flex items-center">
-		<div class="content">
-			<h3>Welcome to Sacred Heart School</h3>
-			<h1>
+	<div class="hero flex items-center px-12 md:px-28 xl:px-52">
+		<div class="content lg:w-3/5">
+			<h3 class="font-bold text-xl md:text-3xl mb-8">
+				Welcome to <span class="text-primary">Sacred Heart School</span>
+			</h3>
+			<h1
+				class="font-extrabold text-3xl leading-normal xl:text-5xl xl:leading-normal"
+			>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
 				fringilla vehicula sollicitudin
 			</h1>
-			<div class="flex">
+			<div class="flex mt-8">
 				<OutlineBtn class="mr-5">Watch</OutlineBtn>
 				<OutlineBtn>Explore</OutlineBtn>
 			</div>
 		</div>
+		<div></div>
 	</div>
 	<Section class="text-white">
 		<h2>Section Title</h2>
+		<SocialBtn />
 		 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non rem
 		accusamus tempore omnis, corrupti excepturi! Hic quasi, ab nam iure,
 		consequuntur aspernatur sed dolor possimus rem, sit natus perferendis
@@ -36,11 +40,17 @@ const heroImageSrc = "../assets/images/home.jpg";
 	</Section>
 </Layout>
 
-<style define:vars={{ heroImageSrc }}>
+<style>
+	:root {
+		--hero-opacity: 0.6;
+	}
 	.hero {
 		color: #fff;
-		background-color: black;
-		background-image: var(--heroImageSrc);
+		background-image: linear-gradient(
+				rgba(0, 0, 0, var(--hero-opacity)),
+				rgba(0, 0, 0, var(--hero-opacity))
+			),
+			url("/assets/images/hero.jpg");
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
