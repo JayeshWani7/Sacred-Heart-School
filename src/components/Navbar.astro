@@ -44,3 +44,19 @@ const props = Astro.props as Props;
         </div>
     </ul>
 </header>
+
+<script define:vars={{ transparent: props.transparent }}>
+    if (transparent)
+        // Change Opacity on Scroll
+        window.addEventListener("scroll", () => {
+            const navbar = document.querySelector("header");
+            const scroll = window.scrollY;
+            if (scroll > 0) {
+                navbar?.classList.add("bg-black");
+                navbar?.classList.remove("hover:bg-black/75");
+            } else {
+                navbar?.classList.remove("bg-black");
+                navbar?.classList.add("hover:bg-black/75");
+            }
+        });
+</script>
