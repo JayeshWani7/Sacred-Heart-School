@@ -6,6 +6,8 @@ import Section from "../components/Section.astro";
 import VisionMission from '../components/VisionMission.astro';
 import Objective from '../components/Objective.astro';
 import HeroImg from "../assets/images/home.jpg";
+import MissionImg from "../assets/images/Mission.png";
+import VisionImg from "../assets/images/Vision.png";
 
 const heroImageSrc = "../assets/images/home.jpg";
 ---
@@ -39,10 +41,10 @@ const heroImageSrc = "../assets/images/home.jpg";
   <Section>
     <!-- Mission -->
     <VisionMission
-      Title="Our Mission"
-      Image={heroImageSrc}
-      Description="To imbibe aptitude and skills in students required for solving problems of humanity who empathetically find joy in making eveyone's life beautiful"
-      RTL=true
+      title="Our Mission"
+	  image={MissionImg}
+      desc="To imbibe aptitude and skills in students required for solving problems of humanity who empathetically find joy in making eveyone's life beautiful"
+      rtl={true}
     />
     <!-- Objectives -->
     <div class="flex flex-col md:flex-row">
@@ -53,10 +55,10 @@ const heroImageSrc = "../assets/images/home.jpg";
     </div>
     <!-- Vision -->
     <VisionMission
-      Title="Our Vision"
-      Image={HeroImg}
-      Description="To be a hub of ideation and creativity, nurturing future citizen leaders instilled with indispensible values for ethical, healthy and joyful life"
-      RTL=false
+      title="Our Vision"
+	  image={VisionImg}
+      desc="To be a hub of ideation and creativity, nurturing future citizen leaders instilled with indispensible values for ethical, healthy and joyful life"
+      rtl={false}
     />
   </Section>
 </Layout>
