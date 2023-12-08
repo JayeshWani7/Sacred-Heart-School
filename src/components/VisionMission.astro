@@ -1,0 +1,44 @@
+---
+import { getImage } from "astro:assets";
+
+interface Props {
+  title: string;
+  image: string | ImageMetadata;
+  desc: string;
+  rtl: boolean;
+}
+
+const { title, image, desc, rtl } = Astro.props;
+const Img = await getImage({
+    src: image
+});
+---
+<!-- container -->
+<span 
+  class={`flex gap-20 md:gap-12 
+    ${rtl ? 'flex-col lg:flex-row mt-6 xl:mt-12' : 'flex-col-reverse lg:flex-row-reverse xl:mb-12 mt-20 xl:mt-32'}`}>
+  <!-- Text -->
+  <span class="flex max-w-[60ch] xl:w-1/2 flex-col justify-center gap-4">
+    <!-- Title -->
+    <p class="text-xl font-bold">{title}</p>
+    <!-- Description -->
+    <p class="text-justify">{desc}</p>
+  </span>
+  <!-- Image -->
+  <span class={`relative h-auto lg:h-48 shrink-0 z-0 mx-auto lg:mx-0 lg:p-0 ${rtl ? 'pt-20' : 'pb-8'}`}>
+    <!-- darkred decor -->
+    <span 
+      class={`absolute -z-10 bg-primary-dark w-[100vw] h-72 md:h-[27rem] xl:h-72 
+      ${rtl ? 'bottom-0 left-2/4 lg:left-1/3' : 'right-2/4 lg:right-1/3 translate-y-[-15%] xl:-translate-y-1/4'}`}
+    ></span>
+    <!-- Gray/Red decor -->
+    <span 
+      class={`absolute w-40 xl:w-52 h-40 xl:h-52 ${rtl ? 'right-0 rounded-tr-[60px] shadow-[2rem_-2rem_0_0_#ED1E27] lg:shadow-[3rem_-3rem_0_0_#cbd5e1]' : 'rounded-tl-[60px] shadow-[-2rem_-2rem_0_0_#ED1E27] lg:shadow-[-3rem_-3rem_0_0_#cbd5e1]'}`}
+    ></span>
+    <img 
+      class={`lg:h-48 xl:h-64 
+      ${rtl ? 'rounded-tr-[60px]' : 'rounded-tl-[60px]'}`}
+      src={Img.src} 
+      alt={title + " image"}/>
+  </span>
+</span>
