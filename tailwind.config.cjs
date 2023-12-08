@@ -9,11 +9,8 @@ export default {
 			}
 		},
 	},
-	extend: {
-		colors: {
-			'primary': '#ED1E27',
-			'primary_darker': '#C11921',
-		},
-	},
-	plugins: [],
+	plugins: [require("daisyui")],
+	daisyui: {
+		base: false
+	}
 }
