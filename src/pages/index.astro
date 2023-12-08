@@ -38,7 +38,7 @@ const heroImageSrc = "../assets/images/home.jpg";
 		provident esse quo quod eum.
 	</Section>
   <!-- Vision / Mission -->
-  <Section class="bg-white overflow-hidden">
+  <Section class="bg-white overflow-hidden flex flex-col">
     <!-- Mission -->
     <VisionMission
       title="Our Mission"
@@ -47,12 +47,12 @@ const heroImageSrc = "../assets/images/home.jpg";
       rtl={true}
     />
     <!-- Objectives -->
-    <div class="flex flex-col md:flex-row">
-      <Objective/>
-      <Objective/>
-      <Objective/>
-      <Objective/>
-    </div>
+    <span class="py-16 relative inline-flex flex-col md:flex-row-reverse bg-primary-dark ml-auto rounded-bl-[60px] md:rounded-bl-none md:rounded-tl-[60px] before:bg-primary before:absolute before:-right-48 before:w-48 before:h-full before:top-0">
+		<Objective title="Title1" image={HeroImg} desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla vehicula sollicitudin"/>
+		<Objective title="Title2" image={HeroImg} desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla vehicula sollicitudin"/>
+		<Objective title="Title3" image={HeroImg} desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla vehicula sollicitudin"/>
+		<Objective title="Title4" image={HeroImg} desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla vehicula sollicitudin"/>
+    </span>
     <!-- Vision -->
     <VisionMission
       title="Our Vision"

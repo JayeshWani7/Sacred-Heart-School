@@ -14,20 +14,22 @@ const Img = await getImage({
 });
 ---
 <!-- container -->
-<span class={`my-12 flex flex-col gap-12 ${rtl ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+<span class={`flex flex-col gap-12 ${rtl ? 'md:flex-row mt-6 xl:mt-12' : 'md:flex-row-reverse xl:mb-12 mt-20 xl:mt-32'}`}>
   <!-- Text -->
-  <span class="flex w-[60ch] flex-col justify-center gap-4">
+  <span class="flex w-[60ch] xl:w-1/2 flex-col justify-center gap-4">
     <!-- Title -->
     <p class="text-xl font-bold">{title}</p>
     <!-- Description -->
     <p class="text-justify">{desc}</p>
   </span>
   <!-- Image -->
-  <span class="relative h-48">
-    <span class={`absolute bg-primary w-[100vw] h-64 ${rtl ? 'bottom-0 left-[30%]' : 'right-[30%] -translate-y-[15%]'}`}></span>
-    <span class={`absolute bg-slate-300 w-40 h-40 ${rtl ? '' : ''}`}></span>
+  <span class="relative h-48 shrink-0">
+    <!-- Red decor -->
+    <span class={`absolute bg-primary w-[100vw] h-64 xl:h-72 ${rtl ? 'bottom-0 left-[30%]' : 'right-[30%] translate-y-[-15%] xl:translate-y-[-25%]'}`}></span>
+    <!-- Gray decor -->
+    <span class={`absolute bg-slate-300 w-40 xl:w-52 h-40 xl:h-52 -top-8 xl:-top-12 ${rtl ? 'rounded-tr-[60px] -right-8 xl:-right-12' : 'rounded-tl-[60px] -left-8 xl:-left-12'}`}></span>
     <img 
-      class={`overflow-hidden relative h-48 ${rtl ? 'rounded-tr-[60px]' : 'rounded-tl-[60px]'}`}
+      class={`overflow-hidden relative h-48 xl:h-64 ${rtl ? 'rounded-tr-[60px]' : 'rounded-tl-[60px]'}`}
       src={Img.src} 
       alt={title + " image"}/>
   </span>
