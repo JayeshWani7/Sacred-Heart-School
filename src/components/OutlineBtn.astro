@@ -1,11 +1,16 @@
 ---
 interface Props {
+    href: string;
     class?: string;
 }
 
 const props = Astro.props as Props;
 ---
 
-<button class={"border-2 px-12 py-2" + (props.class ? " " + props.class : "")}>
+<a
+    href={props.href}
+    class={"btn btn-outline text-white hover:bg-white" +
+        (props.class ? " " + props.class : "")}
+>
     <slot />
-</button>
+</a>
