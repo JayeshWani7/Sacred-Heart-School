@@ -1,17 +1,23 @@
 ---
 interface Props {
     type: string;
+    class?: string;
+    height: number;
+    width: number;
 }
 const props = Astro.props as Props;
 ---
 
-<button class="btn btn-circle btn-outline text-white hover:bg-white mb-8">
+<button
+    class={"btn btn-circle btn-outline text-white hover:bg-white" +
+        (props.class ? " " + props.class : "")}
+>
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
+        width={props.width}
+        height={props.height}
         fill="currentColor"
-        class="bi bi-instagram"
+        class="bi bi-instagram p-0"
         viewBox="0 0 16 16"
     >
         <path
