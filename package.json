@@ -8,7 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "disable_telemetry": "astro telemetry disable",
-    "expose" : "astro dev --host",
+    "expose": "astro dev --host",
     "astro": "astro"
   },
   "dependencies": {
