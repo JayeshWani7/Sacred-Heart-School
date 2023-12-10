@@ -7,9 +7,9 @@ import {
 	Objective,
 	VisionMission,
 	DeskMessage,
-    TaglineBox,
-    InfraH,
-    ActivitiesH,
+	TaglineBox,
+	InfraH,
+	ActivitiesH,
 	HighlightTile,
 } from "../components/home";
 // Images
@@ -143,9 +143,10 @@ import Apply_now from "../components/layout/Apply_now.astro";
 			desc={[
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			]}
-            rtl={true}
+			rtl={true}
 		/>
 	</Section>
+
 	<Section class="text-white">
 		<h2>Section Title</h2>
 		 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non rem
@@ -157,23 +158,16 @@ import Apply_now from "../components/layout/Apply_now.astro";
 		provident esse quo quod eum.
 	</Section>
 
-	<div>
-		<SectionTitle sectionTitle="Explore our Activities & Infrastructure">
-		</SectionTitle>
-		<TaglineBox 
-			tagline="Initiating activities that nurture teamwork, leadership, physical health, social skills, discipline, resilience, and mutual trust within and outside the school environment.">
-		</TaglineBox>
+	<Section title="Explore our Activities & Infrastructure" theme="dark">
+		<TaglineBox
+			tagline="Initiating activities that nurture teamwork, leadership, physical health, social skills, discipline, resilience, and mutual trust within and outside the school environment."
+		/>
 		<ActivitiesH />
-		<TaglineBox 
-			tagline="The state-of-the-art infrastructure significantly enhances the quality of education, providing an advanced and enriched learning experience.">
-		</TaglineBox>
+		<TaglineBox
+			tagline="The state-of-the-art infrastructure significantly enhances the quality of education, providing an advanced and enriched learning experience."
+		/>
 		<InfraH />
-
-		
-	</div>
-
-	
-
+	</Section>
 </Layout>
 <Apply_now>
 	
