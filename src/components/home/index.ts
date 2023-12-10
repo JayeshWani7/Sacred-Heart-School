@@ -1,4 +1,7 @@
 import Objective from "./Objective.astro";
 import VisionMission from "./VisionMission.astro";
 import DeskMessage from "./DeskMessage.astro";
-export { Objective, VisionMission, DeskMessage }
+import HighlightTile from "./HighlightTile.astro";
+
+
+export { Objective, VisionMission, DeskMessage, HighlightTile }

@@ -3,7 +3,12 @@
 import Layout from "../layouts/Layout.astro";
 // Components
 import { Section, SocialBtn } from "../components/layout";
-import { Objective, VisionMission, DeskMessage } from "../components/home";
+import {
+	Objective,
+	VisionMission,
+	DeskMessage,
+	HighlightTile,
+} from "../components/home";
 // Images
 import HeroImg from "../assets/images/home.jpg";
 import MissionImg from "../assets/images/Mission.png";
@@ -48,13 +53,14 @@ import VisionImg from "../assets/images/Vision.png";
 
 	<!-- Highlights -->
 	<Section class="text-white" title="Our Highlights" theme="dark">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Non rem
-		accusamus tempore omnis, corrupti excepturi! Hic quasi, ab nam iure,
-		consequuntur aspernatur sed dolor possimus rem, sit natus perferendis
-		nobis magnam eaque rerum vel quidem nesciunt optio eos saepe placeat.
-		Sapiente exercitationem amet, soluta, aperiam, mollitia saepe error
-		molestiae tempore architecto laudantium incidunt aspernatur aut
-		provident esse quo quod eum.
+		<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+			<HighlightTile />
+			<HighlightTile />
+			<HighlightTile />
+			<HighlightTile />
+			<HighlightTile />
+			<HighlightTile />
+		</div>
 	</Section>
 
 	<!-- About -->
