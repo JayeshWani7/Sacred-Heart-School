@@ -6,5 +6,4 @@ import InfraH from "./InfraH.astro";
 import ActivitiesH from "./ActivitiesH.astro";
 import SectionTitle from "./SectionTitle.astro";
 
-export { Objective, VisionMission, DeskMessage, TaglineBox, InfraH, ActivitiesH, SectionTitle }
-
+export { Objective, VisionMission, DeskMessage, TaglineBox, InfraH, ActivitiesH, SectionTitle, HighlightTile }
