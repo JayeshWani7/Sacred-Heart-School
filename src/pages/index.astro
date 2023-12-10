@@ -2,19 +2,20 @@
 // Layout
 import Layout from "../layouts/Layout.astro";
 // Components
-import OutlineBtn from "../components/OutlineBtn.astro";
-import Section from "../components/Section.astro";
-import VisionMission from '../components/VisionMission.astro';
-import Objective from '../components/Objective.astro';
-import HeroImg from "../assets/images/home.jpg";
+import { OutlineBtn, Section, SocialBtn } from "../components/layout";
+import { Objective, VisionMission } from "../components/home";
+// Images
 import MissionImg from "../assets/images/Mission.png";
 import VisionImg from "../assets/images/Vision.png";
-const heroImageSrc = "../assets/images/home.jpg";
-import SocialBtn from "../components/SocialBtn.astro";
 ---
 
-<Layout title="Home" transparent={true} navtext="Admission" buttonLink="/admission">
-	<!-- <Image class="opacity-40" src={HeroImg} alt="hero img" /> -->
+<Layout
+	title="Home"
+	transparent={true}
+	navtext="Admission"
+	buttonLink="/admission"
+>
+	<!-- ***** Hero Section ***** -->
 	<div class="hero flex items-center justify-between px-8 md:px-28 xl:px-52">
 		<div
 			class="h-1/2 w-4 md:w-8 xl:w-12 left-0 absolute bg-primary text-primary"
@@ -85,30 +86,44 @@ import SocialBtn from "../components/SocialBtn.astro";
 		molestiae tempore architecto laudantium incidunt aspernatur aut
 		provident esse quo quod eum.
 	</Section>
-  <!-- Vision / Mission -->
-  <Section class="bg-white overflow-hidden flex flex-col text-black">
-    <!-- Mission -->
-    <VisionMission
-      title="Our Mission"
-	  image={MissionImg}
-      desc="To imbibe aptitude and skills in students required for solving problems of humanity who empathetically find joy in making eveyone's life beautiful. To imbibe aptitude and skills in students required for solving problems of humanity who empathetically find joy in making eveyone's life beautiful"
-      rtl={true}
-    />
-    <!-- Objectives -->
-    <span class="py-16 relative inline-grid md:grid-cols-2 xl:grid-cols-4 gap-8 bg-primary-dark ml-auto rounded-bl-[60px] md:rounded-bl-none md:rounded-tl-[60px] before:bg-primary-dark before:absolute before:-right-48 before:w-48 before:h-full before:top-0 z-10 before:-z-10">
-		<Objective title="Title1" image={HeroImg} desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla vehicula sollicitudin"/>
-		<Objective title="Title2" image={HeroImg} desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla vehicula sollicitudin"/>
-		<Objective title="Title3" image={HeroImg} desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla vehicula sollicitudin"/>
-		<Objective title="Title4" image={HeroImg} desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla vehicula sollicitudin"/>
-    </span>
-    <!-- Vision -->
-    <VisionMission
-      title="Our Vision"
-	  image={VisionImg}
-      desc="To be a hub of ideation and creativity, nurturing future citizen leaders instilled with indispensible values for ethical, healthy and joyful life. To be a hub of ideation and creativity, nurturing future citizen leaders instilled with indispensible values for ethical, healthy and joyful life"
-      rtl={false}
-    />
-  </Section>
+	<!-- Vision / Mission -->
+	<Section class="bg-white overflow-hidden flex flex-col text-black">
+		<!-- Mission -->
+		<VisionMission
+			title="Our Mission"
+			image={MissionImg}
+			desc="To imbibe aptitude and skills in students required for solving problems of humanity who empathetically find joy in making eveyone's life beautiful. To imbibe aptitude and skills in students required for solving problems of humanity who empathetically find joy in making eveyone's life beautiful"
+			rtl={true}
+		/>
+		<!-- Objectives -->
+		<span
+			class="py-16 relative inline-grid md:grid-cols-2 xl:grid-cols-4 gap-8 bg-primary-dark ml-auto rounded-bl-[60px] md:rounded-bl-none md:rounded-tl-[60px] before:bg-primary-dark before:absolute before:-right-48 before:w-48 before:h-full before:top-0 z-10 before:-z-10"
+		>
+			<Objective
+				title="Title1"
+				desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla vehicula sollicitudin"
+			/>
+			<Objective
+				title="Title2"
+				desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla vehicula sollicitudin"
+			/>
+			<Objective
+				title="Title3"
+				desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla vehicula sollicitudin"
+			/>
+			<Objective
+				title="Title4"
+				desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla vehicula sollicitudin"
+			/>
+		</span>
+		<!-- Vision -->
+		<VisionMission
+			title="Our Vision"
+			image={VisionImg}
+			desc="To be a hub of ideation and creativity, nurturing future citizen leaders instilled with indispensible values for ethical, healthy and joyful life. To be a hub of ideation and creativity, nurturing future citizen leaders instilled with indispensible values for ethical, healthy and joyful life"
+			rtl={false}
+		/>
+	</Section>
 	<Section class="text-white">
 		<h2>Section Title</h2>
 		 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non rem
@@ -119,7 +134,6 @@ import SocialBtn from "../components/SocialBtn.astro";
 		molestiae tempore architecto laudantium incidunt aspernatur aut
 		provident esse quo quod eum.
 	</Section>
-
 </Layout>
 
 <style>

@@ -1,11 +1,11 @@
 ---
-import { propsToFilename } from "astro/assets/utils";
-import Navbar from "../components/Navbar.astro";
+// import { propsToFilename } from "astro/assets/utils";
+import { Navbar } from "../components/layout";
 
 interface Props {
 	title: string;
 	navtext: string;
-    transparent?: boolean; // transparent | light
+	transparent?: boolean; // transparent | light
 	buttonLink: string;
 }
 
@@ -23,7 +23,11 @@ const { title, transparent, navtext, buttonLink } = Astro.props as Props;
 		<title>{title} | Sacred Heart School</title>
 	</head>
 	<body>
-		<Navbar text={ navtext } transparent={ transparent } button_link={ buttonLink }/>
+		<Navbar
+			text={navtext}
+			transparent={transparent}
+			button_link={buttonLink}
+		/>
 		<slot />
 	</body>
 </html>
