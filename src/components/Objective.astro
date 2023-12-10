@@ -14,15 +14,15 @@ const Img = await getImage({
 ---
 
 <span
-  class="flex gap-4 rounded-xl p-4 shadow-sm"
+  class="flex gap-2 rounded-xl p-4 shadow-sm"
   >
-  <span class="inline-block rounded-full h-fit outline outline-1 outline-white p-3">
+  <span class="block rounded-full h-fit outline outline-1 outline-white p-3">
     <!-- <img 
       class={`overflow-hidden relative h-48 xl:h-64 ${rtl ? 'rounded-tr-[60px]' : 'rounded-tl-[60px]'}`}
       src={Img.src} 
       alt={title + " image"}/> -->
     <svg
-      class="h-6 w-6 text-white"
+      class="h-4 w-4 text-white"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -41,9 +41,9 @@ const Img = await getImage({
     </svg>
   </span>
 
-  <span class="text-white">
-    <p class="mt-2 font-bold">{title}</p>
-    <p class="sm:mt-1 sm:text-sm w-[20ch]">
+  <span class="text-white flex flex-col xl:gap-4">
+    <p class="font-bold">{title}</p>
+    <p class="sm:mt-1 sm:text-sm max-w-[32ch] xl:w-[20ch]">
         {desc}
     </p>
   </span>
