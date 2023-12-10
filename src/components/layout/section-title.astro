@@ -1,0 +1,33 @@
+---
+interface Props {
+    title?: string;
+    theme?: string; // 'dark' | 'light' default: 'light' determines the color of the title
+}
+
+const { title, theme = "light" } = Astro.props as Props;
+---
+
+<h2
+    class={"text-center text-2xl font-bold mb-8" +
+        (theme == "dark" ? " dark" : " light")}
+>
+    {title}
+</h2>
+
+<style>
+    .dark {
+        color: #fff;
+    }
+    .light {
+        color: #000;
+    }
+    h2::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 2px;
+        margin: 0 auto;
+        margin-top: 10px;
+        @apply bg-primary;
+    }
+</style>
