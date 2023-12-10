@@ -1,0 +1,16 @@
+---
+// Contact-us component
+// variant - light | transparent
+
+import { Image } from "astro:assets";
+import logo from "../../assets/images/logo.webp";
+
+interface Props {
+    text: string;
+    transparent?: boolean; // transparent | light
+    button_link: string;
+}
+
+const props = Astro.props as Props;
+---
+
