@@ -1,6 +1,6 @@
 <section class="flex justify-center bg-black font-sans font-normal">
 
-    <div class="container flex justify-center gap-5 h-96 p-8">
+  <div class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8">
   
       <div class="card" style="background-image: url('src/assets/images/Basketball.jpg');">
         <div class="content">
@@ -35,8 +35,14 @@
   </section>
   
   <style>
+
+    .container{
+      align-items: center;
+      justify-content: center;
+    
+    }
     .card {
-      flex: 0 0 180px;
+      flex: 0 0 200px;
       border-radius: 0.5rem;
       transition: 0.5s ease-in-out;
       cursor: pointer;
@@ -44,12 +50,33 @@
       position: relative;
       overflow: hidden;
       background-size: cover;
+      margin-bottom: 15px;
+      align-self: center;
     }
   
     .card:hover {
-      flex: 0 0 280px;
-      box-shadow: 1px 3px 15px #C11921;
+      flex: 0 0 280px; /* Take full width on hover */
+      box-shadow: 1px 3px 15px #c11921;
       transform: translateY(-30px);
+    }
+  
+    @media (min-width: 350px){
+      .card {
+        height:400px;
+        width: 100%;
+        row-gap: 20px;
+        margin-top: 50px;
+        align-self: center;
+    
+      }
+    }
+  
+    @media (min-width: 768px) {
+      /* Large screens and above */
+      .card {
+        display: flex-row;
+        flex: 0 0 200px;
+      }
     }
   
     .content {
@@ -62,9 +89,15 @@
       flex-direction: column;
       height: 100%;
       justify-content: flex-end;
-      background: linear-gradient(0deg, rgba(2, 2, 46, 0.6755077030812324) 0%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(
+        0deg,
+        rgba(2, 2, 46, 0.6755077030812324) 0%,
+        rgba(255, 255, 255, 0) 70%
+      );
       transform: translateY(100%);
-      transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+      transition:
+        opacity 0.5s ease-in-out,
+        transform 0.5s 0.2s;
       visibility: hidden;
     }
   
@@ -74,4 +107,3 @@
       visibility: visible;
     }
   </style>
-  
