@@ -8,9 +8,8 @@ import {
 	VisionMission,
 	DeskMessage,
 	TaglineBox,
-	InfraH,
-	ActivitiesH,
 	HighlightTile,
+	ImageCard
 } from "../components/home";
 // Images
 import HeroImg from "../assets/images/home.jpg";
@@ -159,18 +158,46 @@ import CTA from "../components/layout/cta.astro";
 	</Section>
 
 	<Section title="Explore our Activities & Infrastructure" theme="dark">
+
+		<!--Activites Section of HomePage -->
+
 		<TaglineBox
 			tagline="Initiating activities that nurture teamwork, leadership, physical health, social skills, discipline, resilience, and mutual trust within and outside the school environment."
 		/>
-		<ActivitiesH />
+
+		<div class="flex justify-center font-sans font-normal">
+			<div class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8">
+				<ImageCard imageLink='src/assets/images/Basketball.jpg' cardTitle="Basketball"
+				/>
+				<ImageCard imageLink="src/assets/images/Swimming.jpg" cardTitle="Swimming"
+				/>
+				<ImageCard imageLink="src/assets/images/Fencing.jpg" cardTitle="Fencing"
+				/>
+				<ImageCard imageLink="src/assets/images/Football.JPG" cardTitle="Football"
+				/>
+			</div>
+		</div>
+
+		<!--Infrastructure Section of HomePage -->
+
 		<TaglineBox
 			tagline="The state-of-the-art infrastructure significantly enhances the quality of education, providing an advanced and enriched learning experience."
 		/>
-		<InfraH />
-	
+
+		<div class="flex justify-center font-sans font-normal">
+			<div class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8">
+				<ImageCard imageLink='src/assets/images/DesignHub.JPG' cardTitle="DesignHub"
+				/>
+				<ImageCard imageLink="src/assets/images/DigitalTree.jpg" cardTitle="Digital Tree"
+				/>
+				<ImageCard imageLink="src/assets/images/Hydroponics.jpg" cardTitle="Hydroponics"
+				/>
+				<ImageCard imageLink="src/assets/images/PioneerHall.jpg" cardTitle="Pioneer Hall"
+				/>
+			</div>
+		</div>
 	</Section>
 
-	
 </Layout>
 
 <style>

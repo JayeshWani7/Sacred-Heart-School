@@ -1,46 +1,21 @@
-<section class="flex justify-center bg-black font-sans font-normal">
 
-  <div class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8">
-  
-      <div class="card" style="background-image: url('src/assets/images/Basketball.jpg');">
-        <div class="content">
-          <h4 class="text-white">Basketball</h4>
-          <!--<span class="block mt-5 text-lg">UI & UX Designer</span>-->
-        </div>
-      </div>
-  
-      <div class="card" style="background-image: url('src/assets/images/Fencing.jpg');">
-        <div class="content">
-          <h4 class="text-white">Fencing</h4>
-          <!--<span class="block mt-5 text-lg">CEO Expert</span>-->
-        </div>
-      </div>
-  
-      <div class="card" style="background-image: url('src/assets/images/Swimming.jpg');">
-        <div class="content">
-          <h4 class="text-white">Swimming</h4>
-          <!--<span class="block mt-5 text-lg">Web Designer</span>-->
-        </div>
-      </div>
-  
-      <div class="card" style="background-image: url('src/assets/images/Football.JPG');">
-        <div class="content">
-          <h4 class="text-white">Football</h4>
-          <!--<span class="block mt-5 text-lg">Marketing Coordinator</span>-->
-        </div>
-      </div>
-  
+---
+interface Props {
+	imageLink: string;
+    cardTitle: string;
+}
+
+const { imageLink, cardTitle } = Astro.props;
+---
+
+<div class="card" style= {{ backgroundImage: `url(${imageLink})` }}>
+    <div class="content">
+      <h4 class="text-white">{cardTitle}</h4>
     </div>
-  
-  </section>
-  
-  <style>
+</div>
 
-    .container{
-      align-items: center;
-      justify-content: center;
-    
-    }
+
+<style>
     .card {
       flex: 0 0 200px;
       border-radius: 0.5rem;
@@ -106,4 +81,5 @@
       transform: translateY(0%);
       visibility: visible;
     }
-  </style>
+
+</style>
