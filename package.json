@@ -12,11 +12,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.3.1",
+    "@astrojs/check": "^0.3.2",
     "@astrojs/tailwind": "^5.0.3",
-    "astro": "^4.0.1",
+    "astro": "^4.0.4",
     "tailwindcss": "^3.3.6",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
     "daisyui": "^4.4.19",
