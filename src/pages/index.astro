@@ -16,6 +16,8 @@ import {
 import HeroImg from "../assets/images/home.jpg";
 import MissionImg from "../assets/images/Mission.png";
 import VisionImg from "../assets/images/Vision.png";
+import Principal from "../assets/images/PRINCIPAL.jpg";
+import PlaceHolder from "../assets/images/Placeholder.jpg";
 import CTA from "../components/layout/cta.astro";
 import ContactUs from "../components/home/Contact_us.astro";
 ---
@@ -72,7 +74,7 @@ import ContactUs from "../components/home/Contact_us.astro";
 	<Section theme="dark">
 		<DeskMessage
 			title="About Us"
-			image="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
+			image={PlaceHolder}
 			desc={[
 				"Sacred Heart School, established in 2000, has been dedicated to imparting quality education. With the guiding motto of Wisdom, Compassion, and Dynamism, the institution aims to instill not only academic knowledge but also moral and ethical values in its students. Over the years, we have carved a niche for ourselves as an institution that promotes holistic development and fosters a spirit of inquiry and innovation. Through a blend of rich academic programs, diverse extracurricular and experiential activities, and state-of-the-art facilities, Sacred Heart School provides a nurturing environment for students to flourish and realize their full potential",
 				"Join us in shaping futures, creating leaders, and building a community of lifelong learners.",
@@ -81,7 +83,7 @@ import ContactUs from "../components/home/Contact_us.astro";
 		/>
 	</Section>
 	<!-- Vision / Mission -->
-	<Section class="overflow-hidden flex flex-col">
+	<Section class="overflow-hidden flex flex-col relative z-0">
 		<!-- Mission -->
 		<VisionMission
 			title="Our Mission"
@@ -91,7 +93,7 @@ import ContactUs from "../components/home/Contact_us.astro";
 		/>
 		<!-- Objectives -->
 		<span
-			class="pt-16 pb-8 relative inline-grid lg:grid-cols-2 xl:grid-cols-4 gap-8 bg-primary-dark ml-auto rounded-bl-[60px] lg:rounded-bl-none lg:rounded-tl-[60px] before:bg-primary-dark before:absolute before:-right-48 before:w-48 before:h-full before:top-0 z-10 before:-z-10"
+			class="pt-20 pb-8 relative inline-grid lg:grid-cols-2 xl:grid-cols-4 gap-8 bg-primary-dark ml-auto rounded-bl-[60px] lg:rounded-bl-none lg:rounded-tl-[60px] before:bg-primary-dark before:absolute before:-right-48 before:w-48 before:h-full before:top-0 z-0 before:-z-10"
 		>
 			<Objective
 				title="Academic Excellence"
@@ -125,7 +127,7 @@ import ContactUs from "../components/home/Contact_us.astro";
 	<Section theme="dark">
 		<DeskMessage
 			title="From the Principal’s Desk"
-			image="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
+			image={Principal}
 			desc={[
 				"Dear Parents, Students, and Esteemed Visitors,",
 				"A heartfelt welcome to Sacred Heart School, a sanctuary of learning and growth. On behalf of the Management, our dedicated faculty and staff, I extend warm greetings to you.",
@@ -140,7 +142,7 @@ import ContactUs from "../components/home/Contact_us.astro";
 		/>
 		<DeskMessage
 			title="From the COO’s Desk"
-			image="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
+			image={PlaceHolder}
 			desc={[
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			]}
