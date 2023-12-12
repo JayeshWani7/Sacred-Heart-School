@@ -31,6 +31,49 @@ import { Section } from "../components/layout";
 		</div>
   </div>
 
+  <!--Application Form Link Section -->
+  
+  <Section class="flex flex-col sm:flex-col md:flex-row lg:flex-row">
+
+    <!--Application Side -->
+
+    <div class="flex w-4/5 py-4 md:pt-12 lg:pt-20 mt-4">
+      <!-- Left Red Bar -->
+      <div
+        class="h-1/12 md:h-1/12 w-4 md:w-4 sm:left-12 md:left-8 self-start bg-primary text-primary"
+      >
+        .
+      </div>
+  
+    
+      <div class="self-middle mb-6 md:mr-44 ml-12 lg:ml-4">
+        <h4 class="font-bold text-lg md:ml-4 sm:ml-4 mb-4 lg:text-2xl md:text-lg sm:text-base">
+          <span>Application Form</span>
+        </h4>
+        <p class="font-base text-lg md:text-base sm:text-base md:ml-4 leading-normal">
+          Offer your child the invaluable gift of 'Education at Sacred Heart School'- an investment in lifelong learning and growth.
+        </p>
+        <button class="md:ml-4 border-black border-2 px-4 py-2 mt-4 font-semibold flex items-center transition-all duration-300 ease-in-out     hover:bg-primary" 
+        id="applyButton">
+          Apply Now
+          <svg class="ml-2" width="22" height="22" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+            <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/>
+          </svg>
+       
+        </button>
+        
+      </div>
+    </div>
+
+    </div>
+
+
+  </Section>
+  
+  
+
+
+
   <Section title="Got Any Questions?">
     <!-- <div class="flex justify-center mb-4">
       <div class="text-black relative inline-block font-bold text-2xl">
@@ -55,59 +98,74 @@ import { Section } from "../components/layout";
         <!-- </div> -->
 
         <!-- Right side -->
-        <div class="w-full bg-primary-dark p-8 text-white">
+        
+        <form class="w-full bg-primary-dark p-8 text-white">
+
           <div class="mb-4">
             <input
               type="text"
               class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
-              placeholder="Name of Student"
+              placeholder="Name of Student" 
+              min="4"
+              required
             />
+          
           </div>
+
           <div class="mb-4 ">
             <input
               type="text"
               class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
               placeholder="Name of Parent"
+              required
             />
           </div>
+
           <div class="mb-4">
-            <!-- <input 
-              type="date"
-              class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none text-gray-100"
-              placeholder="Date of Birth"
-              name="date of birth"> -->
-            <input placeholder="Date of Birth" type="text" onfocus="(this.type = 'date')"  id="date" class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none text-gray-100">
+            <input placeholder="Date of Birth" type="text" onfocus="(this.type = 'date')" 
+              class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none text-gray-100" 
+              required>
           </div>
+
           <div class="mb-4">
             <input
               type="text"
               class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none "
               placeholder="Contact Number"
+              required
             />
           </div>
+
           <div class="mb-4">
             <input
-              type="text"
+              type="email"
               class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
               placeholder="Email Address"
+              required
             />
+          
           </div>
           <div class="flex justify-between">
             <div class="w-full md:w-2/5 relative">
-              <select class="select w-full appearance-none bg-white border-white border-2 shadow-md rounded-none max-w-xs h-full text-black">
-                <option class="text-white" disabled selected>Grade</option>
-                <option>Pre-School</option>
-                <option>Primary</option>
-                <option>Lower Secondary</option>
-                <option>Upper Secondary</option>
+
+              <select class="select select-bordered border-2 border-white rounded-none bg-primary-dark w-full max-w-xs">
+                <option disabled selected class="m-4">Grade</option>
+                <option>Nursery</option>
+                <option>JR KG</option>
+                <option>SR KG</option>
+                <option>XI Science</option>
+                <option>XI Humanities</option>
+                <option>XI Commerce</option>
               </select>
+
             </div>      
             <button class="w-full md:w-2/5 bg-white text-black leading-relaxed font-semibold md:ml-0 ml-4">Submit</button>
           </div>
-        </div>
+
+        </form>
       </div>
 
-    </Section>
+  </Section>
 </Layout>
 
 
@@ -128,3 +186,14 @@ import { Section } from "../components/layout";
 		height: 90vh;
 	}
 </style>
+
+<script>
+  const applyButton = document.getElementById("applyButton");
+  
+  if (applyButton) {
+    applyButton.addEventListener("click", function() {
+      window.open("https://icici.myclassboard.com/ApplicationForm_Custom/F11FFA3C-646C-41C4-8A28-C30A4BE13D1F/1/", "_blank");
+  
+    });
+  }
+  </script>
