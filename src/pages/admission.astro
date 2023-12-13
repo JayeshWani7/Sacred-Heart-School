@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Section } from "../components/layout";
+import { Section, OutlineBtn } from "../components/layout";
 
 ---
 
@@ -53,14 +53,21 @@ import { Section } from "../components/layout";
         <p class="font-base text-lg md:text-base sm:text-base md:ml-4 leading-normal">
           Offer your child the invaluable gift of 'Education at Sacred Heart School'- an investment in lifelong learning and growth.
         </p>
-        <button class="md:ml-4 border-black border-2 px-4 py-2 mt-4 font-semibold flex items-center transition-all duration-300 ease-in-out     hover:bg-primary" 
-        id="applyButton">
+        <OutlineBtn class="mt-4 ml-4 bg-primary-dark" 
+          target="_blank"  
+          href="https://icici.myclassboard.com/ApplicationForm_Custom/F11FFA3C-646C-41C4-8A28-C30A4BE13D1F/1/">
           Apply Now
-          <svg class="ml-2" width="22" height="22" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-            <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/>
+          <svg
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              class="icon w-6 h-6 transition-all ease-in-out"
+          >
+              <path
+                  clip-rule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                  fill-rule="evenodd"></path>
           </svg>
-       
-        </button>
+      </OutlineBtn>
         
       </div>
     </div>
@@ -99,11 +106,15 @@ import { Section } from "../components/layout";
 
         <!-- Right side -->
         
-        <form class="w-full bg-primary-dark p-8 text-white">
+        <form class="w-full bg-primary-dark p-8 text-white" 
+        method="post" 
+        action="" 
+        name="enquiry form">
 
           <div class="mb-4">
             <input
               type="text"
+              name="name-of-student"
               class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
               placeholder="Name of Student" 
               min="4"
@@ -115,6 +126,7 @@ import { Section } from "../components/layout";
           <div class="mb-4 ">
             <input
               type="text"
+              name="name-of-parent"
               class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
               placeholder="Name of Parent"
               required
@@ -122,14 +134,19 @@ import { Section } from "../components/layout";
           </div>
 
           <div class="mb-4">
-            <input placeholder="Date of Birth" type="text" onfocus="(this.type = 'date')" 
-              class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none text-gray-100" 
-              required>
+            <input placeholder="Date of Birth" 
+            type="text" 
+            name="dob" 
+            onfocus="(this.type = 'date')" 
+            class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none text-gray-100" 
+            required
+            />
           </div>
 
           <div class="mb-4">
             <input
               type="text"
+              name="contact-number"
               class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none "
               placeholder="Contact Number"
               required
@@ -139,6 +156,7 @@ import { Section } from "../components/layout";
           <div class="mb-4">
             <input
               type="email"
+              name="email-address"
               class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
               placeholder="Email Address"
               required
@@ -148,7 +166,7 @@ import { Section } from "../components/layout";
           <div class="flex justify-between">
             <div class="w-full md:w-2/5 relative">
 
-              <select class="select select-bordered border-2 border-white rounded-none bg-primary-dark w-full max-w-xs">
+              <select class="select select-bordered border-2 border-white rounded-none bg-primary-dark w-full max-w-xs" name="grade">
                 <option disabled selected class="m-4">Grade</option>
                 <option>Nursery</option>
                 <option>JR KG</option>
@@ -159,7 +177,7 @@ import { Section } from "../components/layout";
               </select>
 
             </div>      
-            <button class="w-full md:w-2/5 bg-white text-black leading-relaxed font-semibold md:ml-0 ml-4">Submit</button>
+            <button class="w-full md:w-2/5 bg-white text-black leading-relaxed font-semibold md:ml-0 ml-4" id="submit">Submit</button>
           </div>
 
         </form>
@@ -185,6 +203,13 @@ import { Section } from "../components/layout";
 		background-repeat: no-repeat;
 		height: 90vh;
 	}
+  #submit:hover {
+    background-color: #C11921;
+    color: #fff;
+    border-color: #fff;
+    border-width: 2px;
+
+  }
 </style>
 
 <script>
