@@ -1,6 +1,6 @@
 ---
 // Layout
-import Layout from "../layouts/layout.astro";
+import Layout from "../layouts/Layout.astro";
 // Components
 import { Section, SocialBtn } from "../components/layout";
 import {
@@ -13,6 +13,7 @@ import {
 	ImageCard
 } from "../components/home";
 // Images
+import About from "../assets/images/About.jpg";
 import HeroImg from "../assets/images/home.jpg";
 import MissionImg from "../assets/images/Mission.png";
 import VisionImg from "../assets/images/Vision.png";
@@ -72,9 +73,10 @@ import ContactUs from "../components/home/Contact_us.astro";
 
 	<!-- About -->
 	<Section theme="dark">
+    <div id="About"></div>
 		<DeskMessage
 			title="About Us"
-			image={PlaceHolder}
+			image={About}
 			desc={[
 				"Sacred Heart School, established in 2000, has been dedicated to imparting quality education. With the guiding motto of Wisdom, Compassion, and Dynamism, the institution aims to instill not only academic knowledge but also moral and ethical values in its students. Over the years, we have carved a niche for ourselves as an institution that promotes holistic development and fosters a spirit of inquiry and innovation. Through a blend of rich academic programs, diverse extracurricular and experiential activities, and state-of-the-art facilities, Sacred Heart School provides a nurturing environment for students to flourish and realize their full potential",
 				"Join us in shaping futures, creating leaders, and building a community of lifelong learners.",
@@ -97,22 +99,18 @@ import ContactUs from "../components/home/Contact_us.astro";
 		>
 			<Objective
 				title="Academic Excellence"
-				image={HeroImg}
 				desc="To cultivate a learning environment that fosters academic rigor, critical thinking, and a passion for lifelong learning"
 			/>
 			<Objective
 				title="Safe and Inclusive Environment"
-				image={HeroImg}
 				desc="To ensure a secure and inclusive space where diverse perspectives are welcomed, and where cutting-edge technology is harnessed to facilitate monitored online learning experiences"
 			/>
 			<Objective
 				title="Future Readiness"
-				image={HeroImg}
 				desc="To equip every student with the skills, knowledge, and adaptability needed to thrive in an ever-changing, globally connected world"
 			/>
 			<Objective
 				title="Experiential Learning"
-				image={HeroImg}
 				desc="To provide hands-on, experiential learning opportunities that complement and enrich classroom education, enabling students to apply their knowledge in real-world contexts"
 			/>
 		</span>
@@ -140,6 +138,7 @@ import ContactUs from "../components/home/Contact_us.astro";
 			]}
 			name="Mrs. Vinita Raj"
 		/>
+    <!--
 		<DeskMessage
 			title="From the COO’s Desk"
 			image={PlaceHolder}
@@ -148,24 +147,14 @@ import ContactUs from "../components/home/Contact_us.astro";
 			]}
 			rtl={true}
 		/>
-	</Section>
-
-	<Section class="text-white">
-		<h2>Section Title</h2>
-		 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non rem
-		accusamus tempore omnis, corrupti excepturi! Hic quasi, ab nam iure,
-		consequuntur aspernatur sed dolor possimus rem, sit natus perferendis
-		nobis magnam eaque rerum vel quidem nesciunt optio eos saepe placeat.
-		Sapiente exercitationem amet, soluta, aperiam, mollitia saepe error
-		molestiae tempore architecto laudantium incidunt aspernatur aut
-		provident esse quo quod eum.
+    -->
 	</Section>
 
 	<Section title="Explore our Activities & Infrastructure" theme="dark">
 
 		<!--Activites Section of HomePage -->
-
-		<TaglineBox
+    <div id="Activities"></div>
+		<TaglineBox 
 			tagline="Initiating activities that nurture teamwork, leadership, physical health, social skills, discipline, resilience, and mutual trust within and outside the school environment."
 		/>
 
@@ -183,8 +172,8 @@ import ContactUs from "../components/home/Contact_us.astro";
 		</div>
 
 		<!--Infrastructure Section of HomePage -->
-
-		<TaglineBox
+    <div id="Infra"></div>
+		<TaglineBox 
 			tagline="The state-of-the-art infrastructure significantly enhances the quality of education, providing an advanced and enriched learning experience."
 		/>
 
@@ -201,7 +190,8 @@ import ContactUs from "../components/home/Contact_us.astro";
 			</div>
 		</div>
 	</Section>
-	<CTA />
+  <div id="Contact"></div>
+	<CTA/>
 	<ContactUs />
 </Layout>
 
@@ -209,6 +199,9 @@ import ContactUs from "../components/home/Contact_us.astro";
 	:root {
 		--hero-opacity: 0.4;
 	}
+  html {
+    scroll-behavior: smooth;
+  }
 	.hero {
 		color: #fff;
 		background-image: linear-gradient(
