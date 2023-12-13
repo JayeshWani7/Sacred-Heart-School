@@ -1,21 +1,16 @@
 ---
-import { getImage } from "astro:assets";
-
 interface Props {
   title: string;
-  image: string | ImageMetadata;
+  image: ImageMetadata;
   desc: string;
   rtl: boolean;
 }
 
 const { title, image, desc, rtl } = Astro.props;
-const Img = await getImage({
-    src: image
-});
 ---
 <!-- container -->
 <span 
-  class={`flex gap-20 md:gap-12 
+  class={`flex gap-20 md:gap-12 xl:justify-center z-10
     ${rtl ? 'flex-col lg:flex-row mt-6 xl:mt-12' : 'flex-col-reverse lg:flex-row-reverse xl:mb-12 mt-20 xl:mt-32'}`}>
   <!-- Text -->
   <span class="flex max-w-[60ch] xl:w-1/2 flex-col justify-center gap-4">
@@ -38,7 +33,7 @@ const Img = await getImage({
     <img 
       class={`lg:h-48 xl:h-64 
       ${rtl ? 'rounded-tr-[60px]' : 'rounded-tl-[60px]'}`}
-      src={Img.src} 
+      src={image.src} 
       alt={title + " image"}/>
   </span>
 </span>
