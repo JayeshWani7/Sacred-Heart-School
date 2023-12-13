@@ -1,6 +1,6 @@
 ---
 // import { propsToFilename } from "astro/assets/utils";
-import { Navbar } from "../components/layout";
+import { Navbar, Footer } from "../components/layout";
 
 interface Props {
 	title: string;
@@ -25,6 +25,7 @@ const { title, transparent, navtext, buttonLink } = Astro.props as Props;
 	<body>
 		<Navbar text={navtext} transparent={true} button_link={buttonLink} />
 		<slot />
+		<Footer />
 		
 		
 	</body>
