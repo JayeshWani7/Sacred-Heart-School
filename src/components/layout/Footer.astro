@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../../assets/images/logo1.png";
+import SocialBtn from "./SocialBtn.astro";
 ---
 
 <footer class="footer">
@@ -87,44 +88,19 @@ import logo from "../../assets/images/logo1.png";
 -->
         <li class="nav__item">
             <h2 class="nav__title">Follow Us</h2>
+            <h3 style="color: red; ">___________</h3>
 
             <ul class="nav__ul">
                 <li>
-                    <a
-                        href="#"
-                        style="padding-right: 20px; font-size: 22px;"
-                        target="_blank"
-                    >
-                        <i class="bi bi-twitter-x footer-icon"></i>
-                    </a>
-                    <a
-                        href="#"
-                        style="padding-right: 20px; font-size: 22px;"
-                        target="_blank"
-                    >
-                        <i class="bi bi-instagram footer-icon"></i>
-                    </a>
-                    <a
-                        href="#"
-                        style="padding-right: 20px; font-size: 22px;"
-                        target="_blank"
-                    >
-                        <i class="bi bi-linkedin footer-icon"></i>
-                    </a>
-                    <a
-                        href="#"
-                        style="padding-right: 20px; font-size: 22px;"
-                        target="_blank"
-                    >
-                        <i class="bi bi-facebook footer-icon"></i>
-                    </a>
-                    <a
-                        href="#"
-                        style="padding-right: 2px; font-size: 22px;"
-                        target="_blank"
-                    >
-                        <i class="bi bi-youtube footer-icon"></i>
-                    </a>
+                    <!-- Social Btns -->
+                    <div class="flex md:flex justify-center pt-4">
+                        <SocialBtn height={12} width={12} class="mr-2" type="twitter" />
+                        <SocialBtn height={12} width={12} class="mr-2" type="instagram" />
+                        <SocialBtn height={12} width={12} class="mr-2" type="linkedin" />
+                        <SocialBtn height={12} width={12} class="mr-2" type="facebook" />
+                        <SocialBtn height={12} width={12} class="mr-2" type="youtube" />
+                    </div>
+                </li>
                 </li>
 
                 <li>&nbsp;</li>
@@ -136,6 +112,25 @@ import logo from "../../assets/images/logo1.png";
         </li>
     </ul>
 </footer>
+<hr class="border-gray-500 mx-10" />
+  <!-- <div class="w-full px-14 py-1 bg-zinc-100 text-[#8b8b8b]"> -->
+  <div class="w-full px-14 py-1 text-[#8b8b8b] text-sm mb-2">
+    <p id="copyright-text" class="mb-1 text-center">
+      Copyright &#169 2023 Sacred Heart School, Kalyan
+    </p>
+    <p id="copyright-text" class="mb-1 text-center">
+      Designed & Developed by
+      
+      <span class="name text-primary">
+        <a
+          href="https://dbit.acm.org/"
+          target="_blank"
+        >
+          ACM DBIT
+        </a>
+      </span>
+    </p>
+  </div>
 
 <style>
     .footer {
