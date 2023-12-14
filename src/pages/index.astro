@@ -2,25 +2,23 @@
 // Layout
 import Layout from "../layouts/Layout.astro";
 // Components
-import { Section, SocialBtn } from "../components/layout";
+import { CTA, Section, SocialBtn } from "../components/layout";
 import {
+	ContactUs,
 	Objective,
 	VisionMission,
 	DeskMessage,
 	TaglineBox,
-
 	HighlightTile,
-	ImageCard
+	ImageCard,
 } from "../components/home";
 // Images
 import About from "../assets/images/About.jpg";
-import HeroImg from "../assets/images/home.jpg";
 import MissionImg from "../assets/images/Mission.png";
 import VisionImg from "../assets/images/Vision.png";
 import Principal from "../assets/images/PRINCIPAL.jpg";
-import PlaceHolder from "../assets/images/Placeholder.jpg";
-import CTA from "../components/layout/cta.astro";
-import ContactUs from "../components/home/Contact_us.astro";
+// import HeroImg from "../assets/images/home.jpg";
+// import PlaceHolder from "../assets/images/Placeholder.jpg";
 ---
 
 <Layout
@@ -73,7 +71,7 @@ import ContactUs from "../components/home/Contact_us.astro";
 
 	<!-- About -->
 	<Section theme="dark">
-    <div id="About"></div>
+		<div id="About"></div>
 		<DeskMessage
 			title="About Us"
 			image={About}
@@ -138,7 +136,7 @@ import ContactUs from "../components/home/Contact_us.astro";
 			]}
 			name="Mrs. Vinita Raj"
 		/>
-    <!--
+		<!--
 		<DeskMessage
 			title="From the COO’s Desk"
 			image={PlaceHolder}
@@ -151,46 +149,65 @@ import ContactUs from "../components/home/Contact_us.astro";
 	</Section>
 
 	<Section title="Explore our Activities & Infrastructure" theme="dark">
-
 		<!--Activites Section of HomePage -->
-    <div id="Activities"></div>
-		<TaglineBox 
+		<div id="Activities"></div>
+		<TaglineBox
 			tagline="Initiating activities that nurture teamwork, leadership, physical health, social skills, discipline, resilience, and mutual trust within and outside the school environment."
 		/>
 
 		<div class="flex justify-center font-sans font-normal">
-			<div class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8">
-				<ImageCard imageLink='src/assets/images/Basketball.jpg' cardTitle="Basketball"
+			<div
+				class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8"
+			>
+				<ImageCard
+					imageLink="src/assets/images/Basketball.jpg"
+					cardTitle="Basketball"
 				/>
-				<ImageCard imageLink="src/assets/images/Swimming.jpg" cardTitle="Swimming"
+				<ImageCard
+					imageLink="src/assets/images/Swimming.jpg"
+					cardTitle="Swimming"
 				/>
-				<ImageCard imageLink="src/assets/images/Fencing.jpg" cardTitle="Fencing"
+				<ImageCard
+					imageLink="src/assets/images/Fencing.jpg"
+					cardTitle="Fencing"
 				/>
-				<ImageCard imageLink="src/assets/images/Football.JPG" cardTitle="Football"
+				<ImageCard
+					imageLink="src/assets/images/Football.JPG"
+					cardTitle="Football"
 				/>
 			</div>
 		</div>
 
 		<!--Infrastructure Section of HomePage -->
-    <div id="Infra"></div>
-		<TaglineBox 
+		<div id="Infra"></div>
+		<TaglineBox
 			tagline="The state-of-the-art infrastructure significantly enhances the quality of education, providing an advanced and enriched learning experience."
 		/>
 
 		<div class="flex justify-center font-sans font-normal">
-			<div class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8">
-				<ImageCard imageLink='src/assets/images/DesignHub.JPG' cardTitle="DesignHub"
+			<div
+				class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8"
+			>
+				<ImageCard
+					imageLink="src/assets/images/DesignHub.JPG"
+					cardTitle="DesignHub"
 				/>
-				<ImageCard imageLink="src/assets/images/DigitalTree.jpg" cardTitle="Digital Tree"
+				<ImageCard
+					imageLink="src/assets/images/DigitalTree.jpg"
+					cardTitle="Digital Tree"
 				/>
-				<ImageCard imageLink="src/assets/images/Hydroponics.jpg" cardTitle="Hydroponics"
+				<ImageCard
+					imageLink="src/assets/images/Hydroponics.jpg"
+					cardTitle="Hydroponics"
 				/>
-				<ImageCard imageLink="src/assets/images/PioneerHall.jpg" cardTitle="Pioneer Hall"
+				<ImageCard
+					imageLink="src/assets/images/PioneerHall.jpg"
+					cardTitle="Pioneer Hall"
 				/>
 			</div>
 		</div>
 	</Section>
-  <div id="Contact"></div>
+	<div id="Contact"></div>
 	<CTA />
 	<ContactUs />
 </Layout>
@@ -199,9 +216,9 @@ import ContactUs from "../components/home/Contact_us.astro";
 	:root {
 		--hero-opacity: 0.4;
 	}
-  html {
-    scroll-behavior: smooth;
-  }
+	html {
+		scroll-behavior: smooth;
+	}
 	.hero {
 		color: #fff;
 		background-image: linear-gradient(
