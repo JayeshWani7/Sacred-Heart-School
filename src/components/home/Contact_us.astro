@@ -18,13 +18,13 @@ const timings = "Mon - Saturday 07:00 AM - 05:00 PM ";
 const sunday_timing = "Sunday Closed";
 ---
 
-<!-- Design for big screen - beyond 2xl -->
+<!-- Design for big screen - beyond 2xl
 <div class="hidden 2xl:block">
   <section
     class="container relative justify-center mx-auto flex items-center mt-12 mb-[140px]"
   >
     <div
-      class="white-box bg-white relative w-[1192.66px] h-[547.97px] rounded-lg flex"
+      class="white-box bg-white relative w-3/4 h-[547.97px] rounded-lg flex"
     >
       <div
         class="details h-full w-1/2 flex-row items-center content-center pt-[45px] pl-[35px] justify-evenly"
@@ -65,101 +65,69 @@ const sunday_timing = "Sunday Closed";
         allowfullscreen=""
         loading="lazy"></iframe>
     </div>
-    <div
-      class="red-box bg-primary-dark absolute w-[490.90px] h-[463.48px] right-[95px] top-[155px] flex-rev rounded-lg z-[-1]"
-    >
-      <div
-        class="flex md:flex flex-col justify-center items-center pl-[410px] pt-[50px]"
-      >
-        <SocialBtn height={20} width={20} class="mb-4" type="twitter" />
-        <SocialBtn height={20} width={20} class="mb-4" type="instagram" />
-        <SocialBtn height={20} width={20} class="mb-4" type="linkedin" />
-        <SocialBtn height={20} width={20} class="mb-4" type="facebook" />
-        <SocialBtn height={20} width={20} class="mb-4" type="youtube" />
-      </div>
-      <div
-        class="contact text-4xl font-bold tracking-wider w-full pt-[30px] flex justify-center"
-      >
-        Contact us
-      </div>
+    
     </div>
   </section>
 </div>
 
-<!-- Design for normal PC -->
-<div class="hidden lg:block 2xl:hidden">
-  <section
-    class="container relative justify-center mx-auto flex items-center mt-12 mb-[140px]"
-  >
-    <div
-      class="white-box bg-white relative w-[700px] h-[547px] rounded-lg flex"
+<!-- Design for normal PC
+  <div class="hidden lg:block 2xl:hidden">
+    <section
+      class="container relative justify-center mx-auto flex items-center mt-12 mb-[140px]"
     >
       <div
-        class="details h-full w-1/2 flex-row items-center content-center pt-[45px] justify-evenly"
+        class="white-box bg-white relative w-3/4 h-[547px] rounded-lg flex"
       >
-        <p
-          class="name flex justify-center text-2xl font-bold text-red-600 font-sans"
-        >
-          {name}
-        </p>
-        <a class="flex justify-center" href=""
-          ><img
-            src={whatsapp.src}
-            alt="chat_on_whatsapp"
-            class="whatsapp w-[300px] pt-[15px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-90 hover:duration-300 hover:cursor-pointer"
-          /></a
-        >
         <div
-          class="location text-lg font-normal items-center text-black font-sans flex justify-evenly pl-[25px] pt-[15px]"
+          class="details h-full w-1/2 flex-row items-center content-center pt-[45px] justify-evenly"
         >
-          <img src={location.src} class="w-[46px] h-[58px]" alt="location" />
-          <p class="p-2">{address}</p>
-        </div>
-        <div
-          class="email text-lg font-normal items-center text-black font-sans flex pl-[20px] pt-[15px]"
-        >
-          <img src={message.src} class="w-[49px] h-[35.px]" alt="email" />
-          <p class="p-2">{email}</p>
-        </div>
-        <div
-          class="timings text-lg font-normal items-center text-black font-sans flex pl-[20px] pt-[15px]"
-        >
-          <img src={calendar.src} class="w-[47px] h-[42.px]" alt="timings" />
+          <p
+            class="name flex justify-center text-2xl font-bold text-red-600 font-sans"
+          >
+            {name}
+          </p>
+          <a class="flex justify-center" href=""
+            ><img
+              src={whatsapp.src}
+              alt="chat_on_whatsapp"
+              class="whatsapp w-[300px] pt-[15px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-90 hover:duration-300 hover:cursor-pointer"
+            /></a
+          >
+          <div
+            class="location text-lg font-normal items-center text-black font-sans flex justify-evenly pl-[25px] pt-[15px]"
+          >
+            <img src={location.src} class="w-[46px] h-[58px]" alt="location" />
+            <p class="p-2">{address}</p>
+          </div>
+          <div
+            class="email text-lg font-normal items-center text-black font-sans flex pl-[20px] pt-[15px]"
+          >
+            <img src={message.src} class="w-[49px] h-[35.px]" alt="email" />
+            <p class="p-2">{email}</p>
+          </div>
+          <div
+            class="timings text-lg font-normal items-center text-black font-sans flex pl-[20px] pt-[15px]"
+          >
+            <img src={calendar.src} class="w-[47px] h-[42.px]" alt="timings" />
 
-          <p class="p-2">{timings} <br /> {sunday_timing}</p>
+            <p class="p-2">{timings} <br /> {sunday_timing}</p>
+          </div>
         </div>
+        <iframe
+          class="map h-full w-1/2 rounded-lg"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.8129616999313!2d73.18158647536285!3d19.24698158199317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be793ff36fb5f5d%3A0x4a2ce3c128f502eb!2sSacred%20Heart%20School!5e0!3m2!1sen!2sus!4v1702301915298!5m2!1sen!2sus"
+          class="w-full h-full"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"></iframe>
       </div>
-      <iframe
-        class="map h-full w-1/2 rounded-lg"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.8129616999313!2d73.18158647536285!3d19.24698158199317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be793ff36fb5f5d%3A0x4a2ce3c128f502eb!2sSacred%20Heart%20School!5e0!3m2!1sen!2sus!4v1702301915298!5m2!1sen!2sus"
-        class="w-full h-full"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"></iframe>
-    </div>
-    <div
-      class="red-box bg-primary-dark absolute w-[490.90px] h-[463.48px] right-[85px] top-[155px] flex-rev rounded-lg z-[-1] xl:right-[215px]"
-    >
-      <div
-        class="flex md:flex flex-col justify-center items-center pl-[410px] pt-[50px]"
-      >
-        <SocialBtn height={20} width={20} class="mb-4" type="twitter" />
-        <SocialBtn height={20} width={20} class="mb-4" type="instagram" />
-        <SocialBtn height={20} width={20} class="mb-4" type="linkedin" />
-        <SocialBtn height={20} width={20} class="mb-4" type="facebook" />
-        <SocialBtn height={20} width={20} class="mb-4" type="youtube" />
+      
       </div>
-      <div
-        class="contact text-4xl font-bold tracking-wider w-full pt-[30px] flex justify-center"
-      >
-        Contact us
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div> -->
 
 <!-- Design only for mobile devices -->
-<div class="block lg:hidden 2xl:hidden">
+<!-- <div class="block lg:hidden 2xl:hidden">
   <section
     class="container relative justify-center mx-auto flex items-center mt-[150px] mb-[140px]"
   >
@@ -209,23 +177,50 @@ const sunday_timing = "Sunday Closed";
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <div
-      class="red-box bg-primary-dark absolute w-[400px] h-[750px] flex-rev rounded-xl z-[-1]"
-    >
-      <div
-        class="contact text-3xl font-bold tracking-wider w-full pt-[20px] flex justify-center"
-      >
-        Contact us
-      </div>
-      <div
-        class="flex md:flex flex-row justify-evenly items-end p-[10px] pt-[630px]"
-      >
-        <SocialBtn height={20} width={20} class="mb-4" type="twitter" />
-        <SocialBtn height={20} width={20} class="mb-4" type="instagram" />
-        <SocialBtn height={20} width={20} class="mb-4" type="linkedin" />
-        <SocialBtn height={20} width={20} class="mb-4" type="facebook" />
-        <SocialBtn height={20} width={20} class="mb-4" type="youtube" />
-      </div>
-    </div>
+  </div>
   </section>
+</div> -->
+
+<div class="flex h-fit justify-center my-8 mx-6">
+  <div class="flex flex-col bg-white rounded-lg md:flex-row">
+    <!--Contact Details -->
+    <div class="contact-details p-6 md:w-1/2">
+      <p class="name text-2xl md:text-3xl sm:text-2xl font-bold text-red-600 font-sans">{name}</p>
+      <a class="flex pt-4" href="https://wa.me/918605233000" target="_blank">
+        <img src={whatsapp.src} alt="chat_on_whatsapp"
+              class="whatsapp md:w-48 sm:w-36 w-48 pt-[15px] hover:cursor-pointer"          
+            />
+      </a>
+      <div
+          class="location md:text-base sm:text-xs font-normal items-center text-black font-sans flex justify-evenly pt-4"
+        >
+          <img src={location.src} class="w-8 h-8" alt="location" />
+          <p class="p-2">{address}</p>
+        </div>
+        <div
+          class="email md:text-base sm:text-xs font-normal items-center text-black font-sans flex pt-2 pr-2"
+          >
+            <img src={message.src} class="w-8 h-6" alt="email" />
+            <p class="p-2">{email}</p>
+       </div>
+       <div
+          class="timings md:text-base sm:text-xs font-normal items-center text-black font-sans flex pt-2"
+        >
+          <img src={calendar.src} class="w-8 h-8" alt="timings" />
+          <p class="p-2">{timings} <br /> {sunday_timing}</p>
+        </div>
+    </div>
+    <!--Map-->
+    <div class="map flex md:w-1/2">
+      <iframe
+        class="map w-full h-full rounded-lg"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1930505.543411047!2d71.68337532499997!3d19.08489030538538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be793ff36fb5f5d%3A0x4a2ce3c128f502eb!2sSacred%20Heart%20School!5e0!3m2!1sen!2sin!4v1702451287546!5m2!1sen!2sin"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
 </div>
+
+
