@@ -1,87 +1,81 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Section, OutlineBtn } from "../components/layout";
-
 ---
 
-<Layout
-  title="Admissions"
-  navtext="Home"
-  transparent={false}
-  buttonLink="/"
->
-  
+<Layout title="Admissions" navtext="Home" transparent={false} buttonLink="/">
   <!-- ***** Hero Section ***** -->
-	<div class="hero flex items-center justify-between px-4 md:px-12 lg:px-20">
-		<!-- Left Red Bar -->
-		<div
-			class="h-1/6 md:h-1/6 w-4 md:w-8 left-4 absolute bg-primary text-primary"
-		>
-			.
-		</div>
+  <div class="hero flex items-center justify-between px-4 md:px-12 lg:px-20">
+    <!-- Left Red Bar -->
+    <div
+      class="h-1/6 md:h-1/6 w-4 md:w-8 left-4 absolute bg-primary text-primary"
+    >
+      .
+    </div>
 
-		<!-- Hero Content -->
-		<div class="self-middle mb-6 md:mr-44 ml-12 lg:ml-4">
-			<h4 class="font-bold md:ml-4 sm:ml-4 mb-4 lg:text-3xl md:text-xl sm:text-xl">
-				<span class="text-white">Admissions</span>
-			</h4>
-			<p class="font-base text-lg md:text-xl sm:text-sm md:ml-4 leading-normal">
-				Offer your child the invaluable gift of 'Education at Sacred Heart School'</br>- an investment in lifelong learning and growth.
-      </p>
-		</div>
-  </div>
-
-  <!--Application Form Link Section -->
-  
-  <Section class="flex flex-col sm:flex-col md:flex-row lg:flex-row">
-
-    <!--Application Side -->
-
-    <div class="flex w-4/5 py-4 md:pt-12 lg:pt-20 mt-4">
-      <!-- Left Red Bar -->
-      <div
-        class="h-1/12 md:h-1/12 w-4 md:w-4 sm:left-12 md:left-8 self-start bg-primary text-primary"
+    <!-- Hero Content -->
+    <div class="self-middle mb-6 md:mr-44 ml-12 lg:ml-4">
+      <h4
+        class="font-bold md:ml-4 sm:ml-4 mb-4 lg:text-3xl md:text-xl sm:text-xl"
       >
-        .
-      </div>
-  
-    
-      <div class="self-middle mb-6 md:mr-44 ml-12 lg:ml-4">
-        <h4 class="font-bold text-lg md:ml-4 sm:ml-4 mb-4 lg:text-2xl md:text-lg sm:text-base">
-          <span>Application Form</span>
-        </h4>
-        <p class="font-base text-lg md:text-base sm:text-base md:ml-4 leading-normal">
-          Offer your child the invaluable gift of 'Education at Sacred Heart School'- an investment in lifelong learning and growth.
-        </p>
-        <OutlineBtn class="mt-4 ml-4 bg-primary-dark" 
-          target="_blank"  
-          href="https://icici.myclassboard.com/ApplicationForm_Custom/F11FFA3C-646C-41C4-8A28-C30A4BE13D1F/1/">
-          Apply Now
-          <svg
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              class="icon w-6 h-6 transition-all ease-in-out"
-          >
-              <path
-                  clip-rule="evenodd"
-                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                  fill-rule="evenodd"></path>
-          </svg>
+        <span class="text-white">Admissions</span>
+      </h4>
+      <p class="font-base text-lg md:text-xl sm:text-sm md:ml-4 leading-normal">
+        Offer your child the invaluable gift of 'Education at Sacred Heart
+        School'
+      </p>- an investment in lifelong learning and growth.
+    </div>
+  </div>
+</Layout>
+
+<!--Application Form Link Section -->
+
+<Section class="flex flex-col sm:flex-col md:flex-row lg:flex-row">
+  <!--Application Side -->
+
+  <div class="flex w-4/5 py-4 md:pt-12 lg:pt-20 mt-4">
+    <!-- Left Red Bar -->
+    <div
+      class="h-1/12 md:h-1/12 w-4 md:w-4 sm:left-12 md:left-8 self-start bg-primary text-primary"
+    >
+      .
+    </div>
+
+    <div class="self-middle mb-6 md:mr-44 ml-12 lg:ml-4">
+      <h4
+        class="font-bold text-lg md:ml-4 sm:ml-4 mb-4 lg:text-2xl md:text-lg sm:text-base"
+      >
+        <span>Application Form</span>
+      </h4>
+      <p
+        class="font-base text-lg md:text-base sm:text-base md:ml-4 leading-normal"
+      >
+        Offer your child the invaluable gift of 'Education at Sacred Heart
+        School'- an investment in lifelong learning and growth.
+      </p>
+      <OutlineBtn
+        class="mt-4 ml-4 bg-primary-dark"
+        target="_blank"
+        href="https://icici.myclassboard.com/ApplicationForm_Custom/F11FFA3C-646C-41C4-8A28-C30A4BE13D1F/1/"
+      >
+        Apply Now
+        <svg
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          class="icon w-6 h-6 transition-all ease-in-out"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+            fill-rule="evenodd"></path>
+        </svg>
       </OutlineBtn>
-        
-      </div>
     </div>
+  </div>
+</Section>
 
-    </div>
-
-
-  </Section>
-  
-
-
-
-  <Section title="Got Any Questions?">
-    <!-- <div class="flex justify-center mb-4">
+<Section title="Got Any Questions?">
+  <!-- <div class="flex justify-center mb-4">
       <div class="text-black relative inline-block font-bold text-2xl">
         Got Any Questions?
         <span
@@ -90,134 +84,134 @@ import { Section, OutlineBtn } from "../components/layout";
       </div>
     </div> -->
 
-    
-  
-      <div class="flex-wrap grid grid-cols-1 md:grid-cols-2 gap-10">
-        <!-- Left side -->
-        <!-- <div class="lg:w-1/2 px-4 lg:px-0"> -->
-          <div>
-            <h1 class="text-2xl font-bold text-black pb-4">Enquiry Form</h1>
-            <p class="text-black pr-4">
-              Have a question? Feel free to get in touch with us by filling out the enquiry form. We look forward to getting in touch with you.
-            </p>
-          </div>
-        <!-- </div> -->
+  <div class="flex-wrap grid grid-cols-1 md:grid-cols-2 gap-10">
+    <!-- Left side -->
+    <!-- <div class="lg:w-1/2 px-4 lg:px-0"> -->
+    <div>
+      <h1 class="text-2xl font-bold text-black pb-4">Enquiry Form</h1>
+      <p class="text-black pr-4">
+        Have a question? Feel free to get in touch with us by filling out the
+        enquiry form. We look forward to getting in touch with you.
+      </p>
+    </div>
+    <!-- </div> -->
 
-        <!-- Right side -->
-        
-        <form class="w-full bg-primary-dark p-8 text-white" 
-        method="post" 
-        action="" 
-        name="enquiry form">
+    <!-- Right side -->
 
-          <div class="mb-4">
-            <input
-              type="text"
-              name="name-of-student"
-              class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
-              placeholder="Name of Student" 
-              min="4"
-              required
-            />
-          
-          </div>
-
-          <div class="mb-4 ">
-            <input
-              type="text"
-              name="name-of-parent"
-              class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
-              placeholder="Name of Parent"
-              required
-            />
-          </div>
-
-          <div class="mb-4">
-            <input placeholder="Date of Birth" 
-            type="text" 
-            name="dob" 
-            onfocus="(this.type = 'date')" 
-            class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none text-gray-100" 
-            required
-            />
-          </div>
-
-          <div class="mb-4">
-            <input
-              type="text"
-              name="contact-number"
-              class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none "
-              placeholder="Contact Number"
-              required
-            />
-          </div>
-
-          <div class="mb-4">
-            <input
-              type="email"
-              name="email-address"
-              class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
-              placeholder="Email Address"
-              required
-            />
-          
-          </div>
-          <div class="flex justify-between">
-            <div class="w-full md:w-2/5 relative">
-
-              <select class="select select-bordered border-2 border-white rounded-none bg-primary-dark w-full max-w-xs" name="grade">
-                <option disabled selected class="m-4">Grade</option>
-                <option>Nursery</option>
-                <option>JR KG</option>
-                <option>SR KG</option>
-                <option>XI Science</option>
-                <option>XI Humanities</option>
-                <option>XI Commerce</option>
-              </select>
-
-            </div>      
-            <button class="w-full md:w-2/5 bg-white text-black leading-relaxed font-semibold md:ml-0 ml-4" id="submit">Submit</button>
-          </div>
-
-        </form>
+    <form
+      class="w-full bg-primary-dark p-8 text-white"
+      method="post"
+      action=""
+      name="enquiry form"
+    >
+      <div class="mb-4">
+        <input
+          type="text"
+          name="name-of-student"
+          class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
+          placeholder="Name of Student"
+          min="4"
+          required
+        />
       </div>
 
-  </Section>
-</Layout>
+      <div class="mb-4">
+        <input
+          type="text"
+          name="name-of-parent"
+          class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
+          placeholder="Name of Parent"
+          required
+        />
+      </div>
 
+      <div class="mb-4">
+        <input
+          placeholder="Date of Birth"
+          type="text"
+          name="dob"
+          onfocus="(this.type = 'date')"
+          class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none text-gray-100"
+          required
+        />
+      </div>
+
+      <div class="mb-4">
+        <input
+          type="text"
+          name="contact-number"
+          class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
+          placeholder="Contact Number"
+          required
+        />
+      </div>
+
+      <div class="mb-4">
+        <input
+          type="email"
+          name="email-address"
+          class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
+          placeholder="Email Address"
+          required
+        />
+      </div>
+      <div class="flex justify-between">
+        <div class="w-full md:w-2/5 relative">
+          <select
+            class="select select-bordered border-2 border-white rounded-none bg-primary-dark w-full max-w-xs"
+            name="grade"
+          >
+            <option disabled selected class="m-4">Grade</option>
+            <option>Nursery</option>
+            <option>JR KG</option>
+            <option>SR KG</option>
+            <option>XI Science</option>
+            <option>XI Humanities</option>
+            <option>XI Commerce</option>
+          </select>
+        </div>
+        <button
+          class="w-full md:w-2/5 bg-white text-black leading-relaxed font-semibold md:ml-0 ml-4"
+          id="submit">Submit</button
+        >
+      </div>
+    </form>
+  </div>
+</Section>
 
 <style>
-	:root {
-		--hero-opacity: 0.4;
-	}
-	.hero {
-		color: #fff;
-		background-image: linear-gradient(
-				rgba(0, 0, 0, var(--hero-opacity)),
-				rgba(0, 0, 0, var(--hero-opacity))
-			),
-			url("src/assets/images/Admission.JPG");
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		height: 90vh;
-	}
+  :root {
+    --hero-opacity: 0.4;
+  }
+  .hero {
+    color: #fff;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, var(--hero-opacity)),
+        rgba(0, 0, 0, var(--hero-opacity))
+      ),
+      url("/assets/images/admission-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh;
+  }
   #submit:hover {
-    background-color: #C11921;
+    background-color: #c11921;
     color: #fff;
     border-color: #fff;
     border-width: 2px;
-
   }
 </style>
 
 <script>
   const applyButton = document.getElementById("applyButton");
-  
+
   if (applyButton) {
-    applyButton.addEventListener("click", function() {
-      window.open("https://icici.myclassboard.com/ApplicationForm_Custom/F11FFA3C-646C-41C4-8A28-C30A4BE13D1F/1/", "_blank");
-  
+    applyButton.addEventListener("click", function () {
+      window.open(
+        "https://icici.myclassboard.com/ApplicationForm_Custom/F11FFA3C-646C-41C4-8A28-C30A4BE13D1F/1/",
+        "_blank",
+      );
     });
   }
-  </script>
+</script>
