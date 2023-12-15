@@ -74,18 +74,8 @@ import { Section, OutlineBtn } from "../components/layout";
   </Section>
 
   <Section title="Got Any Questions?">
-    <!-- <div class="flex justify-center mb-4">
-      <div class="text-black relative inline-block font-bold text-2xl">
-        Got Any Questions?
-        <span
-          class="after:content-[''] after:block after:w-3/4 after:h-0.5 after:bg-red-500 after:absolute after:bottom-0 after:-left-1/2 after:transform after:-translate-x-1/2"
-        ></span>
-      </div>
-    </div> -->
-
     <div class="flex-wrap grid grid-cols-1 md:grid-cols-2 gap-10">
-      <!-- Left side -->
-      <!-- <div class="lg:w-1/2 px-4 lg:px-0"> -->
+      <!-- Left side - Form Intro Text-->
       <div>
         <h1 class="text-2xl font-bold text-black pb-4">Enquiry Form</h1>
         <p class="text-black pr-4">
@@ -93,82 +83,67 @@ import { Section, OutlineBtn } from "../components/layout";
           enquiry form. We look forward to getting in touch with you.
         </p>
       </div>
-      <!-- </div> -->
 
-      <!-- Right side -->
-
+      <!-- Right side - Inquiry Form -->
       <form
         class="w-full bg-primary-dark p-8 text-white"
         method="post"
         action=""
-        name="enquiry form"
+        name="EnquiryForm"
       >
-        <div class="mb-4">
-          <input
-            type="text"
-            name="name-of-student"
-            class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
-            placeholder="Name of Student"
-            min="4"
-            required
-          />
-        </div>
+        <input
+          type="text"
+          class="text-input"
+          name="StudentName"
+          id="StudentName"
+          placeholder="Name of Student"
+          required
+        />
 
-        <div class="mb-4">
-          <input
-            type="text"
-            name="name-of-parent"
-            class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
-            placeholder="Name of Parent"
-            required
-          />
-        </div>
+        <input
+          type="text"
+          class="text-input"
+          id="ParentName"
+          name="ParentName"
+          placeholder="Name of Parent"
+          required
+        />
 
-        <div class="mb-4">
-          <input
-            placeholder="Date of Birth"
-            type="text"
-            name="dob"
-            onfocus="(this.type = 'date')"
-            class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none text-gray-100"
-            required
-          />
-        </div>
+        <input
+          type="text"
+          class="text-input"
+          id="dob"
+          name="dob"
+          onfocus="(this.type='date')"
+          placeholder="Date of Birth"
+          required
+        />
 
-        <div class="mb-4">
-          <input
-            type="text"
-            name="contact-number"
-            class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
-            placeholder="Contact Number"
-            required
-          />
-        </div>
+        <input
+          type="number"
+          class="text-input"
+          id="ContactNumber"
+          name="ContactNumber"
+          placeholder="Contact Number"
+          required
+        />
 
-        <div class="mb-4">
-          <input
-            type="email"
-            name="email-address"
-            class="w-full bg-transparent input border-white border-2 placeholder-gray-100 rounded-none"
-            placeholder="Email Address"
-            required
-          />
-        </div>
         <div class="flex justify-between">
-          <div class="w-full md:w-2/5 relative">
-            <select
-              class="select select-bordered border-2 border-white rounded-none bg-primary-dark w-full max-w-xs"
-              name="grade"
-            >
-              <option disabled selected class="m-4">Grade</option>
-              <option>Nursery</option>
-              <option>JR KG</option>
-              <option>SR KG</option>
-              <option>XI Science</option>
-              <option>XI Humanities</option>
-              <option>XI Commerce</option>
-            </select>
-          </div>
+          <!-- Grade Selection -->
+          <select
+            class="select select-bordered border-2 border-white rounded-none bg-primary-dark w-min active:border-white"
+            name="grade"
+            id="grade"
+          >
+            <option disabled selected>Grade</option>
+            <option value="Nursery">Nursery</option>
+            <option value="JR KG">JR KG</option>
+            <option value="SR KG">SR KG</option>
+            <option value="XI Science">XI Science</option>
+            <option value="XI Humanities">XI Humanities</option>
+            <option value="XI Commerce">XI Commerce</option>
+          </select>
+          <!-- Submit Button -->
           <button
             class="w-full md:w-2/5 bg-white text-black leading-relaxed font-semibold md:ml-0 ml-4"
             id="submit">Submit</button
@@ -195,6 +170,29 @@ import { Section, OutlineBtn } from "../components/layout";
     background-repeat: no-repeat;
     height: 90vh;
   }
+
+  .text-input {
+    @apply w-full mb-4 py-3 px-4 bg-transparent text-white placeholder-gray-100 border-white border-2 rounded-none active:border-white;
+  }
+
+  /* Remove Inc/Dec Btns for number input */
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  select option {
+    background-color: #fff;
+    color: #000;
+  }
+
   #submit:hover {
     background-color: #c11921;
     color: #fff;
