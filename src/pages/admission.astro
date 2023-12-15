@@ -1,9 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Section, OutlineBtn } from "../components/layout";
-
+import Bus from "../assets/images/bus.svg";
+import Wheel from "../assets/images/wheel.svg";
 const WEB_APP_URL =
   "https://script.google.com/macros/s/AKfycbzjMJNmM4010Wjv5cm_N5ePhJF-nrziabipBeILoKwHWZxZPQeMe0WtkHD-V7NgcT39jw/exec";
+const effect = false;
 ---
 
 <Layout title="Admissions" navtext="Home" transparent={false} buttonLink="/">
@@ -75,9 +77,23 @@ const WEB_APP_URL =
       </div>
     </div>
   </Section>
+  <Section class="relative bg-primary-dark">
+    <div> <!-- Wrapper for bus. This will be used for moving the bus -->
+      <div class="relative inline-block border-red-400 border-2 border-solid"> <!-- Bus shape defined -->
+        <img class="" src={Bus.src} alt="bus" />
+        <img class={`absolute w-[18%] sm:w-1/6 right-2 sm:right-3 -bottom-4 ${effect && 'animate-spin'}`} src={Wheel.src} alt="front-wheel" />
+        <img class={`absolute w-[18%] sm:w-1/6 left-8 sm:left-11 -bottom-4 ${effect && 'animate-spin'}`} src={Wheel.src} alt="back-wheel" />
+      </div>
+    </div>
+    <div class="custom-shape-divider-top-1702666467">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
 
+  </Section>
   <Section title="Got Any Questions?">
-    <div class="flex-wrap grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="flex-wrap grid grid-cols-1 md:grid-cols-2 gap-10">
       <!-- Left side - Form Intro Text-->
       <div>
         <h1 class="text-2xl font-bold text-black pb-4">Enquiry Form</h1>
@@ -220,6 +236,25 @@ const WEB_APP_URL =
     color: #fff;
     border-color: #fff;
     border-width: 2px;
+  }
+  .custom-shape-divider-top-1702666467 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .custom-shape-divider-top-1702666467 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 81px;
+  }
+
+  .custom-shape-divider-top-1702666467 .shape-fill {
+    fill: #c11921;
   }
 </style>
 
