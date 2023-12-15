@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Section, OutlineBtn } from "../components/layout";
+
+const WEB_APP_URL =
+  "https://script.google.com/macros/s/AKfycbzjMJNmM4010Wjv5cm_N5ePhJF-nrziabipBeILoKwHWZxZPQeMe0WtkHD-V7NgcT39jw/exec";
 ---
 
 <Layout title="Admissions" navtext="Home" transparent={false} buttonLink="/">
@@ -86,15 +89,21 @@ import { Section, OutlineBtn } from "../components/layout";
 
       <!-- Right side - Inquiry Form -->
       <form
-        class="w-full bg-primary-dark p-8 text-white"
-        method="post"
-        action=""
+        class="w-full bg-primary-dark p-8 text-white relative"
         name="EnquiryForm"
       >
+        <!-- Loading Overlay -->
+        <div
+          class="hidden w-full h-full absolute top-0 left-0 bg-black opacity-50 justify-center items-center"
+          id="loadingOverlay"
+        >
+          <span class="loading loading-spinner loading-lg"></span>
+        </div>
+        <!-- Form -->
         <input
           type="text"
           class="text-input"
-          name="StudentName"
+          name="Student Name"
           id="StudentName"
           placeholder="Name of Student"
           required
@@ -104,7 +113,7 @@ import { Section, OutlineBtn } from "../components/layout";
           type="text"
           class="text-input"
           id="ParentName"
-          name="ParentName"
+          name="Parent Name"
           placeholder="Name of Parent"
           required
         />
@@ -113,7 +122,7 @@ import { Section, OutlineBtn } from "../components/layout";
           type="text"
           class="text-input"
           id="dob"
-          name="dob"
+          name="DOB"
           onfocus="(this.type='date')"
           placeholder="Date of Birth"
           required
@@ -123,8 +132,17 @@ import { Section, OutlineBtn } from "../components/layout";
           type="number"
           class="text-input"
           id="ContactNumber"
-          name="ContactNumber"
+          name="Contact Number"
           placeholder="Contact Number"
+          required
+        />
+
+        <input
+          type="email"
+          class="text-input"
+          id="email"
+          name="Email"
+          placeholder="Email"
           required
         />
 
@@ -132,10 +150,11 @@ import { Section, OutlineBtn } from "../components/layout";
           <!-- Grade Selection -->
           <select
             class="select select-bordered border-2 border-white rounded-none bg-primary-dark w-min active:border-white"
-            name="grade"
+            name="Grade"
             id="grade"
+            required
           >
-            <option disabled selected>Grade</option>
+            <option disabled selected value="">Grade</option>
             <option value="Nursery">Nursery</option>
             <option value="JR KG">JR KG</option>
             <option value="SR KG">SR KG</option>
@@ -145,9 +164,12 @@ import { Section, OutlineBtn } from "../components/layout";
           </select>
           <!-- Submit Button -->
           <button
+            type="submit"
             class="w-full md:w-2/5 bg-white text-black leading-relaxed font-semibold md:ml-0 ml-4"
-            id="submit">Submit</button
+            id="submit"
           >
+            Submit
+          </button>
         </div>
       </form>
     </div>
@@ -201,8 +223,10 @@ import { Section, OutlineBtn } from "../components/layout";
   }
 </style>
 
-<script>
+<script define:vars={{ WEB_APP_URL }}>
   const applyButton = document.getElementById("applyButton");
+  const form = document.forms["EnquiryForm"];
+  const loadingOverlay = document.querySelector("#loadingOverlay");
 
   if (applyButton) {
     applyButton.addEventListener("click", function () {
@@ -212,4 +236,70 @@ import { Section, OutlineBtn } from "../components/layout";
       );
     });
   }
+
+  const validEmail = (email) => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
+
+  const validPhone = (phone) => {
+    const re = /^\d{10}$/;
+    return re.test(phone);
+  };
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    loadingOverlay.classList.remove("hidden");
+    loadingOverlay.classList.add("flex");
+
+    const studentName = form["StudentName"].value;
+    const parentName = form["ParentName"].value;
+    const dob = form["dob"].value;
+    const contactNumber = form["ContactNumber"].value;
+    const email = form["Email"].value;
+    const grade = form["grade"].value;
+
+    if (
+      !studentName ||
+      !parentName ||
+      !dob ||
+      !contactNumber ||
+      !email ||
+      !grade
+    ) {
+      alert("Please fill all the fields");
+      return;
+    }
+
+    if (!validEmail(email)) {
+      alert("Please enter a valid email");
+      return;
+    }
+
+    if (!validPhone(contactNumber)) {
+      alert("Please enter a valid phone number");
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    let res = await fetch(WEB_APP_URL, {
+      method: "POST",
+      body: formData,
+    });
+    res = await res.json();
+
+    if (res.result === "success") {
+      alert("Form submitted successfully");
+      form.reset();
+    } else {
+      alert("Something went wrong. Please try again later");
+    }
+
+    loadingOverlay.classList.add("hidden");
+    loadingOverlay.classList.remove("flex");
+  };
+
+  form.addEventListener("submit", submitHandler);
 </script>
