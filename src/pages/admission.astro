@@ -1,9 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Section, OutlineBtn } from "../components/layout";
-
+import Bus from "../assets/images/bus.svg";
+import Wheel from "../assets/images/wheel.svg";
+import Wave from "../assets/images/wave.svg";
 const WEB_APP_URL =
   "https://script.google.com/macros/s/AKfycbzjMJNmM4010Wjv5cm_N5ePhJF-nrziabipBeILoKwHWZxZPQeMe0WtkHD-V7NgcT39jw/exec";
+const effect = false;
 ---
 
 <Layout title="Admissions" navtext="Home" transparent={false} buttonLink="/">
@@ -56,10 +59,10 @@ const WEB_APP_URL =
           School'- an investment in lifelong learning and growth.
         </p>
         <OutlineBtn
-          class="mt-4 ml-4 bg-primary-dark"
-          target="_blank"
+          class="mt-4 ml-4 bg-primary-dark">
+          <!--target="_blank"
           href="https://icici.myclassboard.com/ApplicationForm_Custom/F11FFA3C-646C-41C4-8A28-C30A4BE13D1F/1/"
-        >
+        --> <!-- shifted to eventListener in script -->
           Apply Now
           <svg
             fill="currentColor"
@@ -75,9 +78,21 @@ const WEB_APP_URL =
       </div>
     </div>
   </Section>
+  <Section class="relative py-0 z-0 min-h-[20rem] overflow-hidden" theme="dark">
+    <div class="z-10 inline-block w-1/4 absolute bottom-3 lg:bottom-12 -left-4 -rotate-12" id="bus"> <!-- Wrapper for bus. This will be used for moving the bus --> <!-- xl:w-auto -->
+        <div class="relative h-full"> <!-- Bus shape defined here -->
+            <img src={Bus.src} class="w-full" alt="bus" />
+            <div class="absolute h-2/5 -bottom-1 lg:-bottom-2 xl:-bottom-3 w-full flex justify-between"> 
+                <img class="ml-[10.5%] wheel" src={Wheel.src} alt="back-wheel" /> <!-- 48px -->
+                <img class="mr-[3%] wheel" src={Wheel.src} alt="front-wheel" /> <!-- 14px -->
+            </div>
+        </div>
+    </div>
+    <img src={Wave.src} class="w-full absolute bottom-0 left-0" />
+  </Section>
 
   <Section title="Got Any Questions?">
-    <div class="flex-wrap grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="flex-wrap grid grid-cols-1 md:grid-cols-2 gap-10">
       <!-- Left side - Form Intro Text-->
       <div>
         <h1 class="text-2xl font-bold text-black pb-4">Enquiry Form</h1>
@@ -196,7 +211,9 @@ const WEB_APP_URL =
   .text-input {
     @apply w-full mb-4 py-3 px-4 bg-transparent text-white placeholder-gray-100 border-white border-2 rounded-none active:border-white;
   }
-
+  .wheelss {
+    background: linear-gradient(transparent 48%, #c11921 50%, transparent 53%) no-repeat;
+  }
   /* Remove Inc/Dec Btns for number input */
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
@@ -221,6 +238,19 @@ const WEB_APP_URL =
     border-color: #fff;
     border-width: 2px;
   }
+  @keyframes bus-go-road {
+   28% { transform: translate(10.2vw,-15%) rotate(-7deg); }
+   36% { transform: translate(20.4vw,-25%) rotate(-4deg); }
+   44% { transform: translate(30.6vw,-29%) rotate(-2deg); }
+   52% { transform: translate(40.8vw,-30%) rotate(1deg); }
+   60% { transform: translate(51vw,-27%) rotate(2.5deg); }
+   68% { transform: translate(61.2vw,-22%) rotate(4deg); }
+   76% { transform: translate(71.4vw,-13%) rotate(6deg); }
+   84% { transform: translate(81.6vw,-3%) rotate(7deg); }
+   92% { transform: translate(91.8vw,10%) rotate(8deg); }
+   100% { transform: translate(103vw,26%) rotate(9deg); }
+   /*100% { transform: translate(91.8vw,10%) rotate(8deg); }*/
+  }
 </style>
 
 <script define:vars={{ WEB_APP_URL }}>
@@ -230,13 +260,30 @@ const WEB_APP_URL =
 
   if (applyButton) {
     applyButton.addEventListener("click", function () {
+        effect = true;
       window.open(
         "https://icici.myclassboard.com/ApplicationForm_Custom/F11FFA3C-646C-41C4-8A28-C30A4BE13D1F/1/",
         "_blank",
       );
     });
   }
-
+  let effect = false;
+  let button = document.querySelector('.mt-4.ml-4.bg-primary-dark');
+  let bus = document.getElementById('bus');
+  let wheels = document.querySelectorAll('img.wheel');
+  // Handle clicks on each button.
+  button.addEventListener('click', () => {
+    console.log(effect);
+    if(!effect) {
+        effect = true;
+        bus.classList.add('animate-[bus-go-road_1s_linear_forwards]');
+        wheels.forEach(wheel => { wheel.classList.add('animate-spin'); });
+    }
+    setTimeout(() => {window.open(
+        "https://icici.myclassboard.com/ApplicationForm_Custom/F11FFA3C-646C-41C4-8A28-C30A4BE13D1F/1/",
+        "_blank",
+      ); effect = false;}, "1200");
+  });
   const validEmail = (email) => {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
