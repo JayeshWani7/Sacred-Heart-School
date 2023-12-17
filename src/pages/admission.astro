@@ -11,25 +11,17 @@ const effect = false;
 
 <Layout title="Admissions" navtext="Home" transparent={false} buttonLink="/">
   <!-- ***** Hero Section ***** -->
-  <div class="hero flex items-center justify-between px-4 md:px-12 lg:px-20">
-    <!-- Left Red Bar -->
-    <div
-      class="h-1/6 md:h-1/6 w-4 md:w-8 left-4 absolute bg-primary text-primary"
-    >
-      .
-    </div>
-
+  <div class="hero flex items-center justify-between px-8 md:px-12 lg:px-20">
     <!-- Hero Content -->
-    <div class="self-middle mb-6 md:mr-44 ml-12 lg:ml-4">
-      <h4
-        class="font-bold md:ml-4 sm:ml-4 mb-4 lg:text-3xl md:text-xl sm:text-xl"
-      >
-        <span class="text-white">Admissions</span>
-      </h4>
-      <p class="font-base text-lg md:text-xl sm:text-sm md:ml-4 leading-normal">
-        Offer your child the invaluable gift of 'Education at Sacred Heart
-        School'
-      </p>- an investment in lifelong learning and growth.
+    <div>
+      <h3 class="font-bold text-2xl md:text-3xl mb-4 left-bar">Admissions</h3>
+      <p class="text-lg">
+        Offer you child the invaluable gift of 'Education at Sacred Heart
+        School'<br />
+        <span class="text-base"
+          >- an investment in lifelong learning and growth.</span
+        >
+      </p>
     </div>
   </div>
 
@@ -39,18 +31,11 @@ const effect = false;
     <!--Application Side -->
 
     <div class="flex w-4/5 py-4 md:pt-12 lg:pt-20 mt-4">
-      <!-- Left Red Bar -->
-      <div
-        class="h-1/12 md:h-1/12 w-4 md:w-4 sm:left-12 md:left-8 self-start bg-primary text-primary"
-      >
-        .
-      </div>
-
       <div class="self-middle mb-6 md:mr-44 ml-12 lg:ml-4">
         <h4
-          class="font-bold text-lg md:ml-4 sm:ml-4 mb-4 lg:text-2xl md:text-lg sm:text-base"
+          class="font-bold text-lg md:ml-4 sm:ml-4 mb-4 lg:text-2xl md:text-lg sm:text-base left-bar"
         >
-          <span>Application Form</span>
+          Application Form
         </h4>
         <p
           class="font-base text-lg md:text-base sm:text-base md:ml-4 leading-normal"
@@ -58,12 +43,12 @@ const effect = false;
           Offer your child the invaluable gift of 'Education at Sacred Heart
           School'- an investment in lifelong learning and growth.
         </p>
-        <OutlineBtn
-          class="mt-4 ml-4 bg-primary-dark">
+        <OutlineBtn class="mt-4 ml-4 bg-primary-dark">
           <!--target="_blank"
           href="https://icici.myclassboard.com/ApplicationForm_Custom/F11FFA3C-646C-41C4-8A28-C30A4BE13D1F/1/"
-        --> <!-- shifted to eventListener in script -->
-          Apply Now
+        -->
+          <!-- shifted to eventListener in script -->
+           Apply Now
           <svg
             fill="currentColor"
             viewBox="0 0 24 24"
@@ -78,21 +63,32 @@ const effect = false;
       </div>
     </div>
   </Section>
+
   <Section class="relative py-0 z-0 min-h-[20rem] overflow-hidden" theme="dark">
-    <div class="z-10 inline-block w-1/4 absolute bottom-3 lg:bottom-12 -left-4 -rotate-12" id="bus"> <!-- Wrapper for bus. This will be used for moving the bus --> <!-- xl:w-auto -->
-        <div class="relative h-full"> <!-- Bus shape defined here -->
-            <img src={Bus.src} class="w-full" alt="bus" />
-            <div class="absolute h-2/5 -bottom-1 lg:-bottom-2 xl:-bottom-3 w-full flex justify-between"> 
-                <img class="ml-[10.5%] wheel" src={Wheel.src} alt="back-wheel" /> <!-- 48px -->
-                <img class="mr-[3%] wheel" src={Wheel.src} alt="front-wheel" /> <!-- 14px -->
-            </div>
+    <div
+      class="z-10 inline-block w-1/4 absolute bottom-3 lg:bottom-12 -left-4 -rotate-12"
+      id="bus"
+    >
+      <!-- Wrapper for bus. This will be used for moving the bus -->
+      <!-- xl:w-auto -->
+      <div class="relative h-full">
+        <!-- Bus shape defined here -->
+        <img src={Bus.src} class="w-full" alt="bus" />
+        <div
+          class="absolute h-2/5 -bottom-1 lg:-bottom-2 xl:-bottom-3 w-full flex justify-between"
+        >
+          <img class="ml-[10.5%] wheel" src={Wheel.src} alt="back-wheel" />
+          <!-- 48px -->
+          <img class="mr-[3%] wheel" src={Wheel.src} alt="front-wheel" />
+          <!-- 14px -->
         </div>
+      </div>
     </div>
     <img src={Wave.src} class="w-full absolute bottom-0 left-0" />
   </Section>
 
   <Section title="Got Any Questions?">
-        <div class="flex-wrap grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div class="flex-wrap grid grid-cols-1 md:grid-cols-2 gap-10">
       <!-- Left side - Form Intro Text-->
       <div>
         <h1 class="text-2xl font-bold text-black pb-4">Enquiry Form</h1>
@@ -205,14 +201,28 @@ const effect = false;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 90vh;
+    height: 80vh;
+  }
+
+  .left-bar {
+    position: relative;
+  }
+
+  .left-bar::before {
+    content: "";
+    position: absolute;
+    left: -24px;
+    height: 110%;
+    width: 10px;
+    @apply bg-primary;
   }
 
   .text-input {
     @apply w-full mb-4 py-3 px-4 bg-transparent text-white placeholder-gray-100 border-white border-2 rounded-none active:border-white;
   }
   .wheelss {
-    background: linear-gradient(transparent 48%, #c11921 50%, transparent 53%) no-repeat;
+    background: linear-gradient(transparent 48%, #c11921 50%, transparent 53%)
+      no-repeat;
   }
   /* Remove Inc/Dec Btns for number input */
   /* Chrome, Safari, Edge, Opera */
@@ -239,17 +249,37 @@ const effect = false;
     border-width: 2px;
   }
   @keyframes bus-go-road {
-   28% { transform: translate(10.2vw,-15%) rotate(-7deg); }
-   36% { transform: translate(20.4vw,-25%) rotate(-4deg); }
-   44% { transform: translate(30.6vw,-29%) rotate(-2deg); }
-   52% { transform: translate(40.8vw,-30%) rotate(1deg); }
-   60% { transform: translate(51vw,-27%) rotate(2.5deg); }
-   68% { transform: translate(61.2vw,-22%) rotate(4deg); }
-   76% { transform: translate(71.4vw,-13%) rotate(6deg); }
-   84% { transform: translate(81.6vw,-3%) rotate(7deg); }
-   92% { transform: translate(91.8vw,10%) rotate(8deg); }
-   100% { transform: translate(103vw,26%) rotate(9deg); }
-   /*100% { transform: translate(91.8vw,10%) rotate(8deg); }*/
+    28% {
+      transform: translate(10.2vw, -15%) rotate(-7deg);
+    }
+    36% {
+      transform: translate(20.4vw, -25%) rotate(-4deg);
+    }
+    44% {
+      transform: translate(30.6vw, -29%) rotate(-2deg);
+    }
+    52% {
+      transform: translate(40.8vw, -30%) rotate(1deg);
+    }
+    60% {
+      transform: translate(51vw, -27%) rotate(2.5deg);
+    }
+    68% {
+      transform: translate(61.2vw, -22%) rotate(4deg);
+    }
+    76% {
+      transform: translate(71.4vw, -13%) rotate(6deg);
+    }
+    84% {
+      transform: translate(81.6vw, -3%) rotate(7deg);
+    }
+    92% {
+      transform: translate(91.8vw, 10%) rotate(8deg);
+    }
+    100% {
+      transform: translate(103vw, 26%) rotate(9deg);
+    }
+    /*100% { transform: translate(91.8vw,10%) rotate(8deg); }*/
   }
 </style>
 
@@ -260,7 +290,7 @@ const effect = false;
 
   if (applyButton) {
     applyButton.addEventListener("click", function () {
-        effect = true;
+      effect = true;
       window.open(
         "https://icici.myclassboard.com/ApplicationForm_Custom/F11FFA3C-646C-41C4-8A28-C30A4BE13D1F/1/",
         "_blank",
@@ -268,21 +298,26 @@ const effect = false;
     });
   }
   let effect = false;
-  let button = document.querySelector('.mt-4.ml-4.bg-primary-dark');
-  let bus = document.getElementById('bus');
-  let wheels = document.querySelectorAll('img.wheel');
+  let button = document.querySelector(".mt-4.ml-4.bg-primary-dark");
+  let bus = document.getElementById("bus");
+  let wheels = document.querySelectorAll("img.wheel");
   // Handle clicks on each button.
-  button.addEventListener('click', () => {
+  button.addEventListener("click", () => {
     console.log(effect);
-    if(!effect) {
-        effect = true;
-        bus.classList.add('animate-[bus-go-road_1s_linear_forwards]');
-        wheels.forEach(wheel => { wheel.classList.add('animate-spin'); });
+    if (!effect) {
+      effect = true;
+      bus.classList.add("animate-[bus-go-road_1s_linear_forwards]");
+      wheels.forEach((wheel) => {
+        wheel.classList.add("animate-spin");
+      });
     }
-    setTimeout(() => {window.open(
+    setTimeout(() => {
+      window.open(
         "https://icici.myclassboard.com/ApplicationForm_Custom/F11FFA3C-646C-41C4-8A28-C30A4BE13D1F/1/",
         "_blank",
-      ); effect = false;}, "1200");
+      );
+      effect = false;
+    }, "1200");
   });
   const validEmail = (email) => {
     const re = /\S+@\S+\.\S+/;
