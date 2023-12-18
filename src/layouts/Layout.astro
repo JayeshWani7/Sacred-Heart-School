@@ -3,59 +3,54 @@
 import { Navbar, Footer } from "../components/layout";
 
 interface Props {
-	title: string;
-	navtext: string;
-	transparent?: boolean; // transparent | light
-	buttonLink: string;
+  title: string;
+  navtext: string;
+  transparent?: boolean; // transparent | light
+  buttonLink: string;
 }
 
 const { title, transparent, navtext, buttonLink } = Astro.props as Props;
 
 const description =
-	"Sacred Heart School, established in 2000, has been dedicated to imparting quality education. With the guiding motto of Wisdom, Compassion, and Dynamism, the institution aims to instill not only academic knowledge but also moral and ethical values in its students. Over the years, we have carved a niche for ourselves as an institution that promotes holistic development and fosters a spirit of inquiry and innovation. Through a blend of rich academic programs, diverse extracurricular and experiential activities, and state-of-the-art facilities, Sacred Heart School provides a nurturing environment for students to flourish and realize their full potential";
+  "Sacred Heart School, established in 2000, has been dedicated to imparting quality education. With the guiding motto of Wisdom, Compassion, and Dynamism, the institution aims to instill not only academic knowledge but also moral and ethical values in its students. Over the years, we have carved a niche for ourselves as an institution that promotes holistic development and fosters a spirit of inquiry and innovation. Through a blend of rich academic programs, diverse extracurricular and experiential activities, and state-of-the-art facilities, Sacred Heart School provides a nurturing environment for students to flourish and realize their full potential";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
 
-		<title>{title} | Sacred Heart School</title>
-		<meta name="description" content={description} />
-		<meta property="og:title" content={title + " | Sacred Heart School"} />
-		<meta property="og:description" content={description} />
-		<meta name="robots" content="index,follow" />
-		<meta
-			name="keywords"
-			content="Sacred Heart School, Kalyan, School, Primary, Secondary, Junio College"
-		/>
+    <title>{title} | Sacred Heart School</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title + " | Sacred Heart School"} />
+    <meta property="og:description" content={description} />
+    <meta name="robots" content="index,follow" />
+    <meta
+      name="keywords"
+      content="Sacred Heart School, Kalyan, School, Primary, Secondary, Junior College"
+    />
 
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="/favicon-16x16.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="/favicon-32x32.png"
-		/>
-	</head>
-	<body>
-		<Navbar text={navtext} transparent={true} button_link={buttonLink} />
-		<slot />
-		<Footer />
-	</body>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  </head>
+  <body>
+    <Navbar
+      text={navtext}
+      transparent={true}
+      button_link={buttonLink}
+      href="/"
+    />
+    <slot />
+    <Footer />
+  </body>
 </html>
 
 <style>
-	html {
-		background-color: black;
-	}
+  html {
+    background-color: black;
+  }
 </style>

@@ -4,61 +4,61 @@ import Layout from "../layouts/Layout.astro";
 // Components
 import { CTA, Section, SocialBtn } from "../components/layout";
 import {
-	ContactUs,
-	Objective,
-	VisionMission,
-	DeskMessage,
-	TaglineBox,
-	HighlightTile,
-	ImageCard,
+  ContactUs,
+  Objective,
+  VisionMission,
+  DeskMessage,
+  TaglineBox,
+  HighlightTile,
+  ImageCard,
 } from "../components/home";
 // Images
-import About from "../assets/images/About.jpg";
-import MissionImg from "../assets/images/Mission.png";
-import VisionImg from "../assets/images/Vision.png";
-import Principal from "../assets/images/PRINCIPAL.jpg";
+import About from "../assets/images/About.webp";
+import MissionImg from "../assets/images/Mission.webp";
+import VisionImg from "../assets/images/Vision.webp";
+import Principal from "../assets/images/PRINCIPAL.webp";
 // import HeroImg from "../assets/images/home.jpg";
 // import PlaceHolder from "../assets/images/Placeholder.jpg";
 ---
 
 <Layout
-	title="Home"
-	transparent={true}
-	navtext="Admission"
-	buttonLink="/admission"
+  title="Home"
+  transparent={true}
+  navtext="Admission"
+  buttonLink="/admission"
 >
-	<!-- ***** Hero Section ***** -->
-	<div class="hero flex items-center justify-between px-4 md:px-12 lg:px-20">
-		<!-- Left Red Bar -->
-		<div
-			class="h-1/3 md:h-1/2 w-4 md:w-8 left-0 absolute bg-primary text-primary"
-		>
-			.
-		</div>
+  <!-- ***** Hero Section ***** -->
+  <div class="hero flex items-center justify-between px-4 md:px-12 lg:px-20">
+    <!-- Left Red Bar -->
+    <div
+      class="h-1/3 md:h-1/2 w-4 md:w-8 left-0 absolute bg-primary text-primary"
+    >
+      .
+    </div>
 
-		<!-- Hero Content -->
-		<div class="self-end mb-8 md:mr-44">
-			<h3 class="font-bold mb-4 text-md md:text-lg">
-				Welcome to <span class="text-primary">Sacred Heart</span>
-			</h3>
-			<h1 class="font-extrabold text-xl md:text-3xl leading-normal">
-				Join us in shaping futures, creating leaders, and building a
-				community of lifelong learners.
-			</h1>
-		</div>
+    <!-- Hero Content -->
+    <div class="self-end mb-8 md:mr-44">
+      <h3 class="font-bold mb-4 text-md md:text-lg">
+        Welcome to <span class="text-primary">Sacred Heart</span>
+      </h3>
+      <h1 class="font-extrabold text-xl md:text-3xl leading-normal">
+        Join us in shaping futures, creating leaders, and building a community
+        of lifelong learners.
+      </h1>
+    </div>
 
-		<!-- Social Btns -->
-		<div class="flex flex-col justify-center">
-			<SocialBtn height={12} width={12} class="mb-4" type="twitter" />
-			<SocialBtn height={12} width={12} class="mb-4" type="instagram" />
-			<SocialBtn height={12} width={12} class="mb-4" type="linkedin" />
-			<SocialBtn height={12} width={12} class="mb-4" type="facebook" />
-			<SocialBtn height={12} width={12} class="mb-4" type="youtube" />
-		</div>
-	</div>
+    <!-- Social Btns -->
+    <div class="flex flex-col justify-center">
+      <SocialBtn height={12} width={12} class="mb-4" type="twitter" />
+      <SocialBtn height={12} width={12} class="mb-4" type="instagram" />
+      <SocialBtn height={12} width={12} class="mb-4" type="linkedin" />
+      <SocialBtn height={12} width={12} class="mb-4" type="facebook" />
+      <SocialBtn height={12} width={12} class="mb-4" type="youtube" />
+    </div>
+  </div>
 
-	<!-- Highlights -->
-	<!-- <Section class="text-white" title="Our Highlights" theme="dark">
+  <!-- Highlights -->
+  <!-- <Section class="text-white" title="Our Highlights" theme="dark">
 		<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
 			<HighlightTile />
 			<HighlightTile />
@@ -69,74 +69,74 @@ import Principal from "../assets/images/PRINCIPAL.jpg";
 		</div>
 	</Section> -->
 
-	<!-- About -->
-	<Section theme="dark">
-		<div id="About"></div>
-		<DeskMessage
-			title="About Us"
-			image={About}
-			desc={[
-				"Sacred Heart School, established in 2000, has been dedicated to imparting quality education. With the guiding motto of Wisdom, Compassion, and Dynamism, the institution aims to instill not only academic knowledge but also moral and ethical values in its students. Over the years, we have carved a niche for ourselves as an institution that promotes holistic development and fosters a spirit of inquiry and innovation. Through a blend of rich academic programs, diverse extracurricular and experiential activities, and state-of-the-art facilities, Sacred Heart School provides a nurturing environment for students to flourish and realize their full potential",
-				"Join us in shaping futures, creating leaders, and building a community of lifelong learners.",
-				"Welcome to an educational journey that goes beyond the ordinary – welcome to Sacred Heart School, Kalyan.",
-			]}
-		/>
-	</Section>
-	<!-- Vision / Mission -->
-	<Section class="overflow-hidden flex flex-col relative z-0">
-		<!-- Mission -->
-		<VisionMission
-			title="Our Mission"
-			image={MissionImg}
-			desc="To imbibe aptitude and skills in students required for solving humanity's problems, fostering empathy, and finding joy in making everyone's life beautiful."
-			rtl={true}
-		/>
-		<!-- Objectives -->
-		<span
-			class="pt-20 pb-8 relative inline-grid lg:grid-cols-2 xl:grid-cols-4 gap-8 bg-primary-dark ml-auto rounded-bl-[60px] lg:rounded-bl-none lg:rounded-tl-[60px] before:bg-primary-dark before:absolute before:-right-48 before:w-48 before:h-full before:top-0 z-0 before:-z-10"
-		>
-			<Objective
-				title="Academic Excellence"
-				desc="To cultivate a learning environment that fosters academic rigor, critical thinking, and a passion for lifelong learning"
-			/>
-			<Objective
-				title="Safe and Inclusive Environment"
-				desc="To ensure a secure and inclusive space where diverse perspectives are welcomed, and where cutting-edge technology is harnessed to facilitate monitored online learning experiences"
-			/>
-			<Objective
-				title="Future Readiness"
-				desc="To equip every student with the skills, knowledge, and adaptability needed to thrive in an ever-changing, globally connected world"
-			/>
-			<Objective
-				title="Experiential Learning"
-				desc="To provide hands-on, experiential learning opportunities that complement and enrich classroom education, enabling students to apply their knowledge in real-world contexts"
-			/>
-		</span>
-		<!-- Vision -->
-		<VisionMission
-			title="Our Vision"
-			image={VisionImg}
-			desc="To be a hub of ideation and creativity, nurturing future citizen leaders instilled with indispensable values for an ethical, healthy and joyful life."
-			rtl={false}
-		/>
-	</Section>
-	<Section theme="dark">
-		<DeskMessage
-			title="From the Principal’s Desk"
-			image={Principal}
-			desc={[
-				"Dear Parents, Students, and Esteemed Visitors,",
-				"A heartfelt welcome to Sacred Heart School, a sanctuary of learning and growth. On behalf of the Management, our dedicated faculty and staff, I extend warm greetings to you.",
-				"Sacred Heart School is more than an institution; it's a family that cherishes diversity, promotes collaboration, and instills a sense of responsibility in each student. As you navigate our website, we invite you to explore the world of opportunities and experiences that await your child.",
-				"The entire Sacred Heart School family looks forward to a collaborative partnership with you. Should you have any inquiries or require assistance, feel free to reach out.",
-				"Thank you for choosing Sacred Heart School. Here's to a meaningful and enriching educational journey for your child.",
-				"Warm regards,",
-				"Mrs. Vinita Raj",
-				"Principal, Sacred Heart School",
-			]}
-			name="Mrs. Vinita Raj"
-		/>
-		<!--
+  <!-- About -->
+  <Section theme="dark">
+    <div id="About"></div>
+    <DeskMessage
+      title="About Us"
+      image={About}
+      desc={[
+        "Sacred Heart School, established in 2000, has been dedicated to imparting quality education. With the guiding motto of Wisdom, Compassion, and Dynamism, the institution aims to instill not only academic knowledge but also moral and ethical values in its students. Over the years, we have carved a niche for ourselves as an institution that promotes holistic development and fosters a spirit of inquiry and innovation. Through a blend of rich academic programs, diverse extracurricular and experiential activities, and state-of-the-art facilities, Sacred Heart School provides a nurturing environment for students to flourish and realize their full potential",
+        "Join us in shaping futures, creating leaders, and building a community of lifelong learners.",
+        "Welcome to an educational journey that goes beyond the ordinary – welcome to Sacred Heart School, Kalyan.",
+      ]}
+    />
+  </Section>
+  <!-- Vision / Mission -->
+  <Section class="overflow-hidden flex flex-col relative z-0">
+    <!-- Mission -->
+    <VisionMission
+      title="Our Mission"
+      image={MissionImg}
+      desc="To imbibe aptitude and skills in students required for solving humanity's problems, fostering empathy, and finding joy in making everyone's life beautiful."
+      rtl={true}
+    />
+    <!-- Objectives -->
+    <span
+      class="pt-20 pb-8 relative inline-grid lg:grid-cols-2 xl:grid-cols-4 gap-8 bg-primary-dark ml-auto rounded-bl-[60px] lg:rounded-bl-none lg:rounded-tl-[60px] before:bg-primary-dark before:absolute before:-right-48 before:w-48 before:h-full before:top-0 z-0 before:-z-10"
+    >
+      <Objective
+        title="Academic Excellence"
+        desc="To cultivate a learning environment that fosters academic rigor, critical thinking, and a passion for lifelong learning"
+      />
+      <Objective
+        title="Safe and Inclusive Environment"
+        desc="To ensure a secure and inclusive space where diverse perspectives are welcomed, and where cutting-edge technology is harnessed to facilitate monitored online learning experiences"
+      />
+      <Objective
+        title="Future Readiness"
+        desc="To equip every student with the skills, knowledge, and adaptability needed to thrive in an ever-changing, globally connected world"
+      />
+      <Objective
+        title="Experiential Learning"
+        desc="To provide hands-on, experiential learning opportunities that complement and enrich classroom education, enabling students to apply their knowledge in real-world contexts"
+      />
+    </span>
+    <!-- Vision -->
+    <VisionMission
+      title="Our Vision"
+      image={VisionImg}
+      desc="To be a hub of ideation and creativity, nurturing future citizen leaders instilled with indispensable values for an ethical, healthy and joyful life."
+      rtl={false}
+    />
+  </Section>
+  <Section theme="dark">
+    <DeskMessage
+      title="From the Principal’s Desk"
+      image={Principal}
+      desc={[
+        "Dear Parents, Students, and Esteemed Visitors,",
+        "A heartfelt welcome to Sacred Heart School, a sanctuary of learning and growth. On behalf of the Management, our dedicated faculty and staff, I extend warm greetings to you.",
+        "Sacred Heart School is more than an institution; it's a family that cherishes diversity, promotes collaboration, and instills a sense of responsibility in each student. As you navigate our website, we invite you to explore the world of opportunities and experiences that await your child.",
+        "The entire Sacred Heart School family looks forward to a collaborative partnership with you. Should you have any inquiries or require assistance, feel free to reach out.",
+        "Thank you for choosing Sacred Heart School. Here's to a meaningful and enriching educational journey for your child.",
+        "Warm regards,",
+        "Mrs. Vinita Raj",
+        "Principal, Sacred Heart School",
+      ]}
+      name="Mrs. Vinita Raj"
+    />
+    <!--
 		<DeskMessage
 			title="From the COO’s Desk"
 			image={PlaceHolder}
@@ -146,92 +146,92 @@ import Principal from "../assets/images/PRINCIPAL.jpg";
 			rtl={true}
 		/>
     -->
-	</Section>
+  </Section>
 
-	<Section title="Explore our Activities & Infrastructure" theme="dark">
-		<!--Activites Section of HomePage -->
-		<div id="Activities"></div>
-		<TaglineBox
-			tagline="Initiating activities that nurture teamwork, leadership, physical health, social skills, discipline, resilience, and mutual trust within and outside the school environment."
-		/>
+  <Section title="Explore our Activities & Infrastructure" theme="dark">
+    <!--Activites Section of HomePage -->
+    <div id="Activities"></div>
+    <TaglineBox
+      tagline="Initiating activities that nurture teamwork, leadership, physical health, social skills, discipline, resilience, and mutual trust within and outside the school environment."
+    />
 
-		<div class="flex justify-center font-sans font-normal">
-			<div
-				class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8"
-			>
-				<ImageCard
-					imageLink="/assets/images/activities/Basketball.jpg"
-					cardTitle="Basketball"
-				/>
-				<ImageCard
-					imageLink="/assets/images/activities/Swimming.jpg"
-					cardTitle="Swimming"
-				/>
-				<ImageCard
-					imageLink="/assets/images/activities/Fencing.jpg"
-					cardTitle="Fencing"
-				/>
-				<ImageCard
-					imageLink="/assets/images/activities/Football.JPG"
-					cardTitle="Football"
-				/>
-			</div>
-		</div>
+    <div class="flex justify-center font-sans font-normal">
+      <div
+        class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8"
+      >
+        <ImageCard
+          imageLink="/assets/images/activities/Basketball.webp"
+          cardTitle="Basketball"
+        />
+        <ImageCard
+          imageLink="/assets/images/activities/Swimming.webp"
+          cardTitle="Swimming"
+        />
+        <ImageCard
+          imageLink="/assets/images/activities/Fencing.webp"
+          cardTitle="Fencing"
+        />
+        <ImageCard
+          imageLink="/assets/images/activities/Football.webp"
+          cardTitle="Football"
+        />
+      </div>
+    </div>
 
-		<!--Infrastructure Section of HomePage -->
-		<div id="Infra"></div>
-		<TaglineBox
-			tagline="The state-of-the-art infrastructure significantly enhances the quality of education, providing an advanced and enriched learning experience."
-		/>
+    <!--Infrastructure Section of HomePage -->
+    <div id="Infra"></div>
+    <TaglineBox
+      tagline="The state-of-the-art infrastructure significantly enhances the quality of education, providing an advanced and enriched learning experience."
+    />
 
-		<div class="flex justify-center font-sans font-normal">
-			<div
-				class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8"
-			>
-				<ImageCard
-					imageLink="/assets/images/infra/DesignHub.JPG"
-					cardTitle="DesignHub"
-				/>
-				<ImageCard
-					imageLink="/assets/images/infra/DigitalTree.jpg"
-					cardTitle="Digital Tree"
-				/>
-				<ImageCard
-					imageLink="/assets/images/infra/Hydroponics.jpg"
-					cardTitle="Hydroponics"
-				/>
-				<ImageCard
-					imageLink="/assets/images/infra/PioneerHall.jpg"
-					cardTitle="Pioneer Hall"
-				/>
-			</div>
-		</div>
-	</Section>
+    <div class="flex justify-center font-sans font-normal">
+      <div
+        class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8"
+      >
+        <ImageCard
+          imageLink="/assets/images/infra/DesignHub.webp"
+          cardTitle="DesignHub"
+        />
+        <ImageCard
+          imageLink="/assets/images/infra/DigitalTree.webp"
+          cardTitle="Digital Tree"
+        />
+        <ImageCard
+          imageLink="/assets/images/infra/Hydroponics.webp"
+          cardTitle="Hydroponics"
+        />
+        <ImageCard
+          imageLink="/assets/images/infra/PioneerHall.webp"
+          cardTitle="Pioneer Hall"
+        />
+      </div>
+    </div>
+  </Section>
 
-	<CTA />
-	<div id="Contact"></div>
-	<Section theme="dark">
-		<ContactUs />
-	</Section>
+  <CTA />
+  <div id="Contact"></div>
+  <Section theme="dark">
+    <ContactUs />
+  </Section>
 </Layout>
 
 <style>
-	:root {
-		--hero-opacity: 0.4;
-	}
-	html {
-		scroll-behavior: smooth;
-	}
-	.hero {
-		color: #fff;
-		background-image: linear-gradient(
-				rgba(0, 0, 0, var(--hero-opacity)),
-				rgba(0, 0, 0, var(--hero-opacity))
-			),
-			url("/assets/images/hero.jpg");
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		height: 90vh;
-	}
+  :root {
+    --hero-opacity: 0.4;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  .hero {
+    color: #fff;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, var(--hero-opacity)),
+        rgba(0, 0, 0, var(--hero-opacity))
+      ),
+      url("/assets/images/hero.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh;
+  }
 </style>
