@@ -7,44 +7,43 @@ import { Image } from "astro:assets";
 import { OutlineBtn } from "../../components/layout";
 
 // Images
-import bus from "../../assets/images/bus.png";
+import bus from "../../assets/images/bus.webp";
 import rocket from "../../assets/icons/rocket.svg";
 ---
 
 <section
-    class="bg-primary-dark flex flex-col md:flex-row justify-evenly items-center py-8 px-4 md:px-12 lg:px-32"
+  class="bg-primary-dark flex flex-col md:flex-row justify-evenly items-center py-8 px-4 md:px-12 lg:px-32"
 >
-    <!-- Content -->
-    <div class="mb-8">
-        <h2 class="text-xl font-bold mb-4">
-            Unlock Your Future at Sacred Heart, Kalyan!
-        </h2>
-        <div class="flex items-center">
-            <img class="h-8 mr-4" src={rocket.src} alt="rocket" />
-            <p>
-                Ready to embark on a journey of knowledge, growth and endless<br
-                />
-                 possibilities?
-            </p>
-        </div>
+  <!-- Content -->
+  <div class="mb-8">
+    <h2 class="text-xl font-bold mb-4">
+      Unlock Your Future at Sacred Heart, Kalyan!
+    </h2>
+    <div class="flex items-center">
+      <img class="h-8 mr-4" src={rocket.src} alt="rocket" />
+      <p>
+        Ready to embark on a journey of knowledge, growth and endless<br />
+         possibilities?
+      </p>
     </div>
-    <!-- Redirect Button -->
-    <div class="flex flex-col items-center">
-        <Image class="w-32 -scale-x-100" src={bus} alt="bus" />
-        <OutlineBtn href="/admission">
-            Apply Now
-            <svg
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                class="icon w-6 h-6 transition-all ease-in-out"
-            >
-                <path
-                    clip-rule="evenodd"
-                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                    fill-rule="evenodd"></path>
-            </svg>
-        </OutlineBtn>
-    </div>
+  </div>
+  <!-- Redirect Button -->
+  <div class="flex flex-col items-center">
+    <Image class="w-32 -scale-x-100" src={bus} alt="bus" />
+    <OutlineBtn href="/admission">
+      Apply Now
+      <svg
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        class="icon w-6 h-6 transition-all ease-in-out"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+          fill-rule="evenodd"></path>
+      </svg>
+    </OutlineBtn>
+  </div>
 </section>
 
 <!-- <div class="home flex overflow-hidden items-start relative">
