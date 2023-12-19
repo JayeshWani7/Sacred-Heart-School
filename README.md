@@ -17,7 +17,7 @@ git clone https://github.com/sd8capricon/Sacred-Heart-School.git
 ### Step 2: Install all the dependencies using npm or yarn
 using npm:
 ```sh
-npm install @astrojs/check @astrojs/tailwind astro tailwindcss typescript daisyui
+npm install
 ```
 using yarn:
 ```sh
