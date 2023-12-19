@@ -1,28 +1,33 @@
 ---
-import Layout from "../layouts/Layout.astro";
+// Components
+import PageLayout from "../layouts/PageLayout.astro";
 import { Section, OutlineBtn } from "../components/layout";
+
+// Assets
 import Bus from "../assets/images/bus.svg";
 import Wheel from "../assets/images/wheel.svg";
 import Wave from "../assets/images/wave.svg";
+
+// Variables
 const WEB_APP_URL =
   "https://script.google.com/macros/s/AKfycbzjMJNmM4010Wjv5cm_N5ePhJF-nrziabipBeILoKwHWZxZPQeMe0WtkHD-V7NgcT39jw/exec";
 ---
 
-<Layout title="Admissions" navtext="Home" transparent={false} buttonLink="/">
+<PageLayout
+  title="Admissions"
+  navtext="Home"
+  transparentNav={false}
+  buttonLink="/"
+  bgSrc="/assets/images/admission-hero.webp"
+>
   <!-- ***** Hero Section ***** -->
-  <div class="hero flex items-center justify-between px-8 md:px-12 lg:px-20">
-    <!-- Hero Content -->
-    <div>
-      <h3 class="font-bold text-2xl md:text-3xl mb-4 left-bar">Admissions</h3>
-      <p class="text-lg">
-        Offer you child the invaluable gift of 'Education at Sacred Heart
-        School'<br />
-        <span class="text-base"
-          >- an investment in lifelong learning and growth.</span
-        >
-      </p>
-    </div>
-  </div>
+  <p slot="hero-content" class="text-lg">
+    Offer you child the invaluable gift of 'Education at Sacred Heart School'
+    <br />
+    <span class="text-base">
+      - an investment in lifelong learning and growth.
+    </span>
+  </p>
 
   <!--Application Form Link Section -->
   <Section class="relative overflow-hidden">
@@ -175,41 +180,9 @@ const WEB_APP_URL =
       </form>
     </div>
   </Section>
-</Layout>
+</PageLayout>
 
 <style>
-  :root {
-    --hero-opacity: 0.4;
-  }
-  .hero {
-    color: #fff;
-    background-image: linear-gradient(
-        rgba(0, 0, 0, var(--hero-opacity)),
-        rgba(0, 0, 0, var(--hero-opacity))
-      ),
-      url("/assets/images/admission-hero.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 80vh;
-  }
-
-  .left-bar {
-    position: relative;
-  }
-
-  .left-bar::before {
-    content: "";
-    position: absolute;
-    left: -24px;
-    height: 110%;
-    width: 10px;
-    @apply bg-primary;
-  }
-
-  .text-input {
-    @apply w-full mb-4 py-3 px-4 bg-transparent text-white placeholder-gray-100 border-white border-2 rounded-none active:border-white;
-  }
   .wheelss {
     background: linear-gradient(
         transparent 48%,
@@ -217,6 +190,9 @@ const WEB_APP_URL =
         transparent 53%
       )
       no-repeat;
+  }
+  .text-input {
+    @apply w-full mb-4 py-3 px-4 bg-transparent text-white placeholder-gray-100 border-white border-2 rounded-none active:border-white;
   }
   /* Remove Inc/Dec Btns for number input */
   /* Chrome, Safari, Edge, Opera */

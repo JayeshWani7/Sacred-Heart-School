@@ -1,0 +1,25 @@
+---
+import RootLayout from "../layouts/RootLayout.astro";
+import { Hero } from "../components/layout";
+import type { LayoutProps } from "./types";
+
+interface Props extends LayoutProps {
+    bgSrc: string;
+}
+
+const props = Astro.props as Props;
+---
+
+<RootLayout
+    title={props.title}
+    navtext={props.navtext}
+    transparentNav={props.transparentNav}
+    buttonLink={props.buttonLink}
+>
+    <!-- Hero -->
+    <Hero title={props.title} bgSrc={props.bgSrc}>
+        <slot name="hero-content" />
+    </Hero>
+    <!-- Page Content -->
+    <slot />
+</RootLayout>

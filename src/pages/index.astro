@@ -1,6 +1,6 @@
 ---
 // Layout
-import Layout from "../layouts/Layout.astro";
+import RootLayout from "../layouts/RootLayout.astro";
 // Components
 import { CTA, Section, SocialBtn } from "../components/layout";
 import {
@@ -21,9 +21,9 @@ import Principal from "../assets/images/PRINCIPAL.webp";
 // import PlaceHolder from "../assets/images/Placeholder.jpg";
 ---
 
-<Layout
+<RootLayout
   title="Home"
-  transparent={true}
+  transparentNav={true}
   navtext="Admission"
   buttonLink="/admission"
 >
@@ -213,7 +213,7 @@ import Principal from "../assets/images/PRINCIPAL.webp";
   <Section theme="dark">
     <ContactUs />
   </Section>
-</Layout>
+</RootLayout>
 
 <style>
   :root {
