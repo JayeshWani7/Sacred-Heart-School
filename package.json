@@ -17,6 +17,7 @@
     "@astrojs/tailwind": "^5.0.3",
     "astro": "^4.0.6",
     "postcss": "^8.4.32",
+    "run": "^1.4.0",
     "sharp": "^0.33.1",
     "tailwindcss": "^3.3.6",
     "typescript": "^5.3.3"
