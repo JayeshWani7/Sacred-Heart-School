@@ -1,0 +1,118 @@
+---
+// Layout
+import Layout from "../layouts/RootLayout.astro";
+import ContributorCard from "../components/ContributorCard.astro";
+const title = "Website Contributors";
+// Developer Photos
+// preffered ratio 3:4
+import sid from "../assets/images/contributors/siddharth.png";
+import alston from "../assets/images/contributors/alston.png";
+import leona from "../assets/images/contributors/leona.png";
+import jess from "../assets/images/contributors/jess.png";
+import yashas from "../assets/images/contributors/yashas.png";
+import shaun from "../assets/images/contributors/shaun.png";
+---
+
+<Layout
+  title="Website Contributors"
+  navtext="Home"
+  transparentNav={true}
+  buttonLink="/"
+>
+  <div class="hero flex items-center justify-between px-8 md:px-12 lg:px-20 pt-[190px]">
+    <!-- Hero Content -->
+    <div>
+      <h3 class="font-bold text-2xl md:text-3xl mb-4 left-bar">{title}</h3>
+      <slot />
+    </div>
+  </div>
+
+  <div
+    class="p-[55px] xl:p-[165px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 justify-center gap-10 lg:gap-28"
+  >
+    <ContributorCard
+      name="Leona Varghese"
+      img={leona.src}
+      description="Hey there, this is a very short about me"
+      github="https://github.com/LeonaWH"
+      linkedin="https://www.linkedin.com/in/leona-varghese-95897921b"
+      instagram="https://www.instagram.com/leona_wh_/"
+    />
+    <ContributorCard
+      name="Siddharth Dhaigude"
+      img={sid.src}
+      description="Hey there, this is a very short about me"
+      github="https://github.com/sd8capricon"
+      linkedin="https://www.linkedin.com/in/sdhaigude/"
+      instagram="https://instagram.com/sid_d813?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"
+      website="https://siddharthdhaigude.tech"
+    />
+    <ContributorCard
+      name="Alston Fernandes"
+      img={alston.src}
+      description="Hey there, this is a very short about me"
+      github="https://github.com/05Alston"
+      linkedin="https://www.linkedin.com/in/alston-fernandes-b28720220/"
+      instagram="https://www.instagram.com/fernands_alston/"
+      website="http://alston-fernandes.netlify.com/"
+    />
+    <ContributorCard
+      name="Jess John"
+      img={jess.src}
+      description="Hey there, this is a very short about me"
+      github="https://github.com/jessjohn1539"
+      linkedin="https://www.linkedin.com/in/jessjohn1539/"
+      instagram="https://www.instagram.com/jesspacito_6174/"
+    />
+    <ContributorCard
+      name="Yashas Khot"
+      img={yashas.src}
+      description="Hey there, this is a very short about me"
+      github="https://github.com/yashaskhot"
+      linkedin="https://www.linkedin.com/in/yashaskhot/"
+      instagram="https://www.instagram.com/yashas1256/"
+      website="https://yashaskhot.netlify.app/"
+    />
+    <ContributorCard
+      name="Shaun Menezes"
+      img={shaun.src}
+      description="Hey there, this is a very short about me"
+      github="https://github.com/Shaunm1724"
+      linkedin="https://www.linkedin.com/in/shaun-menezes-53b200290"
+    />
+  </div>
+</Layout>
+
+<style is:global>
+  html {
+    background-color: black;
+  }
+
+  .left-bar {
+    position: relative;
+  }
+
+  .left-bar::before {
+    content: "";
+    position: absolute;
+    left: -24px;
+    height: 110%;
+    width: 10px;
+    @apply bg-primary;
+  }
+  :root {
+    --hero-opacity: 0.4;
+  }
+  .hero {
+    color: #fff;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, var(--hero-opacity)),
+        rgba(0, 0, 0, var(--hero-opacity))
+      ),
+      var(--background);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 20vh;
+  }
+</style>
