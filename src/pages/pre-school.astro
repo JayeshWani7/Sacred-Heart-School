@@ -1,10 +1,15 @@
 ---
 // Components
 import PageLayout from "../layouts/PageLayout.astro";
-import { Section } from "../components/layout";
+import { Section, Carousel, AlternateSectionTitle } from "../components/layout";
 
 // Assets
 import PreSchoolHero from "../assets/images/pre-school.webp";
+const photoList = ["https://picsum.photos/1600/900?grayscale&random=1", 
+                    "https://picsum.photos/1600/900?grayscale&random=2", 
+                    "https://picsum.photos/1600/900?grayscale&random=3", 
+                    "https://picsum.photos/1600/900?grayscale&random=4", 
+                    "https://picsum.photos/1600/900?grayscale&random=5"]
 ---
 
 <PageLayout
@@ -21,6 +26,15 @@ import PreSchoolHero from "../assets/images/pre-school.webp";
     <!-- Academics -->
     <!-- Experiential Learning -->
     <!-- Activities -->
+    <Section>
+        <AlternateSectionTitle title="Fine Motor and Gross Motor Activities"/>
+        <div class="grid md:grid-cols-2 gap-8 w-full pt-12">
+            <p class="text-sm md:text-base md:font-medium text-justify">
+                Fine and Gross motor skills development plays a pivotal role in a child's overall growth. Our curriculum integrates purposeful activities to enhance fine motor skills, including precision tasks like sand tracing, clay moulding, threading beads, cutting with paper scissors, and more. These activities not only prepare children for academic tasks but also refine their hand-eye coordination and dexterity. Simultaneously, we engage students in gross motor skill activities, such as outdoor games, sensory plays, and dance. These experiences contribute to improved balance, coordination, and strength, fostering a healthy and active lifestyle.
+            </p>
+            <Carousel photos={photoList}/>
+        </div>
+    </Section>
     <!-- Life Skills & Values -->
     <!-- Events -->
     <!-- Sports -->
