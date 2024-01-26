@@ -5,7 +5,7 @@ interface Props {
 }
 
 const { title, bgSrc } = Astro.props as Props;
-const background = `url(${bgSrc})`;
+const background = bgSrc;
 ---
 
 <div class="hero flex items-center justify-between px-8 md:px-12 lg:px-20">

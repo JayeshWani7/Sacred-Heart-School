@@ -1,6 +1,10 @@
 ---
+// Components
 import PageLayout from "../layouts/PageLayout.astro";
 import { Section } from "../components/layout";
+
+// Assets
+import PreSchoolHero from "../assets/images/pre-school.webp";
 ---
 
 <PageLayout
@@ -8,7 +12,7 @@ import { Section } from "../components/layout";
     navtext="Home"
     transparentNav={false}
     buttonLink="/"
-    bgSrc="/assets/images/admission-hero.webp"
+    bgSrc={`url(${PreSchoolHero.src})`}
 >
     <p slot="hero-content" class="text-lg">
         Tiny Steps, Big Adventures
