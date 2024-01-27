@@ -10,43 +10,42 @@ import "swiper/css/effect-fade";
 
 interface Props {
     photos: Array<string>;
+    id: string;
 }
-const { photos } = Astro.props as Props;
+const { photos, id } = Astro.props as Props;
 ---
-
-<div class="swiper-container">
-    <div class="swiper overflow-hidden w-full px-2">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            {
-                photos.map((photo) => (
-                    <div class="swiper-slide h-full grid place-items-center">
-                        <img
-                            src={photo}
-                            alt="image"
-                            class="object-cover h-full w-full rounded-lg"
-                        />
-                    </div>
-                ))
-            }
+<custom-carousel data-id={id}>
+    <div class="swiper-container">
+        <div class="swiper overflow-hidden md:w-full px-2" id={"swiper_" + id}>
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {
+                    photos.map((photo) => (
+                        <div class="swiper-slide h-full grid place-items-center">
+                            <img
+                                src={photo}
+                                alt="image"
+                                class="object-cover h-full w-full rounded-lg"
+                                />
+                        </div>
+                    ))
+                }
+            </div>
         </div>
-
-        <!-- If we need navigation buttons -->
-    </div>
-    
-    <div class="swiper-btns mt-3 flex items-center justify-between">
-        <div>
-            <button class="slide-prev mr-1">
-                <img class="w-8" src={Prev.src} alt="Prev Button" />
-            </button>
-            <button class="slide-next ml-1">
-                <img class="w-8" src={Next.src} alt="Next Button" />
-            </button>
+        <div class="swiper-btns mt-3 flex items-center justify-between">
+            <div>
+                <button class={"mr-1 slide-prev-swiper_" + id}>
+                    <img class="w-8" src={Prev.src} alt="Prev Button" />
+                </button>
+                <button class={"ml-1 slide-next-swiper_" + id}>
+                    <img class="w-8" src={Next.src} alt="Next Button" />
+                </button>
+            </div>
+            <div class={"swiper-pagination-swiper_" + id}></div>
         </div>
-        <div class="swiper-pagination"></div>
     </div>
-</div>
+</custom-carousel>
 
 <style is:global>
     .swiper-pagination {
@@ -71,22 +70,35 @@ const { photos } = Astro.props as Props;
     } from "swiper/modules";
 
     Swiper.use([EffectFade, Autoplay, Navigation, Pagination]);
-    const swiper = new Swiper(".swiper", {
-        loop: true,
-        // TODO: Fix Fade effect
-        spaceBetween: 30,
-        effect: "fade",
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-        navigation: {
-            nextEl: ".slide-next",
-            prevEl: ".slide-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            dynamicBullets: true,
-        },
-    });
+
+    class CustomCarousel extends HTMLElement {
+        constructor() {
+            super();
+
+            // Read the message from the data attribute.
+            const _id = "swiper_" + this.dataset.id;
+            const swiper = new Swiper("#" + _id, {
+                loop: true,
+                // TODO: Fix Fade effect
+                spaceBetween: 30,
+                effect: "fade",
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: ".slide-next-" + _id,
+                    prevEl: ".slide-prev-" + _id,
+                },
+                pagination: {
+                    el: ".swiper-pagination-" + _id,
+                    dynamicBullets: true,
+                },
+            });
+        }
+    }
+
+  customElements.define('custom-carousel', CustomCarousel);
+
+    
 </script>

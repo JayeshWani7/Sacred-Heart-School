@@ -26,18 +26,50 @@ const photoList = ["https://picsum.photos/1600/900?random=1",
     <!-- Academics -->
     <!-- Experiential Learning -->
     <!-- Activities -->
-    <Section>
-        <AlternateSectionTitle title="Fine Motor and Gross Motor Activities"/>
-        <div class="grid md:grid-cols-2 gap-8 w-full pt-12">
-            <p class="text-sm md:text-base md:font-medium text-justify">
+    <Section theme="accent" class="pt-12">
+        <AlternateSectionTitle title="Fine Motor and Gross Motor Activities" theme="accent"/>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-32 w-full pt-12">
+            <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch]">
                 Fine and Gross motor skills development plays a pivotal role in a child's overall growth. Our curriculum integrates purposeful activities to enhance fine motor skills, including precision tasks like sand tracing, clay moulding, threading beads, cutting with paper scissors, and more. These activities not only prepare children for academic tasks but also refine their hand-eye coordination and dexterity. Simultaneously, we engage students in gross motor skill activities, such as outdoor games, sensory plays, and dance. These experiences contribute to improved balance, coordination, and strength, fostering a healthy and active lifestyle.
             </p>
-            <Carousel photos={photoList}/>
+            <Carousel photos={photoList} id={"1"}/>
         </div>
     </Section>
     <!-- Life Skills & Values -->
+    <Section class="pt-12 bg-white/40">
+        <AlternateSectionTitle title="Life Skills & Moral Values"/>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-32 w-full pt-12">
+            <Carousel photos={photoList} id={"2"}/>
+            <div>
+                <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch] pb-4">
+                    At our school, we go beyond traditional teaching methods by imparting moral values through captivating stories and interactive dramatic plays. This unique approach not only enhances character development but also nurtures creativity and expression in our young learners. 
+                </p>
+                <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch]">
+                    Moreover, our commitment to holistic education extends to the incorporation of life skills into the curriculum. Through practical and age-appropriate activities, we empower our students with essential life skills, preparing them for a well-rounded and successful future.   ( hand washing, tidying the bed, folding blankets, wearing shoes, helping elders/blind person, giving seats to elders in public transport)
+                </p>
+            </div>
+        </div>
+    </Section>
     <!-- Events -->
     <!-- Sports -->
+    <Section theme="accent" class="pt-12">
+        <AlternateSectionTitle title="Sports" theme="accent"/>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-32 w-full pt-12">
+            <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch]">
+                Fine and Gross motor skills development plays a pivotal role in a child's overall growth. Our curriculum integrates purposeful activities to enhance fine motor skills, including precision tasks like sand tracing, clay moulding, threading beads, cutting with paper scissors, and more. These activities not only prepare children for academic tasks but also refine their hand-eye coordination and dexterity. Simultaneously, we engage students in gross motor skill activities, such as outdoor games, sensory plays, and dance. These experiences contribute to improved balance, coordination, and strength, fostering a healthy and active lifestyle.
+            </p>
+            <Carousel photos={photoList} id={"3"}/>
+        </div>
+    </Section>
     <!-- Testimonials -->
     <!-- Therapy -->
+    <Section theme="accent" class="pt-12">
+        <AlternateSectionTitle title="Fine Motor and Gross Motor Activities" theme="accent"/>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-32 w-full pt-12">
+            <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch]">
+                Fine and Gross motor skills development plays a pivotal role in a child's overall growth. Our curriculum integrates purposeful activities to enhance fine motor skills, including precision tasks like sand tracing, clay moulding, threading beads, cutting with paper scissors, and more. These activities not only prepare children for academic tasks but also refine their hand-eye coordination and dexterity. Simultaneously, we engage students in gross motor skill activities, such as outdoor games, sensory plays, and dance. These experiences contribute to improved balance, coordination, and strength, fostering a healthy and active lifestyle.
+            </p>
+            <Carousel photos={photoList} id={"4"}/>
+        </div>
+    </Section>
 </PageLayout>
