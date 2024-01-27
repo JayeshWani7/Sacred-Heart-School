@@ -7,11 +7,11 @@ interface Props {
 const { title, theme = "light" } = Astro.props as Props;
 ---
 <div class="relative z-0 w-fit">
-    <p class={"text-xl md:text-2xl lg:text-4xl font-bold my-12 pt-1" +
+    <p class={"text-xl sm:text-2xl lg:text-4xl font-bold my-12 pt-1" +
             (theme == "dark" ? " dark" : " light")}
     >
         {title}
     </p>
-    <span class="absolute h-full md:h-12 w-2/3 top-1/4 -left-12 -z-10 bg-primary-dark"></span>
-    <span class="absolute h-1/2 md:h-6 w-1/4 top-[150%] md:top-[200%] -left-12 bg-primary/60"></span>
+    <span class="absolute h-full md:h-12 w-2/3 top-1/4 -left-12 xl:-left-32 -z-10 bg-primary-dark"></span>
+    <span class="absolute h-1/2 md:h-6 w-1/4 top-[150%] md:top-[200%] -left-12 xl:-left-32 bg-primary/60"></span>
 </div>

@@ -1,0 +1,78 @@
+---
+// Icons
+import { Next, Prev } from "../../assets/icons";
+
+// Swiper CSS
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+interface Props {
+    photos: Array<string>;
+}
+const { photos } = Astro.props as Props;
+---
+<div class="swiper relative overflow-y-visible">
+    <div class="swiper-wrapper">
+        {
+            photos.map((photo) => (
+            <div class="swiper-slide opacity-0 transition-all duration-300 ease-in-out">            
+                <img class="block object-cover rounded-lg shadow-xl" src={photo}/>
+            </div>
+
+            ))
+        }
+    </div>
+    <div class="flex absolute w-full h-10 -bottom-4">
+        <div  aria-label="Previous" class="swiper-button-prev arrow">
+            <img src={Prev.src} alt="previous">
+        </div>
+        <div class="swiper-pagination bottom-0"></div> 
+        <div  aria-label="Next" class="swiper-button-next arrow">
+            <img src={Next.src} alt="next">
+        </div>
+    </div>
+</div>
+
+<style>
+    .swiper {
+        @apply w-full px-2;
+    }
+
+    .swiper-slide-active {
+        @apply opacity-100;
+    }
+
+    .arrow::after {
+        content: "";
+    }
+
+</style>
+
+<script>
+    import Swiper from 'swiper';
+    import {
+        Autoplay,
+        Navigation,
+        Pagination,
+    } from "swiper/modules";
+    Swiper.use([Autoplay, Navigation, Pagination]);
+
+    new Swiper(".swiper", {
+        slidesPerView: 1,
+        // spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 5000,
+        },
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            dynamicBullets: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
