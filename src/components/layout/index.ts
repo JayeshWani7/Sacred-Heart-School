@@ -8,5 +8,6 @@ import SectionTitle from "./section-title.astro";
 import Footer from "./Footer.astro";
 import Carousel from "./Carousel.astro";
 import AlternateSectionTitle from "./AlternateSectionTitle.astro";
+import Testimonial from "./TestimonialCard.astro";
 
-export { CTA, Hero, Navbar, OutlineBtn, Section, SectionTitle, SocialBtn, Footer, Carousel, AlternateSectionTitle }
+export { CTA, Hero, Navbar, OutlineBtn, Section, SectionTitle, SocialBtn, Footer, Carousel, AlternateSectionTitle, Testimonial }

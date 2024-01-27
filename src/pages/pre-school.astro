@@ -1,7 +1,7 @@
 ---
 // Components
 import PageLayout from "../layouts/PageLayout.astro";
-import { Section, Carousel, AlternateSectionTitle } from "../components/layout";
+import { Section, Carousel, AlternateSectionTitle, Testimonial } from "../components/layout";
 
 // Assets
 import PreSchoolHero from "../assets/images/pre-school.webp";
@@ -28,7 +28,7 @@ const photoList = ["https://picsum.photos/1600/900?random=1",
     <!-- Activities -->
     <Section theme="accent" class="pt-12">
         <AlternateSectionTitle title="Fine Motor and Gross Motor Activities" theme="accent"/>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-32 w-full pt-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
             <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch]">
                 Fine and Gross motor skills development plays a pivotal role in a child's overall growth. Our curriculum integrates purposeful activities to enhance fine motor skills, including precision tasks like sand tracing, clay moulding, threading beads, cutting with paper scissors, and more. These activities not only prepare children for academic tasks but also refine their hand-eye coordination and dexterity. Simultaneously, we engage students in gross motor skill activities, such as outdoor games, sensory plays, and dance. These experiences contribute to improved balance, coordination, and strength, fostering a healthy and active lifestyle.
             </p>
@@ -38,7 +38,7 @@ const photoList = ["https://picsum.photos/1600/900?random=1",
     <!-- Life Skills & Values -->
     <Section class="pt-12 bg-white/40">
         <AlternateSectionTitle title="Life Skills & Moral Values"/>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-32 w-full pt-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
             <Carousel photos={photoList} id={"2"}/>
             <div>
                 <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch] pb-4">
@@ -54,7 +54,7 @@ const photoList = ["https://picsum.photos/1600/900?random=1",
     <!-- Sports -->
     <Section theme="accent" class="pt-12">
         <AlternateSectionTitle title="Sports" theme="accent"/>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-32 w-full pt-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
             <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch]">
                 Fine and Gross motor skills development plays a pivotal role in a child's overall growth. Our curriculum integrates purposeful activities to enhance fine motor skills, including precision tasks like sand tracing, clay moulding, threading beads, cutting with paper scissors, and more. These activities not only prepare children for academic tasks but also refine their hand-eye coordination and dexterity. Simultaneously, we engage students in gross motor skill activities, such as outdoor games, sensory plays, and dance. These experiences contribute to improved balance, coordination, and strength, fostering a healthy and active lifestyle.
             </p>
@@ -62,10 +62,39 @@ const photoList = ["https://picsum.photos/1600/900?random=1",
         </div>
     </Section>
     <!-- Testimonials -->
+    <Section title="Parent's Testimonials">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-4 justify-items-center">
+        <Testimonial
+          name={"John Doe"}
+          image={"https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"}
+          body={"Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."}
+        /><Testimonial
+          name={"John Doe"}
+          image={"https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"}
+          body={"Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."}
+        /><Testimonial
+          name={"John Doe"}
+          image={"https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"}
+          body={"Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."}
+        /><Testimonial
+          name={"John Doe"}
+          image={"https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"}
+          body={"Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."}
+        /><Testimonial
+          name={"John Doe"}
+          image={"https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"}
+          body={"Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."}
+        /><Testimonial
+          name={"John Doe"}
+          image={"https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"}
+          body={"Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."}
+        />
+      </div>
+    </Section>
     <!-- Therapy -->
     <Section theme="accent" class="pt-12">
-        <AlternateSectionTitle title="Fine Motor and Gross Motor Activities" theme="accent"/>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-32 w-full pt-12">
+        <AlternateSectionTitle title="Pet Assisted Therapy" theme="accent"/>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
             <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch]">
                 Fine and Gross motor skills development plays a pivotal role in a child's overall growth. Our curriculum integrates purposeful activities to enhance fine motor skills, including precision tasks like sand tracing, clay moulding, threading beads, cutting with paper scissors, and more. These activities not only prepare children for academic tasks but also refine their hand-eye coordination and dexterity. Simultaneously, we engage students in gross motor skill activities, such as outdoor games, sensory plays, and dance. These experiences contribute to improved balance, coordination, and strength, fostering a healthy and active lifestyle.
             </p>
