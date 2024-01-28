@@ -8,44 +8,55 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 interface Props {
-    photos: Array<string>;
+    items: Array<object>;
 }
-const { photos } = Astro.props as Props;
+const { items } = Astro.props as Props;
 ---
-<div class="swiper relative overflow-y-visible">
+<div class="swiper-alt relative overflow-y-visible overflow-x-hidden">
     <div class="swiper-wrapper">
         {
-            photos.map((photo) => (
-            <div class="swiper-slide opacity-0 transition-all duration-300 ease-in-out">            
-                <img class="block object-cover rounded-lg shadow-xl" src={photo}/>
-            </div>
-
+            items.map((item) => (
+              <div class="swiper-slide opacity-40 text-center transition-all duration-300 ease-in-out">
+                <img class="swiper-img block w-full aspect-[16/9] object-cover shadow-md rounded-md" src={item.img}/>
+                <div class="item-info mt-16 transition-all duration-300 ease-in-out">
+                  <p class="md:text-xl font-semibold px-12">{item.title}</p>
+                  <p class="text-sm md:text-base px-4 md:px-12">{item.txt}</p>
+                </div>
+              </div>
             ))
         }
     </div>
-    <div class="flex absolute w-full h-10 -bottom-4">
-        <div  aria-label="Previous" class="swiper-button-prev arrow">
-            <img src={Prev.src} alt="previous">
-        </div>
-        <div class="swiper-pagination bottom-0"></div> 
-        <div  aria-label="Next" class="swiper-button-next arrow">
-            <img src={Next.src} alt="next">
-        </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-navigation"> 
+      <div aria-label="Previous" class="swiper-button-prev"></div>
+      <div aria-label="Next" class="swiper-button-next"></div>
     </div>
 </div>
 
 <style>
-    .swiper {
-        @apply w-full px-2;
-    }
-
-    .swiper-slide-active {
-        @apply opacity-100;
-    }
-
-    .arrow::after {
-        content: "";
-    }
+.swiper-slide {
+  @apply scale-75 -translate-y-8;
+}
+.swiper-slide-active {
+  @apply opacity-100 scale-100 translate-y-0;
+}
+.swiper-slide .item-info {
+  @apply opacity-0;
+}
+.swiper-slide-active .item-info {
+  @apply opacity-100;
+}
+.swiper-btton-prev {
+  --swiper-navigation-top-offset: 80%;
+}
+.swiper-pagination {
+  --swiper-pagination-top: calc(var(--slide-height) + 2rem);
+  transition: top 0.1s ease-in-out;
+}
+.swiper-navigation {
+  --swiper-navigation-top-offset: calc(100% - var(--info-height));
+  --swiper-navigation-sides-offset: calc(50% - var(--slide-width)/2 );
+}
 
 </style>
 
@@ -58,21 +69,58 @@ const { photos } = Astro.props as Props;
     } from "swiper/modules";
     Swiper.use([Autoplay, Navigation, Pagination]);
 
-    new Swiper(".swiper", {
-        slidesPerView: 1,
-        // spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: {
-            delay: 5000,
-        },
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination",
-            dynamicBullets: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
+    var swiper = new Swiper(".swiper-alt", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+       delay: 5000,
+      },
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+       breakpoints: {
+          // when window width is >= 320px
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 30
+          },
+         // when window width is >= 1080px
+          1080: {
+            slidesPerView: 3,
+            spaceBetween: 30
+          },
+        }
     });
+
+    let slide = document.querySelector(".swiper-img");
+    let info = document.querySelector(".item-info");
+
+    function init() {
+      document.querySelector(".swiper-pagination").style.setProperty("--slide-height", `${slide.offsetHeight}px`);
+      document.querySelector(".swiper-navigation").style.setProperty("--slide-width", `${slide.offsetWidth}px`);
+      document.querySelector(".swiper-navigation").style.setProperty("--info-height", `${info.offsetHeight/2}px`);
+      console.log(slide.offsetWidth, slide.offsetHeight, info.offsetHeight);
+    }
+
+    window.addEventListener("resize", () => {
+      setTimeout( () => {
+        init();
+      }, 400);
+    })
+
+    window.addEventListener("load", () => {
+        init();
+    })
 </script>

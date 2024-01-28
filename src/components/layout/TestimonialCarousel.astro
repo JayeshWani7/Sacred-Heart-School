@@ -1,0 +1,90 @@
+---
+// Icons
+import { Next, Prev } from "../../assets/icons";
+
+// Swiper CSS
+import "swiper/css";
+import "swiper/css/pagination";
+
+interface Props {
+    testimonials: Array<object>;
+}
+const { testimonials } = Astro.props as Props;
+---
+<div class="swiper-testimonial overflow-hidden">
+    <div class="swiper-wrapper">
+        {
+            testimonials.map((testimonial) => (
+              <div class="swiper-slide opacity-40 transition-all duration-300 ease-in-out">            
+                <div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20 select-none">
+                  <div class="flex justify-center md:justify-end -mt-16">
+                    <img class="w-20 h-20 object-cover rounded-full border-4 border-indigo-500" 
+                      src={testimonial.img}>
+                  </div>
+                  <div>
+                  <h2 class="text-gray-800 text-xl font-semibold">{testimonial.name}</h2>
+                  <p class="mt-2 text-gray-600 text-sm">{testimonial.text}</p>
+                </div>
+              </div>            
+              </div>
+            ))
+        }
+    </div>
+    <div class="swiper-testimonial-pagination"></div> 
+</div>
+
+<style>
+    .swiper-testimonial {
+        @apply w-full px-2;
+    }
+    .swiper-slide {
+      @apply scale-[.75];
+    }
+    .swiper-slide-active {
+        @apply opacity-100 scale-100;
+    }
+    .swiper-testimonial-pagination {
+      @apply relative;
+    }
+</style>
+
+<script>
+    import Swiper from 'swiper';
+    import {
+        Autoplay,
+        Pagination,
+    } from "swiper/modules";
+    Swiper.use([Autoplay, Pagination]);
+
+    new Swiper(".swiper-testimonial", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 5000,
+        },
+        loop: true,
+        pagination: {
+            el: ".swiper-testimonial-pagination",
+            dynamicBullets: true,
+            clickable: true,
+        },
+        breakpoints: {
+          // when window width is >= 320px
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 30
+          },
+         // when window width is >= 1080px
+          1080: {
+            slidesPerView: 3,
+            spaceBetween: 30
+          },
+        }
+      });
+</script>
