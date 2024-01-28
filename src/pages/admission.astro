@@ -44,7 +44,7 @@ const WEB_APP_URL =
           href="https://icici.myclassboard.com/ApplicationForm_Custom/F11FFA3C-646C-41C4-8A28-C30A4BE13D1F/1/"
         -->
         <!-- shifted to eventListener in script -->
-         Apply Now
+        Apply Now
         <svg
           fill="currentColor"
           viewBox="0 0 24 24"
@@ -96,6 +96,7 @@ const WEB_APP_URL =
       <!-- Right side - Inquiry Form -->
       <form
         class="w-full bg-primary-dark p-8 text-white relative"
+        id="EnquiryForm"
         name="EnquiryForm"
       >
         <!-- Loading Overlay -->
@@ -351,7 +352,9 @@ const WEB_APP_URL =
     res = await res.json();
 
     if (res.result === "success") {
-      alert("Form submitted successfully");
+      alert(
+        "Thank you, your query has been submitted. We will get back to you soon",
+      );
       form.reset();
     } else {
       alert("Something went wrong. Please try again later");
