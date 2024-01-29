@@ -5,7 +5,6 @@ interface Props {
 }
 
 const { title, bgSrc } = Astro.props as Props;
-const background = `url(${bgSrc})`;
 ---
 
 <div class="hero flex items-center justify-between px-8 md:px-12 lg:px-20">
@@ -16,7 +15,7 @@ const background = `url(${bgSrc})`;
     </div>
 </div>
 
-<style define:vars={{ background }}>
+<style define:vars={{ bgSrc }}>
     :root {
         --hero-opacity: 0.4;
     }
@@ -26,7 +25,7 @@ const background = `url(${bgSrc})`;
                 rgba(0, 0, 0, var(--hero-opacity)),
                 rgba(0, 0, 0, var(--hero-opacity))
             ),
-            var(--background);
+            var(--bgSrc);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

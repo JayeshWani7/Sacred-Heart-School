@@ -16,9 +16,11 @@ import {
 import About from "../assets/images/About.webp";
 import MissionImg from "../assets/images/Mission.webp";
 import VisionImg from "../assets/images/Vision.webp";
-import Principal from "../assets/images/PRINCIPAL.webp";
-// import HeroImg from "../assets/images/home.jpg";
+import Principal from "../assets/images/Principal.webp";
+import HeroImg from "../assets/images/hero.webp";
 // import PlaceHolder from "../assets/images/Placeholder.jpg";
+
+const heroImg = `url(${HeroImg.src})`
 ---
 
 <RootLayout
@@ -215,7 +217,7 @@ import Principal from "../assets/images/PRINCIPAL.webp";
   </Section>
 </RootLayout>
 
-<style>
+<style define:vars={{ heroImg }}>
   :root {
     --hero-opacity: 0.4;
   }
@@ -228,7 +230,7 @@ import Principal from "../assets/images/PRINCIPAL.webp";
         rgba(0, 0, 0, var(--hero-opacity)),
         rgba(0, 0, 0, var(--hero-opacity))
       ),
-      url("/assets/images/hero.webp");
+      var(--heroImg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

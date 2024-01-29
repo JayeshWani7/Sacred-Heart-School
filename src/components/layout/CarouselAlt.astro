@@ -1,0 +1,149 @@
+---
+// Icons
+import { Next, Prev } from "../../assets/icons";
+
+// Swiper CSS
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+interface Props {
+  items: Array<object>;
+  id: string;
+}
+const { items, id } = Astro.props as Props;
+---
+
+<alternate-carousel data-id={id}>
+  <div
+    class="swiper-alt relative overflow-y-visible overflow-x-hidden"
+    id={"swiper-alt_" + id}
+  >
+    <div class="swiper-wrapper">
+      {
+        items.map((item) => (
+          <div
+            class={
+              "swiper-slide opacity-40 text-center transition-all duration-300 ease-in-out select-none"
+            }
+          >
+            <img
+              class="swiper-img block w-full aspect-[16/9] object-cover shadow-md rounded-md"
+              src={item.img}
+            />
+            <div class="item-info mt-16 transition-all duration-300 ease-in-out">
+              <p class="md:text-xl font-semibold px-12">{item.title}</p>
+              <p class="text-sm md:text-base">{item.txt}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div class={"[--swiper-pagination-color:#ED1E27] swiper-pagination swiper-pagination-swiper-alt_" + id}></div>
+    <!-- TODO: Either fix navigation buttons or remove them -->
+    <!--
+    <div class={"swiper-navigation swiper-navigation-swiper-alt_" + id}> 
+      <div aria-label="Previous" class={"swiper-nav-btn swiper-button-prev-swiper-alt_" + id}></div>
+      <div aria-label="Next" class={"swiper-nav-btn swiper-button-next-swiper-alt_" + id}></div>
+    </div>
+    -->
+  </div>
+</alternate-carousel>
+
+<style>
+  .swiper-slide {
+    @apply scale-75 -translate-y-8;
+  }
+  .swiper-slide-active {
+    @apply opacity-100 scale-100 translate-y-0;
+  }
+  .swiper-slide .item-info {
+    @apply opacity-0;
+  }
+  .swiper-slide-active .item-info {
+    @apply opacity-100;
+  }
+  .swiper-nav-btn {
+    --swiper-navigation-top-offset: 80%;
+  }
+  .swiper-pagination {
+    --swiper-pagination-top: calc(var(--slide-height) + 2rem);
+    transition: top 0.1s ease-in-out;
+  }
+  .swiper-navigation {
+    --swiper-navigation-top-offset: calc(100% - var(--info-height));
+    --swiper-navigation-sides-offset: calc(50% - var(--slide-width) / 2);
+  }
+</style>
+
+<script>
+  import Swiper from "swiper";
+  import { Autoplay, Navigation, Pagination } from "swiper/modules";
+  Swiper.use([Autoplay, Navigation, Pagination]);
+
+  class AlternateCarousel extends HTMLElement {
+    constructor() {
+      super();
+
+      // Read the message from the data attribute.
+      const _id = "swiper-alt_" + this.dataset.id;
+      const swiper = new Swiper("#" + _id, {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 5000,
+        },
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination-" + _id,
+          dynamicBullets: true,
+          clickable: true,
+        },
+        //navigation: {
+        //  nextEl: ".swiper-button-next-" + _id,
+        //  prevEl: ".swiper-button-prev-" + _id,
+        //},
+        breakpoints: {
+          // when window width is >= 320px
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          // when window width is >= 1080px
+          1080: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        },
+      });
+      let slide = document.querySelector(".swiper-img");
+      let info = document.querySelector(".item-info");
+
+      function init() {
+        document
+          .querySelector(".swiper-pagination-" + _id)
+          .style.setProperty("--slide-height", `${slide.offsetHeight}px`);
+        //  document.querySelector(".swiper-navigation-" + _id).style.setProperty("--slide-width", `${slide.offsetWidth}px`);
+        //  document.querySelector(".swiper-navigation-" + _id).style.setProperty("--info-height", `${info.offsetHeight/2}px`);
+      }
+
+      window.addEventListener("resize", () => {
+        setTimeout(() => {
+          init();
+        }, 400);
+      });
+
+      window.addEventListener("load", () => {
+        init();
+      });
+    }
+  }
+
+  customElements.define("alternate-carousel", AlternateCarousel);
+</script>

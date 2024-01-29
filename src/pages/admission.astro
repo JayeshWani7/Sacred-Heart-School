@@ -7,6 +7,7 @@ import { Section, OutlineBtn } from "../components/layout";
 import Bus from "../assets/images/bus.svg";
 import Wheel from "../assets/images/wheel.svg";
 import Wave from "../assets/images/wave.svg";
+import AdmissionHero from "../assets/images/admission-hero.webp";
 
 // Variables
 const WEB_APP_URL =
@@ -18,7 +19,7 @@ const WEB_APP_URL =
   navtext="Home"
   transparentNav={false}
   buttonLink="/"
-  bgSrc="/assets/images/admission-hero.webp"
+  bgSrc={`url(${AdmissionHero.src})`}
 >
   <!-- ***** Hero Section ***** -->
   <p slot="hero-content" class="text-lg">

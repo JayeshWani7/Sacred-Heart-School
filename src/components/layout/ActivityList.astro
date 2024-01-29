@@ -1,0 +1,27 @@
+---
+interface Props {
+  activities: Array<string>;
+}
+
+const { activities } = Astro.props as Props;
+---
+
+<div class="pt-1 pb-16">
+  <p
+    class="text-2xl my-12 font-bold relative before:absolute before:bg-primary before:w-1 before:h-full before:bottom-0 before:-left-3"
+  >
+    Enriching Activities
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {
+      activities.map((activity, idx) => (
+        <div class="flex gap-4 w-fit">
+          <p class="text-primary-dark text-5xl font-black">{idx + 1}</p>
+          <div class="border-b-2 text-xs md:text-base border-slate-200 md:max-w-[36ch] xl:max-w-none">
+            {activity}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
