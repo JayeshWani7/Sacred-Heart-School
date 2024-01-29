@@ -1,7 +1,15 @@
 ---
 // Components
 import PageLayout from "../layouts/PageLayout.astro";
-import { Section, Carousel, AlternateSectionTitle, TestimonialCarousel, AlternateCarousel, ActivityList } from "../components/layout";
+import { 
+        Section, 
+        Carousel, 
+        AlternateSectionTitle, 
+        TestimonialCarousel, 
+        AlternateCarousel, 
+        ActivityList,
+        Accordion
+      } from "../components/layout";
 
 // Assets
 import PreSchoolHero from "../assets/images/pre-school.webp";
@@ -24,6 +32,25 @@ const photoList = ["https://picsum.photos/1600/900?random=1",
     </p>
 
     <!-- Academics -->
+    <Section theme="accent" title="Academics">
+      <Accordion
+        tabs={[
+          {
+            title:"Cirriculum",
+            text:"ALorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis."
+          },
+          {
+            title:"Subjects",
+            text:"BLorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis."
+          },
+          {
+            title:"Planner",
+            text:"CLorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis."
+          },
+        ]} 
+        />
+    </Section>
+
     <!-- Experiential Learning -->
     <Section title="Experiential Learning">
       <ActivityList 
@@ -65,6 +92,8 @@ const photoList = ["https://picsum.photos/1600/900?random=1",
           ]}
         />
     </Section>
+
+
     <!-- Activities -->
     <Section theme="accent" class="pt-12">
         <AlternateSectionTitle title="Fine Motor and Gross Motor Activities" theme="accent"/>
@@ -75,6 +104,8 @@ const photoList = ["https://picsum.photos/1600/900?random=1",
             <Carousel photos={photoList} id={"1"}/>
         </div>
     </Section>
+
+
     <!-- Life Skills & Values -->
     <Section class="pt-12 bg-white/40">
         <AlternateSectionTitle title="Life Skills & Moral Values"/>
@@ -90,6 +121,8 @@ const photoList = ["https://picsum.photos/1600/900?random=1",
             </div>
         </div>
     </Section>
+
+
     <!-- Events -->
     <Section title="Events">
       <AlternateCarousel
@@ -123,6 +156,8 @@ const photoList = ["https://picsum.photos/1600/900?random=1",
           ]}
         />
     </Section>
+
+
     <!-- Sports -->
     <Section theme="accent" class="pt-12">
         <AlternateSectionTitle title="Sports" theme="accent"/>
@@ -133,6 +168,8 @@ const photoList = ["https://picsum.photos/1600/900?random=1",
             <Carousel photos={photoList} id={"3"}/>
         </div>
     </Section>
+
+
     <!-- Testimonials -->
     <Section title="Parent's Testimonials">
         <TestimonialCarousel 
@@ -165,6 +202,8 @@ const photoList = ["https://picsum.photos/1600/900?random=1",
           ]}
         />
     </Section>
+
+
     <!-- Therapy -->
     <Section theme="accent" class="pt-12">
         <AlternateSectionTitle title="Pet Assisted Therapy" theme="accent"/>
