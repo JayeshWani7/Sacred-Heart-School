@@ -1,217 +1,287 @@
 ---
 // Components
 import PageLayout from "../layouts/PageLayout.astro";
-import { 
-        Section, 
-        Carousel, 
-        AlternateSectionTitle, 
-        TestimonialCarousel, 
-        AlternateCarousel, 
-        ActivityList,
-        Accordion
-      } from "../components/layout";
+import {
+  Section,
+  Carousel,
+  AlternateSectionTitle,
+  TestimonialCarousel,
+  AlternateCarousel,
+  ActivityList,
+  Accordion,
+} from "../components/layout";
 
 // Assets
 import PreSchoolHero from "../assets/images/pre-school.webp";
-const photoList = ["https://picsum.photos/1600/900?random=1", 
-                    "https://picsum.photos/1600/900?grayscale&random=2", 
-                    "https://picsum.photos/1600/900?random=3", 
-                    "https://picsum.photos/1600/900?grayscale&random=4", 
-                    "https://picsum.photos/1600/900?random=5"]
+import Experiential1 from "../assets/images/pre-primary/experiential1.jpg";
 ---
 
 <PageLayout
-    title="Pre School"
-    navtext="Home"
-    transparentNav={false}
-    buttonLink="/"
-    bgSrc={`url(${PreSchoolHero.src})`}
+  title="Pre School"
+  navtext="Home"
+  transparentNav={false}
+  buttonLink="/"
+  bgSrc={`url(${PreSchoolHero.src})`}
 >
-    <p slot="hero-content" class="text-lg">
-        Tiny Steps, Big Adventures
-    </p>
+  <p slot="hero-content" class="text-lg">Tiny Steps, Big Adventures</p>
 
-    <!-- Academics -->
-    <Section theme="accent" title="Academics">
-      <Accordion
-        tabs={[
-          {
-            title:"Cirriculum",
-            text:"ALorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis."
-          },
-          {
-            title:"Subjects",
-            text:"BLorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis."
-          },
-          {
-            title:"Planner",
-            text:"CLorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis."
-          },
-        ]} 
-        />
-    </Section>
+  <!-- Academics -->
+  <Section theme="accent" title="Academics">
+    <Accordion
+      tabs={[
+        {
+          title: "Cirriculum",
+          text: "The Foundational Stage (Nursery, Junior and Senior Kindergarten) follows CBSE Curriculum in adherence to the National Education Policy (NEP) 2020. We focus on holistic development through play-based learning, a multilingual approach, and integrated thematic activities. Emphasizing early literacy and numeracy skills, the curriculum also incorporates social and emotional learning, fostering empathy and cooperation. Continuous assessment methods ensure a supportive and child-friendly evaluation process, aligning with the NEP's vision for a well-rounded and age-appropriate foundation that sparks a lifelong love for learning. Parental participation is pivotal in shaping their child's comprehensive educational journey. Therefore, our school actively encourages and invites parents to engage in various capacities, such as participating in assessments, initiating programs or school events, and volunteering during sports days. This collaborative approach not only strengthens the parent-school connection but also enhances the overall educational experience for every child. ",
+        },
+        {
+          title: "Subjects",
+          text: "In the Foundational Stage, encompassing Junior and Senior Kindergarten, the curriculum covers English, Hindi, and Environmental Studies (EVS). Nursery education includes key components such as Literacy, Numeracy, General Awareness, and introduces Hindi early on to facilitate language acquisition. Our approach incorporates the well-regarded Jolly Phonics method, creating a dynamic and interactive foundation for literacy. Moreover, we design activities that encourage joyful and hands-on learning experiences for our students.",
+        },
+        {
+          title: "Planner",
+          text: `<a href='https://drive.google.com/file/d/1RWe_0xxZ2Rx6XoeRIaCL1i-3-MVy32tO/view?usp=sharing'>Nursery Planner</a>`,
+        },
+      ]}
+    />
+  </Section>
 
-    <!-- Experiential Learning -->
-    <Section title="Experiential Learning">
-      <ActivityList 
-        activities={[
-        "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
+  <!-- Experiential Learning -->
+  <Section title="Experiential Learning">
+    <ActivityList
+      activities={[
+        "Actively explore, inquire, and apply concepts in real-life contexts.",
+        "Foster critical thinking, problem-solving abilities, and a lifelong love for learning.",
+        "Emphasis on hands-on experiences to facilitate comprehensive understanding and skill development.",
+        "Learn through meaningful and enjoyable encounters, laying a solid foundation for future academic and personal growth.",
+      ]}
+    />
+    <AlternateCarousel
+      id={"1"}
+      items={[
+        {
+          title: "Agriculure and APMC market visit",
+          img: Experiential1.src,
+          txt: "Pre-primary students learned to connect and link the process from planting and growing crops on the farm to selling the produce in wholesale markets through the Agricultural Produce Market Committee (APMC), Kalyan which created an awareness of agri-commodity trading among Sacred Heartians at a very young age.",
+        },
+        {
+          title: "John Doe",
+          img: "https://picsum.photos/1600/900?grayscale&random=2",
+          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        },
+        {
+          title: "John Doe",
+          img: "https://picsum.photos/1600/900?grayscale&random=3",
+          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        },
+        {
+          title: "John Doe",
+          img: "https://picsum.photos/1600/900?grayscale&random=4",
+          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        },
+        {
+          title: "John Doe",
+          img: "https://picsum.photos/1600/900?grayscale&random=5",
+          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet.",
+        },
+      ]}
+    />
+  </Section>
+
+  <!-- Activities -->
+  <Section theme="accent" class="pt-12">
+    <AlternateSectionTitle
+      title="Fine Motor and Gross Motor Activities"
+      theme="accent"
+    />
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 w-full pt-16">
+      <p
+        class="text-sm md:text-base md:font-medium text-justify lg:max-w-[80ch]"
+      >
+        Fine and Gross motor skills development plays a pivotal role in a
+        child's overall growth. Our curriculum integrates purposeful activities
+        to enhance fine motor skills, including precision tasks like sand
+        tracing, clay moulding, threading beads, cutting with paper scissors,
+        and more. These activities not only prepare children for academic tasks
+        but also refine their hand-eye coordination and dexterity.
+        Simultaneously, we engage students in gross motor skill activities, such
+        as outdoor games, sensory plays, and dance. These experiences contribute
+        to improved balance, coordination, and strength, fostering a healthy and
+        active lifestyle.
+      </p>
+      <Carousel
+        photos={[
+          "https://picsum.photos/1600/900?random=1",
+          "https://picsum.photos/1600/900?grayscale&random=2",
+          "https://picsum.photos/1600/900?random=3",
+          "https://picsum.photos/1600/900?grayscale&random=4",
+          "https://picsum.photos/1600/900?random=5",
         ]}
+        id={"1"}
+        theme="accent"
       />
-      <AlternateCarousel
-          id={"1"}
-          items={[
-          {
-            "title": "John Doe",
-            "img": "https://picsum.photos/1600/900?grayscale&random=1",
-            "txt": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          },
-          {
-            "title": "John Doe",
-            "img": "https://picsum.photos/1600/900?grayscale&random=2",
-            "txt": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          },
-          {
-            "title": "John Doe",
-            "img": "https://picsum.photos/1600/900?grayscale&random=3",
-            "txt": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          },
-          {
-            "title": "John Doe",
-            "img": "https://picsum.photos/1600/900?grayscale&random=4",
-            "txt": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          },
-          {
-            "title": "John Doe",
-            "img": "https://picsum.photos/1600/900?grayscale&random=5",
-            "txt": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet."
-          }
-          ]}
-        />
-    </Section>
+    </div>
+  </Section>
 
+  <!-- Events -->
+  <Section title="Events">
+    <AlternateCarousel
+      id={"2"}
+      items={[
+        {
+          title: "John Doe",
+          img: "https://picsum.photos/1600/900?grayscale&random=1",
+          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        },
+        {
+          title: "John Doe",
+          img: "https://picsum.photos/1600/900?grayscale&random=2",
+          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        },
+        {
+          title: "John Doe",
+          img: "https://picsum.photos/1600/900?grayscale&random=3",
+          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        },
+        {
+          title: "John Doe",
+          img: "https://picsum.photos/1600/900?grayscale&random=4",
+          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        },
+        {
+          title: "John Doe",
+          img: "https://picsum.photos/1600/900?grayscale&random=5",
+          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        },
+      ]}
+    />
+  </Section>
 
-    <!-- Activities -->
-    <Section theme="accent" class="pt-12">
-        <AlternateSectionTitle title="Fine Motor and Gross Motor Activities" theme="accent"/>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-            <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch]">
-                Fine and Gross motor skills development plays a pivotal role in a child's overall growth. Our curriculum integrates purposeful activities to enhance fine motor skills, including precision tasks like sand tracing, clay moulding, threading beads, cutting with paper scissors, and more. These activities not only prepare children for academic tasks but also refine their hand-eye coordination and dexterity. Simultaneously, we engage students in gross motor skill activities, such as outdoor games, sensory plays, and dance. These experiences contribute to improved balance, coordination, and strength, fostering a healthy and active lifestyle.
-            </p>
-            <Carousel photos={photoList} id={"1"}/>
-        </div>
-    </Section>
+  <!-- Life Skills & Values -->
+  <Section theme="accent" class="pt-12 bg-white/40">
+    <AlternateSectionTitle title="Life Skills & Moral Values" theme="accent" />
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
+      <Carousel
+      photos={[
+        "https://picsum.photos/1600/900?random=1",
+        "https://picsum.photos/1600/900?grayscale&random=2",
+        "https://picsum.photos/1600/900?random=3",
+        "https://picsum.photos/1600/900?grayscale&random=4",
+        "https://picsum.photos/1600/900?random=5",
+      ]} 
+      id={"2"} 
+      theme="accent"/>
+      <div>
+        <p
+          class="text-sm md:text-base md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        >
+          At our school, we go beyond traditional teaching methods by imparting
+          moral values through captivating stories and interactive dramatic
+          plays. This unique approach not only enhances character development
+          but also nurtures creativity and expression in our young learners.
+        </p>
+        <p
+          class="text-sm md:text-base md:font-medium text-justify lg:max-w-[80ch]"
+        >
+          Moreover, our commitment to holistic education extends to the
+          incorporation of life skills into the curriculum. Through practical
+          and age-appropriate activities, we empower our students with essential
+          life skills, preparing them for a well-rounded and successful future.
+          ( hand washing, tidying the bed, folding blankets, wearing shoes,
+          helping elders/blind person, giving seats to elders in public
+          transport)
+        </p>
+      </div>
+    </div>
+  </Section>
 
+  <!-- Sports -->
+  <Section class="pt-12">
+    <AlternateSectionTitle title="Sports" />
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
+      <p class="text-sm md:text-base md:font-medium text-justify lg:max-w-[80ch]">
+        Engaging in sports is vital for our kindergarteners, fostering physical
+        development, teamwork, and discipline. Through activities like running
+        and ball games, they build essential motor skills and coordination. Team
+        sports teach cooperation, while adhering to rules instills discipline
+        and perseverance. These experiences contribute not only to physical
+        fitness but also to the development of crucial social and emotional
+        skills, ensuring a well-rounded educational journey for our young
+        learners.
+      </p>
+      <Carousel
+      photos={[
+        "https://picsum.photos/1600/900?random=1",
+        "https://picsum.photos/1600/900?grayscale&random=2",
+        "https://picsum.photos/1600/900?random=3",
+        "https://picsum.photos/1600/900?grayscale&random=4",
+        "https://picsum.photos/1600/900?random=5",
+      ]}
+      id={"3"} />
+    </div>
+  </Section>
 
-    <!-- Life Skills & Values -->
-    <Section class="pt-12 bg-white/40">
-        <AlternateSectionTitle title="Life Skills & Moral Values"/>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-            <Carousel photos={photoList} id={"2"}/>
-            <div>
-                <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch] pb-4">
-                    At our school, we go beyond traditional teaching methods by imparting moral values through captivating stories and interactive dramatic plays. This unique approach not only enhances character development but also nurtures creativity and expression in our young learners. 
-                </p>
-                <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch]">
-                    Moreover, our commitment to holistic education extends to the incorporation of life skills into the curriculum. Through practical and age-appropriate activities, we empower our students with essential life skills, preparing them for a well-rounded and successful future.   ( hand washing, tidying the bed, folding blankets, wearing shoes, helping elders/blind person, giving seats to elders in public transport)
-                </p>
-            </div>
-        </div>
-    </Section>
+  <!-- Therapy -->
+  <Section theme="accent" class="pt-12">
+    <AlternateSectionTitle title="Pet Assisted Therapy" theme="accent" />
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
+      <div>
+        <p
+          class="text-sm md:text-base md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        >
+          Pet-assisted therapy is a game-changer in early childhood education,
+          especially for kindergarteners. Beyond the evident joy, it brings a
+          multitude of benefits, fostering emotional, social, and cognitive
+          growth.
+        </p>
+        <p
+          class="text-sm md:text-base md:font-medium text-justify lg:max-w-[80ch]"
+        >
+          Therapy pets create a secure environment, alleviating stress and
+          anxiety in children. The unconditional love and companionship they
+          offer lay a positive emotional foundation. Socially, interactions with
+          animals teach empathy, compassion, and responsibility, promoting
+          healthy relationship-building.
+        </p>
+      </div>
+      <Carousel
+        photos={[
+          "https://picsum.photos/1600/900?random=1",
+          "https://picsum.photos/1600/900?grayscale&random=2",
+          "https://picsum.photos/1600/900?random=3",
+          "https://picsum.photos/1600/900?grayscale&random=4",
+          "https://picsum.photos/1600/900?random=5",
+        ]}
+        id={"4"}
+        theme="accent"
+      />
+    </div>
+  </Section>
 
-
-    <!-- Events -->
-    <Section title="Events">
-      <AlternateCarousel
-          id={"2"}
-          items={[
-          {
-            "title": "John Doe",
-            "img": "https://picsum.photos/1600/900?grayscale&random=1",
-            "txt": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          },
-          {
-            "title": "John Doe",
-            "img": "https://picsum.photos/1600/900?grayscale&random=2",
-            "txt": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          },
-          {
-            "title": "John Doe",
-            "img": "https://picsum.photos/1600/900?grayscale&random=3",
-            "txt": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          },
-          {
-            "title": "John Doe",
-            "img": "https://picsum.photos/1600/900?grayscale&random=4",
-            "txt": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          },
-          {
-            "title": "John Doe",
-            "img": "https://picsum.photos/1600/900?grayscale&random=5",
-            "txt": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          }
-          ]}
-        />
-    </Section>
-
-
-    <!-- Sports -->
-    <Section theme="accent" class="pt-12">
-        <AlternateSectionTitle title="Sports" theme="accent"/>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-            <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch]">
-                Fine and Gross motor skills development plays a pivotal role in a child's overall growth. Our curriculum integrates purposeful activities to enhance fine motor skills, including precision tasks like sand tracing, clay moulding, threading beads, cutting with paper scissors, and more. These activities not only prepare children for academic tasks but also refine their hand-eye coordination and dexterity. Simultaneously, we engage students in gross motor skill activities, such as outdoor games, sensory plays, and dance. These experiences contribute to improved balance, coordination, and strength, fostering a healthy and active lifestyle.
-            </p>
-            <Carousel photos={photoList} id={"3"}/>
-        </div>
-    </Section>
-
-
-    <!-- Testimonials -->
-    <Section title="Parent's Testimonials">
-        <TestimonialCarousel 
-          testimonials={[
-          {
-            "name": "John Doe",
-            "img": "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
-            "text": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          },
-          {
-            "name": "John Doe",
-            "img": "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
-            "text": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          },
-          {
-            "name": "John Doe",
-            "img": "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
-            "text": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          },
-          {
-            "name": "John Doe",
-            "img": "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
-            "text": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          },
-          {
-            "name": "John Doe",
-            "img": "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
-            "text": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-          }
-          ]}
-        />
-    </Section>
-
-
-    <!-- Therapy -->
-    <Section theme="accent" class="pt-12">
-        <AlternateSectionTitle title="Pet Assisted Therapy" theme="accent"/>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-            <p class="text-sm md:text-base md:font-medium text-justify max-w-[80ch]">
-                Fine and Gross motor skills development plays a pivotal role in a child's overall growth. Our curriculum integrates purposeful activities to enhance fine motor skills, including precision tasks like sand tracing, clay moulding, threading beads, cutting with paper scissors, and more. These activities not only prepare children for academic tasks but also refine their hand-eye coordination and dexterity. Simultaneously, we engage students in gross motor skill activities, such as outdoor games, sensory plays, and dance. These experiences contribute to improved balance, coordination, and strength, fostering a healthy and active lifestyle.
-            </p>
-            <Carousel photos={photoList} id={"4"}/>
-        </div>
-    </Section>
+  <!-- Testimonials -->
+  <Section title="Parent's Testimonials">
+    <TestimonialCarousel
+      testimonials={[
+        {
+          name: "John Doe",
+          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        },
+        {
+          name: "John Doe",
+          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        },
+        {
+          name: "John Doe",
+          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        },
+        {
+          name: "John Doe",
+          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        },
+        {
+          name: "John Doe",
+          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+        },
+      ]}
+    />
+  </Section>
 </PageLayout>
