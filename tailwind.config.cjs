@@ -6,6 +6,12 @@ export default {
 			colors: {
 				'primary': '#ED1E27',
 				'primary-dark': '#C11921',
+			},
+			keyframes: {
+				wiggle: {
+				  '0%, 100%': { transform: 'translate(-10px, 0)' },
+				  '50%': { transform: 'translate(10px, 0)' },
+				}
 			}
 		},
 	},
