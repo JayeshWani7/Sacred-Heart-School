@@ -46,7 +46,7 @@ import ExperientialGraphic from "../assets/images/pre-primary/ExperientialGraphi
   </Section>
 
   <!-- Experiential Learning -->
-  <Section class="pt-12">
+  <Section class="pt-12 overflow-x-hidden">
     <AlternateSectionTitle title="Experiential Learning" />
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
       <div>
@@ -207,43 +207,22 @@ import ExperientialGraphic from "../assets/images/pre-primary/ExperientialGraphi
           transport)
           </p>
         </div>
-        <img src={LifeSkillsImg.src} alt="Experiential Graphic" class="w-full animate-[wiggle_20s_ease-in-out_infinite]"> <!-- ! Fix img -->
+        <img src={LifeSkillsImg.src} alt="Experiential Graphic" class="max-w-[8rem] lg:max-w-[16rem] m-auto"> <!-- ! Fix img -->
       </div>
     </Section>
   
     <!-- Testimonials -->
   <Section title="Parent's Testimonials" theme="accent">
-    <TestimonialCarousel
-      testimonials={[
-        {
-          name: "John Doe1",
-          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          name: "John Doe2",
-          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          name: "John Doe3",
-          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          name: "John Doe4",
-          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          name: "John Doe5",
-          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          name: "John Doe6",
-          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          name: "John Doe7",
-          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        }
-      ]}
-    />
+    <p class="mx-auto max-w-[80ch] text-justify">
+      Parents express genuine appreciation for the impactful school activities in 
+      kindergarten, noting significant improvements in their children. The holistic 
+      approach, including physical exercises and creative arts, contributes to 
+      well-rounded development, leaving parents delighted to see their children 
+      thrive in various aspects of their early education.
+    </p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 w-full pt-16">
+      <div class="skeleton w-full aspect-video"></div> <!-- Video skeleton -->
+      <div class="skeleton w-full aspect-video"></div> <!-- Video skeleton -->
+    </div>  
   </Section>
 </PageLayout>
