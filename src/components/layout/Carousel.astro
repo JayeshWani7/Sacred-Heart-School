@@ -35,7 +35,7 @@ const { photos, id, theme } = Astro.props as Props;
       </div>
     </div>
     <div class="swiper-btns mt-3 flex items-center justify-between">
-      <div>
+      <div class={theme=="accent" ? "" : "text-primary"}>
         <button class={"mr-4 slide-prev-swiper_" + id}>
           <Fragment set:html={Prev} />
           <!-- <img class="w-8" src={Prev.src} alt="Prev Button" /> -->
@@ -46,7 +46,7 @@ const { photos, id, theme } = Astro.props as Props;
         </button>
       </div>
       <div class={(theme=="accent" ? 
-      "[--swiper-pagination-color:#FFF] [--swiper-pagination-bullet-inactive-opacity:0.4]" : 
+      "[--swiper-pagination-color:#FFFFFF] [--swiper-pagination-bullet-inactive-color:#FFFFFF] [--swiper-pagination-bullet-inactive-opacity:0.4]" : 
       "[--swiper-pagination-color:#ED1E27]") + 
       " swiper-pagination-swiper_" + id}></div>
     </div>

@@ -7,12 +7,13 @@ import {
   AlternateSectionTitle,
   TestimonialCarousel,
   AlternateCarousel,
-  ActivityList,
   Accordion,
 } from "../components/layout";
 
 // Assets
 import PreSchoolHero from "../assets/images/pre-school.webp";
+import LifeSkillsImg from "../assets/images/pre-primary/LifeSkillsImg.png"
+import ExperientialGraphic from "../assets/images/pre-primary/ExperientialGraphic.png"
 ---
 
 <PageLayout
@@ -29,8 +30,8 @@ import PreSchoolHero from "../assets/images/pre-school.webp";
     <Accordion
       tabs={[
         {
-          title: "Cirriculum",
-          text: "The Foundational Stage (Nursery, Junior and Senior Kindergarten) follows CBSE Curriculum in adherence to the National Education Policy (NEP) 2020. We focus on holistic development through play-based learning, a multilingual approach, and integrated thematic activities. Emphasizing early literacy and numeracy skills, the curriculum also incorporates social and emotional learning, fostering empathy and cooperation. Continuous assessment methods ensure a supportive and child-friendly evaluation process, aligning with the NEP's vision for a well-rounded and age-appropriate foundation that sparks a lifelong love for learning. Parental participation is pivotal in shaping their child's comprehensive educational journey. Therefore, our school actively encourages and invites parents to engage in various capacities, such as participating in assessments, initiating programs or school events, and volunteering during sports days. This collaborative approach not only strengthens the parent-school connection but also enhances the overall educational experience for every child. ",
+          title: "Curriculum",
+          text: "The Foundational Stage (Nursery, Junior and Senior Kindergarten) follows CBSE Curriculum in adherence to the National Education Policy (NEP) 2020. We focus on holistic development through play-based learning, a multilingual approach, and integrated thematic activities. Emphasizing early literacy and numeracy skills, the curriculum also incorporates social and emotional learning, fostering empathy and cooperation. Continuous assessment methods ensure a supportive and child-friendly evaluation process, aligning with the NEP's vision for a well-rounded and age-appropriate foundation that sparks a lifelong love for learning. <br/><br/> Parental participation is pivotal in shaping their child's comprehensive educational journey. Therefore, our school actively encourages and invites parents to engage in various capacities, such as participating in assessments, initiating programs or school events, and volunteering during sports days. This collaborative approach not only strengthens the parent-school connection but also enhances the overall educational experience for every child. ",
         },
         {
           title: "Subjects",
@@ -45,45 +46,40 @@ import PreSchoolHero from "../assets/images/pre-school.webp";
   </Section>
 
   <!-- Experiential Learning -->
-  <Section title="Experiential Learning">
-    <ActivityList
-      activities={[
-        "Actively explore, inquire, and apply concepts in real-life contexts.",
-        "Foster critical thinking, problem-solving abilities, and a lifelong love for learning.",
-        "Emphasis on hands-on experiences to facilitate comprehensive understanding and skill development.",
-        "Learn through meaningful and enjoyable encounters, laying a solid foundation for future academic and personal growth.",
-      ]}
-    />
-    <AlternateCarousel
-      id={"1"}
-      items={[
-        {
-          title: "Agriculure and APMC market visit",
-          img: "https://picsum.photos/1600/900?grayscale&random=1",
-          txt: "Pre-primary students learned to connect and link the process from planting and growing crops on the farm to selling the produce in wholesale markets through the Agricultural Produce Market Committee (APMC), Kalyan which created an awareness of agri-commodity trading among Sacred Heartians at a very young age.",
-        },
-        {
-          title: "John Doe",
-          img: "https://picsum.photos/1600/900?grayscale&random=2",
-          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          title: "John Doe",
-          img: "https://picsum.photos/1600/900?grayscale&random=3",
-          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          title: "John Doe",
-          img: "https://picsum.photos/1600/900?grayscale&random=4",
-          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          title: "John Doe",
-          img: "https://picsum.photos/1600/900?grayscale&random=5",
-          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet.",
-        },
-      ]}
-    />
+  <Section class="pt-12 overflow-x-hidden">
+    <AlternateSectionTitle title="Experiential Learning" />
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
+      <div>
+        <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        >
+        While we boast top-notch classrooms, our educational philosophy champions experiential learning. We prioritize cultivating knowledge through real-life experiences, providing an enriched environment where children not only absorb information but actively engage with it.
+        </p>
+        <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        >
+        In our commitment to fostering a holistic learning journey, kids explore, discover, and apply concepts in hands-on settings. Our belief in the power of experience-driven education goes beyond traditional methods, ensuring that each child develops practical skills, critical thinking, and a profound understanding of the world.
+        </p>
+        <p
+        class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch]"
+        >
+        At our institution, classrooms serve as dynamic spaces where curiosity is sparked, and education extends far beyond textbooks.
+        </p>
+      </div>
+      <div class="relative z-0 my-12 lg:my-4">
+        <img src={ExperientialGraphic.src} alt="Experiential Graphic" class="w-4/6 lg:w-full absolute -top-24 lg:-top-36 -right-16 z-10 animate-[wiggle_20s_ease-in-out_infinite]">
+        <Carousel
+        photos={[
+          "https://picsum.photos/1600/900?random=1",
+          "https://picsum.photos/1600/900?grayscale&random=2",
+          "https://picsum.photos/1600/900?random=3",
+          "https://picsum.photos/1600/900?grayscale&random=4",
+          "https://picsum.photos/1600/900?random=5",
+        ]}
+        id={"1"}
+        />
+      </div>
+    </div>
   </Section>
 
   <!-- Activities -->
@@ -93,8 +89,19 @@ import PreSchoolHero from "../assets/images/pre-school.webp";
       theme="accent"
     />
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 w-full pt-16">
+      <Carousel
+        photos={[
+          "https://picsum.photos/1600/900?random=1",
+          "https://picsum.photos/1600/900?grayscale&random=2",
+          "https://picsum.photos/1600/900?random=3",
+          "https://picsum.photos/1600/900?grayscale&random=4",
+          "https://picsum.photos/1600/900?random=5",
+        ]}
+        id={"2"}
+        theme="accent"
+      />
       <p
-        class="text-sm md:text-base md:font-medium text-justify lg:max-w-[80ch]"
+        class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch]"
       >
         Fine and Gross motor skills development plays a pivotal role in a
         child's overall growth. Our curriculum integrates purposeful activities
@@ -107,115 +114,34 @@ import PreSchoolHero from "../assets/images/pre-school.webp";
         to improved balance, coordination, and strength, fostering a healthy and
         active lifestyle.
       </p>
-      <Carousel
-        photos={[
-          "https://picsum.photos/1600/900?random=1",
-          "https://picsum.photos/1600/900?grayscale&random=2",
-          "https://picsum.photos/1600/900?random=3",
-          "https://picsum.photos/1600/900?grayscale&random=4",
-          "https://picsum.photos/1600/900?random=5",
-        ]}
-        id={"1"}
-        theme="accent"
-      />
     </div>
   </Section>
 
-  <!-- Events -->
-  <Section title="Events">
-    <AlternateCarousel
-      id={"2"}
-      items={[
-        {
-          title: "John Doe",
-          img: "https://picsum.photos/1600/900?grayscale&random=1",
-          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          title: "John Doe",
-          img: "https://picsum.photos/1600/900?grayscale&random=2",
-          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          title: "John Doe",
-          img: "https://picsum.photos/1600/900?grayscale&random=3",
-          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          title: "John Doe",
-          img: "https://picsum.photos/1600/900?grayscale&random=4",
-          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          title: "John Doe",
-          img: "https://picsum.photos/1600/900?grayscale&random=5",
-          txt: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-      ]}
-    />
-  </Section>
-
-  <!-- Life Skills & Values -->
-  <Section theme="accent" class="pt-12 bg-white/40">
-    <AlternateSectionTitle title="Life Skills & Moral Values" theme="accent" />
+  <!-- Sports & Events -->
+  <Section class="pt-12">
+    <AlternateSectionTitle title="Sports & Events" />
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-      <Carousel
-      photos={[
-        "https://picsum.photos/1600/900?random=1",
-        "https://picsum.photos/1600/900?grayscale&random=2",
-        "https://picsum.photos/1600/900?random=3",
-        "https://picsum.photos/1600/900?grayscale&random=4",
-        "https://picsum.photos/1600/900?random=5",
-      ]} 
-      id={"2"} 
-      theme="accent"/>
       <div>
         <p
-          class="text-sm md:text-base md:font-medium text-justify lg:max-w-[80ch] pb-4"
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pb-4"
         >
-          At our school, we go beyond traditional teaching methods by imparting
-          moral values through captivating stories and interactive dramatic
-          plays. This unique approach not only enhances character development
-          but also nurtures creativity and expression in our young learners.
+          Participating in events fosters a sense of community and belonging among kindergarteners. It provides them with opportunities to showcase their unique talents, boosting self-esteem and confidence. The stage becomes a platform for self-expression, allowing children to overcome stage fright and develop effective communication skills.
         </p>
         <p
-          class="text-sm md:text-base md:font-medium text-justify lg:max-w-[80ch]"
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch]"
         >
-          Moreover, our commitment to holistic education extends to the
-          incorporation of life skills into the curriculum. Through practical
-          and age-appropriate activities, we empower our students with essential
-          life skills, preparing them for a well-rounded and successful future.
-          ( hand washing, tidying the bed, folding blankets, wearing shoes,
-          helping elders/blind person, giving seats to elders in public
-          transport)
+          Engaging in sports is vital for our kindergarteners, fostering physical development, teamwork, and discipline. Through activities like running and ball games, they build essential motor skills and coordination. Team sports teach cooperation, while adhering to rules instills discipline and perseverance. These experiences contribute not only to physical fitness but also to the development of crucial social and emotional skills, ensuring a well-rounded educational journey for our young learners.
         </p>
       </div>
-    </div>
-  </Section>
-
-  <!-- Sports -->
-  <Section class="pt-12">
-    <AlternateSectionTitle title="Sports" />
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-      <p class="text-sm md:text-base md:font-medium text-justify lg:max-w-[80ch]">
-        Engaging in sports is vital for our kindergarteners, fostering physical
-        development, teamwork, and discipline. Through activities like running
-        and ball games, they build essential motor skills and coordination. Team
-        sports teach cooperation, while adhering to rules instills discipline
-        and perseverance. These experiences contribute not only to physical
-        fitness but also to the development of crucial social and emotional
-        skills, ensuring a well-rounded educational journey for our young
-        learners.
-      </p>
-      <Carousel
-      photos={[
-        "https://picsum.photos/1600/900?random=1",
-        "https://picsum.photos/1600/900?grayscale&random=2",
-        "https://picsum.photos/1600/900?random=3",
-        "https://picsum.photos/1600/900?grayscale&random=4",
-        "https://picsum.photos/1600/900?random=5",
-      ]}
-      id={"3"} />
+      <div class="w-full flex flex-col gap-6 items-center">
+        <div class="skeleton w-full aspect-video"></div> <!-- Video skeleton -->
+        <div class="relative p-2 max-w-[24ch] text-center 
+        before:w-4 before:aspect-square before:absolute before:top-0 before:left-0 before:border-t-4 before:border-l-4 before:border-primary 
+        after:w-4 after:aspect-square after:absolute after:border-b-4 after:bottom-0 after:right-0 after:border-r-4  after:border-primary"
+        >
+          Take a look at our Annual Sports Day 23-24
+        </div>
+      </div>
     </div>
   </Section>
 
@@ -223,9 +149,20 @@ import PreSchoolHero from "../assets/images/pre-school.webp";
   <Section theme="accent" class="pt-12">
     <AlternateSectionTitle title="Pet Assisted Therapy" theme="accent" />
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
+      <Carousel
+      photos={[
+        "https://picsum.photos/1600/900?random=1",
+        "https://picsum.photos/1600/900?grayscale&random=2",
+        "https://picsum.photos/1600/900?random=3",
+        "https://picsum.photos/1600/900?grayscale&random=4",
+        "https://picsum.photos/1600/900?random=5",
+      ]}
+        id={"3"}
+        theme="accent"
+        />
       <div>
         <p
-          class="text-sm md:text-base md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pb-4"
         >
           Pet-assisted therapy is a game-changer in early childhood education,
           especially for kindergarteners. Beyond the evident joy, it brings a
@@ -233,7 +170,7 @@ import PreSchoolHero from "../assets/images/pre-school.webp";
           growth.
         </p>
         <p
-          class="text-sm md:text-base md:font-medium text-justify lg:max-w-[80ch]"
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch]"
         >
           Therapy pets create a secure environment, alleviating stress and
           anxiety in children. The unconditional love and companionship they
@@ -242,45 +179,50 @@ import PreSchoolHero from "../assets/images/pre-school.webp";
           healthy relationship-building.
         </p>
       </div>
-      <Carousel
-        photos={[
-          "https://picsum.photos/1600/900?random=1",
-          "https://picsum.photos/1600/900?grayscale&random=2",
-          "https://picsum.photos/1600/900?random=3",
-          "https://picsum.photos/1600/900?grayscale&random=4",
-          "https://picsum.photos/1600/900?random=5",
-        ]}
-        id={"4"}
-        theme="accent"
-      />
-    </div>
-  </Section>
-
-  <!-- Testimonials -->
-  <Section title="Parent's Testimonials">
-    <TestimonialCarousel
-      testimonials={[
-        {
-          name: "John Doe",
-          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          name: "John Doe",
-          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          name: "John Doe",
-          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          name: "John Doe",
-          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-        {
-          name: "John Doe",
-          text: "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-        },
-      ]}
-    />
+      </div>
+    </Section>
+    
+    <!-- Life Skills & Values -->
+    <Section class="pt-12 bg-white/40">
+      <AlternateSectionTitle title="Life Skills & Moral Values"  />
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
+        <div>
+          <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pb-4"
+          >
+          At our school, we go beyond traditional teaching methods by imparting
+          moral values through captivating stories and interactive dramatic
+          plays. This unique approach not only enhances character development
+          but also nurtures creativity and expression in our young learners.
+          </p>
+          <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch]"
+          >
+          Moreover, our commitment to holistic education extends to the
+          incorporation of life skills into the curriculum. Through practical
+          and age-appropriate activities, we empower our students with essential
+          life skills, preparing them for a well-rounded and successful future.
+          ( hand washing, tidying the bed, folding blankets, wearing shoes,
+          helping elders/blind person, giving seats to elders in public
+          transport)
+          </p>
+        </div>
+        <img src={LifeSkillsImg.src} alt="Experiential Graphic" class="max-w-[8rem] lg:max-w-[16rem] m-auto"> <!-- ! Fix img -->
+      </div>
+    </Section>
+  
+    <!-- Testimonials -->
+  <Section title="Parent's Testimonials" theme="accent">
+    <p class="mx-auto max-w-[80ch] text-justify">
+      Parents express genuine appreciation for the impactful school activities in 
+      kindergarten, noting significant improvements in their children. The holistic 
+      approach, including physical exercises and creative arts, contributes to 
+      well-rounded development, leaving parents delighted to see their children 
+      thrive in various aspects of their early education.
+    </p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 w-full pt-16">
+      <div class="skeleton w-full aspect-video"></div> <!-- Video skeleton -->
+      <div class="skeleton w-full aspect-video"></div> <!-- Video skeleton -->
+    </div>  
   </Section>
 </PageLayout>
