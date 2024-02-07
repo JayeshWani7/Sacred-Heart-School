@@ -5,15 +5,23 @@ import {
   Section,
   Carousel,
   AlternateSectionTitle,
-  TestimonialCarousel,
-  AlternateCarousel,
   Accordion,
 } from "../components/layout";
 
-// Assets
+// Images
 import PreSchoolHero from "../assets/images/pre-school.webp";
-import LifeSkillsImg from "../assets/images/pre-primary/LifeSkillsImg.png"
-import ExperientialGraphic from "../assets/images/pre-primary/ExperientialGraphic.png"
+import LifeSkillsImg from "../assets/images/pre-primary/LifeSkillsImg.png";
+import ExperientialGraphic from "../assets/images/pre-primary/ExperientialGraphic.png";
+// Videos
+import TestimonialVid1 from "../assets/videos/Testimonial1.mp4";
+import TestimonialVid2 from "../assets/videos/Testimonial2.mp4";
+import ExperientialVid1 from "../assets/videos/Experiential.mp4";
+import SportsVid from "../assets/videos/Sports.mp4";
+import PetTherapy1 from "../assets/videos/Pet-Therapy1.mp4";
+import PetTherapy2 from "../assets/videos/Pet-Therapy2.mp4";
+import PetTherapy3 from "../assets/videos/Pet-Therapy3.mp4";
+import ActivityVid1 from "../assets/videos/Motor-Skills1.mp4";
+import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
 ---
 
 <PageLayout
@@ -67,17 +75,10 @@ import ExperientialGraphic from "../assets/images/pre-primary/ExperientialGraphi
         </p>
       </div>
       <div class="relative z-0 my-12 lg:my-4">
-        <img src={ExperientialGraphic.src} alt="Experiential Graphic" class="w-4/6 lg:w-full absolute -top-24 lg:-top-36 -right-16 z-10 animate-[wiggle_20s_ease-in-out_infinite]">
-        <Carousel
-        photos={[
-          "https://picsum.photos/1600/900?random=1",
-          "https://picsum.photos/1600/900?grayscale&random=2",
-          "https://picsum.photos/1600/900?random=3",
-          "https://picsum.photos/1600/900?grayscale&random=4",
-          "https://picsum.photos/1600/900?random=5",
-        ]}
-        id={"1"}
-        />
+        <img src={ExperientialGraphic.src} alt="Experiential Graphic" class="w-4/6 lg:w-1/2 absolute -top-24 lg:-top-36 -right-16 z-10 animate-[wiggle_20s_ease-in-out_infinite]">
+        <video preload="true" controls="true" class='w-full aspect-video rounded-lg shadow-lg' playsinline="" loop="false">
+          <source src={ExperientialVid1} type="video/mp4"/>
+        </video>
       </div>
     </div>
   </Section>
@@ -90,14 +91,11 @@ import ExperientialGraphic from "../assets/images/pre-primary/ExperientialGraphi
     />
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 w-full pt-16">
       <Carousel
-        photos={[
-          "https://picsum.photos/1600/900?random=1",
-          "https://picsum.photos/1600/900?grayscale&random=2",
-          "https://picsum.photos/1600/900?random=3",
-          "https://picsum.photos/1600/900?grayscale&random=4",
-          "https://picsum.photos/1600/900?random=5",
+        media={[
+          ActivityVid1, ActivityVid2
         ]}
         id={"2"}
+        type="video"
         theme="accent"
       />
       <p
@@ -134,7 +132,9 @@ import ExperientialGraphic from "../assets/images/pre-primary/ExperientialGraphi
         </p>
       </div>
       <div class="w-full flex flex-col gap-6 items-center">
-        <div class="skeleton w-full aspect-video"></div> <!-- Video skeleton -->
+        <video preload="true" controls="true" class='w-full aspect-video rounded-lg shadow-lg' playsinline="" loop="false">
+          <source src={SportsVid} type="video/mp4"/>
+        </video>
         <div class="relative p-2 max-w-[24ch] text-center 
         before:w-4 before:aspect-square before:absolute before:top-0 before:left-0 before:border-t-4 before:border-l-4 before:border-primary 
         after:w-4 after:aspect-square after:absolute after:border-b-4 after:bottom-0 after:right-0 after:border-r-4  after:border-primary"
@@ -150,16 +150,11 @@ import ExperientialGraphic from "../assets/images/pre-primary/ExperientialGraphi
     <AlternateSectionTitle title="Pet Assisted Therapy" theme="accent" />
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
       <Carousel
-      photos={[
-        "https://picsum.photos/1600/900?random=1",
-        "https://picsum.photos/1600/900?grayscale&random=2",
-        "https://picsum.photos/1600/900?random=3",
-        "https://picsum.photos/1600/900?grayscale&random=4",
-        "https://picsum.photos/1600/900?random=5",
-      ]}
-        id={"3"}
-        theme="accent"
-        />
+      media={[ PetTherapy1, PetTherapy2, PetTherapy3 ]}
+      id={"3"}
+      type="video"
+      theme="accent"
+      />
       <div>
         <p
         class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pb-4"
@@ -213,7 +208,7 @@ import ExperientialGraphic from "../assets/images/pre-primary/ExperientialGraphi
   
     <!-- Testimonials -->
   <Section title="Parent's Testimonials" theme="accent">
-    <p class="mx-auto max-w-[80ch] text-justify">
+    <p class="mx-auto md:text-lg max-w-[80ch] text-justify">
       Parents express genuine appreciation for the impactful school activities in 
       kindergarten, noting significant improvements in their children. The holistic 
       approach, including physical exercises and creative arts, contributes to 
@@ -221,8 +216,12 @@ import ExperientialGraphic from "../assets/images/pre-primary/ExperientialGraphi
       thrive in various aspects of their early education.
     </p>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 w-full pt-16">
-      <div class="skeleton w-full aspect-video"></div> <!-- Video skeleton -->
-      <div class="skeleton w-full aspect-video"></div> <!-- Video skeleton -->
+      <video preload="true" controls="true" class='w-full aspect-video rounded-xl bg-dark-slate shadow-lg' playsinline="" loop="false">
+        <source src={TestimonialVid1} type="video/mp4"/>
+      </video>
+      <video preload="true" controls="true" class='w-full aspect-video rounded-xl bg-dark-slate shadow-lg' playsinline="" loop="false">
+        <source src={TestimonialVid2} type="video/mp4"/>
+      </video>
     </div>  
   </Section>
 </PageLayout>
