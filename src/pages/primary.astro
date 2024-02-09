@@ -7,6 +7,7 @@ import {
   AlternateSectionTitle,
   Accordion,
   CTA,
+  TestimonialCarousel,
 } from "../components/layout";
 
 //images
@@ -75,7 +76,11 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
           the learning experience but also equips students with the skills and
           insights necessary for success in an ever-evolving world.
         </p>
-        <img class="h-[220px] w-[350px] " src={BackToSchool.src} alt="back to school">
+        <img
+          class="h-[220px] w-[350px]"
+          src={BackToSchool.src}
+          alt="back to school"
+        />
       </div>
       <div class="flex flex-col pt-4">
         <Carousel
@@ -267,16 +272,37 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
 
   <!-- Testimonials -->
   <Section title="Parent's Testimonials" class="pb-[60px]">
-    <p class="mx-auto md:text-lg max-w-[80ch] text-justify">
-      Parents express genuine appreciation for the impactful school activities
-      in kindergarten, noting significant improvements in their children. The
-      holistic approach, including physical exercises and creative arts,
-      contributes to well-rounded development, leaving parents delighted to see
-      their children thrive in various aspects of their early education.
-    </p>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 w-full pt-16">
-    </div>
+    <TestimonialCarousel
+    testimonials={[
+      {
+        name: "John Doe",
+        text: "This is a fantastic service! I've seen a huge improvement in my child's development.",
+      },
+      {
+        name: "Jane Smith",
+        text: "I'm so happy with the progress my child has made. Highly recommended!",
+      },
+      {
+        name: "Bob Johnson",
+        text: "The holistic approach really makes a difference. My child is thriving in all areas.",
+      },
+      {
+        name: "John Doe",
+        text: "This is a fantastic service! I've seen a huge improvement in my child's development.",
+      },
+      {
+        name: "Jane Smith",
+        text: "I'm so happy with the progress my child has made. Highly recommended!",
+      },
+      {
+        name: "Bob Johnson",
+        text: "The holistic approach really makes a difference. My child is thriving in all areas.",
+      },
+    ]}
+  />
   </Section>
+  
+
 
   <!-- CTA button -->
   <CTA />
