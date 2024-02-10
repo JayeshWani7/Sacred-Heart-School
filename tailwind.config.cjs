@@ -6,6 +6,7 @@ export default {
 			colors: {
 				'primary': '#ED1E27',
 				'primary-dark': '#C11921',
+				'dark-slate': "#1a1a1a",
 			},
 			keyframes: {
 				wiggle: {

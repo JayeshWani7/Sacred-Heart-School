@@ -1,0 +1,311 @@
+---
+// Components
+import PageLayout from "../layouts/PageLayout.astro";
+import {
+  Section,
+  Carousel,
+  AlternateSectionTitle,
+  Accordion,
+  CTA,
+  TestimonialCarousel,
+} from "../components/layout";
+
+//images
+import PrimaryHero from "../assets/images/pre-school.webp";
+import BackToSchool from "../assets/images/schoolbag.png";
+//videos
+import ActivityVid1 from "../assets/videos/Motor-Skills1.mp4";
+import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
+---
+
+<PageLayout
+  title="Primary"
+  navtext="Home"
+  transparentNav={false}
+  buttonLink="/"
+  bgSrc={`url(${PrimaryHero.src})`}
+>
+  <p slot="hero-content" class="text-lg">Empowering Minds, Nurturing Futures</p>
+
+  <!-- Academics -->
+  <Section theme="accent" title="Academics" class="pb-[60px]">
+    <Accordion
+      tabs={[
+        {
+          title: "Curriculum",
+          text: "The Pre-preparatory Stage (Grade 1 and 2) and the Preparatory Stage (Grade 3 and 4) @ Sacred Heart School follow the CBSE Curriculum in accordance with the Nep 2020 and the NCF 2023. Making learning fun, instilling scientific temper through activity led TLM, holistic approach and nurturing every child is at the core of our system. ",
+        },
+        {
+          title: "Subjects",
+          text: "Pre-Preparatory Stage – The subjects taught are English, Hindi, Marathi, Environmental Studies and Mathematics. <br> Preparatory Stage – The subjects taught are English, Hindi, Marathi, Environmental Studies and Mathematics.",
+        },
+        {
+          title: "Planner",
+          text: `<a href='https://drive.google.com/file/d/120mv3HXXfNcxyY2fl0RYLa1opEdjKEYn/view?usp=drive_link'>Grade 1</a> <br> <a href='https://drive.google.com/file/d/1Eu1xX8ygRy1r2zewuz6mx7Es5OpazzTM/view?usp=drive_link'>Grade 2</a>  <br>  <a href='https://drive.google.com/file/d/1-2lItkUvP4WXQePttdLlnH3MPyq8WCEi/view?usp=drive_link'>Grade 3</a>  <br>  <a href='https://drive.google.com/file/d/1kPDkT-CAgIbzOXSOUZi6CXDoxSWxOVas/view?usp=drive_link'>Grade 4</a>`,
+        },
+      ]}
+    />
+    <!--Video section -->
+    <div
+      class="relative flex justify-center items-center bg-white h-[400px] w-[300px] rounded-md mx-auto sm:h-96 sm:w-[595px] md:h-[400px] md:w-[665px] lg:h-144 lg:w-[945px] xl:h-160 xl:w-[1050px]"
+    >
+      <div class="flex flex-col justify-center items-center">
+        <video
+          src=""
+          class="relative mx-auto h-[150px] w-[250px] bg-slate-400 rounded-md sm:h-[200px] sm:w-[300px] md:h-[250px] md:w-[400px] lg:h-[300px] lg:w-[600px]"
+        ></video>
+        <p class="text-slate-600 mt-3 italic">Your video description here</p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Beyond classroom -->
+  <Section class="pt-12 overflow-x-hidden">
+    <AlternateSectionTitle title="Beyond The Classroom" />
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
+      <div class="flex flex-col pt-4">
+        <p class="text-xl sm:text-2xl lg:text-3xl font-black left-bar">
+          Experiential Learning
+        </p>
+        <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pt-8"
+        >
+          Experiential learning stands as a dynamic and impactful approach to
+          education. By encouraging students to actively participate, reflect,
+          and apply their knowledge in real-world contexts, it not only enriches
+          the learning experience but also equips students with the skills and
+          insights necessary for success in an ever-evolving world.
+        </p>
+        <img
+          class="h-[220px] w-[350px]"
+          src={BackToSchool.src}
+          alt="back to school"
+        />
+      </div>
+      <div class="flex flex-col pt-4">
+        <Carousel
+          media={[ActivityVid1, ActivityVid2]}
+          id={"2"}
+          type="video"
+          theme="accent"
+        />
+      </div>
+      <div class="flex flex-col">
+        <p class="text-xl sm:text-2xl lg:text-3xl font-black pt-1 left-bar">
+          Pre Conceptual
+        </p>
+        <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] py-8"
+        >
+          Comprehension of a concept is enhanced when students engage in
+          practical application and embrace a "Learn by Doing" approach.
+          Experiencing a concept first-hand proves more effective than mere
+          lecturing, as students gain a deeper understanding. Pre-conceptual
+          activities play a crucial role in facilitating a better grasp of
+          concepts by aligning with students' sensibilities.
+        </p>
+        <Carousel
+          media={[ActivityVid1, ActivityVid2]}
+          id={"2"}
+          type="video"
+          theme="accent"
+        />
+      </div>
+      <div class="flex flex-col">
+        <p class="text-xl sm:text-2xl lg:text-3xl font-black pt-1 left-bar">
+          Integrated Learning
+        </p>
+        <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] py-8"
+        >
+          Integrated lessons go beyond traditional compartmentalization of
+          subjects, offering a more interconnected and dynamic approach to
+          education. By combining core academic subjects with subjects like art,
+          craft and sports and their hands-on or activity-based elements, these
+          lessons strive to create a well-rounded learning experience that
+          prepares students for the complexities of the real world.
+        </p>
+        <Carousel
+          media={[ActivityVid1, ActivityVid2]}
+          id={"2"}
+          type="video"
+          theme="accent"
+        />
+      </div>
+      <div class="flex flex-col">
+        <p class="text-xl sm:text-2xl lg:text-3xl font-black pt-1 left-bar">
+          Collaborative Learning
+        </p>
+        <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] py-8"
+        >
+          Collaborative lessons planned by collaborating 2 subjects and
+          interrelating their concepts for a better understanding leads to fun
+          learning in the most innovative way. It offers a dynamic and
+          interactive approach to education, promoting teamwork, communication
+          skills, and a deeper understanding of the subject matters. As students
+          actively contribute to their learning process, collaborative lessons
+          prepare them for the collaborative nature of the real world and equip
+          them with skills that extend beyond academic knowledge.
+        </p>
+        <Carousel
+          media={[ActivityVid1, ActivityVid2]}
+          id={"2"}
+          type="video"
+          theme="accent"
+        />
+      </div>
+      <div class="flex flex-col">
+        <p class="text-xl sm:text-2xl lg:text-3xl font-black pt-1 left-bar">
+          S.O.L.E
+        </p>
+        <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] py-8"
+        >
+          Self-Organized Learning Environment @ SHS represent a transformative
+          approach to education that places learners at the centre of their own
+          learning journey. By fostering curiosity, collaboration, and critical
+          thinking, our SOLE sessions equip students with the skills necessary
+          to navigate an ever-changing world. While challenges exist, the
+          potential benefits make the exploration and implementation of
+          self-organized learning environments a worthwhile endeavour in the
+          pursuit of a more student-centric education system.
+        </p>
+        <Carousel
+          media={[ActivityVid1, ActivityVid2]}
+          id={"2"}
+          type="video"
+          theme="accent"
+        />
+      </div>
+    </div>
+  </Section>
+
+  <!-- Events & sports -->
+  <Section theme="accent" class="pt-12">
+    <AlternateSectionTitle title="Events/Competition & Sports" theme="accent" />
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
+      <iframe
+        class="flex items-center justify-center w-full md:w-full h-[350px] rounded-xl sm:w-[500px]"
+        src="https://www.youtube.com/embed/A3_-9jT9Bsw?si=y92NmSNI9Z7ohf1d"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+      <div>
+        <p
+          class="text-lg md:text-xl lg:text-xl xl:text-2xl md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        >
+          Shark Tank Competition
+        </p>
+        <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        >
+          Empowering our Gen Z with 21st-century skills and giving them various
+          platforms to showcase their confident personalities has always been
+          our priority. The Jr. Shark Tank Competition was one such platform
+          where students got a chance to showcase their entrepreneurial traits.
+          Our finalists pitched their business models to our judges and tried to
+          crack a mock deal with them.
+        </p>
+      </div>
+
+      <div>
+        <p
+          class="text-lg md:text-xl lg:text-xl xl:text-2xl md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        >
+          Math Fest
+        </p>
+        <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        >
+          Pet-assisted therapy is a game-changer in early childhood education,
+          especially for kindergarteners. Beyond the evident joy, it brings a
+          multitude of benefits, fostering emotional, social, and cognitive
+          growth.
+        </p>
+        <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch]"
+        >
+          Therapy pets create a secure environment, alleviating stress and
+          anxiety in children. The unconditional love and companionship they
+          offer lay a positive emotional foundation. Socially, interactions with
+          animals teach empathy, compassion, and responsibility, promoting
+          healthy relationship-building.
+        </p>
+      </div>
+      <iframe
+        class="flex items-center justify-center md:w-full w-full h-[350px] rounded-xl sm:w-[500px]"
+        src="https://www.youtube.com/embed/KY4wa6dZep8?si=D89V-20TbcaMlwbP"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+
+      <iframe
+        class="flex items-center justify-center md:w-full w-full h-[350px] rounded-xl sm:w-[500px]"
+        src="https://www.youtube.com/embed/2oeSZ4GpW9Q?si=FnXW23q_JzSAh9QT"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+      <div>
+        <p
+          class="text-lg md:text-xl lg:text-xl xl:text-2xl md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        >
+          Mystical Science Fiesta
+        </p>
+        <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        >
+          Pet-assisted therapy is a game-changer in early childhood education,
+          especially for kindergarteners. Beyond the evident joy, it brings a
+          multitude of benefits, fostering emotional, social, and cognitive
+          growth.
+        </p>
+        <p
+          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch]"
+        >
+          Therapy pets create a secure environment, alleviating stress and
+          anxiety in children. The unconditional love and companionship they
+          offer lay a positive emotional foundation. Socially, interactions with
+          animals teach empathy, compassion, and responsibility, promoting
+          healthy relationship-building.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Testimonials -->
+  <Section title="Parent's Testimonials" class="pb-[60px]">
+    <TestimonialCarousel
+      testimonials={[
+        {
+          name: "Hema Gerelani",
+          text: "It was a wonderful opportunity to attend kidventure carnival at SHS school. Great planning perfect execution n enjoyment is on the top of the world. Feeling blessed to be a part of such an amazing school. Thank u Sana tr.vidhi tr.suchita tr. for always being there to encourage our kids to perform better than the best. Unstoppable school with unstoppable Teachers",
+        },
+        {
+          name: "Vikas Shrivastava",
+          text: "Best school for your child's overall growth. School takes very good care of childrens and encourage them so they can move towards a good life and career. Best school for study and all types of activity.",
+        },
+        {
+          name: "Dhanashri Kankanwar",
+          text: "We enjoyed lot with kiddos nice and very innovative event arranged by school. All teachers/staff taking care of each student very nicely. Thanks lot teacher for inviting us to such events.",
+        },
+        {
+          name: "Latha Nair",
+          text: "It was a wonderful experience to spend time with our beloved sacred heart kids. We enjoyed a lot with them by making reels and clicking photos",
+        },
+        {
+          name: "Manali Fernandes",
+          text: "Sacred Heart school Kalyan is truly the BEST gift any parent can give their child. It is an amazing institution of education which nurtures my child and is shaping him to be the best human being",
+        },
+        {
+          name: "Deepak Singh",
+          text: "Very happy with Sacred Heart School. The staff and teachers are very nice. My daughter is constantly progressing at this school The values she is learning are excellent. Thanks to commitment and dedication.",
+        },
+        {
+          name: "Dr. Krutika Kapare Patankar",
+          text: "Sacred Heart School's Nursery program is exceptional. Dedicated teachers, a nurturing environment and a strong focus on values have greatly benefited my child's early education. Highly recommended!",
+        },
+      ]}
+    />
+  </Section>
+
+  <!-- CTA button -->
+  <CTA />
+</PageLayout>
