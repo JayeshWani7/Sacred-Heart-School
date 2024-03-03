@@ -9,6 +9,7 @@ import {
   CTA,
   TestimonialCarousel,
 } from "../components/layout";
+import Activity from "../components/academic/primary/Activity.astro";
 
 //images
 import PrimaryHero from "../assets/images/pre-school.webp";
@@ -62,25 +63,17 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
   <!-- Beyond classroom -->
   <Section class="pt-12 overflow-x-hidden">
     <AlternateSectionTitle title="Beyond The Classroom" />
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-28 w-full pt-12">
       <div class="flex flex-col pt-4">
-        <p class="text-xl sm:text-2xl lg:text-3xl font-black left-bar">
-          Experiential Learning
-        </p>
-        <p
-          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pt-8"
-        >
+        <p class="sub-section-title left-bar">Experiential Learning</p>
+        <p class="text-justify lg:max-w-[80ch] pt-8">
           Experiential learning stands as a dynamic and impactful approach to
           education. By encouraging students to actively participate, reflect,
           and apply their knowledge in real-world contexts, it not only enriches
           the learning experience but also equips students with the skills and
           insights necessary for success in an ever-evolving world.
         </p>
-        <img
-          class="h-[220px] w-[350px]"
-          src={BackToSchool.src}
-          alt="back to school"
-        />
+        <img class="h-60 w-min" src={BackToSchool.src} alt="back to school" />
       </div>
       <div class="flex flex-col pt-4">
         <Carousel
@@ -90,101 +83,85 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
           theme="accent"
         />
       </div>
-      <div class="flex flex-col">
-        <p class="text-xl sm:text-2xl lg:text-3xl font-black pt-1 left-bar">
-          Pre Conceptual
-        </p>
-        <p
-          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] py-8"
-        >
-          Comprehension of a concept is enhanced when students engage in
-          practical application and embrace a "Learn by Doing" approach.
-          Experiencing a concept first-hand proves more effective than mere
-          lecturing, as students gain a deeper understanding. Pre-conceptual
-          activities play a crucial role in facilitating a better grasp of
-          concepts by aligning with students' sensibilities.
-        </p>
+
+      <Activity
+        title="Pre Conceptual"
+        description={`Comprehension of a concept is enhanced when students engage in
+        practical application and embrace a "Learn by Doing" approach.
+        Experiencing a concept first-hand proves more effective than mere
+        lecturing, as students gain a deeper understanding. Pre-conceptual
+        activities play a crucial role in facilitating a better grasp of
+        concepts by aligning with students' sensibilities.`}
+      >
         <Carousel
           media={[ActivityVid1, ActivityVid2]}
           id={"2"}
           type="video"
           theme="accent"
         />
-      </div>
-      <div class="flex flex-col">
-        <p class="text-xl sm:text-2xl lg:text-3xl font-black pt-1 left-bar">
-          Integrated Learning
-        </p>
-        <p
-          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] py-8"
-        >
-          Integrated lessons go beyond traditional compartmentalization of
-          subjects, offering a more interconnected and dynamic approach to
-          education. By combining core academic subjects with subjects like art,
-          craft and sports and their hands-on or activity-based elements, these
-          lessons strive to create a well-rounded learning experience that
-          prepares students for the complexities of the real world.
-        </p>
+      </Activity>
+
+      <Activity
+        title="Integrated Learning"
+        description={`Integrated lessons go beyond traditional compartmentalization of
+        subjects, offering a more interconnected and dynamic approach to
+        education. By combining core academic subjects with subjects like art,
+        craft and sports and their hands-on or activity-based elements, these
+        lessons strive to create a well-rounded learning experience that
+        prepares students for the complexities of the real world.`}
+      >
         <Carousel
           media={[ActivityVid1, ActivityVid2]}
           id={"2"}
           type="video"
           theme="accent"
         />
-      </div>
-      <div class="flex flex-col">
-        <p class="text-xl sm:text-2xl lg:text-3xl font-black pt-1 left-bar">
-          Collaborative Learning
-        </p>
-        <p
-          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] py-8"
-        >
-          Collaborative lessons planned by collaborating 2 subjects and
+      </Activity>
+
+      <Activity
+        title="Collaborative Learning"
+        description={`Collaborative lessons planned by collaborating 2 subjects and
           interrelating their concepts for a better understanding leads to fun
           learning in the most innovative way. It offers a dynamic and
           interactive approach to education, promoting teamwork, communication
           skills, and a deeper understanding of the subject matters. As students
           actively contribute to their learning process, collaborative lessons
           prepare them for the collaborative nature of the real world and equip
-          them with skills that extend beyond academic knowledge.
-        </p>
+          them with skills that extend beyond academic knowledge.`}
+      >
         <Carousel
           media={[ActivityVid1, ActivityVid2]}
           id={"2"}
           type="video"
           theme="accent"
         />
-      </div>
-      <div class="flex flex-col">
-        <p class="text-xl sm:text-2xl lg:text-3xl font-black pt-1 left-bar">
-          S.O.L.E
-        </p>
-        <p
-          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] py-8"
-        >
-          Self-Organized Learning Environment @ SHS represent a transformative
+      </Activity>
+
+      <Activity
+        title="S.O.L.E"
+        description={`Self-Organized Learning Environment @ SHS represent a transformative
           approach to education that places learners at the centre of their own
           learning journey. By fostering curiosity, collaboration, and critical
           thinking, our SOLE sessions equip students with the skills necessary
           to navigate an ever-changing world. While challenges exist, the
           potential benefits make the exploration and implementation of
           self-organized learning environments a worthwhile endeavour in the
-          pursuit of a more student-centric education system.
-        </p>
+          pursuit of a more student-centric education system.`}
+      >
         <Carousel
           media={[ActivityVid1, ActivityVid2]}
           id={"2"}
           type="video"
           theme="accent"
         />
-      </div>
+      </Activity>
     </div>
   </Section>
 
   <!-- Events & sports -->
   <Section theme="accent" class="pt-12">
     <AlternateSectionTitle title="Events/Competition & Sports" theme="accent" />
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 w-full pt-12">
       <iframe
         class="flex items-center justify-center w-full md:w-full h-[350px] rounded-xl sm:w-[500px]"
         src="https://www.youtube.com/embed/A3_-9jT9Bsw?si=y92NmSNI9Z7ohf1d"
@@ -196,9 +173,7 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
         >
           Shark Tank Competition
         </p>
-        <p
-          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pb-4"
-        >
+        <p class="text-justify lg:max-w-[80ch] pb-4">
           Empowering our Gen Z with 21st-century skills and giving them various
           platforms to showcase their confident personalities has always been
           our priority. The Jr. Shark Tank Competition was one such platform
@@ -214,22 +189,14 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
         >
           Math Fest
         </p>
-        <p
-          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pb-4"
-        >
-          Pet-assisted therapy is a game-changer in early childhood education,
-          especially for kindergarteners. Beyond the evident joy, it brings a
-          multitude of benefits, fostering emotional, social, and cognitive
-          growth.
-        </p>
-        <p
-          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch]"
-        >
-          Therapy pets create a secure environment, alleviating stress and
-          anxiety in children. The unconditional love and companionship they
-          offer lay a positive emotional foundation. Socially, interactions with
-          animals teach empathy, compassion, and responsibility, promoting
-          healthy relationship-building.
+        <p class="text-justify lg:max-w-[80ch] pb-4">
+          Immerse yourself in the thrilling world of numbers at our Math Fest!
+          Join the excitement with Math Pictionary, engage in the
+          adrenaline-pumping Math Relay, and ascend the pyramid of knowledge
+          mastering ascending and descending order. Explore the geometry realm
+          discovering shape properties, and embark on a numerical journey with
+          Snake & Ladders. Unleash your mathematical prowess through these
+          exhilarating activities, creating a festival of fun and learning!
         </p>
       </div>
       <iframe
@@ -249,22 +216,14 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
         >
           Mystical Science Fiesta
         </p>
-        <p
-          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch] pb-4"
-        >
-          Pet-assisted therapy is a game-changer in early childhood education,
-          especially for kindergarteners. Beyond the evident joy, it brings a
-          multitude of benefits, fostering emotional, social, and cognitive
-          growth.
-        </p>
-        <p
-          class="text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium text-justify lg:max-w-[80ch]"
-        >
-          Therapy pets create a secure environment, alleviating stress and
-          anxiety in children. The unconditional love and companionship they
-          offer lay a positive emotional foundation. Socially, interactions with
-          animals teach empathy, compassion, and responsibility, promoting
-          healthy relationship-building.
+        <p class="text-justify lg:max-w-[80ch] pb-4">
+          Step into the enchanting world of the Mythical Science Fiesta, a
+          magical journey introducing young minds to the wonders of science.
+          Uncover the secrets of daily life with captivating experiments,
+          mythical scientific encounters, and interactive displays. Transform
+          mundane moments into extraordinary discoveries, sparking curiosity and
+          revealing the enchantment of science in our everyday world. A
+          fantastical adventure awaits, inspiring the scientists of tomorrow!
         </p>
       </div>
     </div>
@@ -309,3 +268,8 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
   <!-- CTA button -->
   <CTA />
 </PageLayout>
+<style>
+  .sub-section-title {
+    @apply text-xl md:text-2xl font-black;
+  }
+</style>
