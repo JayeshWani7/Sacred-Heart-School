@@ -12,5 +12,6 @@ import AlternateSectionTitle from "./SectionTitle.astro";
 import TestimonialCarousel from "./TestimonialCarousel.astro";
 import ActivityList from "./ActivityList.astro";
 import Accordion from "./Accordion.astro";
+import CarouselSubtext from "./CarouselSubtext.astro"
 
-export { CTA, Hero, Navbar, OutlineBtn, Section, SectionTitle, SocialBtn, Footer, Carousel, AlternateCarousel, AlternateSectionTitle, TestimonialCarousel, ActivityList, Accordion }
+export { CTA, Hero, Navbar, OutlineBtn, Section, SectionTitle, SocialBtn, Footer, Carousel, AlternateCarousel, AlternateSectionTitle, TestimonialCarousel, ActivityList, Accordion, CarouselSubtext }

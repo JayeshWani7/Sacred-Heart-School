@@ -1,0 +1,150 @@
+---
+import { type slide } from "./types";
+
+import { Next, Prev } from "../../assets/icons";
+
+// Swiper CSS
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+import { Image } from "astro:assets";
+
+interface Props {
+    id: string;
+    slides: slide[];
+    theme?: string;
+}
+
+const props = Astro.props as Props;
+---
+
+<style>
+    .swiper {
+        /* width: 100%; */
+        /* padding-top: 50px;
+        padding-bottom: 50px; */
+    }
+
+    .swiper-text {
+        margin: 0;
+        text-align: center;
+        width: 450px;
+    }
+
+    .swiper-slide.wi {
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        /* height: 300px; */
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+    }
+</style>
+
+<custom-carousel-subtext data-id={props.id}>
+    <!-- images -->
+    <div class="swiper" id={"i-" + props.id}>
+        <div class="swiper-wrapper">
+            {
+                props.slides.map((slide) => (
+                    <div class="swiper-slide wi">
+                        <Image src={slide.img} alt={slide.title} />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+    <!-- Pagination -->
+    <div
+        class={(props.theme == "accent"
+            ? "[--swiper-pagination-color:#FFFFFF] [--swiper-pagination-bullet-inactive-color:#FFFFFF] [--swiper-pagination-bullet-inactive-opacity:0.4]"
+            : "[--swiper-pagination-color:#ED1E27]") +
+            " text-center swiper-pagination_" +
+            props.id}
+    >
+    </div>
+    <div class="flex justify-center">
+        <!-- Prev Button -->
+        <button class={"mr-4 slide-prev-swiper_" + props.id}>
+            <Fragment set:html={Prev} />
+        </button>
+        <!-- Text -->
+        <div class="swiper swiper-text" id={"t-" + props.id}>
+            <div class="swiper-wrapper">
+                {
+                    props.slides.map((slide) => (
+                        <div class="swiper-slide">
+                            <div>{slide.title}</div>
+                            <p>{slide.description}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+        <!-- Next Button -->
+        <button class={"ml-4 slide-next-swiper_" + props.id}>
+            <Fragment set:html={Next} />
+        </button>
+    </div>
+</custom-carousel-subtext>
+
+<!-- Initialize Swiper -->
+<script>
+    import Swiper from "swiper";
+    import {
+        EffectFade,
+        Autoplay,
+        Navigation,
+        Pagination,
+    } from "swiper/modules";
+
+    Swiper.use([EffectFade, Autoplay, Navigation, Pagination]);
+
+    class Carousel extends HTMLElement {
+        constructor() {
+            super();
+
+            const id = this.getAttribute("data-id");
+            console.log("Carousel ID: ", id);
+
+            const swiperImages = new Swiper(`#i-${id}`, {
+                loop: true,
+                effect: "coverflow",
+                centeredSlides: true,
+                initialSlide: 0,
+                slidesPerView: "auto",
+                coverflowEffect: {
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                navigation: {
+                    nextEl: ".slide-next-swiper_" + id,
+                    prevEl: ".slide-prev-swiper_" + id,
+                },
+                pagination: {
+                    el: ".swiper-pagination_" + id,
+                },
+            });
+
+            const swiperText = new Swiper("#t-" + id, {
+                loop: true,
+                fadeEffect: {
+                    crossFade: true,
+                },
+                navigation: {
+                    nextEl: ".slide-next-swiper_" + id,
+                    prevEl: ".slide-prev-swiper_" + id,
+                },
+            });
+        }
+    }
+
+    customElements.define("custom-carousel-subtext", Carousel);
+</script>

@@ -3,10 +3,27 @@
 import PageLayout from "../layouts/PageLayout.astro";
 
 // Components
-import { Section } from "../components/layout";
+import { Section, CarouselSubtext } from "../components/layout";
+
+// Types
+import type { slide } from "../components/layout/types";
 
 // Assets
 import SecondaryHero from "../assets/images/secondary/hero.png";
+const Electives = await Astro.glob(
+    "../assets/images/secondary/electives/*.webp",
+);
+import ElectiveDescription from "../assets/images/secondary/electives/description.json";
+
+const mappedElectives = Electives.map((elective) => {
+    const title = elective.default.src.split("/").pop().split(".")[0];
+    const img: ImageMetadata = elective.default;
+    const description = ElectiveDescription[title];
+    const obj: slide = { img, title, description };
+    return obj;
+});
+
+console.log(typeof mappedElectives[0].img);
 ---
 
 <PageLayout
@@ -36,5 +53,6 @@ import SecondaryHero from "../assets/images/secondary/hero.png";
             completes three elective courses tailored to their individual
             aptitudes.
         </p>
+        <CarouselSubtext slides={mappedElectives} id="1" />
     </Section>
 </PageLayout>
