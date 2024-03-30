@@ -15,10 +15,11 @@ import type { slide } from "../components/layout/types";
 
 // Assets
 import SecondaryHero from "../assets/images/secondary/hero.png";
+import ElectiveDescription from "../assets/images/secondary/electives/description.json";
+const gr10res = await Astro.glob("../assets/images/secondary/grade10res/*.jpg");
 const Electives = await Astro.glob(
     "../assets/images/secondary/electives/*.webp",
 );
-import ElectiveDescription from "../assets/images/secondary/electives/description.json";
 const LearningPathways = await Astro.glob(
     "../assets/images/secondary/learning-pathways/*.jpg",
 );
@@ -36,8 +37,6 @@ const ImageMapper = (glob: Record<string, any>[], description?: any) => {
 
 const mappedElectives = ImageMapper(Electives, ElectiveDescription);
 const mappedLearningPathways = ImageMapper(LearningPathways);
-
-console.log(mappedLearningPathways);
 ---
 
 <PageLayout
@@ -55,8 +54,9 @@ console.log(mappedLearningPathways);
         education that goes beyond the ordinary.
     </p>
 
+    <!-- Academics -->
     <Section theme="accent">
-        <CenterTitle title="Academics" />
+        <CenterTitle title="Academics" theme="accent" />
         <div class="p-10 rounded-md md:flex justify-evenly bg-white text-black">
             <div class="w-full md:w-1/2">
                 <h3 class="text-2xl font-bold mb-4">Excellence in Education</h3>
@@ -85,6 +85,23 @@ console.log(mappedLearningPathways);
         </div>
     </Section>
 
+    <!-- Grade 10 Result -->
+    <Section>
+        <CenterTitle title="Grade 10 Results" />
+        <div class="flex flex-wrap justify-center">
+            {
+                gr10res.map((img) => (
+                    <img
+                        src={img.default.src}
+                        alt="Grade 10 Results"
+                        class="w-1/2 md:w-1/4 mx-0 md:mx-4 border-2 md:border-4 border-yellow-400"
+                    />
+                ))
+            }
+        </div>
+    </Section>
+
+    <!-- Electives & Learning Pathways -->
     <Section title="Electives-Unlocking your Potential">
         <p class="mb-8">
             Sacred Heart School is committed to empowering students to pursue
