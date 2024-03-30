@@ -5,8 +5,8 @@ import PageLayout from "../layouts/PageLayout.astro";
 // Components
 import {
     Section,
+    CenterTitle,
     SectionTitle,
-    AlternateSectionTitle,
     CarouselSubtext,
 } from "../components/layout";
 
@@ -55,6 +55,36 @@ console.log(mappedLearningPathways);
         education that goes beyond the ordinary.
     </p>
 
+    <Section theme="accent">
+        <CenterTitle title="Academics" />
+        <div class="p-10 rounded-md md:flex justify-evenly bg-white text-black">
+            <div class="w-full md:w-1/2">
+                <h3 class="text-2xl font-bold mb-4">Excellence in Education</h3>
+                <p>
+                    Education takes on new dimensions, inspiring students to
+                    explore, learn, and grow. Our commitment to excellence
+                    extends beyond the classroom, creating an environment that
+                    nurtures intellectual curiosity and personal development.
+                </p>
+            </div>
+            <div class="divider md:divider-horizontal divider-error py-4"></div>
+            <div class="w-full md:w-1/2">
+                <h3 class="text-2xl font-bold mb-4">Curriculum</h3>
+                <p>
+                    Our curriculum adheres to the CBSE-based framework,
+                    strategically designed to foster intellectual growth and
+                    curiosity among our students.We focus on a well-rounded and
+                    challenging academic program with the goal of preparing
+                    students for success not only in higher education but also
+                    in their endeavors beyond the educational realm. Our devoted
+                    team of experienced educators is deeply passionate about
+                    kindling a love for knowledge and providing guidance
+                    throughout each student's educational journey.
+                </p>
+            </div>
+        </div>
+    </Section>
+
     <Section title="Electives-Unlocking your Potential">
         <p class="mb-8">
             Sacred Heart School is committed to empowering students to pursue
@@ -69,7 +99,7 @@ console.log(mappedLearningPathways);
         </p>
         <CarouselSubtext slides={mappedElectives} id="1" />
 
-        <AlternateSectionTitle title="Learning Pathways" />
+        <SectionTitle title="Learning Pathways" />
         <p class="mb-8">
             Join the festive spirit at Sacred Heart School, where celebrations
             create a vibrant tapestry of unity, joy, and unforgettable memories

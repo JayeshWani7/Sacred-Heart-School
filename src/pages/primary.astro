@@ -4,7 +4,8 @@ import PageLayout from "../layouts/PageLayout.astro";
 import {
   Section,
   Carousel,
-  AlternateSectionTitle,
+  CenterTitle,
+  SectionTitle,
   Accordion,
   CTA,
   TestimonialCarousel,
@@ -29,7 +30,8 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
   <p slot="hero-content" class="text-lg">Empowering Minds, Nurturing Futures</p>
 
   <!-- Academics -->
-  <Section theme="accent" title="Academics" class="pb-[60px]">
+  <Section theme="accent" class="pb-[60px]">
+    <CenterTitle title="Academics" theme="accent" />
     <Accordion
       tabs={[
         {
@@ -62,7 +64,7 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
 
   <!-- Beyond classroom -->
   <Section class="pt-12 overflow-x-hidden">
-    <AlternateSectionTitle title="Beyond The Classroom" />
+    <SectionTitle title="Beyond The Classroom" />
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 w-full">
       <div class="flex flex-col pt-4">
         <p class="text-xl md:text-2xl font-black left-bar pt-1">
@@ -162,7 +164,7 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
 
   <!-- Events & sports -->
   <Section theme="accent" class="pt-12">
-    <AlternateSectionTitle title="Events/Competition & Sports" theme="accent" />
+    <SectionTitle title="Events/Competition & Sports" theme="accent" />
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 w-full pt-12">
       <iframe
         class="flex items-center justify-center w-full md:w-full h-[350px] rounded-xl sm:w-[500px]"
@@ -232,7 +234,8 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
   </Section>
 
   <!-- Testimonials -->
-  <Section title="Parent's Testimonials">
+  <Section>
+    <CenterTitle title="Parent's Testimonials" />
     <TestimonialCarousel
       testimonials={[
         {

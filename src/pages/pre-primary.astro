@@ -4,7 +4,8 @@ import PageLayout from "../layouts/PageLayout.astro";
 import {
   Section,
   Carousel,
-  AlternateSectionTitle,
+  CenterTitle,
+  SectionTitle,
   Accordion,
 } from "../components/layout";
 
@@ -34,7 +35,8 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
   <p slot="hero-content" class="text-lg">Tiny Steps, Big Adventures</p>
 
   <!-- Academics -->
-  <Section theme="accent" title="Academics">
+  <Section theme="accent">
+    <CenterTitle title="Academics" theme="accent" />
     <Accordion
       tabs={[
         {
@@ -54,8 +56,7 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
   </Section>
 
   <!-- Experiential Learning -->
-  <Section class="pt-12 overflow-x-hidden">
-    <AlternateSectionTitle title="Experiential Learning" />
+  <Section class="pt-12 overflow-x-hidden" title="Experential Learning">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
       <div>
         <p class="text-justify lg:max-w-[80ch] pb-4">
@@ -96,11 +97,11 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
   </Section>
 
   <!-- Activities -->
-  <Section theme="accent" class="pt-12">
-    <AlternateSectionTitle
-      title="Fine Motor and Gross Motor Activities"
-      theme="accent"
-    />
+  <Section
+    theme="accent"
+    title="Fine Motor and Gross Motor Activities"
+    class="pt-12"
+  >
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 w-full pt-16">
       <Carousel
         media={[ActivityVid1, ActivityVid2]}
@@ -124,8 +125,7 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
   </Section>
 
   <!-- Sports & Events -->
-  <Section class="pt-12">
-    <AlternateSectionTitle title="Sports & Events" />
+  <Section class="pt-12" title="Sports & Events">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
       <div>
         <!-- text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium  -->
@@ -169,8 +169,7 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
   </Section>
 
   <!-- Therapy -->
-  <Section theme="accent" class="pt-12">
-    <AlternateSectionTitle title="Pet Assisted Therapy" theme="accent" />
+  <Section theme="accent" title="Pet Assisted Therapy" class="pt-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
       <Carousel
         media={[PetTherapy1, PetTherapy2, PetTherapy3]}
@@ -197,8 +196,7 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
   </Section>
 
   <!-- Life Skills & Values -->
-  <Section class="pt-12 bg-white/40">
-    <AlternateSectionTitle title="Life Skills & Moral Values" />
+  <Section class="pt-12 bg-white/40" title="Life Skills & Moral Values">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
       <div>
         <p class="text-justify lg:max-w-[80ch] pb-4">
@@ -227,7 +225,8 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
   </Section>
 
   <!-- Testimonials -->
-  <Section title="Parent's Testimonials" theme="accent">
+  <Section theme="accent">
+    <CenterTitle title="Parent's Testimonials" theme="accent" />
     <p class="mx-auto md:text-lg max-w-[80ch] text-justify">
       Parents express genuine appreciation for the impactful school activities
       in kindergarten, noting significant improvements in their children. The
