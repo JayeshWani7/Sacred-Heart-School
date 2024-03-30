@@ -2,7 +2,7 @@
 // Layout
 import RootLayout from "../layouts/RootLayout.astro";
 // Components
-import { CTA, Section, SocialBtn } from "../components/layout";
+import { CTA, CenterTitle, Section, SocialBtn } from "../components/layout";
 import {
   ContactUs,
   Objective,
@@ -20,7 +20,7 @@ import Principal from "../assets/images/Principal.webp";
 import HeroImg from "../assets/images/hero.webp";
 // import PlaceHolder from "../assets/images/Placeholder.jpg";
 
-const heroImg = `url(${HeroImg.src})`
+const heroImg = `url(${HeroImg.src})`;
 ---
 
 <RootLayout
@@ -150,7 +150,8 @@ const heroImg = `url(${HeroImg.src})`
     -->
   </Section>
 
-  <Section title="Explore our Activities & Infrastructure" theme="dark">
+  <Section theme="dark">
+    <CenterTitle title="Explore our Activities & Infrastructure" theme="dark" />
     <!--Activites Section of HomePage -->
     <div id="Activities"></div>
     <TaglineBox
