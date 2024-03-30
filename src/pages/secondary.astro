@@ -3,7 +3,12 @@
 import PageLayout from "../layouts/PageLayout.astro";
 
 // Components
-import { Section, CarouselSubtext } from "../components/layout";
+import {
+    Section,
+    SectionTitle,
+    AlternateSectionTitle,
+    CarouselSubtext,
+} from "../components/layout";
 
 // Types
 import type { slide } from "../components/layout/types";
@@ -14,16 +19,25 @@ const Electives = await Astro.glob(
     "../assets/images/secondary/electives/*.webp",
 );
 import ElectiveDescription from "../assets/images/secondary/electives/description.json";
+const LearningPathways = await Astro.glob(
+    "../assets/images/secondary/learning-pathways/*.jpg",
+);
 
-const mappedElectives = Electives.map((elective) => {
-    const title = elective.default.src.split("/").pop().split(".")[0];
-    const img: ImageMetadata = elective.default;
-    const description = ElectiveDescription[title];
-    const obj: slide = { img, title, description };
-    return obj;
-});
+const ImageMapper = (glob: Record<string, any>[], description?: any) => {
+    const mappedImages = glob.map((file) => {
+        const title = file.default.src.split("/").pop().split(".")[0];
+        const img: ImageMetadata = file.default;
+        const obj: slide = { img, title };
+        if (description) obj["description"] = ElectiveDescription[title];
+        return obj;
+    });
+    return mappedImages;
+};
 
-console.log(typeof mappedElectives[0].img);
+const mappedElectives = ImageMapper(Electives, ElectiveDescription);
+const mappedLearningPathways = ImageMapper(LearningPathways);
+
+console.log(mappedLearningPathways);
 ---
 
 <PageLayout
@@ -42,7 +56,7 @@ console.log(typeof mappedElectives[0].img);
     </p>
 
     <Section title="Electives-Unlocking your Potential">
-        <p>
+        <p class="mb-8">
             Sacred Heart School is committed to empowering students to pursue
             their interests and passions. Our elective courses go beyond being
             traditional subjects; they act as pathways to self-discovery, skill
@@ -54,5 +68,13 @@ console.log(typeof mappedElectives[0].img);
             aptitudes.
         </p>
         <CarouselSubtext slides={mappedElectives} id="1" />
+
+        <AlternateSectionTitle title="Learning Pathways" />
+        <p class="mb-8">
+            Join the festive spirit at Sacred Heart School, where celebrations
+            create a vibrant tapestry of unity, joy, and unforgettable memories
+            for our school community."
+        </p>
+        <CarouselSubtext slides={mappedLearningPathways} id="2" />
     </Section>
 </PageLayout>

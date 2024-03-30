@@ -29,7 +29,7 @@ const props = Astro.props as Props;
     .swiper-text {
         margin: 0;
         text-align: center;
-        width: 450px;
+        width: 50%;
     }
 
     .swiper-slide.wi {
@@ -78,8 +78,10 @@ const props = Astro.props as Props;
                 {
                     props.slides.map((slide) => (
                         <div class="swiper-slide">
-                            <div>{slide.title}</div>
-                            <p>{slide.description}</p>
+                            <div class="font-bold text-xl">{slide.title}</div>
+                            {slide.description && (
+                                <div class="text-sm">{slide.description}</div>
+                            )}
                         </div>
                     ))
                 }

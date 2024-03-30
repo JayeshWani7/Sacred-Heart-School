@@ -8,7 +8,8 @@ const { title, theme = "light" } = Astro.props as Props;
 ---
 
 <div
-  class={"mb-8 relative z-0 w-full " + (theme == "accent" ? "accent" : "light")}
+  class={"my-10 relative z-0 w-full " +
+    (theme == "accent" ? "accent" : "light")}
 >
   <p class="text-2xl sm:text-3xl lg:text-3xl font-black pt-1">
     {title}
