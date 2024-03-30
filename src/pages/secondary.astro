@@ -1,0 +1,40 @@
+---
+// Layout
+import PageLayout from "../layouts/PageLayout.astro";
+
+// Components
+import { Section } from "../components/layout";
+
+// Assets
+import SecondaryHero from "../assets/images/secondary/hero.png";
+---
+
+<PageLayout
+    title="Secondary"
+    navtext="Home"
+    transparentNav={false}
+    buttonLink="/"
+    bgSrc={`url(${SecondaryHero.src})`}
+>
+    <p slot="hero-content">
+        Welcome to Our Secondary Section. We invite you to explore the myriad
+        possibilities that await in our secondary section. Discover the
+        excitement of elective subjects, the practicality of life skills, and
+        the joy of lifelong learning. Together, let's embark on a journey of
+        education that goes beyond the ordinary.
+    </p>
+
+    <Section title="Electives-Unlocking your Potential">
+        <p>
+            Sacred Heart School is committed to empowering students to pursue
+            their interests and passions. Our elective courses go beyond being
+            traditional subjects; they act as pathways to self-discovery, skill
+            enhancement, and a holistic education that equips students for the
+            challenges of the future. Delve into exploration, actively
+            participate, and unlock your complete potential with the diverse
+            elective offerings we provide. At Sacred Heart School, each student
+            completes three elective courses tailored to their individual
+            aptitudes.
+        </p>
+    </Section>
+</PageLayout>
