@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 // Layout
 import PageLayout from "../layouts/PageLayout.astro";
 
@@ -8,6 +9,7 @@ import {
     CenterTitle,
     SectionTitle,
     CarouselSubtext,
+    Carousel,
 } from "../components/layout";
 
 // Types
@@ -16,15 +18,19 @@ import type { slide } from "../components/layout/types";
 // Assets
 import SecondaryHero from "../assets/images/secondary/hero.png";
 import ElectiveDescription from "../assets/images/secondary/electives/description.json";
-import IXSai from "../assets/images/secondary/insight-xchange/sai.png";
-import IXUsha from "../assets/images/secondary/insight-xchange/usha.png";
-import { Image } from "astro:assets";
+const IX = await Astro.glob("../assets/images/secondary/insight-xchange/*.png");
 const gr10res = await Astro.glob("../assets/images/secondary/grade10res/*.jpg");
 const Electives = await Astro.glob(
     "../assets/images/secondary/electives/*.webp",
 );
 const LearningPathways = await Astro.glob(
     "../assets/images/secondary/learning-pathways/*.jpg",
+);
+const integratedTech = await Astro.glob(
+    "../assets/images/secondary/integrated-tech/*.JPG",
+);
+const parentalInvolvement = await Astro.glob(
+    "../assets/images/secondary/parental-involvement/*.jpg",
 );
 
 const ImageMapper = (glob: Record<string, any>[], description?: any) => {
@@ -40,7 +46,7 @@ const ImageMapper = (glob: Record<string, any>[], description?: any) => {
 
 const mappedElectives = ImageMapper(Electives, ElectiveDescription);
 const mappedLearningPathways = ImageMapper(LearningPathways);
-const IX = [IXSai, IXUsha];
+const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
 ---
 
 <PageLayout
@@ -51,11 +57,12 @@ const IX = [IXSai, IXUsha];
     bgSrc={`url(${SecondaryHero.src})`}
 >
     <p slot="hero-content">
-        Welcome to Our Secondary Section. We invite you to explore the myriad
-        possibilities that await in our secondary section. Discover the
-        excitement of elective subjects, the practicality of life skills, and
-        the joy of lifelong learning. Together, let's embark on a journey of
-        education that goes beyond the ordinary.
+        Welcome to Our Secondary Section. We invite you to explore the myriad<br
+        />
+        possibilities that await in our secondary section.<br />
+        Discover the excitement of elective subjects, the practicality of life skills,
+        and the joy of lifelong learning.<br />
+        Together, let's embark on a journey of education that goes beyond the ordinary.
     </p>
 
     <!-- Academics -->
@@ -107,6 +114,7 @@ const IX = [IXSai, IXUsha];
         </div>
     </Section>
 
+    <!-- Insight Xchange -->
     <Section theme="accent">
         <div class="p-10 rounded-lg bg-white text-black">
             <div class="flex flex-col md:flex-row">
@@ -130,7 +138,7 @@ const IX = [IXSai, IXUsha];
                         IX.map((img) => {
                             return (
                                 <Image
-                                    src={img}
+                                    src={img.default}
                                     alt="Insight Xchange"
                                     class="w-[45%] h-min mx-2 border-2 md:border-4 border-yellow-400"
                                 />
@@ -144,7 +152,7 @@ const IX = [IXSai, IXUsha];
 
     <!-- Electives & Learning Pathways -->
     <Section title="Electives-Unlocking your Potential">
-        <p class="mb-8">
+        <p>
             Sacred Heart School is committed to empowering students to pursue
             their interests and passions. Our elective courses go beyond being
             traditional subjects; they act as pathways to self-discovery, skill
@@ -158,11 +166,74 @@ const IX = [IXSai, IXUsha];
         <CarouselSubtext slides={mappedElectives} id="1" />
 
         <SectionTitle title="Learning Pathways" />
-        <p class="mb-8">
+        <p>
             Join the festive spirit at Sacred Heart School, where celebrations
             create a vibrant tapestry of unity, joy, and unforgettable memories
             for our school community."
         </p>
         <CarouselSubtext slides={mappedLearningPathways} id="2" />
     </Section>
+
+    <!-- Integrated Tech -->
+    <Section theme="accent" title="Integrated Tech">
+        <div class="flex flex-col-reverse lg:flex-row justify-evenly">
+            <div class="w-full lg:w-1/3">
+                <Carousel
+                    id="3"
+                    media={integratedTech.map((file) => file.default.src)}
+                    type="img"
+                    theme="accent"
+                />
+            </div>
+            <p class="rounded-lg text-black bg-white p-10 lg:w-1/3">
+                Sacred Heart School aligns with the demands of the modern world
+                by seamlessly incorporating technology into our teaching
+                methodologies. Our classrooms are furnished with
+                state-of-the-art facilities, fostering an environment in which
+                students not only engage in conventional learning but also
+                cultivate crucial digital literacy skills. This is achieved
+                through the incorporation of tablet-based learning and the
+                utilization of flipboards as instructional aids. Additionally,
+                we enhance the learning experience by integrating Alexa as
+                supplementary resource material.
+            </p>
+        </div>
+    </Section>
+
+    <Section title="Parental Involvement">
+        <p>
+            We believe that education is a collaborative effort between
+            students, educators, and parents. We encourage active participation
+            from parents and guardians, fostering a strong partnership to
+            support the academic and personal growth of our students.
+        </p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:px-44 xl:px-52">
+            {
+                mappedParentalInvolvement.map((activity) => {
+                    return (
+                        <div class="flex flex-col items-center">
+                            <Image
+                                src={activity.img}
+                                alt={activity.title}
+                                class="border-2 md:border-4 border-primary"
+                            />
+                            <div
+                                class="mt-5 relative py-2 px-2 lg:px-5 xl:px-10 max-w-[24ch] text-center font-bold
+        before:w-5 before:aspect-square before:absolute before:top-0 before:left-0 before:border-t-4 before:border-l-4 before:border-primary
+        after:w-5 after:aspect-square after:absolute after:border-b-4 after:bottom-0 after:right-0 after:border-r-4 after:border-primary"
+                            >
+                                {activity.title}
+                            </div>
+                        </div>
+                    );
+                })
+            }
+        </div>
+    </Section>
 </PageLayout>
+
+<style>
+    p {
+        @apply mb-8 text-justify;
+    }
+</style>
