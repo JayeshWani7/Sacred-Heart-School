@@ -16,6 +16,9 @@ import type { slide } from "../components/layout/types";
 // Assets
 import SecondaryHero from "../assets/images/secondary/hero.png";
 import ElectiveDescription from "../assets/images/secondary/electives/description.json";
+import IXSai from "../assets/images/secondary/insight-xchange/sai.png";
+import IXUsha from "../assets/images/secondary/insight-xchange/usha.png";
+import { Image } from "astro:assets";
 const gr10res = await Astro.glob("../assets/images/secondary/grade10res/*.jpg");
 const Electives = await Astro.glob(
     "../assets/images/secondary/electives/*.webp",
@@ -37,6 +40,7 @@ const ImageMapper = (glob: Record<string, any>[], description?: any) => {
 
 const mappedElectives = ImageMapper(Electives, ElectiveDescription);
 const mappedLearningPathways = ImageMapper(LearningPathways);
+const IX = [IXSai, IXUsha];
 ---
 
 <PageLayout
@@ -57,7 +61,7 @@ const mappedLearningPathways = ImageMapper(LearningPathways);
     <!-- Academics -->
     <Section theme="accent">
         <CenterTitle title="Academics" theme="accent" />
-        <div class="p-10 rounded-md md:flex justify-evenly bg-white text-black">
+        <div class="p-10 rounded-lg md:flex justify-evenly bg-white text-black">
             <div class="w-full md:w-1/2">
                 <h3 class="text-2xl font-bold mb-4">Excellence in Education</h3>
                 <p>
@@ -90,14 +94,51 @@ const mappedLearningPathways = ImageMapper(LearningPathways);
         <CenterTitle title="Grade 10 Results" />
         <div class="flex flex-wrap justify-center">
             {
-                gr10res.map((img) => (
-                    <img
-                        src={img.default.src}
-                        alt="Grade 10 Results"
-                        class="w-1/2 md:w-1/4 mx-0 md:mx-4 border-2 md:border-4 border-yellow-400"
-                    />
-                ))
+                gr10res.map((img) => {
+                    return (
+                        <img
+                            src={img.default.src}
+                            alt="Grade 10 Results"
+                            class="w-1/2 md:w-1/4 mx-0 md:mx-4 border-2 md:border-4 border-yellow-400"
+                        />
+                    );
+                })
             }
+        </div>
+    </Section>
+
+    <Section theme="accent">
+        <div class="p-10 rounded-lg bg-white text-black">
+            <div class="flex">
+                <div class="w-1/2">
+                    <h3 class="text-2xl font-bold mb-4">
+                        Insight Xchange Series
+                    </h3>
+                    <p>
+                        At Sacred Heart, we believe in providing our students
+                        with opportunities to expand their horizons and delve
+                        into specialized knowledge. Our Expert Sessions are
+                        designed to bring seasoned professionals, industry
+                        leaders, and subject matter experts into the educational
+                        realm, offering students a unique chance to gain
+                        insights, learn from real-world experiences, and connect
+                        with experts in various fields.
+                    </p>
+                </div>
+                <div class="w-1/2 flex">
+                    {
+                        IX.map((img) => {
+                            return (
+                                <Image
+                                    src={img}
+                                    alt="Insight Xchange"
+                                    class="w-[45%] h-min mx-2 border-2 md:border-4 border-yellow-400"
+                                />
+                            );
+                        })
+                    }
+                </div>
+            </div>
         </div>
     </Section>
 
