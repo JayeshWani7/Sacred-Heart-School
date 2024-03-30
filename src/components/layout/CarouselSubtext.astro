@@ -111,7 +111,6 @@ const props = Astro.props as Props;
             super();
 
             const id = this.getAttribute("data-id");
-            console.log("Carousel ID: ", id);
 
             const swiperImages = new Swiper(`#i-${id}`, {
                 loop: true,
