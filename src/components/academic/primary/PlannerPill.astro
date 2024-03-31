@@ -1,0 +1,100 @@
+---
+interface Props {
+    title: string;
+    href: string;
+}
+
+const { title, href } = Astro.props as Props;
+---
+
+<div class="ag-courses_item">
+    <a href={href} class="ag-courses-item_link">
+        <div class="ag-courses-item_bg"></div>
+
+        <div class="ag-courses-item_title">{title}</div>
+
+        <div class="ag-courses-item_date-box">
+            <span class="ag-courses-item_date"> Explore the Planner -></span>
+        </div>
+    </a>
+</div>
+
+<style>
+    .ag-courses_item {
+        -ms-flex-preferred-size: calc(33.33333% - 30px);
+        flex-basis: calc(33.33333% - 30px);
+
+        margin: 0 15px 30px;
+
+        overflow: hidden;
+
+        border-radius: 28px;
+    }
+    .ag-courses-item_link {
+        display: block;
+        padding: 30px 20px;
+        @apply bg-primary-dark;
+        /* background-color: #121212; */
+
+        overflow: hidden;
+
+        position: relative;
+    }
+    .ag-courses-item_link:hover,
+    .ag-courses-item_link:hover .ag-courses-item_date {
+        text-decoration: none;
+        color: #fff;
+    }
+    .ag-courses-item_link:hover .ag-courses-item_bg {
+        -webkit-transform: scale(10);
+        -ms-transform: scale(10);
+        transform: scale(10);
+    }
+    .ag-courses-item_title {
+        min-height: 20px;
+        margin: 0 0 10px;
+
+        overflow: hidden;
+
+        font-weight: bold;
+        /* font-size: 30px; */
+        @apply text-2xl;
+        color: #fff;
+
+        z-index: 2;
+        position: relative;
+    }
+    .ag-courses-item_date-box {
+        /* font-size: 18px; */
+        @apply text-base;
+        color: #fff;
+
+        z-index: 2;
+        position: relative;
+    }
+    .ag-courses-item_date {
+        /* font-weight: bold; */
+        /* color: #f9b234; */
+        text-decoration: underline;
+        -webkit-transition: color 0.5s ease;
+        -o-transition: color 0.5s ease;
+        transition: color 0.5s ease;
+    }
+    .ag-courses-item_bg {
+        height: 128px;
+        width: 128px;
+        /* background-color: #e44002; */
+        @apply bg-black;
+
+        z-index: 1;
+        position: absolute;
+        top: -75px;
+        right: -75px;
+
+        border-radius: 50%;
+
+        -webkit-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+</style>

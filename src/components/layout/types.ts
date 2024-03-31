@@ -9,7 +9,7 @@ type slide = {
 
 type tab = {
     title: string;
-    text: string;
+    text?: string | Record<string, any>;
 };
 
 type testimonial = {

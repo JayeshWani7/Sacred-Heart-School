@@ -2,6 +2,18 @@
 // Types
 import { type tab } from "./types";
 
+// Components
+import {
+  Curriculum as PrePrimaryCurriculum,
+  Subjects as PrePrimarySubjects,
+  Planner as PrePrimaryPlanner,
+} from "../../components/academic/pre-primary";
+import {
+  Curriculum as PrimaryCurriculum,
+  Subjects as PrimarySubjects,
+  Planner as PrimaryPlanner,
+} from "../../components/academic/primary";
+
 // Icons
 import { Document, BookOpen, Calender } from "../../assets/icons";
 
@@ -10,12 +22,13 @@ import { Document, BookOpen, Calender } from "../../assets/icons";
 // Calender - Planner
 
 interface Props {
+  section: string;
   tabs: tab[];
 }
 
 const book = `url(${BookOpen})`;
 
-const { tabs } = Astro.props as Props;
+const { section, tabs } = Astro.props as Props;
 ---
 
 <div
@@ -40,8 +53,25 @@ const { tabs } = Astro.props as Props;
             "tab-content p-6 bg-base-200 text-slate-600 rounded-md " +
             (idx == 1 ? "" : idx == 0 ? "rounded-tl-none" : "rounded-tr-none")
           }
-          set:html={tab.text}
-        />
+        >
+          {
+            /*section.toLowerCase() === "pre-primary" && (
+            <>
+              {tab.title === "Curriculum" && <PrePrimaryCurriculum />}
+              {tab.title === "Subjects" && <PrePrimarySubjects />}
+              {tab.title === "Planner" && <PrePrimaryPlanner />}
+            </>
+        )*/
+            section.toLowerCase() === "pre-primary" && tab.text
+          }
+          {section.toLowerCase() === "primary" && (
+            <>
+              {tab.title === "Curriculum" && <PrimaryCurriculum />}
+              {tab.title === "Subjects" && <PrimarySubjects />}
+              {tab.title === "Planner" && <PrimaryPlanner />}
+            </>
+          )}
+        </div>
       </>
     ))
   }
