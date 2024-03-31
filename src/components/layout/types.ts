@@ -6,9 +6,15 @@ type slide = {
     description?: string;
 }
 
+
+type tab = {
+    title: string;
+    text: string;
+};
+
 type testimonial = {
     name: string;
     text: string;
 }
 
-export type { slide, testimonial }
+export type { slide, tab, testimonial }

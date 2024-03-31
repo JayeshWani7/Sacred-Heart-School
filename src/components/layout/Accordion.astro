@@ -1,11 +1,19 @@
 ---
-interface tab {
-  title: string;
-  text: string;
-}
+// Types
+import { type tab } from "./types";
+
+// Icons
+import { Document, BookOpen, Calender } from "../../assets/icons";
+
+// Document - Curriculum
+// BookOpen - Syllabus
+// Calender - Planner
+
 interface Props {
   tabs: tab[];
 }
+
+const book = `url(${BookOpen})`;
 
 const { tabs } = Astro.props as Props;
 ---
@@ -22,7 +30,7 @@ const { tabs } = Astro.props as Props;
           type="radio"
           name="my_tabs_1"
           role="tab"
-          class="tab text-slate-200 checked:text-slate-600 sm:text-xl"
+          class="tab text-slate-200 checked:text-slate-600 sm:text-xl tab-logo"
           aria-label={tab.title}
           checked={idx == 0 ? true : false}
         />
@@ -33,12 +41,12 @@ const { tabs } = Astro.props as Props;
             (idx == 1 ? "" : idx == 0 ? "rounded-tl-none" : "rounded-tr-none")
           }
           set:html={tab.text}
-        ></div>
+        />
       </>
     ))
   }
 </div>
-<style>
+<style define:vars={{ book }}>
   .tabs > input:last-of-type()::before {
     background-image: var(--radius-start);
   }
