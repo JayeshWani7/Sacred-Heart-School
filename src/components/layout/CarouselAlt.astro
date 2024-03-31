@@ -1,20 +1,22 @@
 ---
 // Icons
 import { Next, Prev } from "../../assets/icons";
+import { type slide } from "./types";
 
 // Swiper CSS
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Image } from "astro:assets";
 
 interface Props {
-  items: Array<object>;
-  id: string;
+  slides: slide[];
+  id: number;
 }
-const { items, id } = Astro.props as Props;
+const { slides, id } = Astro.props as Props;
 ---
- <!-- !!! Not in use anymore !!! -->
 
+<!-- !!! Not in use anymore !!! -->
 <alternate-carousel data-id={id}>
   <div
     class="swiper-alt relative overflow-y-visible overflow-x-hidden"
@@ -22,25 +24,31 @@ const { items, id } = Astro.props as Props;
   >
     <div class="swiper-wrapper">
       {
-        items.map((item) => (
+        slides.map((item) => (
           <div
             class={
               "swiper-slide opacity-40 text-center transition-all duration-300 ease-in-out select-none"
             }
           >
-            <img
+            <Image
               class="swiper-img block w-full aspect-[16/9] object-cover shadow-md rounded-md"
               src={item.img}
+              alt={item.title}
             />
             <div class="item-info mt-16 transition-all duration-300 ease-in-out">
               <p class="md:text-xl font-semibold px-12">{item.title}</p>
-              <p class="text-sm md:text-base">{item.txt}</p>
+              <p class="text-sm md:text-base">{item.description}</p>
             </div>
           </div>
         ))
       }
     </div>
-    <div class={"[--swiper-pagination-color:#ED1E27] swiper-pagination swiper-pagination-swiper-alt_" + id}></div>
+    <div
+      class={"[--swiper-pagination-color:#ED1E27] swiper-pagination swiper-pagination-swiper-alt_" +
+        id}
+    >
+    </div>
+
     <!-- TODO: Either fix navigation buttons or remove them -->
     <!--
     <div class={"swiper-navigation swiper-navigation-swiper-alt_" + id}> 
@@ -127,9 +135,8 @@ const { items, id } = Astro.props as Props;
       let info = document.querySelector(".item-info");
 
       function init() {
-        document
-          .querySelector(".swiper-pagination-" + _id)
-          .style.setProperty("--slide-height", `${slide.offsetHeight}px`);
+        // This line gave warning
+        // document.querySelector(".swiper-pagination-" + _id).style.setProperty("--slide-height", `${slide.offsetHeight}px`);
         //  document.querySelector(".swiper-navigation-" + _id).style.setProperty("--slide-width", `${slide.offsetWidth}px`);
         //  document.querySelector(".swiper-navigation-" + _id).style.setProperty("--info-height", `${info.offsetHeight/2}px`);
       }

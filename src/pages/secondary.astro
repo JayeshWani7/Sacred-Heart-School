@@ -9,6 +9,7 @@ import {
     CenterTitle,
     SectionTitle,
     CarouselSubtext,
+    AlternateCarousel,
     Carousel,
 } from "../components/layout";
 
@@ -163,7 +164,8 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
             completes three elective courses tailored to their individual
             aptitudes.
         </p>
-        <CarouselSubtext slides={mappedElectives} id="1" />
+        <AlternateCarousel slides={mappedElectives} id={0} />
+        <!-- <CarouselSubtext slides={mappedElectives} id="1" /> -->
 
         <SectionTitle title="Learning Pathways" />
         <p>
@@ -171,7 +173,8 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
             create a vibrant tapestry of unity, joy, and unforgettable memories
             for our school community."
         </p>
-        <CarouselSubtext slides={mappedLearningPathways} id="2" />
+        <AlternateCarousel slides={mappedLearningPathways} id={1} />
+        <!-- <CarouselSubtext slides={mappedLearningPathways} id="2" /> -->
     </Section>
 
     <!-- Integrated Tech -->
