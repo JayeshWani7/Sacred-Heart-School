@@ -6,4 +6,9 @@ type slide = {
     description?: string;
 }
 
-export type { slide }
+type testimonial = {
+    name: string;
+    text: string;
+}
+
+export type { slide, testimonial }

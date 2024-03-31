@@ -1,4 +1,7 @@
 ---
+// Types
+import { type testimonial } from "./types";
+
 // Icons
 import { Next, Prev } from "../../assets/icons";
 
@@ -7,32 +10,40 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 interface Props {
-  testimonials: Array<object>;
+  testimonials: testimonial[];
 }
 const { testimonials } = Astro.props as Props;
 ---
+
 <div>
-  <div class="py-4 text-justify max-w-[80ch] mx-auto">Parents express genuine appreciation for the impactful school activities in kindergarten, noting significant improvements in their children. The holistic approach, including physical exercises and creative arts, contributes to well-rounded development, leaving parents delighted to see their children thrive in various aspects of their early education.</div>
-  <div class="swiper-testimonial overflow-hidden 
-  [--swiper-pagination-color:#FFFFFF] 
-  [--swiper-pagination-bullet-inactive-color:#FFFFFF] 
+  <div class="py-4 text-justify max-w-[80ch] mx-auto">
+    Parents express genuine appreciation for the impactful school activities in
+    kindergarten, noting significant improvements in their children. The
+    holistic approach, including physical exercises and creative arts,
+    contributes to well-rounded development, leaving parents delighted to see
+    their children thrive in various aspects of their early education.
+  </div>
+  <div
+    class="swiper-testimonial overflow-hidden
+  [--swiper-pagination-color:#FFFFFF]
+  [--swiper-pagination-bullet-inactive-color:#FFFFFF]
   [--swiper-pagination-bullet-inactive-opacity:0.4]"
   >
     <div class="swiper-wrapper">
-    {
-      testimonials.map((testimonial) => (
-        <div class="swiper-slide opacity-75 transition-all duration-300 ease-in-out">
-          <div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20 select-none">
-            <div>
-              <h2 class="text-gray-800 text-xl font-semibold">
-              {testimonial.name}
-              </h2>
-              <p class="mt-2 text-gray-600 text-sm">{testimonial.text}</p>
+      {
+        testimonials.map((testimonial) => (
+          <div class="swiper-slide opacity-75 transition-all duration-300 ease-in-out">
+            <div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20 select-none">
+              <div>
+                <h2 class="text-gray-800 text-xl font-semibold">
+                  {testimonial.name}
+                </h2>
+                <p class="mt-2 text-gray-600 text-sm">{testimonial.text}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))
-    }
+        ))
+      }
     </div>
     <div class="swiper-testimonial-pagination"></div>
   </div>
