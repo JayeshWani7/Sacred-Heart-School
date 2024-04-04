@@ -33,6 +33,7 @@ const soleImport = await Astro.glob("../assets/images/primary/sole/*");
 //videos
 import ActivityVid1 from "../assets/videos/Motor-Skills1.mp4";
 import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
+import Intro from "../assets/videos/primary-intro.mp4";
 
 const ImageMapper = (glob: Record<string, any>[]) => {
   const mappedImages = glob.map((file) => {
@@ -76,17 +77,36 @@ const sole = ImageMapper(soleImport);
       ]}
     />
     <!--Video section -->
-    <div
+    <div class="bg-white rounded-3xl p-8 lg:p-24">
+      <CenterTitle
+        title="Exploring the Essence of Sacred Hearts: A Glimpse into Sacred Hearts School "
+      />
+      <video
+        autoplay="true"
+        preload="true"
+        controls="true"
+        loop="false"
+        class="mx-auto rounded-3xl"
+      >
+        <source src={Intro} type="video/mp4" />
+      </video>
+    </div>
+    <!-- <div
       class="relative flex justify-center items-center bg-white h-[400px] w-[300px] rounded-md mx-auto sm:h-96 sm:w-[595px] md:h-[400px] md:w-[665px] lg:h-144 lg:w-[945px] xl:h-160 xl:w-[1050px]"
     >
       <div class="flex flex-col justify-center items-center">
         <video
-          src=""
-          class="relative mx-auto h-[150px] w-[250px] bg-slate-400 rounded-md sm:h-[200px] sm:w-[300px] md:h-[250px] md:w-[400px] lg:h-[300px] lg:w-[600px]"
-        ></video>
+          preload="true"
+          controls="true"
+          playsinline=""
+          loop="false"
+          class="relative mx-auto h-[150px] w-[250px] bg-transparent rounded-md sm:h-[200px] sm:w-[300px] md:h-[250px] md:w-[400px] lg:h-[300px] lg:w-[600px]"
+        >
+          <source src={Intro} type="video/mp4" /></video
+        >
         <p class="text-slate-600 mt-3 italic">Your video description here</p>
       </div>
-    </div>
+    </div> -->
   </Section>
 
   <!-- Beyond classroom -->
