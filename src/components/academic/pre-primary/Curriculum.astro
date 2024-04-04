@@ -1,1 +1,29 @@
-<div>Hello</div>
+---
+import { Image } from "astro:assets";
+import CurriculumImg from "../../../assets/images/accordian/Curriculum.png";
+---
+
+<div class="flex flex-col md:flex-row justify-evenly items-center">
+    <p class="md:w-1/2 lg:w-1/2 text-black">
+        The Foundational Stage (Nursery, Junior and Senior Kindergarten) follows
+        CBSE Curriculum in adherence to the National Education Policy (NEP)
+        2020. We focus on holistic development through play-based learning, a
+        multilingual approach, and integrated thematic activities. Emphasizing
+        early literacy and numeracy skills, the curriculum also incorporates
+        social and emotional learning, fostering empathy and cooperation.
+        Continuous assessment methods ensure a supportive and child-friendly
+        evaluation process, aligning with the NEP's vision for a well-rounded
+        and age-appropriate foundation that sparks a lifelong love for learning. <br
+        /><br /> Parental participation is pivotal in shaping their child's comprehensive
+        educational journey. Therefore, our school actively encourages and invites
+        parents to engage in various capacities, such as participating in assessments,
+        initiating programs or school events, and volunteering during sports days.
+        This collaborative approach not only strengthens the parent-school connection
+        but also enhances the overall educational experience for every child.
+    </p>
+    <Image
+        src={CurriculumImg}
+        alt="Curriculum"
+        class="md:w-1/2 md:h-auto lg:h-68 lg:w-auto"
+    />
+</div>

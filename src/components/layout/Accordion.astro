@@ -54,16 +54,13 @@ const { section, tabs } = Astro.props as Props;
             (idx == 1 ? "" : idx == 0 ? "rounded-tl-none" : "rounded-tr-none")
           }
         >
-          {
-            /*section.toLowerCase() === "pre-primary" && (
+          {section.toLowerCase() === "pre-primary" && (
             <>
               {tab.title === "Curriculum" && <PrePrimaryCurriculum />}
               {tab.title === "Subjects" && <PrePrimarySubjects />}
               {tab.title === "Planner" && <PrePrimaryPlanner />}
             </>
-        )*/
-            section.toLowerCase() === "pre-primary" && tab.text
-          }
+          )}
           {section.toLowerCase() === "primary" && (
             <>
               {tab.title === "Curriculum" && <PrimaryCurriculum />}
