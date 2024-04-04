@@ -1,4 +1,7 @@
 ---
+// Components
+import { Image } from "astro:assets";
+
 // Icons
 import { Next, Prev } from "../../assets/icons";
 
@@ -9,7 +12,7 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 interface Props {
-  media: Array<string>;
+  media: Array<string> | ImageMetadata[];
   id: string;
   type: string;
   theme?: string;
@@ -18,45 +21,55 @@ const { media, id, type, theme } = Astro.props as Props;
 ---
 
 <custom-carousel data-id={id} data-type={type}>
-    <div class="swiper overflow-hidden md:w-full px-2" id={"swiper_" + id}>
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        {
-        type == "img" 
-        ? media.map((photo) => (
-            <div class="swiper-slide h-full grid place-items-center">
-              <img
-                src={photo}
-                alt="image"
-                class="object-cover h-full w-full rounded-lg"
-              />
-            </div>
-          ))
-        : media.map((video) => (
-            <div class="swiper-slide grid place-items-center aspect-video bg-dark-slate rounded-xl shadow-lg">
-              <video preload="true" controls="true" class='h-full mx-auto' playsinline="" loop="false">
-                <source src={video} type="video/mp4"/>
-              </video>
-            </div>
-          ))
-        }
-      </div>
+  <div class="swiper overflow-hidden md:w-full px-2" id={"swiper_" + id}>
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      {
+        type == "img"
+          ? media.map((photo) => (
+              <div class="swiper-slide h-full grid place-items-center">
+                <Image
+                  src={photo}
+                  alt="image"
+                  class="object-cover h-full w-full rounded-lg"
+                />
+              </div>
+            ))
+          : media.map((video) => (
+              <div class="swiper-slide grid place-items-center aspect-video bg-dark-slate rounded-xl shadow-lg">
+                <video
+                  preload="true"
+                  controls="true"
+                  class="h-full mx-auto"
+                  playsinline=""
+                  loop="false"
+                >
+                  <source src={video} type="video/mp4" />
+                </video>
+              </div>
+            ))
+      }
     </div>
-    <div class="swiper-btns mt-3 flex items-center justify-between">
-      <div class={theme=="accent" ? "" : "text-primary"}>
-        <button class={"mr-4 slide-prev-swiper_" + id}>
-          <Fragment set:html={Prev} />
-        </button>
-        <button class={"ml-4 slide-next-swiper_" + id}>
-          <Fragment set:html={Next} />
-        </button>
-      </div>
-      <div class={(theme=="accent" ? 
-      "[--swiper-pagination-color:#FFFFFF] [--swiper-pagination-bullet-inactive-color:#FFFFFF] [--swiper-pagination-bullet-inactive-opacity:0.4]" : 
-      "[--swiper-pagination-color:#ED1E27]") + 
-      " swiper-pagination-swiper_" + id}></div>
+  </div>
+  <div class="swiper-btns mt-3 flex items-center justify-between">
+    <div class={theme == "accent" ? "" : "text-primary"}>
+      <button class={"mr-4 slide-prev-swiper_" + id}>
+        <Fragment set:html={Prev} />
+      </button>
+      <button class={"ml-4 slide-next-swiper_" + id}>
+        <Fragment set:html={Next} />
+      </button>
     </div>
+    <div
+      class={(theme == "accent"
+        ? "[--swiper-pagination-color:#FFFFFF] [--swiper-pagination-bullet-inactive-color:#FFFFFF] [--swiper-pagination-bullet-inactive-opacity:0.4]"
+        : "[--swiper-pagination-color:#ED1E27]") +
+        " swiper-pagination-swiper_" +
+        id}
+    >
+    </div>
+  </div>
 </custom-carousel>
 
 <style>
@@ -103,7 +116,7 @@ const { media, id, type, theme } = Astro.props as Props;
           dynamicBullets: true,
         },
       });
-      if(_type == "video") swiper.autoplay.stop();
+      if (_type == "video") swiper.autoplay.stop();
     }
   }
 

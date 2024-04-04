@@ -1,4 +1,5 @@
 ---
+import { ImageMetadata } from "astro";
 // Components
 import PageLayout from "../layouts/PageLayout.astro";
 import {
@@ -15,9 +16,37 @@ import Activity from "../components/academic/primary/Activity.astro";
 //images
 import PrimaryHero from "../assets/images/pre-school.webp";
 import BackToSchool from "../assets/images/schoolbag.png";
+const collaborativeLearningImport = await Astro.glob(
+  "../assets/images/primary/collaborative-learning/*.webp",
+);
+const experientialLearningImport = await Astro.glob(
+  "../assets/images/primary/experiential-learning/*",
+);
+const integratedLearningImport = await Astro.glob(
+  "../assets/images/primary/integrated-learning/*",
+);
+const preConceptualImport = await Astro.glob(
+  "../assets/images/primary/preconceptual/*",
+);
+const soleImport = await Astro.glob("../assets/images/primary/sole/*");
+
 //videos
 import ActivityVid1 from "../assets/videos/Motor-Skills1.mp4";
 import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
+
+const ImageMapper = (glob: Record<string, any>[]) => {
+  const mappedImages = glob.map((file) => {
+    const img: ImageMetadata = file.default;
+    return img;
+  });
+  return mappedImages;
+};
+
+const collaborativeLearning = ImageMapper(collaborativeLearningImport);
+const experientialLearning = ImageMapper(experientialLearningImport);
+const integratedLearning = ImageMapper(integratedLearningImport);
+const preConceptual = ImageMapper(preConceptualImport);
+const sole = ImageMapper(soleImport);
 ---
 
 <PageLayout
@@ -79,9 +108,9 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
       </div>
       <div class="flex flex-col pt-4">
         <Carousel
-          media={[ActivityVid1, ActivityVid2]}
+          media={experientialLearning}
           id={"1"}
-          type="video"
+          type="img"
           theme="accent"
         />
       </div>
@@ -95,12 +124,7 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
         activities play a crucial role in facilitating a better grasp of
         concepts by aligning with students' sensibilities.`}
       >
-        <Carousel
-          media={[ActivityVid1, ActivityVid2]}
-          id={"2"}
-          type="video"
-          theme="accent"
-        />
+        <Carousel media={preConceptual} id={"2"} type="img" theme="accent" />
       </Activity>
 
       <Activity
@@ -113,9 +137,9 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
         prepares students for the complexities of the real world.`}
       >
         <Carousel
-          media={[ActivityVid1, ActivityVid2]}
+          media={integratedLearning}
           id={"3"}
-          type="video"
+          type="img"
           theme="accent"
         />
       </Activity>
@@ -132,9 +156,9 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
           them with skills that extend beyond academic knowledge.`}
       >
         <Carousel
-          media={[ActivityVid1, ActivityVid2]}
+          media={collaborativeLearning}
           id={"4"}
-          type="video"
+          type="img"
           theme="accent"
         />
       </Activity>
@@ -150,12 +174,7 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
           self-organized learning environments a worthwhile endeavour in the
           pursuit of a more student-centric education system.`}
       >
-        <Carousel
-          media={[ActivityVid1, ActivityVid2]}
-          id={"5"}
-          type="video"
-          theme="accent"
-        />
+        <Carousel media={sole} id={"5"} type="img" theme="accent" />
       </Activity>
     </div>
   </Section>
