@@ -1,4 +1,4 @@
-import CTA from "./CTA.astro"
+import CTA from "./cta.astro"
 import Navbar from "./Navbar.astro";
 import Hero from "./Hero.astro";
 import OutlineBtn from "./OutlineBtn.astro";
