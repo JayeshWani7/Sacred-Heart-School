@@ -1,17 +1,20 @@
 ---
 // Layout
 import RootLayout from "../layouts/RootLayout.astro";
+
 // Components
+import { Image } from "astro:assets";
 import { CTA, CenterTitle, Section, SocialBtn } from "../components/layout";
 import {
+  AcademicSection,
   ContactUs,
   Objective,
   VisionMission,
   DeskMessage,
   TaglineBox,
-  HighlightTile,
   ImageCard,
 } from "../components/home";
+
 // Images
 import About from "../assets/images/About.webp";
 import MissionImg from "../assets/images/Mission.webp";
@@ -19,6 +22,14 @@ import VisionImg from "../assets/images/Vision.webp";
 import Principal from "../assets/images/Principal.webp";
 import HeroImg from "../assets/images/hero.webp";
 // import PlaceHolder from "../assets/images/Placeholder.jpg";
+
+// Icons
+import {
+  Dice,
+  AcademicCap,
+  Beaker,
+  ChartBar,
+} from "../assets/icons/academic-sections";
 
 const heroImg = `url(${HeroImg.src})`;
 ---
@@ -71,9 +82,36 @@ const heroImg = `url(${HeroImg.src})`;
 		</div>
 	</Section> -->
 
+  <!-- Academic Sections -->
+  <Section theme="dark">
+    <div class="bg-white/20 mx-auto w-3/4 2xl:w-1/2 py-10 px-12">
+      <CenterTitle title="Explore Our Academic Divisions" theme="dark" />
+      <div class="flex justify-evenly">
+        <!-- Pre-Primary -->
+        <AcademicSection href="/pre-primary" title="Pre-Primary">
+          <Dice slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <!-- Primary -->
+        <AcademicSection href="/primary" title="Primary">
+          <AcademicCap slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <!-- Secondary -->
+        <AcademicSection href="/secondary" title="Secondary">
+          <Beaker slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <!-- Higher Secondary -->
+        <AcademicSection href="/higher-secondary" title="Higher<br/>Secondary">
+          <ChartBar slot="icon" height={8} width={8} />
+        </AcademicSection>
+      </div>
+    </div>
+  </Section>
+
   <!-- About -->
   <Section theme="dark">
-    <div id="About"></div>
     <DeskMessage
       title="About Us"
       image={About}

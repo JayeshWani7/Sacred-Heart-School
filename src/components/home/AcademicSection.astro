@@ -1,0 +1,25 @@
+---
+interface Props {
+    title: string;
+    href: string;
+}
+
+const { title, href } = Astro.props as Props;
+---
+
+<style>
+    .academic-section {
+        text-align: center;
+    }
+
+    .academic-section a {
+        @apply p-4 mb-4 btn btn-circle btn-outline text-white hover:bg-white h-auto w-auto;
+    }
+</style>
+
+<div class="academic-section">
+    <a href={href}>
+        <slot name="icon" />
+    </a>
+    <div set:html={title} />
+</div>
