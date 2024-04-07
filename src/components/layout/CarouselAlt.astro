@@ -19,7 +19,7 @@ const { slides, id } = Astro.props as Props;
 <!-- !!! Not in use anymore !!! -->
 <alternate-carousel data-id={id}>
   <div
-    class="swiper-alt relative overflow-y-visible overflow-x-hidden"
+    class="swiper-alt relative z-0 overflow-y-visible overflow-x-hidden"
     id={"swiper-alt_" + id}
   >
     <div class="swiper-wrapper">
@@ -48,14 +48,12 @@ const { slides, id } = Astro.props as Props;
         id}
     >
     </div>
-
-    <!-- TODO: Either fix navigation buttons or remove them -->
-    <!--
+    
     <div class={"swiper-navigation swiper-navigation-swiper-alt_" + id}> 
-      <div aria-label="Previous" class={"swiper-nav-btn swiper-button-prev-swiper-alt_" + id}></div>
-      <div aria-label="Next" class={"swiper-nav-btn swiper-button-next-swiper-alt_" + id}></div>
+      <button aria-label="Previous" class={"p-4 swiper-nav-btn swiper-button-prev-swiper-alt_" + id}><Fragment set:html={Prev} /></button>
+      <button aria-label="Next" class={"p-4 swiper-nav-btn swiper-button-next-swiper-alt_" + id}><Fragment set:html={Next} /></button>
     </div>
-    -->
+   
   </div>
 </alternate-carousel>
 
@@ -74,14 +72,16 @@ const { slides, id } = Astro.props as Props;
   }
   .swiper-nav-btn {
     --swiper-navigation-top-offset: 80%;
+    @apply scale-150;
   }
   .swiper-pagination {
     --swiper-pagination-top: calc(var(--slide-height) + 2rem);
     transition: top 0.1s ease-in-out;
   }
   .swiper-navigation {
-    --swiper-navigation-top-offset: calc(100% - var(--info-height));
-    --swiper-navigation-sides-offset: calc(50% - var(--slide-width) / 2);
+    top: calc(var(--slide-height) + 1rem);
+    gap: calc(3 * var(--slide-width) / 4);
+    @apply absolute z-50 flex m-auto left-1/2 -translate-x-1/2;
   }
 </style>
 
@@ -109,10 +109,10 @@ const { slides, id } = Astro.props as Props;
           dynamicBullets: true,
           clickable: true,
         },
-        //navigation: {
-        //  nextEl: ".swiper-button-next-" + _id,
-        //  prevEl: ".swiper-button-prev-" + _id,
-        //},
+        navigation: {
+         nextEl: ".swiper-button-next-" + _id,
+         prevEl: ".swiper-button-prev-" + _id,
+        },
         breakpoints: {
           // when window width is >= 320px
           320: {
@@ -131,14 +131,12 @@ const { slides, id } = Astro.props as Props;
           },
         },
       });
-      let slide = document.querySelector(".swiper-img");
-      let info = document.querySelector(".item-info");
+      let slide = document.querySelector<HTMLElement>(".swiper-img");
 
       function init() {
-        // This line gave warning
-        // document.querySelector(".swiper-pagination-" + _id).style.setProperty("--slide-height", `${slide.offsetHeight}px`);
-        //  document.querySelector(".swiper-navigation-" + _id).style.setProperty("--slide-width", `${slide.offsetWidth}px`);
-        //  document.querySelector(".swiper-navigation-" + _id).style.setProperty("--info-height", `${info.offsetHeight/2}px`);
+        document.querySelector<HTMLElement>(".swiper-pagination-" + _id)?.style.setProperty("--slide-height", `${slide?.offsetHeight}px`);
+         document.querySelector<HTMLElement>(".swiper-navigation-" + _id)?.style.setProperty("--slide-width", `${slide?.offsetWidth}px`);
+         document.querySelector<HTMLElement>(".swiper-navigation-" + _id)?.style.setProperty("--slide-height", `${slide?.offsetHeight}px`);
       }
 
       window.addEventListener("resize", () => {
