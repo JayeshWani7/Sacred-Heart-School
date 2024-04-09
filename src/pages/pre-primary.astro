@@ -6,6 +6,7 @@ import {
   Carousel,
   CenterTitle,
   SectionTitle,
+  VerticalCarousel,
   Accordion,
 } from "../components/layout";
 
@@ -104,10 +105,9 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
     class="pt-12"
   >
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 w-full pt-16">
-      <Carousel
+      <VerticalCarousel
         media={[ActivityVid1, ActivityVid2]}
-        id={"2"}
-        type="video"
+        id={"0"}
         theme="accent"
       />
       <p class="text-justify lg:max-w-[80ch]">
@@ -172,10 +172,9 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
   <!-- Therapy -->
   <Section theme="accent" title="Pet Assisted Therapy" class="pt-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-      <Carousel
+      <VerticalCarousel
         media={[PetTherapy1, PetTherapy2, PetTherapy3]}
-        id={"3"}
-        type="video"
+        id={"1"}
         theme="accent"
       />
       <div>
