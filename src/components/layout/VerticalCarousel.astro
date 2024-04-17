@@ -1,0 +1,113 @@
+---
+// Components
+import { Image } from "astro:assets";
+
+// Icons
+import { Next, Prev } from "../../assets/icons";
+
+// Swiper CSS
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+
+interface Props {
+  media: Array<string> | ImageMetadata[];
+  id: string;
+  theme?: string;
+}
+const { media, id, theme } = Astro.props as Props;
+---
+
+<vertical-carousel data-id={id}>
+  <div class="swiper px-2" id={"vert-swiper_" + id}>
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper max-h-96">
+      <!-- Slides -->
+      {
+        media.map((video) => (
+              <div class="swiper-slide max-h-96 aspect-[3/4]">
+                <video
+                  preload="true"
+                  controls="true"
+                  class="h-full mx-auto rounded-md shadow-sm"
+                  playsinline=""
+                  loop="false"
+                >
+                  <source src={video} type="video/mp4" />
+                </video>
+              </div>
+            ))
+      }
+    </div>
+  </div>
+  <div class="swiper-btns mt-3 flex items-center justify-between">
+    <div class={theme == "accent" ? "" : "text-primary"}>
+      <button class={"mr-4 slide-prev-vert-swiper_" + id}>
+        <Fragment set:html={Prev} />
+      </button>
+      <button class={"ml-4 slide-next-vert-swiper_" + id}>
+        <Fragment set:html={Next} />
+      </button>
+    </div>
+    <div
+      class={(theme == "accent"
+        ? "[--swiper-pagination-color:#FFFFFF] [--swiper-pagination-bullet-inactive-color:#FFFFFF] [--swiper-pagination-bullet-inactive-opacity:0.4]"
+        : "[--swiper-pagination-color:#ED1E27]") +
+        " swiper-pagination-vert-swiper_" +
+        id}
+    >
+    </div>
+  </div>
+</vertical-carousel>
+
+<style>
+  .swiper-pagination {
+    @apply relative;
+  }
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    @apply bottom-0;
+  }
+  .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    @apply left-0 translate-x-0;
+  }
+  .swiper-btns button {
+    @apply scale-150;
+  }
+</style>
+<script>
+  // Swiper
+  import Swiper from "swiper";
+  import { Autoplay, Navigation, Pagination } from "swiper/modules";
+
+  Swiper.use([Autoplay, Navigation, Pagination]);
+
+  class verticalCarousel extends HTMLElement {
+    constructor() {
+      super();
+
+      // Read the message from the data attribute.
+      const _id = "vert-swiper_" + this.dataset.id;
+      const swiper = new Swiper("#" + _id, {
+        direction: "vertical",
+        loop: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: ".slide-next-" + _id,
+          prevEl: ".slide-prev-" + _id,
+        },
+        pagination: {
+          el: ".swiper-pagination-" + _id,
+          dynamicBullets: true,
+          clickable: true,
+        },
+      });
+      swiper.autoplay.stop();
+    }
+  }
+
+  customElements.define("vertical-carousel", verticalCarousel);
+</script>
