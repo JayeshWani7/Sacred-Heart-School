@@ -32,8 +32,8 @@ import TestimonialVid1 from "../assets/videos/Testimonial1.mp4";
 import TestimonialVid2 from "../assets/videos/Testimonial2.mp4";
 import ExperientialVid1 from "../assets/videos/Experiential.mp4";
 import SportsVid from "../assets/videos/Sports.mp4";
-import PetTherapy1 from "../assets/videos/Pet-Therapy1.mp4";
-import PetTherapy2 from "../assets/videos/Pet-Therapy2.mp4";
+import PetTherapy1 from "../assets/videos/Pet-Therapy1.jpg";
+import PetTherapy2 from "../assets/videos/Pet-Therapy2.jpg";
 import PetTherapy3 from "../assets/videos/Pet-Therapy3.mp4";
 import ActivityVid1 from "../assets/videos/Motor-Skills1.mp4";
 import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
@@ -252,11 +252,7 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
   <div id="pet"></div>
   <Section theme="accent" title="Pet Assisted Therapy" class="pt-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-      <VerticalCarousel
-        media={[PetTherapy1, PetTherapy2, PetTherapy3]}
-        id={"1"}
-        theme="accent"
-      />
+      <VerticalCarousel media={[PetTherapy3]} id={"1"} theme="accent" />
       <div>
         <p class="text-justify lg:max-w-[80ch] pb-4">
           Pet-assisted therapy is a game-changer in early childhood education,
