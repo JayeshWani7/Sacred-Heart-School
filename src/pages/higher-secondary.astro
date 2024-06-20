@@ -20,7 +20,7 @@ import type { slide } from "../components/layout/types";
 import SecondaryHero from "../assets/images/secondary/hero.png";
 import ElectiveDescription from "../assets/images/secondary/electives/description.json";
 const IX = await Astro.glob("../assets/images/secondary/insight-xchange/*.png");
-const gr10res = await Astro.glob("../assets/images/secondary/grade10res/*.jpg");
+const gr10res = await Astro.glob("../assets/images/secondary/grade10res/2020-21.jpg");
 const Electives = await Astro.glob(
     "../assets/images/secondary/electives/*.webp",
 );
@@ -45,7 +45,7 @@ const ImageMapper = (glob: Record<string, any>[], description?: any) => {
     return mappedImages;
 };
 
-const mappedElectives = ImageMapper(Electives, ElectiveDescription);
+const mappedUnboundSeries = ImageMapper(Electives, ElectiveDescription);
 const mappedLearningPathways = ImageMapper(LearningPathways);
 const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
 ---
@@ -67,44 +67,74 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
         <div
             class="p-10 rounded-3xl md:flex justify-evenly bg-white text-black"
         >
-            <div class="w-full md:w-1/2">
-                <h3 class="text-2xl font-bold mb-4">Excellence in Education</h3>
+            <div class="w-full md:w-1/2  justify-center" >
+                <h3 class="text-2xl font-bold mb-4">Curriculum</h3>
                 <p>
-                    Education takes on new dimensions, inspiring students to
-                    explore, learn, and grow. Our commitment to excellence
-                    extends beyond the classroom, creating an environment that
-                    nurtures intellectual curiosity and personal development.
+                    The curriculum provided by CBSE is based on the <strong>National 
+                    Education Policy 2020</strong> and seeks to provide opportunities 
+                    for students to achieve excellence in learning. The 
+                    focus is to:
                 </p>
+                <ul>
+                    <li>• Encourage the application of knowledge and skills 
+                        in real-life problem-solving scenarios.
+                    </li>
+                    <li>• Promote critical and creative thinking aligned with 
+                        21st Century Skills in classrooms.
+                    </li>
+                    <li>• Learning at the school is thoughtfully curated to 
+                        provide a holistic mix of academic and experiential 
+                        learning for our adolescents to nurture them into 
+                        being sensible, joyful, and responsible adults of 
+                        tomorrow!
+                    </li>
+                </ul>
             </div>
             <div class="divider md:divider-horizontal divider-error py-4"></div>
             <div class="w-full md:w-1/2">
-                <h3 class="text-2xl font-bold mb-4">Curriculum</h3>
+                <h3 class="text-2xl font-bold mb-4">Subjects</h3>
                 <p>
-                    Our curriculum adheres to the CBSE-based framework,
-                    strategically designed to foster intellectual growth and
-                    curiosity among our students.We focus on a well-rounded and
-                    challenging academic program with the goal of preparing
-                    students for success not only in higher education but also
-                    in their endeavors beyond the educational realm. Our devoted
-                    team of experienced educators is deeply passionate about
-                    kindling a love for knowledge and providing guidance
-                    throughout each student's educational journey.
+                    The CBSE curriculum offers an eclectic mix of subjects 
+                    for the students to choose from; the major ones being 
+                    Physics, Chemistry, Biology, Mathematics, Accountancy, 
+                    Business Studies, Economics, Sociology, Psychology, 
+                    Computer Science, Painting, Physical Education etc. 
+                </p>
+                <p>Students can choose from the above subjects and electives 
+                    depending on the career stream finalized viz: Humanities, 
+                    Commerce & Science.
+                </p> 
+                <p>In addition to the core subjects, 
+                    students have a wide choice of Elective subjects viz: 
+                    Design, Music, Dance, VFX, Film Making etc.
                 </p>
             </div>
         </div>
     </Section>
 
-    <!-- Grade 10 Result -->
+    <!-- Grade 12 Result -->
     <Section>
-        <CenterTitle title="Grade 10 Results" />
-        <div class="flex flex-wrap justify-center">
+        <CenterTitle title="Grade 12 Results" />
+        <div class="flex flex-wrap justify-center gap-40" >
+            <div
+                    class="w-full md:w-1/5 mx-1 md:mx-4 p-4 bg-red-700 text-white font-bold flex flex-col items-center rounded-lg"
+                    style={{height:"200px", boxShadow: '10px 5px 10px grey' }}
+                >
+                <p>Top Scorers of JEE / NEET & CBSE Grade 12</p>
+                <ol>
+                    <li>1. Urmila Choudhary</li>
+                    <li>2. Sanjana Sidhwani</li>
+                    <li>3. Vaishnavi Thorava</li>
+                </ol>
+            </div>
             {
-                gr10res.map((img) => {
+                gr10res.map((img, index) => {
                     return (
                         <Image
+                            key={index}
                             src={img.default}
-                            alt="Grade 10 Results"
-                            class="w-1/2 md:w-1/4 mx-0 md:mx-4 border-2 md:border-4 border-yellow-400"
+                            alt="Grade 12 Results"
+                            className="w-1/2 md:w-1/4 mx-0 md:mx-4 border-2 md:border-4 border-yellow-400"
                         />
                     );
                 })
@@ -148,22 +178,17 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
         </div>
     </Section>
 
-    <!-- Electives & Learning Pathways -->
-    <Section title="Electives-Unlocking your Potential">
+    <!-- The UNBOUND Series -->
+    <Section title="The UNBOUND Series">
         <p>
-            Sacred Heart School is committed to empowering students to pursue
-            their interests and passions. Our elective courses go beyond being
-            traditional subjects; they act as pathways to self-discovery, skill
-            enhancement, and a holistic education that equips students for the
-            challenges of the future. Delve into exploration, actively
-            participate, and unlock your complete potential with the diverse
-            elective offerings we provide. At Sacred Heart School, each student
-            completes three elective courses tailored to their individual
-            aptitudes.
+            The 'Unbound Series' is a beautiful journey of intellectual talks, 
+            bringing forth untold narratives and hidden treasures that have 
+            shaped the course of humanity and the world at large in many ways. 
+            Each of this high profile guest talk series is poised to be an 
+            insightful expedition into the realms of imagination and possibility!
         </p>
-        <AlternateCarousel slides={mappedElectives} id={0} />
-        <!-- <CarouselSubtext slides={mappedElectives} id="1" /> -->
-
+        <AlternateCarousel slides={mappedUnboundSeries} id={0} />
+        <!-- <CarouselSubtext slides={mappedUnboundSeries} id="1" /> -->
         <SectionTitle title="Learning Pathways" />
         <p>
             Join the festive spirit at Sacred Heart School, where celebrations
@@ -200,34 +225,25 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
         </div>
     </Section>
 
-    <Section title="Parental Involvement">
-        <p>
-            We believe that education is a collaborative effort between
-            students, educators, and parents. We encourage active participation
-            from parents and guardians, fostering a strong partnership to
-            support the academic and personal growth of our students.
-        </p>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:px-44 xl:px-52">
-            {
-                mappedParentalInvolvement.map((activity) => {
-                    return (
-                        <div class="flex flex-col items-center">
-                            <Image
-                                src={activity.img}
-                                alt={activity.title}
-                                class="border-2 md:border-4 border-primary"
-                            />
-                            <div
-                                class="mt-5 relative py-2 px-2 lg:px-5 xl:px-10 max-w-[24ch] text-center font-bold
-        before:w-5 before:aspect-square before:absolute before:top-0 before:left-0 before:border-t-4 before:border-l-4 before:border-primary
-        after:w-5 after:aspect-square after:absolute after:border-b-4 after:bottom-0 after:right-0 after:border-r-4 after:border-primary"
-                            >
-                                {activity.title}
-                            </div>
-                        </div>
-                    );
-                })
-            }
+    <Section title="Sports Activities">
+        <div class="flex flex-col-reverse lg:flex-row justify-evenly">
+            <p class="rounded-lg text-black bg-white p-10 lg:w-2/5">
+                Our high school program draws a  fine balance between academics, 
+                sports and various skill enriching activites. This is essential 
+                to ensure our teenagers grow in a healthy environment that fosters 
+                physical fitness, psychological and social well being that are 
+                crucial in modern world's stressful setting. Moreover it enhances 
+                their resumes for college applications demonstrating well-rounded 
+                personalities.
+            </p>
+            <div class="w-full lg:w-2/5">
+                <Carousel
+                    id="3"
+                    media={integratedTech.map((file) => file.default)}
+                    type="img"
+                    theme="accent"
+                />
+            </div>
         </div>
     </Section>
 </PageLayout>
