@@ -17,10 +17,10 @@ import {
 import type { slide } from "../components/layout/types";
 
 // Assets
-import SecondaryHero from "../assets/images/secondary/hero.png";
+import SenoirSecondary from "../assets/images/senior-secondary/hero/hero.png";
 import ElectiveDescription from "../assets/images/secondary/electives/description.json";
 const IX = await Astro.glob("../assets/images/secondary/insight-xchange/*.png");
-const gr10res = await Astro.glob("../assets/images/secondary/grade10res/2020-21.jpg");
+const gr12res = await Astro.glob("../assets/images/senior-secondary/Urmila top rank 2024.jpg");
 const Electives = await Astro.glob(
     "../assets/images/secondary/electives/*.webp",
 );
@@ -55,7 +55,7 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
     navtext="Home"
     transparentNav={false}
     buttonLink="/"
-    bgSrc={`url(${SecondaryHero.src})`}
+    bgSrc={`url(${SenoirSecondary.src})`}
 >
     <p slot="hero-content">
         You are exploring Senior High School !!!
@@ -128,7 +128,7 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
                 </ol>
             </div>
             {
-                gr10res.map((img, index) => {
+                gr12res.map((img, index) => {
                     return (
                         <Image
                             key={index}
