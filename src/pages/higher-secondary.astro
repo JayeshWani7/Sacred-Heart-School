@@ -7,10 +7,10 @@ import PageLayout from "../layouts/PageLayout.astro";
 import {
     Section,
     CenterTitle,
-    SectionTitle,
     CarouselSubtext,
     AlternateCarousel,
     Carousel,
+    CTA
 } from "../components/layout";
 
 // Types
@@ -18,12 +18,7 @@ import type { slide } from "../components/layout/types";
 
 // Assets
 import SenoirSecondary from "../assets/images/senior-secondary/hero/hero2.png";
-import ElectiveDescription from "../assets/images/secondary/electives/description.json";
-const IX = await Astro.glob("../assets/images/secondary/insight-xchange/*.png");
 const gr12res = await Astro.glob("../assets/images/senior-secondary/Urmila top rank 2024.jpg");
-const Electives = await Astro.glob(
-    "../assets/images/secondary/electives/*.webp",
-);
 const UnboundSeries = await Astro.glob(
     "../assets/images/senior-secondary/unbound-series/*.png",
 );
@@ -42,6 +37,12 @@ const dontBreathe = await Astro.glob(
 const heritageWalks = await Astro.glob(
     "../assets/images/senior-secondary/heritage-walk/*.jpg",
 );
+const CollegeEvents = await Astro.glob(
+    "../assets/images/senior-secondary/college-events/*.jpg"
+);
+const CareerCounselling = await Astro.glob(
+    "../assets/images/senior-secondary/career-counselling/*.jpg"
+);
 
 const ImageMapper = (glob: Record<string, any>[], description?: any) => {
     const mappedImages = glob.map((file) => {
@@ -55,6 +56,9 @@ const ImageMapper = (glob: Record<string, any>[], description?: any) => {
 };
 
 const mappedUnboundSeries = ImageMapper(UnboundSeries);
+const mappedCollegeEvents = ImageMapper(CollegeEvents);
+const mappedCareerCounselling = ImageMapper(CareerCounselling);
+
 
 ---
 
@@ -125,7 +129,7 @@ const mappedUnboundSeries = ImageMapper(UnboundSeries);
         <CenterTitle title="Grade 12 Results" />
         <div class="flex flex-wrap justify-center gap-40" >
             <div
-                    class="w-full md:w-1/5 mx-1 md:mx-4 p-4 bg-red-700 text-white font-bold flex flex-col items-center rounded-lg"
+                    class="h-screen w-full md:w-1/5 mx-1 md:mx-4 p-4 bg-red-700 text-white font-bold flex flex-col items-center rounded-lg"
                     style={{height:"200px", boxShadow: '10px 5px 10px grey' }}
                 >
                 <p>Top Scorers of JEE / NEET & CBSE Grade 12</p>
@@ -151,7 +155,7 @@ const mappedUnboundSeries = ImageMapper(UnboundSeries);
     </Section>
     
     <!-- SHS Integrated Coaching -->
-    <Section theme="accent" class="bg-red-100 bg-opacity-10 bg-cover bg-center" >
+    <Section  theme="accent" class="bg-red-100 bg-opacity-10 bg-cover bg-center" >
         <div class="text-center">
             <p>
                 The SHS Integrated Coaching for JEE (Joint Entrance Examination), 
@@ -304,6 +308,42 @@ const mappedUnboundSeries = ImageMapper(UnboundSeries);
         </div>
     </Section>
     
+    <!-- Career Counselling -->
+    <Section theme="accent">
+        <CenterTitle title="Career Counselling" theme="accent" />
+        <div class="text-center">
+            <p>
+                One of the major highlights of our high school program is the 
+                personalized career counselling and profile building program 
+                for our students. Our students have a customized career road 
+                map to help build a diverse portfolio resulting in under graduate 
+                admission offers from top universities in the country and abroad. 
+                Complete handholding is provided by the career counseller for 
+                college admissions after Grade 12.
+            </p>
+        </div>
+        <div class="h-auto md:mx-8 lg:mx-10 xl:mx-5">
+            <AlternateCarousel slides={mappedCareerCounselling} id={5}/>
+        </div>
+    </Section>
+
+    <!-- College Events -->
+    <Section title="College Events">
+        <div class="justify-center items-center">
+            <p>
+                Grade 11 at Sacred Heart is a unique program designed to help our 
+                teenagers explore different paths and find their path to pursuing 
+                rewarding & joyful careers aligned with their skillsets and passion. 
+                Our high schoolers are far more confident of their career choices 
+                due to the expert support system, personalized career roadmap. diverse 
+                profile building activities for admission to top Universities.
+            </p>
+        </div>
+        <div class="h-auto md:mx-8 lg:mx-10 xl:mx-5">
+            <AlternateCarousel slides={mappedCollegeEvents} id={1}/>
+        </div>
+    </Section>
+
     <!-- Sports Activities -->
     <Section title="Sports Activities">
         <div class="flex flex-col-reverse lg:flex-row justify-evenly">
@@ -317,8 +357,8 @@ const mappedUnboundSeries = ImageMapper(UnboundSeries);
                 personalities.
             </p>
             <div class="w-full lg:w-2/5">
-                <Carousel
-                    id="5"
+                <Carousel 
+                    id="1"
                     media={sportsActivities.map((file) => file.default)}
                     type="img"
                     theme="accent"
@@ -326,8 +366,8 @@ const mappedUnboundSeries = ImageMapper(UnboundSeries);
             </div>
         </div>
     </Section>
+    <CTA/>
 </PageLayout>
-
 <style>
     p {
         @apply mb-8 text-justify;
