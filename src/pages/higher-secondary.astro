@@ -17,21 +17,30 @@ import {
 import type { slide } from "../components/layout/types";
 
 // Assets
-import SenoirSecondary from "../assets/images/senior-secondary/hero/hero.png";
+import SenoirSecondary from "../assets/images/senior-secondary/hero/hero2.png";
 import ElectiveDescription from "../assets/images/secondary/electives/description.json";
 const IX = await Astro.glob("../assets/images/secondary/insight-xchange/*.png");
 const gr12res = await Astro.glob("../assets/images/senior-secondary/Urmila top rank 2024.jpg");
 const Electives = await Astro.glob(
     "../assets/images/secondary/electives/*.webp",
 );
-const LearningPathways = await Astro.glob(
-    "../assets/images/secondary/learning-pathways/*.jpg",
+const UnboundSeries = await Astro.glob(
+    "../assets/images/senior-secondary/unbound-series/*.png",
 );
-const integratedTech = await Astro.glob(
-    "../assets/images/secondary/integrated-tech/*.webp",
+const sportsActivities = await Astro.glob(
+    "../assets/images/senior-secondary/sports/*.jpg",
 );
-const parentalInvolvement = await Astro.glob(
-    "../assets/images/secondary/parental-involvement/*.jpg",
+const learningFromTheLegend = await Astro.glob(
+    "../assets/images/senior-secondary/learning-from-legends/*.jpg",
+);
+const communityOutreachProgram = await Astro.glob(
+    "../assets/images/senior-secondary/community-outreach/*.jpg",
+);
+const dontBreathe = await Astro.glob(
+    "../assets/images/senior-secondary/don't-breathe/*.jpg",
+);
+const heritageWalks = await Astro.glob(
+    "../assets/images/senior-secondary/heritage-walk/*.jpg",
 );
 
 const ImageMapper = (glob: Record<string, any>[], description?: any) => {
@@ -45,9 +54,8 @@ const ImageMapper = (glob: Record<string, any>[], description?: any) => {
     return mappedImages;
 };
 
-const mappedUnboundSeries = ImageMapper(Electives, ElectiveDescription);
-const mappedLearningPathways = ImageMapper(LearningPathways);
-const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
+const mappedUnboundSeries = ImageMapper(UnboundSeries);
+
 ---
 
 <PageLayout
@@ -141,42 +149,55 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
             }
         </div>
     </Section>
-
-    <!-- Insight Xchange -->
-    <Section theme="accent">
-        <div class="p-10 rounded-lg bg-white text-black">
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2">
-                    <h3 class="text-2xl font-bold mb-4">
-                        Insight Xchange Series
-                    </h3>
-                    <p>
-                        At Sacred Heart, we believe in providing our students
-                        with opportunities to expand their horizons and delve
-                        into specialized knowledge. Our Expert Sessions are
-                        designed to bring seasoned professionals, industry
-                        leaders, and subject matter experts into the educational
-                        realm, offering students a unique chance to gain
-                        insights, learn from real-world experiences, and connect
-                        with experts in various fields.
-                    </p>
-                </div>
-                <div class="mt-4 md:mt-auto md:w-1/2 flex">
-                    {
-                        IX.map((img) => {
-                            return (
-                                <Image
-                                    src={img.default}
-                                    alt="Insight Xchange"
-                                    class="w-[45%] h-min mx-2 border-2 md:border-4 border-yellow-400"
-                                />
-                            );
-                        })
-                    }
-                </div>
-            </div>
+    
+    <!-- SHS Integrated Coaching -->
+    <Section theme="accent" class="bg-red-100 bg-opacity-10 bg-cover bg-center" >
+        <div class="text-center">
+            <p>
+                The SHS Integrated Coaching for JEE (Joint Entrance Examination), 
+                NEET (National Eligibility cum Entrance Test) & SAT (Scholastic 
+                Assessment Test) is available for students aspiring to pursue 
+                careers in Engineering, Medical or abroad.
+            </p>
+            <p class="mt-4">
+                Some of the key features of the program are:
+            </p>
+        </div>
+        <div class="p-8 bg-white bg-opacity-20 rounded shadow-lg backdrop-filter backdrop-blur-sm mt-4">
+            <ol class="list-decimal list-inside">
+                <li>
+                    Early Introduction and Counseling in high school to provide a 
+                    clear understanding of the goals and the expectations.
+                </li>
+                <li class="mt-2">
+                    Customized Academic Curriculum that integrates relevant subjects, 
+                    topics, and skill sets into the regular high school curriculum.
+                    This synchronized format ensures JEE & NEET students not only 
+                    perform well in the entrance exams but also excel in board exams, 
+                    eliminating undue stress.
+                </li>
+                <li class="mt-2">
+                    Specialized Coaching Faculty headed by IITian Mr. Pratik Tibrewal 
+                    and top academicians.
+                </li>
+                <li class="mt-2">
+                    Regular Mock Tests and Assessments helps targeted preparation 
+                    that's required for the competitive exams.
+                </li>
+                <li class="mt-2">
+                    Flexible Support for Individual Needs with varying learning 
+                    styles and pace. Additional tutoring and resources for those 
+                    who need extra support.
+                </li>
+            </ol>
+            <p class="mt-7">
+                In addition to these competitive exams, guidance and support is 
+                offered for other entrance exams including <strong>MH-CET, CUET, Design, 
+                Law & Management.</strong>
+            </p>
         </div>
     </Section>
+  
 
     <!-- The UNBOUND Series -->
     <Section title="The UNBOUND Series">
@@ -188,43 +209,102 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
             insightful expedition into the realms of imagination and possibility!
         </p>
         <AlternateCarousel slides={mappedUnboundSeries} id={0} />
-        <!-- <CarouselSubtext slides={mappedUnboundSeries} id="1" /> -->
-        <SectionTitle title="Learning Pathways" />
-        <p>
-            Join the festive spirit at Sacred Heart School, where celebrations
-            create a vibrant tapestry of unity, joy, and unforgettable memories
-            for our school community."
-        </p>
-        <AlternateCarousel slides={mappedLearningPathways} id={1} />
-        <!-- <CarouselSubtext slides={mappedLearningPathways} id="2" /> -->
     </Section>
 
-    <!-- Integrated Tech -->
-    <Section theme="accent" title="Integrated Tech">
-        <div class="flex flex-col-reverse lg:flex-row justify-evenly">
-            <div class="w-full lg:w-1/3">
+    <!-- Experiential Learning -->
+    <Section title="Experiential Learning">
+        <p>
+            We recognize that the 21st-century demands skills beyond traditional academic knowledge. 
+            It requires problem-solving abilities, adaptability, effective communication, and a 
+            deep understanding of the interconnectedness of knowledge across disciplines.  
+        </p>
+        <p>
+            In our Science classes, students don't just read about experiments; they design 
+            and conduct their own, developing a curiosity-driven approach to learning and 
+            striving to create ideas that can be patented one day!  Our Humanities courses 
+            extend beyond textbooks, with field trips, guest speakers, and community projects 
+            that bring history, literature, and social studies to life. Our Commerce students 
+            are exploring  partnerships with local businesses, organizations, and community leaders 
+            that provide students with real-world exposure, helping them make connections between what 
+            they learn in the classroom and its practical applications in various industries.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-20 p-8">
+            <div class="p-4">
+                <p><strong>Learning from the Legends!</strong></p>
+                <p>Learning from the legends in various fields is a priceless opportunity 
+                    that provides invaluable insights, inspiration, and guidance to our 
+                    students. The campus invites legends and pioneers from diverse fields 
+                    including Padma awardees, Arjuna awardees, Magsaysay awardees, acclaimed 
+                    artists, athletes and successful entrepreneurs who have left a lasting 
+                    impact in their respective domains. These interactions are extremely 
+                    valuable for our young minds to aspire and dream BIG!!!
+                </p>
                 <Carousel
-                    id="3"
-                    media={integratedTech.map((file) => file.default)}
+                    id="1"
+                    media={learningFromTheLegend.map((file) => file.default)}
                     type="img"
                     theme="accent"
                 />
             </div>
-            <p class="rounded-lg text-black bg-white p-10 lg:w-1/3">
-                Sacred Heart School aligns with the demands of the modern world
-                by seamlessly incorporating technology into our teaching
-                methodologies. Our classrooms are furnished with
-                state-of-the-art facilities, fostering an environment in which
-                students not only engage in conventional learning but also
-                cultivate crucial digital literacy skills. This is achieved
-                through the incorporation of tablet-based learning and the
-                utilization of flipboards as instructional aids. Additionally,
-                we enhance the learning experience by integrating Alexa as
-                supplementary resource material.
-            </p>
+            <div class="p-4">
+                <p><strong>Community Outreach Program</strong></p>
+                <p>The Sacred Heart School Model Village Project at Pendhri Gram Panchayat 
+                    enables Grade 11 & 12 students to engage in sustainable development 
+                    initiatives, including improving education, health, agriculture, and 
+                    tourism. These efforts align with UN SDGs and create new income opportunities 
+                    for local youth and women. Participating in these programs gives our 
+                    children firsthand experience of empathy, cultural understanding, 
+                    and community responsibility.
+                </p>
+                <Carousel
+                    id="1"
+                    media={communityOutreachProgram.map((file) => file.default)}
+                    type="img"
+                    theme="accent"
+                />
+            </div>
+            <div class="p-4">
+                <p><strong>The Don't Breathe Campaign</strong></p>
+                <p>In 2022, Khadakpada in Kalyan was featured among the top 10 polluted 
+                    cities in Asia with an AQI of 256, as reported by India Today. An 
+                    AQI between 201-200 is considered poor and alarming for young 
+                    children and adults alike. Grade 11 students designed a campaign 
+                    to raise awareness among the citizens of Kalyan, Ulhasnagar, and 
+                    the adjoining areas to pull Khadakpada off the list. Students' 
+                    action prompted Kalyan Dombivli Municipal Corporation to act, with 
+                    ongoing support from parents and citizens.
+                </p>
+                <Carousel
+                    id="2"
+                    media={dontBreathe.map((file) => file.default)}
+                    type="img"
+                    theme="accent"
+                />
+            </div>
+            <div class="p-4">
+                <p><strong>Heritage walks and Knowing he Legacy</strong></p>
+                <p>A Heritage Walk through Mumbai offers students a journey through 
+                    the city's rich history and culture, from the Asiatic Library to 
+                    Marine Drive, showcasing a fusion of the old and new. Similarly, 
+                    walks in historic Kalyan explore its resilience and diversity, 
+                    celebrating its role as the birthplace of the Indian Navy. Our 
+                    high school students have also collaborated with the CSMVS museum 
+                    on initiatives like the Sustained Enrichment Programme, Museum on 
+                    Wheels, and Think Museum.
+                </p>
+                <Carousel
+                    id="2"
+                    media={heritageWalks.map((file) => file.default)}
+                    type="img"
+                    theme="accent"
+                />
+            </div>
+        </div>
+
         </div>
     </Section>
-
+    
+    <!-- Sports Activities -->
     <Section title="Sports Activities">
         <div class="flex flex-col-reverse lg:flex-row justify-evenly">
             <p class="rounded-lg text-black bg-white p-10 lg:w-2/5">
@@ -238,8 +318,8 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
             </p>
             <div class="w-full lg:w-2/5">
                 <Carousel
-                    id="3"
-                    media={integratedTech.map((file) => file.default)}
+                    id="5"
+                    media={sportsActivities.map((file) => file.default)}
                     type="img"
                     theme="accent"
                 />
