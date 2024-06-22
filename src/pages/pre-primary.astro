@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 // Components
 import PageLayout from "../layouts/PageLayout.astro";
 import {
@@ -8,6 +10,7 @@ import {
   SectionTitle,
   VerticalCarousel,
   Accordion,
+  CTA
 } from "../components/layout";
 
 import { AcademicSection } from "../components/home";
@@ -37,6 +40,25 @@ import PetTherapy2 from "../assets/videos/Pet-Therapy2.jpg";
 import PetTherapy3 from "../assets/videos/Pet-Therapy3.mp4";
 import ActivityVid1 from "../assets/videos/Motor-Skills1.mp4";
 import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
+
+const parentTestimonials = await Astro.glob(
+  "../assets/images/pre-primary/parent-testimonials/*.png",
+);
+
+const experientialLearningImport = await Astro.glob(
+  "../assets/images/pre-primary/experiential-learning/*",
+);
+
+const ImageMapper = (glob: Record<string, any>[]) => {
+  const mappedImages = glob.map((file) => {
+    const img: ImageMetadata = file.default;
+    return img;
+  });
+  return mappedImages;
+};
+
+const experientialLearning = ImageMapper(experientialLearningImport);
+const mappedparentTestimonials = ImageMapper(parentTestimonials);
 ---
 
 <PageLayout
@@ -142,15 +164,12 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
           alt="Experiential Graphic"
           class="w-4/6 lg:w-1/2 absolute -top-24 lg:-top-36 -right-16 z-10 animate-[wiggle_20s_ease-in-out_infinite]"
         />
-        <video
-          preload="true"
-          controls="true"
-          class="w-full aspect-video rounded-lg shadow-lg"
-          playsinline=""
-          loop="false"
-        >
-          <source src={ExperientialVid1} type="video/mp4" />
-        </video>
+        <Carousel
+          media={experientialLearning}
+          id={"1"}
+          type="img"
+          theme="accent"
+        />
       </div>
     </div>
   </Section>
@@ -280,25 +299,12 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
       Parents express genuine appreciation for the impactful school activities
       in kindergarten, noting significant improvements in their children.
     </p>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 w-full pt-16">
-      <video
-        preload="true"
-        controls="true"
-        class="w-full aspect-video rounded-xl bg-dark-slate shadow-lg"
-        playsinline=""
-        loop="false"
-      >
-        <source src={TestimonialVid1} type="video/mp4" />
-      </video>
-      <video
-        preload="true"
-        controls="true"
-        class="w-full aspect-video rounded-xl bg-dark-slate shadow-lg"
-        playsinline=""
-        loop="false"
-      >
-        <source src={TestimonialVid2} type="video/mp4" />
-      </video>
-    </div>
+    <Carousel
+      media={mappedparentTestimonials}
+      id={"1"}
+      type="img"
+      theme="accent"
+    />
   </Section>
+  <CTA />
 </PageLayout>
