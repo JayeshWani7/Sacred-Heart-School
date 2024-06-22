@@ -6,6 +6,7 @@ import ExpLearning from "./ExpLearning.astro";
 import Sport from "./Sport.astro";
 import Pet from "./Pet.astro";
 import Parent from "./Parent.astro";
+import Events from "./Events.astro"
 
 
-export { AcademicCap, Beaker, ChartBar, Dice, ExpLearning, Sport, Pet, Parent };
+export { AcademicCap, Beaker, ChartBar, Dice, ExpLearning, Sport, Pet, Parent, Events };

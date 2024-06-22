@@ -11,10 +11,24 @@ import {
     AlternateCarousel,
     Carousel,
     CTA
+
 } from "../components/layout";
+
+import { 
+    Dice,
+    AcademicCap,
+    ExpLearning,
+    Beaker,
+    Sport,
+    Pet,
+    Parent,
+    ChartBar,
+    Events
+} from "../assets/icons/academic-sections";
 
 // Types
 import type { slide } from "../components/layout/types";
+import { AcademicSection } from "../components/home";
 
 // Assets
 import SenoirSecondary from "../assets/images/senior-secondary/hero/hero2.png";
@@ -73,8 +87,62 @@ const mappedCareerCounselling = ImageMapper(CareerCounselling);
         You are exploring Senior High School !!!
     </p>
 
+    <section class="relative pt-10">
+        <!-- Left Accents -->
+    
+        <!-- Right Accents -->
+    
+        <div
+          class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40"
+        >
+          <CenterTitle title="Page Content" theme="dark" />
+          <!-- With 4 Academic Sections -->
+    
+          <div class="grid grid-cols-2 gap-8 lg:flex justify-evenly">
+            <!-- With 3 Academic Sections -->
+            <!-- <div class="flex justify-evenly"> -->
+            <AcademicSection href="#academics" title="Academics">
+              <AcademicCap slot="icon" height={8} width={8} />
+            </AcademicSection>
+
+            <AcademicSection href="#grade12-results" title="Grade 12 Results">
+                <Beaker slot="icon" height={8} width={8} />
+            </AcademicSection>
+    
+            <AcademicSection
+              href="#experential-learning"
+              title="Experential Learning"
+            >
+              <ExpLearning slot="icon" height={8} width={8} />
+            </AcademicSection>
+
+            <AcademicSection href="#integrated-coaching" title="SHS Integrated Coaching">
+              <ChartBar slot="icon" height={8} width={8} />
+            </AcademicSection>
+    
+            <AcademicSection href="#unbound-series" title="The Unbound Series">
+              <Dice slot="icon" height={8} width={8} />
+            </AcademicSection>
+    
+            <AcademicSection href="#career-counselling" title="Career Counselling">
+              <Parent slot="icon" height={8} width={8} />
+            </AcademicSection>
+
+            <AcademicSection href="#college-events" title="College Events">
+                <Events slot="icon" height={8} width={8} />
+            </AcademicSection>
+
+            <AcademicSection href="#sports-activities" title="Sports">
+                <Sport slot="icon" height={8} width={8} />
+            </AcademicSection>
+          </div>
+        </div>
+    </section>
+
+
     <!-- Academics -->
-    <Section theme="accent">
+    <div id="academics" class="pt-10"></div>
+    <Section theme="accent" class="p-10">
         <CenterTitle title="Academics" theme="accent" />
         <div
             class="p-10 rounded-3xl md:flex justify-evenly bg-white text-black"
@@ -125,6 +193,7 @@ const mappedCareerCounselling = ImageMapper(CareerCounselling);
     </Section>
 
     <!-- Grade 12 Result -->
+    <div id="grade12-results"></div>
     <Section>
         <CenterTitle title="Grade 12 Results" />
         <div class="flex flex-wrap justify-center gap-40" >
@@ -155,6 +224,7 @@ const mappedCareerCounselling = ImageMapper(CareerCounselling);
     </Section>
     
     <!-- SHS Integrated Coaching -->
+    <div id="integrated-coaching"></div>
     <Section  theme="accent" class="bg-red-100 bg-opacity-10 bg-cover bg-center" >
         <div class="text-center">
             <p>
@@ -204,6 +274,7 @@ const mappedCareerCounselling = ImageMapper(CareerCounselling);
   
 
     <!-- The UNBOUND Series -->
+    <div id="unbound-series"></div>
     <Section title="The UNBOUND Series">
         <p>
             The 'Unbound Series' is a beautiful journey of intellectual talks, 
@@ -216,6 +287,7 @@ const mappedCareerCounselling = ImageMapper(CareerCounselling);
     </Section>
 
     <!-- Experiential Learning -->
+    <div id="experential-learning"></div>
     <Section title="Experiential Learning">
         <p>
             We recognize that the 21st-century demands skills beyond traditional academic knowledge. 
@@ -309,6 +381,7 @@ const mappedCareerCounselling = ImageMapper(CareerCounselling);
     </Section>
     
     <!-- Career Counselling -->
+    <div id="career-counselling"></div>
     <Section theme="accent">
         <CenterTitle title="Career Counselling" theme="accent" />
         <div class="text-center">
@@ -328,6 +401,7 @@ const mappedCareerCounselling = ImageMapper(CareerCounselling);
     </Section>
 
     <!-- College Events -->
+    <div id="college-events"></div>
     <Section title="College Events">
         <div class="justify-center items-center">
             <p>
@@ -345,6 +419,7 @@ const mappedCareerCounselling = ImageMapper(CareerCounselling);
     </Section>
 
     <!-- Sports Activities -->
+    <div id="sports-activities"></div>
     <Section title="Sports Activities">
         <div class="flex flex-col-reverse lg:flex-row justify-evenly">
             <p class="rounded-lg text-black bg-white p-10 lg:w-2/5">
