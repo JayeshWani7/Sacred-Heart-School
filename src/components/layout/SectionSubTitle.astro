@@ -1,0 +1,35 @@
+---
+interface Props {
+  title: string;
+  theme?: string; // 'dark' | 'light' default: 'light' determines the color of the title
+}
+
+const { title, theme = "light" } = Astro.props as Props;
+---
+
+<div
+  class={"my-10 relative z-0 w-full " +
+    (theme == "accent" ? "accent" : "light")}
+>
+  <p class="text-xl sm:text-2xl lg:text-2xl font-black pt-1" style="margin: 8px;">
+    {title}
+  </p>
+  <span
+    class="absolute h-6 w-1 bottom-1 md:32 opacity-90"
+  ></span>
+</div>
+
+<style>
+  .light {
+    @apply text-black;
+  }
+  .light > span {
+    @apply bg-primary;
+  }
+  .accent {
+    @apply text-white;
+  }
+  .accent > span {
+    @apply bg-white;
+  }
+</style>
