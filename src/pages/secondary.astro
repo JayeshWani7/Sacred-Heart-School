@@ -11,6 +11,7 @@ import {
     CarouselSubtext,
     AlternateCarousel,
     Carousel,
+    CTA
 } from "../components/layout";
 
 // Types
@@ -53,7 +54,7 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
 <PageLayout
     title="Secondary"
     navtext="Home"
-    transparentNav={false}
+    transparentNav={true}
     buttonLink="/"
     bgSrc={`url(${SecondaryHero.src})`}
 >
@@ -235,6 +236,7 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
             }
         </div>
     </Section>
+    <CTA />
 </PageLayout>
 
 <style>
