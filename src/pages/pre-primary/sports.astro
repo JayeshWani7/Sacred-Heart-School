@@ -1,0 +1,172 @@
+---
+import { Image } from "astro:assets";
+
+// Components
+import PageLayout from "../../layouts/PageLayout.astro";
+import {
+  Section,
+  Carousel,
+  CenterTitle,
+  SectionTitle,
+  VerticalCarousel,
+  Accordion,
+  CTA
+} from "../../components/layout";
+
+import { AcademicSection } from "../../components/home";
+
+import {
+  Dice,
+  AcademicCap,
+  ExpLearning,
+  Beaker,
+  ChartBar,
+  Sport,
+  Pet,
+  Parent,
+} from "../../assets/icons/academic-sections";
+
+// Images
+import PreSchoolHero from "../../assets/images/pre-school.webp";
+import LifeSkillsImg from "../../assets/images/pre-primary/LifeSkillsImg.png";
+import ExperientialGraphic from "../../assets/images/pre-primary/ExperientialGraphic.png";
+// Videos
+import TestimonialVid1 from "../../assets/videos/Testimonial1.mp4";
+import TestimonialVid2 from "../../assets/videos/Testimonial2.mp4";
+import ExperientialVid1 from "../../assets/videos/Experiential.mp4";
+import SportsVid from "../../assets/videos/Sports.mp4";
+import PetTherapy1 from "../../assets/videos/Pet-Therapy1.jpg";
+import PetTherapy2 from "../../assets/videos/Pet-Therapy2.jpg";
+import PetTherapy3 from "../../assets/videos/Pet-Therapy3.mp4";
+import ActivityVid1 from "../../assets/videos/Motor-Skills1.mp4";
+import ActivityVid2 from "../../assets/videos/Motor-Skills2.mp4";
+
+const parentTestimonials = await Astro.glob(
+  "../../assets/images/pre-primary/parent-testimonials/*.png",
+);
+
+const experientialLearningImport = await Astro.glob(
+  "../../assets/images/pre-primary/experiential-learning/*",
+);
+
+const ImageMapper = (glob: Record<string, any>[]) => {
+  const mappedImages = glob.map((file) => {
+    const img: ImageMetadata = file.default;
+    return img;
+  });
+  return mappedImages;
+};
+
+const experientialLearning = ImageMapper(experientialLearningImport);
+const mappedparentTestimonials = ImageMapper(parentTestimonials);
+---
+
+<PageLayout
+  title="Pre Primary"
+  navtext="Home"
+  transparentNav={true}
+  buttonLink="/"
+  bgSrc={`url(${PreSchoolHero.src})`}
+>
+  <p slot="hero-content" class="text-lg">Tiny Steps, Big Adventures</p>
+
+  <section class="relative pt-10">
+    <!-- Left Accents -->
+
+    <!-- Right Accents -->
+
+    <div
+      class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40"
+    >
+      <CenterTitle title="Page Content" theme="dark" />
+      <!-- With 4 Academic Sections -->
+
+      <div class="grid grid-cols-2 gap-8 lg:flex justify-evenly">
+        <!-- With 3 Academic Sections -->
+        <!-- <div class="flex justify-evenly"> -->
+        <!-- Pre-Primary -->
+        <AcademicSection href="../pre-primary/academics" title="Academics">
+          <AcademicCap slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <!-- Primary -->
+        <AcademicSection
+          href="../pre-primary/experential-learning"
+          title="Experential Learning"
+        >
+          <ExpLearning slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <!-- Secondary -->
+        <AcademicSection href="../pre-primary/motor-activities" title="Motor Activities">
+          <Beaker slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <!-- Higher Secondary -->
+        <AcademicSection href="../pre-primary/sports" title="Sports & Events">
+          <Sport slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="../pre-primary/pets" title="Pet Assisted Therapy">
+          <Pet slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="../pre-primary/life-skills" title="Life Skills & Moral Values">
+          <Dice slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="../pre-primary/parents" title="Parent's Testimonials">
+          <Parent slot="icon" height={8} width={8} />
+        </AcademicSection>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sports & Events -->
+  <div id="sports" class="pt-10"></div>
+  <Section class="pt-12" title="Sports & Events">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
+      <div>
+        <!-- text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium  -->
+        <p class="text-justify lg:max-w-[80ch] pb-4">
+          Students receive comprehensive training in dance, music, and yoga from
+          our in-house professional trainers. From initial instruction to
+          costume design and extra practice sessions, every aspect of their
+          artistic development is meticulously taken care of by the school.
+          Students and teachers celebrate various occasions throughout the year,
+          including Independence Day, Earth Day, the winter party, and more,
+          fostering a sense of community and cultural appreciation among our
+          students.
+        </p>
+        <p class="text-justify lg:max-w-[80ch]">
+          Engaging in sports is vital for our kindergarteners, fostering
+          physical development, teamwork, and discipline. The sports activities
+          include races, hola hoop challenge, skipping rope, yoga, hopping,
+          jumping and ball games. Team sports where student compete between
+          divisions, teach cooperation, while adhering to rules instills
+          discipline and perseverance.
+        </p>
+      </div>
+      <div class="w-full flex flex-col gap-6 items-center">
+        <video
+          preload="true"
+          controls="true"
+          class="w-full aspect-video rounded-lg shadow-lg"
+          playsinline=""
+          loop="false"
+        >
+          <source src={SportsVid} type="video/mp4" />
+        </video>
+        <div
+          class="relative p-2 max-w-[24ch] text-center
+        before:w-4 before:aspect-square before:absolute before:top-0 before:left-0 before:border-t-4 before:border-l-4 before:border-primary
+        after:w-4 after:aspect-square after:absolute after:border-b-4 after:bottom-0 after:right-0 after:border-r-4 after:border-primary"
+        >
+          Take a look at our Annual Sports Day 23-24
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <CTA />
+</PageLayout>

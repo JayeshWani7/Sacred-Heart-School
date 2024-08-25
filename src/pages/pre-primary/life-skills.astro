@@ -1,0 +1,152 @@
+---
+import { Image } from "astro:assets";
+
+// Components
+import PageLayout from "../../layouts/PageLayout.astro";
+import {
+  Section,
+  Carousel,
+  CenterTitle,
+  SectionTitle,
+  VerticalCarousel,
+  Accordion,
+  CTA
+} from "../../components/layout";
+
+import { AcademicSection } from "../../components/home";
+
+import {
+  Dice,
+  AcademicCap,
+  ExpLearning,
+  Beaker,
+  ChartBar,
+  Sport,
+  Pet,
+  Parent,
+} from "../../assets/icons/academic-sections";
+
+// Images
+import PreSchoolHero from "../../assets/images/pre-school.webp";
+import LifeSkillsImg from "../../assets/images/pre-primary/LifeSkillsImg.png";
+import ExperientialGraphic from "../../assets/images/pre-primary/ExperientialGraphic.png";
+// Videos
+import TestimonialVid1 from "../../assets/videos/Testimonial1.mp4";
+import TestimonialVid2 from "../../assets/videos/Testimonial2.mp4";
+import ExperientialVid1 from "../../assets/videos/Experiential.mp4";
+import SportsVid from "../../assets/videos/Sports.mp4";
+import PetTherapy1 from "../../assets/videos/Pet-Therapy1.jpg";
+import PetTherapy2 from "../../assets/videos/Pet-Therapy2.jpg";
+import PetTherapy3 from "../../assets/videos/Pet-Therapy3.mp4";
+import ActivityVid1 from "../../assets/videos/Motor-Skills1.mp4";
+import ActivityVid2 from "../../assets/videos/Motor-Skills2.mp4";
+
+const parentTestimonials = await Astro.glob(
+  "../../assets/images/pre-primary/parent-testimonials/*.png",
+);
+
+const experientialLearningImport = await Astro.glob(
+  "../../assets/images/pre-primary/experiential-learning/*",
+);
+
+const ImageMapper = (glob: Record<string, any>[]) => {
+  const mappedImages = glob.map((file) => {
+    const img: ImageMetadata = file.default;
+    return img;
+  });
+  return mappedImages;
+};
+
+const experientialLearning = ImageMapper(experientialLearningImport);
+const mappedparentTestimonials = ImageMapper(parentTestimonials);
+---
+
+<PageLayout
+  title="Pre Primary"
+  navtext="Home"
+  transparentNav={true}
+  buttonLink="/"
+  bgSrc={`url(${PreSchoolHero.src})`}
+>
+  <p slot="hero-content" class="text-lg">Tiny Steps, Big Adventures</p>
+
+  <section class="relative pt-10">
+    <!-- Left Accents -->
+
+    <!-- Right Accents -->
+
+    <div
+      class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40"
+    >
+      <CenterTitle title="Page Content" theme="dark" />
+      <!-- With 4 Academic Sections -->
+
+      <div class="grid grid-cols-2 gap-8 lg:flex justify-evenly">
+        <!-- With 3 Academic Sections -->
+        <!-- <div class="flex justify-evenly"> -->
+        <!-- Pre-Primary -->
+        <AcademicSection href="../pre-primary/academics" title="Academics">
+          <AcademicCap slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <!-- Primary -->
+        <AcademicSection
+          href="../pre-primary/experential-learning"
+          title="Experential Learning"
+        >
+          <ExpLearning slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <!-- Secondary -->
+        <AcademicSection href="../pre-primary/motor-activities" title="Motor Activities">
+          <Beaker slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <!-- Higher Secondary -->
+        <AcademicSection href="../pre-primary/sports" title="Sports & Events">
+          <Sport slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="../pre-primary/pets" title="Pet Assisted Therapy">
+          <Pet slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="../pre-primary/life-skills" title="Life Skills & Moral Values">
+          <Dice slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="../pre-primary/parents" title="Parent's Testimonials">
+          <Parent slot="icon" height={8} width={8} />
+        </AcademicSection>
+      </div>
+    </div>
+  </section>
+
+  <!-- Life Skills & Values -->
+  <div id="life" class="pt-10"></div>
+  <Section class="pt-12 bg-white/40" title="Life Skills & Moral Values">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
+      <div>
+        <p class="text-justify lg:max-w-[80ch] pb-4">
+          At our school, we go beyond traditional teaching methods by imparting
+          moral values through captivating stories, puppet shows, interactive
+          dramatic plays, and pretend play.
+        </p>
+        <p class="text-justify lg:max-w-[80ch]">
+          We empower our students with essential life skills, preparing them for
+          a well-rounded and successful future, viz., hand washing, personal
+          hygiene, good touch and bad touch, tidying the bed, folding blankets,
+          wearing shoes, helping elders, and many more.
+        </p>
+      </div>
+      <img
+        src={LifeSkillsImg.src}
+        alt="Experiential Graphic"
+        class="max-w-[8rem] lg:max-w-[16rem] m-auto"
+      />
+      <!-- ! Fix img -->
+    </div>
+  </Section>
+
+  <CTA />
+</PageLayout>
