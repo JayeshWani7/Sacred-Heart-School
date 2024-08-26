@@ -7,5 +7,6 @@ import TaglineBox from "./TaglineBox.astro";
 import HighlightTile from "./HighlightTile.astro";
 import ImageCard from "./ImageCard.astro";
 import Gallery from "./Gallery.astro";
+import Popup from "./Popup.astro";
 
-export { AcademicSection, ContactUs, Objective, VisionMission, DeskMessage, TaglineBox, HighlightTile, ImageCard, Gallery }
+export { AcademicSection, ContactUs, Objective, VisionMission, DeskMessage, TaglineBox, HighlightTile, ImageCard, Gallery, Popup }
