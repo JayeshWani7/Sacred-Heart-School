@@ -13,6 +13,7 @@ import {
   DeskMessage,
   TaglineBox,
   ImageCard,
+  Popup,
 } from "../components/home";
 
 // Images
@@ -33,7 +34,16 @@ import {
 
 const heroImg = `url(${HeroImg.src})`;
 ---
-
+<Popup />
+<script>
+  // Display the popup when the page loads
+  window.addEventListener('load', () => {
+    const popup = document.getElementById('popup');
+    if (popup) {
+      popup.style.display = 'flex';
+    }
+  });
+</script>
 <RootLayout
   title="Home"
   transparentNav={true}
