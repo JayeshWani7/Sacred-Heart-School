@@ -1,0 +1,446 @@
+---
+import { Image } from "astro:assets";
+// Layout
+import PageLayout from "../layouts/PageLayout.astro";
+
+// Components
+import {
+  Section,
+  CenterTitle,
+  CarouselSubtext,
+  AlternateCarousel,
+  Carousel,
+  CTA,
+  SectionSubTitle
+} from "../components/layout";
+
+import {
+  Dice,
+  AcademicCap,
+  ExpLearning,
+  Beaker,
+  Sport,
+  Pet,
+  Parent,
+  ChartBar,
+  Events,
+} from "../assets/icons/academic-sections";
+
+// Types
+import type { slide } from "../components/layout/types";
+import { AcademicSection } from "../components/home";
+
+// Assets
+import SenoirSecondary from "../assets/images/senior-secondary/hero/hero2.png";
+const gr12res = await Astro.glob(
+  "../assets/images/senior-secondary/Urmila top rank 2024.jpg"
+);
+const UnboundSeries = await Astro.glob(
+  "../assets/images/senior-secondary/unbound-series/*.png"
+);
+const sportsActivities = await Astro.glob(
+  "../assets/images/senior-secondary/sports/*.jpg"
+);
+const learningFromTheLegend = await Astro.glob(
+  "../assets/images/senior-secondary/learning-from-legends/*.jpg"
+);
+const communityOutreachProgram = await Astro.glob(
+  "../assets/images/senior-secondary/community-outreach/*.jpg"
+);
+const dontBreathe = await Astro.glob(
+  "../assets/images/senior-secondary/don't-breathe/*.jpg"
+);
+const heritageWalks = await Astro.glob(
+  "../assets/images/senior-secondary/heritage-walk/*.jpg"
+);
+const CollegeEvents = await Astro.glob(
+  "../assets/images/senior-secondary/college-events/*.jpg"
+);
+const CareerCounselling = await Astro.glob(
+  "../assets/images/senior-secondary/career-counselling/*.jpg"
+);
+
+const ImageMapper = (glob: Record<string, any>[], description?: any) => {
+  const mappedImages = glob.map((file) => {
+    const title = file.default.src.split("/").pop().split(".")[0];
+    const img: ImageMetadata = file.default;
+    const obj: slide = { img, title };
+    if (description) obj["description"] = ElectiveDescription[title];
+    return obj;
+  });
+  return mappedImages;
+};
+
+const mappedUnboundSeries = ImageMapper(UnboundSeries);
+const mappedCollegeEvents = ImageMapper(CollegeEvents);
+const mappedCareerCounselling = ImageMapper(CareerCounselling);
+---
+
+<PageLayout
+  title="Higher Secondary"
+  navtext="Home"
+  transparentNav={true}
+  buttonLink="/"
+  bgSrc={`url(${SenoirSecondary.src})`}
+>
+  <p slot="hero-content">You are exploring Senior High School !!!</p>
+
+  <section class="relative pt-10">
+    <!-- Left Accents -->
+
+    <!-- Right Accents -->
+
+    <div class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40">
+        <CenterTitle title="Page Content" theme="dark" />
+        
+        <!-- Academic Sections -->
+        <div class="grid grid-cols-1 gap-8">
+            <!-- First Row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-evenly">
+                <AcademicSection href="#academics" title="Academics">
+                    <AcademicCap slot="icon" height={8} width={8} />
+                </AcademicSection>
+                <AcademicSection href="#grade12-results" title="Grade 12 Results">
+                    <Beaker slot="icon" height={8} width={8} />
+                </AcademicSection>
+                <AcademicSection href="#experential-learning" title="Experential Learning">
+                    <ExpLearning slot="icon" height={8} width={8} />
+                </AcademicSection>
+                <AcademicSection href="#integrated-coaching" title="SHS Integrated Coaching">
+                    <ChartBar slot="icon" height={8} width={8} />
+                </AcademicSection>
+            </div>
+            
+            <!-- Second Row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-evenly">
+                <AcademicSection href="#unbound-series" title="The Unbound Series">
+                    <Dice slot="icon" height={8} width={8} />
+                </AcademicSection>
+                <AcademicSection href="#career-counselling" title="Career Counselling">
+                    <Parent slot="icon" height={8} width={8} />
+                </AcademicSection>
+                <AcademicSection href="#college-events" title="College Events">
+                    <Events slot="icon" height={8} width={8} />
+                </AcademicSection>
+                <AcademicSection href="#sports-activities" title="Sports">
+                    <Sport slot="icon" height={8} width={8} />
+                </AcademicSection>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+  <!-- Academics -->
+  <div id="academics" class="pt-10"></div>
+  <Section theme="accent" class="p-10">
+    <CenterTitle title="Academics" theme="accent" />
+    <div class="p-10 rounded-3xl md:flex justify-evenly bg-white text-black">
+      <div class="w-full md:w-1/2 justify-center">
+        <h3 class="text-2xl font-bold mb-4">Curriculum</h3>
+        <p>
+          The curriculum provided by CBSE is based on the <strong
+            >National Education Policy 2020</strong
+          > and seeks to provide opportunities for students to achieve excellence
+          in learning. The focus is to:
+        </p>
+        <ul>
+          <li>
+            • Encourage the application of knowledge and skills in real-life
+            problem-solving scenarios.
+          </li>
+          <li>
+            • Promote critical and creative thinking aligned with 21st Century
+            Skills in classrooms.
+          </li>
+          <li>
+            • Learning at the school is thoughtfully curated to provide a
+            holistic mix of academic and experiential learning for our
+            adolescents to nurture them into being sensible, joyful, and
+            responsible adults of tomorrow!
+          </li>
+        </ul>
+      </div>
+      <div class="divider md:divider-horizontal divider-error py-4"></div>
+      <div class="w-full md:w-1/2">
+        <h3 class="text-2xl font-bold mb-4">Subjects</h3>
+        <p>
+          The CBSE curriculum offers an eclectic mix of subjects for the
+          students to choose from; the major ones being Physics, Chemistry,
+          Biology, Mathematics, Accountancy, Business Studies, Economics,
+          Sociology, Psychology, Computer Science, Painting, Physical Education
+          etc.
+        </p>
+        <p>
+          Students can choose from the above subjects and electives depending on
+          the career stream finalized viz: Humanities, Commerce & Science.
+        </p>
+        <p>
+          In addition to the core subjects, students have a wide choice of
+          Elective subjects viz: Design, Music, Dance, VFX, Film Making etc.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Grade 12 Result -->
+  <div id="grade12-results"></div>
+  <Section>
+    <CenterTitle title="Grade 12 Results" />
+    <div class="flex flex-wrap items-center justify-center gap-40">
+      <div
+        class="w-full md:w-1/5 mx-1 md:mx-4 p-4 bg-red-700 text-white font-bold flex flex-col items-center rounded-lg"
+        style={{ height: "auto", boxShadow: "20px 5px 20px grey" }}
+      >
+        <p>Top Scorers of JEE / NEET & CBSE Grade 12</p>
+        <ol>
+          <li>1. Urmila Choudhary</li>
+          <li>2. Sanjana Sidhwani</li>
+          <li>3. Vaishnavi Thorave</li>
+        </ol>
+      </div>
+      {
+        gr12res.map((img, index) => {
+          return (
+            <Image
+              key={index}
+              src={img.default}
+              alt="Grade 12 Results"
+              className="w-1/2 md:w-1/4 mx-0 md:mx-4 border-2 md:border-4 border-yellow-400"
+            />
+          );
+        })
+      }
+    </div>
+  </Section>
+
+  <!-- SHS Integrated Coaching -->
+  <div id="integrated-coaching"></div>
+  <Section theme="accent" class="bg-red-100 bg-opacity-10 bg-cover bg-center">
+    <div class="text-center">
+      <p>
+        The SHS Integrated Coaching for JEE (Joint Entrance Examination), NEET
+        (National Eligibility cum Entrance Test) & SAT (Scholastic Assessment
+        Test) is available for students aspiring to pursue careers in
+        Engineering, Medical or abroad.
+      </p>
+      <p class="mt-4">Some of the key features of the program are:</p>
+    </div>
+    <div
+      class="p-8 bg-white bg-opacity-20 rounded shadow-lg backdrop-filter backdrop-blur-sm mt-4"
+    >
+      <ol class="list-decimal list-inside">
+        <li>
+          Early Introduction and Counseling in high school to provide a clear
+          understanding of the goals and the expectations.
+        </li>
+        <li class="mt-2">
+          Customized Academic Curriculum that integrates relevant subjects,
+          topics, and skill sets into the regular high school curriculum. This
+          synchronized format ensures JEE & NEET students not only perform well
+          in the entrance exams but also excel in board exams, eliminating undue
+          stress.
+        </li>
+        <li class="mt-2">
+          Specialized Coaching Faculty headed by IITian Mr. Pratik Tibrewal and
+          top academicians.
+        </li>
+        <li class="mt-2">
+          Regular Mock Tests and Assessments helps targeted preparation that's
+          required for the competitive exams.
+        </li>
+        <li class="mt-2">
+          Flexible Support for Individual Needs with varying learning styles and
+          pace. Additional tutoring and resources for those who need extra
+          support.
+        </li>
+      </ol>
+      <p class="mt-7">
+        In addition to these competitive exams, guidance and support is offered
+        for other entrance exams including <strong
+          >MH-CET, CUET, Design, Law & Management.</strong
+        >
+      </p>
+    </div>
+  </Section>
+
+  <!-- The UNBOUND Series -->
+  <div id="unbound-series"></div>
+  <Section title="The UNBOUND Series">
+    <p>
+      The 'Unbound Series' is a beautiful journey of intellectual talks,
+      bringing forth untold narratives and hidden treasures that have shaped the
+      course of humanity and the world at large in many ways. Each of this high
+      profile guest talk series is poised to be an insightful expedition into
+      the realms of imagination and possibility!
+    </p>
+    <AlternateCarousel slides={mappedUnboundSeries} id={0} />
+  </Section>
+
+  <!-- Experiential Learning -->
+  <div id="experential-learning"></div>
+  <Section title="Experiential Learning">
+    <p>
+      We recognize that the 21st-century demands skills beyond traditional
+      academic knowledge. It requires problem-solving abilities, adaptability,
+      effective communication, and a deep understanding of the
+      interconnectedness of knowledge across disciplines.
+    </p>
+    <p>
+      In our Science classes, students don't just read about experiments; they
+      design and conduct their own, developing a curiosity-driven approach to
+      learning and striving to create ideas that can be patented one day! Our
+      Humanities courses extend beyond textbooks, with field trips, guest
+      speakers, and community projects that bring history, literature, and
+      social studies to life. Our Commerce students are exploring partnerships
+      with local businesses, organizations, and community leaders that provide
+      students with real-world exposure, helping them make connections between
+      what they learn in the classroom and its practical applications in various
+      industries.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-20 p-2">
+      <div class="p-4">
+        <SectionSubTitle title="Learning from the Legends"/>
+        <p>
+          Learning from the legends in various fields is a priceless opportunity
+          that provides invaluable insights, inspiration, and guidance to our
+          students. The campus invites legends and pioneers from diverse fields
+          including Padma awardees, Arjuna awardees, Magsaysay awardees,
+          acclaimed artists, athletes and successful entrepreneurs who have left
+          a lasting impact in their respective domains. These interactions are
+          extremely valuable for our young minds to aspire and dream BIG!!!
+        </p>
+        <Carousel
+          id="1"
+          media={learningFromTheLegend.map((file) => file.default)}
+          type="img"
+          theme="accent"
+        />
+      </div>
+      <div class="p-4">
+        <SectionSubTitle title="Community Outreach Program"/>
+        <p>
+          The Sacred Heart School Model Village Project at Pendhri Gram
+          Panchayat enables Grade 11 & 12 students to engage in sustainable
+          development initiatives, including improving education, health,
+          agriculture, and tourism. These efforts align with UN SDGs and create
+          new income opportunities for local youth and women. Participating in
+          these programs gives our children firsthand experience of empathy,
+          cultural understanding, and community responsibility.
+        </p>
+        <Carousel
+          id="1"
+          media={communityOutreachProgram.map((file) => file.default)}
+          type="img"
+          theme="accent"
+        />
+      </div>
+      <div class="p-4">
+        <SectionSubTitle title="The Don't Breathe Campiagn"/>
+        <p>
+          In 2022, Khadakpada in Kalyan was featured among the top 10 polluted
+          cities in Asia with an AQI of 256, as reported by India Today. An AQI
+          between 201-200 is considered poor and alarming for young children and
+          adults alike. Grade 11 students designed a campaign to raise awareness
+          among the citizens of Kalyan, Ulhasnagar, and the adjoining areas to
+          pull Khadakpada off the list. Students' action prompted Kalyan
+          Dombivli Municipal Corporation to act, with ongoing support from
+          parents and citizens.
+        </p>
+        <Carousel
+          id="2"
+          media={dontBreathe.map((file) => file.default)}
+          type="img"
+          theme="accent"
+        />
+      </div>
+      <div class="p-4">
+        <SectionSubTitle title="Heritage walks and Knowing the Legacy"/>        
+        <p>
+          A Heritage Walk through Mumbai offers students a journey through the
+          city's rich history and culture, from the Asiatic Library to Marine
+          Drive, showcasing a fusion of the old and new. Similarly, walks in
+          historic Kalyan explore its resilience and diversity, celebrating its
+          role as the birthplace of the Indian Navy. Our high school students
+          have also collaborated with the CSMVS museum on initiatives like the
+          Sustained Enrichment Programme, Museum on Wheels, and Think Museum.
+        </p>
+        <Carousel
+          id="2"
+          media={heritageWalks.map((file) => file.default)}
+          type="img"
+          theme="accent"
+        />
+      </div>
+    </div>
+  </Section>
+
+
+<!-- Career Counselling -->
+<div id="career-counselling"></div>
+<Section theme="accent">
+  <CenterTitle title="Career Counselling" theme="accent" />
+  <div class="text-center">
+    <p>
+      One of the major highlights of our high school program is the personalized
+      career counselling and profile building program for our students. Our
+      students have a customized career road map to help build a diverse
+      portfolio resulting in under graduate admission offers from top
+      universities in the country and abroad. Complete handholding is provided
+      by the career counseller for college admissions after Grade 12.
+    </p>
+  </div>
+  <div class="h-auto md:mx-8 lg:mx-10 xl:mx-5">
+    <AlternateCarousel slides={mappedCareerCounselling} id={5} />
+  </div>
+</Section>
+
+<!-- College Events -->
+<div id="college-events"></div>
+<Section title="College Events">
+  <div class="justify-center items-center">
+    <p>
+      Grade 11 at Sacred Heart is a unique program designed to help our
+      teenagers explore different paths and find their path to pursuing
+      rewarding & joyful careers aligned with their skillsets and passion. Our
+      high schoolers are far more confident of their career choices due to the
+      expert support system, personalized career roadmap. diverse profile
+      building activities for admission to top Universities.
+    </p>
+  </div>
+  <div class="h-auto md:mx-8 lg:mx-10 xl:mx-5">
+    <AlternateCarousel slides={mappedCollegeEvents} id={1} />
+  </div>
+</Section>
+
+<!-- Sports Activities -->
+<div id="sports-activities"></div>
+<Section title="Sports Activities">
+  <div class="flex flex-col-reverse lg:flex-row justify-evenly">
+    <p class="rounded-lg text-black bg-white p-10 lg:w-2/5">
+      Our high school program draws a fine balance between academics, sports and
+      various skill enriching activites. This is essential to ensure our
+      teenagers grow in a healthy environment that fosters physical fitness,
+      psychological and social well being that are crucial in modern world's
+      stressful setting. Moreover it enhances their resumes for college
+      applications demonstrating well-rounded personalities.
+    </p>
+    <div class="w-full lg:w-2/5">
+      <Carousel
+        id="1"
+        media={sportsActivities.map((file) => file.default)}
+        type="img"
+        theme="accent"
+      />
+    </div>
+  </div>
+</Section>
+<CTA />
+</PageLayout>
+
+<style>
+  p {
+    @apply mb-8 text-justify;
+  }
+</style>
