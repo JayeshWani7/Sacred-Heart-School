@@ -26,33 +26,212 @@ const props = Astro.props as Props;
     <a href="/"><Image src={logo} alt="logo" /></a>
   </div>
 
-  <!-- Nav -->
-  <ul class="flex items-center font-bold">
-    <a class="bg-primary text-white px-4 py-1" href={props.button_link}>
-      {props.text}
-      <!-- <button class="bg-primary text-white px-6 py-1 mr-4 md:mr-12"
-                >{props.text}
-            </button> -->
-    </a>
-    <!-- <div class="text-primary flex items-center">
-            <span class="hidden md:block mr-2">Menu</span>
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="#ED1E27"
-                class="w-8 h-8"
-            >
-                <path
-                    fill-rule="evenodd"
-                    d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
-                    clip-rule="evenodd"></path>
-            </svg>
-        </div> -->
+  <!-- Desktop Nav -->
+  <ul
+    class="hidden md:flex flex-wrap items-center font-bold space-x-4 md:space-x-6"
+  >
+    <!-- Dropdown Menu Items -->
+    <li class="relative mb-4 md:mb-0 group">
+      <a class="text-white py-1" href="../">Home</a>
+    </li>
+    <li class="relative mb-4 md:mb-0 group">
+      <a class="text-white px-4 py-1">About Us</a>
+      <div
+        class="absolute left-0 hidden w-48 bg-white text-black group-hover:block rounded-lg"
+      >
+        <a
+          href="../"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Vision</a
+        >
+        <a
+          href="../"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Mission</a
+        >
+        <a
+          href="../"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Principal's Desk</a
+        >
+      </div>
+  
+    </li>
+    <li class="relative mb-4 md:mb-0 group">
+      <a class="text-white px-4 py-1">Academics</a>
+      <div
+        class="absolute left-0 hidden w-48 bg-white text-black group-hover:block rounded-lg"
+      >
+        <a
+          href="../pre-primary"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Pre-Primary</a
+        >
+        <a
+          href="../primary"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Primary</a
+        >
+        <a
+          href="../secondary"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Secondary</a
+        >
+        <a
+          href="../higher-secondary"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Higher Secondary</a
+        >
+        
+      </div>
+    </li>
+    <li class="mb-4 md:mb-0">
+      <a class="bg-primary text-white px-4 py-1" href=../admission>
+        Admission
+      </a>
+    </li>
   </ul>
+
+  <!-- Mobile Menu Button -->
+  <div class="md:hidden">
+    <button id="menu-button" class="text-white focus:outline-none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-8 h-8"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="3"
+        d="M4 6h16M4 12h16M4 18h16"
+      />
+    </svg>
+    </button>
+  </div>
 </header>
 
+<!-- Mobile Nav -->
+<div
+  id="mobile-menu1"
+  class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 z-40"
+>
+  <div class="flex flex-col items-center justify-center h-full space-y-8">
+    <div class="w-full">
+      <div class="flex justify-between items-center w-full px-4 py-2">
+        <a class="text-white text-xl" href="../">Home</a>
+      </div>
+    </div>
+
+    <div class="w-full">
+      <div class="flex justify-between items-center w-full px-4 py-2">
+        <a class="text-white text-xl" href="../">About Us</a>
+        <button class="text-white toggle-button" data-target="about-us-menu">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="about-us-menu" class="hidden pl-4 bg-white rounded-lg">
+        <a href="../" class="block text-black text-lg py-2"
+          >Vision</a
+        >
+        <a href="../" class="block text-black text-lg py-2"
+          >Mission</a
+        >
+        <a href="../" class="block text-black text-lg py-2"
+          >Principal's Desk</a
+        >
+      </div>
+    </div>
+
+    <div class="w-full">
+      <div class="flex justify-between items-center w-full px-4 py-2">
+        <a class="text-white text-xl">Academics</a>
+        <button class="text-white toggle-button" data-target="academics-menu">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="academics-menu" class="hidden pl-4 bg-white rounded-lg">
+        <a href="../pre-primary" class="block text-black text-lg py-2"
+          >Pre-Primary</a
+        >
+        <a href="../primary" class="block text-black text-lg py-2"
+          >Primary</a
+        >
+        <a href="../secondary" class="block text-black text-lg py-2"
+          >Secondary</a
+        >
+        <a href="../higher-secondary" class="block text-black text-lg py-2"
+          >Higher Secondary</a
+        >
+      </div>
+    </div>
+    <a class="bg-primary text-white px-4 py-1" href="../admission">Admission</a>
+  </div>
+</div>
+
 <script define:vars={{ transparent: props.transparent }}>
-  if (transparent)
+  const menuButton = document.getElementById("menu-button");
+  const mobileMenu = document.getElementById("mobile-menu1");
+
+  menuButton?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+  });
+
+  function toggleDropdown(targetId) {
+    const allMenus = document.querySelectorAll('[id$="-menu"]');
+    allMenus.forEach(menu => {
+      if (menu.id !== targetId) {
+        menu.classList.add("hidden");
+      }
+    });
+
+    const menu = document.getElementById(targetId);
+    menu?.classList.toggle("hidden");
+  }
+
+  const toggleButtons = document.querySelectorAll(".toggle-button");
+  toggleButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetId = button.getAttribute("data-target");
+      toggleDropdown(targetId);
+    });
+  });
+
+  // document.addEventListener("DOMContentLoaded", () => {
+  //   const menu = document.getElementById("menu");
+
+  //   menuButton?.addEventListener("click", (e) => {
+  //     e.stopPropagation();
+  //     menu?.classList.toggle("hidden");
+  //   });
+
+  //   window.addEventListener("click", (e) => {
+  //     if (!menuButton.contains(e.target) && !menu.contains(e.target)) {
+  //       menu?.classList.add("hidden");
+  //     }
+  //   });
+  // });
+
+  if (transparent) {
     // Change Opacity on Scroll
     window.addEventListener("scroll", () => {
       const navbar = document.querySelector("header");
@@ -65,4 +244,5 @@ const props = Astro.props as Props;
         navbar?.classList.add("hover:bg-black/75");
       }
     });
+  }
 </script>
