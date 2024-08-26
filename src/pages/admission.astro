@@ -83,115 +83,115 @@ const WEB_APP_URL =
     </div>
   </Section>
   <div id="enquiry-form">
-  <Section title="Got Any Questions?">
-    <div class="flex-wrap grid grid-cols-1 md:grid-cols-2 gap-10">
-      <!-- Left side - Form Intro Text-->
-      <div>
-        <h1 class="text-xl font-bold text-black pb-4">Enquiry Form</h1>
-        <p class="text-black pr-4">
-          Have a question? Feel free to get in touch with us by filling out the
-          enquiry form. We look forward to getting in touch with you.
-        </p>
-      </div>
+    <Section title="Got Any Questions?">
+      <div class="flex-wrap grid grid-cols-1 md:grid-cols-2 gap-10">
+        <!-- Left side - Form Intro Text-->
+        <div>
+          <h1 class="text-xl font-bold text-black pb-4">Enquiry Form</h1>
+          <p class="text-black pr-4">
+            Have a question? Feel free to get in touch with us by filling out
+            the enquiry form. We look forward to getting in touch with you.
+          </p>
+        </div>
 
-      <!-- Right side - Inquiry Form -->
-      <form
-        class="w-full bg-primary-dark p-8 text-white relative"
-        id="EnquiryForm"
-        name="EnquiryForm"
-      >
-        <!-- Loading Overlay -->
-        <div
-          class="hidden w-full h-full absolute top-0 left-0 bg-black opacity-50 justify-center items-center"
-          id="loadingOverlay"
+        <!-- Right side - Inquiry Form -->
+        <form
+          class="w-full bg-primary-dark p-8 text-white relative"
+          id="EnquiryForm"
+          name="EnquiryForm"
         >
-          <span class="loading loading-spinner loading-lg"></span>
-        </div>
-        <!-- Form -->
-        <input
-          type="text"
-          class="text-input"
-          name="Student Name"
-          id="StudentName"
-          placeholder="Name of Student"
-          required
-        />
-
-        <input
-          type="text"
-          class="text-input"
-          id="ParentName"
-          name="Parent Name"
-          placeholder="Name of Parent"
-          required
-        />
-
-        <input
-          type="text"
-          class="text-input"
-          id="dob"
-          name="DOB"
-          onfocus="(this.type='date')"
-          placeholder="Date of Birth"
-          required
-        />
-
-        <input
-          type="number"
-          class="text-input"
-          id="ContactNumber"
-          name="Contact Number"
-          placeholder="Contact Number"
-          required
-        />
-
-        <input
-          type="email"
-          class="text-input"
-          id="email"
-          name="Email"
-          placeholder="Email"
-          required
-        />
-
-        <div class="flex justify-between">
-          <!-- Grade Selection -->
-          <select
-            class="select select-bordered border-2 border-white rounded-none bg-primary-dark w-min active:border-white"
-            name="Grade"
-            id="grade"
+          <!-- Loading Overlay -->
+          <div
+            class="hidden w-full h-full absolute top-0 left-0 bg-black opacity-50 justify-center items-center"
+            id="loadingOverlay"
+          >
+            <span class="loading loading-spinner loading-lg"></span>
+          </div>
+          <!-- Form -->
+          <input
+            type="text"
+            class="text-input"
+            name="Student Name"
+            id="StudentName"
+            placeholder="Name of Student"
             required
-          >
-            <option disabled selected value="">Grade</option>
-            <option value="Nursery">Nursery</option>
-            <option value="JR KG">JR KG</option>
-            <option value="SR KG">SR KG</option>
-            <option value="SR KG">Ist</option>
-            <option value="SR KG">IInd </option>
-            <option value="SR KG">IIIrd</option>
-            <option value="SR KG">IVth</option>
-            <option value="SR KG">Vth</option>
-            <option value="SR KG">VIth</option>
-            <option value="SR KG">VIIth</option>
-            <option value="SR KG">VIIIth</option>
-            <option value="SR KG">IXth</option>
-            <option value="SR KG">Xth</option>
-            <option value="XI Science">XIth</option>
-            <option value="XI Commerce">XIIth</option>
-          </select>
-          <!-- Submit Button -->
-          <button
-            type="submit"
-            class="enquiryform-btn w-full md:w-2/5 bg-white text-black leading-relaxed font-semibold md:ml-0 ml-4"
-            id="submit"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
-    </div>
-  </Section>
-</div>
+          />
+
+          <input
+            type="text"
+            class="text-input"
+            id="ParentName"
+            name="Parent Name"
+            placeholder="Name of Parent"
+            required
+          />
+
+          <input
+            type="text"
+            class="text-input"
+            id="dob"
+            name="DOB"
+            onfocus="(this.type='date')"
+            placeholder="Date of Birth"
+            required
+          />
+
+          <input
+            type="number"
+            class="text-input"
+            id="ContactNumber"
+            name="Contact Number"
+            placeholder="Contact Number"
+            required
+          />
+
+          <input
+            type="email"
+            class="text-input"
+            id="email"
+            name="Email"
+            placeholder="Email"
+            required
+          />
+
+          <div class="flex justify-between">
+            <!-- Grade Selection -->
+            <select
+              class="select select-bordered border-2 border-white rounded-none bg-primary-dark w-min active:border-white"
+              name="Grade"
+              id="grade"
+              required
+            >
+              <option disabled selected value="">Grade</option>
+              <option value="Nursery">Nursery</option>
+              <option value="JR KG">JR KG</option>
+              <option value="SR KG">SR KG</option>
+              <option value="Ist">Ist</option>
+              <option value="IInd">IInd</option>
+              <option value="IIIrd">IIIrd</option>
+              <option value="IVth">IVth</option>
+              <option value="Vth">Vth</option>
+              <option value="VIth">VIth</option>
+              <option value="VIIth">VIIth</option>
+              <option value="VIIIth">VIIIth</option>
+              <option value="IXth">IXth</option>
+              <option value="Xth">Xth</option>
+              <option value="XIth">XIth</option>
+              <option value="XIIth">XIIth</option>
+            </select>
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="enquiryform-btn w-full md:w-2/5 bg-white text-black leading-relaxed font-semibold md:ml-0 ml-4"
+              id="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </Section>
+  </div>
 </PageLayout>
 
 <style>
