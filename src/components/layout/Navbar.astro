@@ -32,70 +32,55 @@ const props = Astro.props as Props;
   >
     <!-- Dropdown Menu Items -->
     <li class="relative mb-4 md:mb-0 group">
-      <a class="text-white py-1" href="../pre-primary">Pre-Primary</a>
-      <div
-        class="absolute left-0 hidden w-48 bg-white text-black group-hover:block rounded-lg"
-      >
-        <a
-          href="../../pre-primary/option1"
-          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Option 1</a
-        >
-        <a
-          href="../../pre-primary/option2"
-          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Option 2</a
-        >
-      </div>
+      <a class="text-white py-1" href="../">Home</a>
     </li>
     <li class="relative mb-4 md:mb-0 group">
-      <a class="text-white px-4 py-1" href="../primary">Primary</a>
+      <a class="text-white px-4 py-1">About Us</a>
       <div
         class="absolute left-0 hidden w-48 bg-white text-black group-hover:block rounded-lg"
       >
         <a
-          href="../primary/option1"
-          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Option 1</a
+          href="../"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Vision</a
         >
         <a
-          href="../primary/option2"
-          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Option 2</a
+          href="../"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Mission</a
+        >
+        <a
+          href="../"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Principal's Desk</a
         >
       </div>
+  
     </li>
     <li class="relative mb-4 md:mb-0 group">
-      <a class="text-white px-4 py-1" href="../secondary">Secondary</a>
+      <a class="text-white px-4 py-1">Academics</a>
       <div
         class="absolute left-0 hidden w-48 bg-white text-black group-hover:block rounded-lg"
       >
         <a
-          href="../secondary/option1"
-          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Option 1</a
+          href="../pre-primary"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Pre-Primary</a
         >
         <a
-          href="../secondary/option2"
-          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Option 2</a
-        >
-      </div>
-    </li>
-    <li class="relative mb-4 md:mb-0 group">
-      <a class="text-white px-4 py-1" href="../higher-secondary"
-        >Higher Secondary</a
-      >
-      <div
-        class="absolute left-0 hidden w-48 bg-white text-black group-hover:block rounded-lg"
-      >
-        <a
-          href="../higher-secondary/option1"
-          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Option 1</a
+          href="../primary"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Primary</a
         >
         <a
-          href="../higher-secondary/option2"
-          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Option 2</a
+          href="../secondary"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Secondary</a
         >
+        <a
+          href="../higher-secondary"
+          class="block px-4 py-2 hover:bg-gray-200 rounded-lg">Higher Secondary</a
+        >
+        
       </div>
     </li>
     <li class="mb-4 md:mb-0">
-      <a class="bg-primary text-white px-4 py-1" href={props.button_link}>
-        {props.text}
+      <a class="bg-primary text-white px-4 py-1" href=../admission>
+        Admission
       </a>
     </li>
   </ul>
@@ -129,8 +114,14 @@ const props = Astro.props as Props;
   <div class="flex flex-col items-center justify-center h-full space-y-8">
     <div class="w-full">
       <div class="flex justify-between items-center w-full px-4 py-2">
-        <a class="text-white text-xl" href="../pre-primary">Pre-Primary</a>
-        <button class="text-white toggle-button" data-target="pre-primary-menu">
+        <a class="text-white text-xl" href="../">Home</a>
+      </div>
+    </div>
+
+    <div class="w-full">
+      <div class="flex justify-between items-center w-full px-4 py-2">
+        <a class="text-white text-xl" href="../">About Us</a>
+        <button class="text-white toggle-button" data-target="about-us-menu">
           <svg
             class="w-6 h-6"
             fill="none"
@@ -146,22 +137,23 @@ const props = Astro.props as Props;
           </svg>
         </button>
       </div>
-      <div id="pre-primary-menu" class="hidden pl-4 bg-white rounded-lg">
-        <a
-          href="../../pre-primary/option1"
-          class="block text-black text-lg py-2">Option 1</a
+      <div id="about-us-menu" class="hidden pl-4 bg-white rounded-lg">
+        <a href="../" class="block text-black text-lg py-2"
+          >Vision</a
         >
-        <a
-          href="../../pre-primary/option2"
-          class="block text-black text-lg py-2">Option 2</a
+        <a href="../" class="block text-black text-lg py-2"
+          >Mission</a
+        >
+        <a href="../" class="block text-black text-lg py-2"
+          >Principal's Desk</a
         >
       </div>
     </div>
 
     <div class="w-full">
       <div class="flex justify-between items-center w-full px-4 py-2">
-        <a class="text-white text-xl" href="../primary">Primary</a>
-        <button class="text-white toggle-button" data-target="primary-menu">
+        <a class="text-white text-xl">Academics</a>
+        <button class="text-white toggle-button" data-target="academics-menu">
           <svg
             class="w-6 h-6"
             fill="none"
@@ -177,82 +169,22 @@ const props = Astro.props as Props;
           </svg>
         </button>
       </div>
-      <div id="primary-menu" class="hidden pl-4 bg-white rounded-lg">
-        <a href="../primary/option1" class="block text-black text-lg py-2"
-          >Option 1</a
+      <div id="academics-menu" class="hidden pl-4 bg-white rounded-lg">
+        <a href="../pre-primary" class="block text-black text-lg py-2"
+          >Pre-Primary</a
         >
-        <a href="../primary/option2" class="block text-black text-lg py-2"
-          >Option 2</a
+        <a href="../primary" class="block text-black text-lg py-2"
+          >Primary</a
         >
-      </div>
-    </div>
-
-    <div class="w-full">
-      <div class="flex justify-between items-center w-full px-4 py-2">
-        <a class="text-white text-xl" href="../secondary">Secondary</a>
-        <button class="text-white toggle-button" data-target="secondary-menu">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-      </div>
-      <div id="secondary-menu" class="hidden pl-4 bg-white rounded-lg">
-        <a href="../secondary/option1" class="block text-black text-lg py-2"
-          >Option 1</a
+        <a href="../secondary" class="block text-black text-lg py-2"
+          >Secondary</a
         >
-        <a href="../secondary/option2" class="block text-black text-lg py-2"
-          >Option 2</a
-        >
-      </div>
-    </div>
-
-    <div class="w-full">
-      <div class="flex justify-between items-center w-full px-4 py-2">
-        <a class="text-white text-xl" href="../higher-secondary"
+        <a href="../higher-secondary" class="block text-black text-lg py-2"
           >Higher Secondary</a
         >
-        <button
-          class="text-white toggle-button"
-          data-target="higher-secondary-menu"
-        >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-      </div>
-      <div id="higher-secondary-menu" class="hidden pl-4 bg-white rounded-lg">
-        <a
-          href="../higher-secondary/option1"
-          class="block text-black text-lg py-2">Option 1</a
-        >
-        <a
-          href="../higher-secondary/option2"
-          class="block text-black text-lg py-2">Option 2</a
-        >
       </div>
     </div>
-
-    <a class="text-white text-xl" href={props.button_link}>{props.text}</a>
+    <a class="bg-primary text-white px-4 py-1" href="../admission">Admission</a>
   </div>
 </div>
 
