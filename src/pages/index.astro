@@ -142,7 +142,8 @@ const heroImg = `url(${HeroImg.src})`;
   </Section>
 
   <!-- About -->
-  <Section id="aboutus" theme="dark">
+   <div id="about-us">
+  <Section theme="dark">
     <DeskMessage
       title="About Us"
       image={About}
@@ -153,7 +154,9 @@ const heroImg = `url(${HeroImg.src})`;
       ]}
     />
   </Section>
+  </div>
   <!-- Vision / Mission -->
+   <div id="mission"></div>
   <Section class="overflow-hidden flex flex-col relative z-0">
     <!-- Mission -->
     <VisionMission
@@ -183,6 +186,8 @@ const heroImg = `url(${HeroImg.src})`;
         desc="To provide hands-on, experiential learning opportunities that complement and enrich classroom education, enabling students to apply their knowledge in real-world contexts"
       />
     </span>
+    </div>
+    <div id="vision">
     <!-- Vision -->
     <VisionMission
       title="Our Vision"
@@ -191,6 +196,8 @@ const heroImg = `url(${HeroImg.src})`;
       rtl={false}
     />
   </Section>
+</div>
+<div id="principle-desk">
   <Section theme="dark">
     <DeskMessage
       title="From the Principal’s Desk"
@@ -218,6 +225,7 @@ const heroImg = `url(${HeroImg.src})`;
 		/>
     -->
   </Section>
+  </div>
 
   <Section theme="dark">
     <CenterTitle title="Explore our Activities & Infrastructure" theme="dark" />
