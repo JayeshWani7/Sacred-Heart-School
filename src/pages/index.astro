@@ -38,10 +38,12 @@ const heroImg = `url(${HeroImg.src})`;
 <script>
   // Display the popup when the page loads
   window.addEventListener('load', () => {
-    const popup = document.getElementById('popup');
-    if (popup) {
-      popup.style.display = 'flex';
-    }
+    setTimeout(() => {
+      const popup = document.getElementById('popup');
+      if (popup) {
+        popup.style.display = 'flex';
+      }
+    }, 500);
   });
 </script>
 <RootLayout
