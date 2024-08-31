@@ -34,14 +34,16 @@ import {
 
 const heroImg = `url(${HeroImg.src})`;
 ---
-<Popup />
+
 <script>
   // Display the popup when the page loads
   window.addEventListener('load', () => {
-    const popup = document.getElementById('popup');
-    if (popup) {
-      popup.style.display = 'flex';
-    }
+    setTimeout(() => {
+      const popup = document.getElementById('popup');
+      if (popup) {
+        popup.style.display = 'flex';
+      }
+    }, 500);
   });
 </script>
 <RootLayout
@@ -50,6 +52,7 @@ const heroImg = `url(${HeroImg.src})`;
   navtext="Admission"
   buttonLink="/admission"
 >
+<Popup />
   <!-- ***** Hero Section ***** -->
   <div class="hero flex items-center justify-between px-4 md:px-12 lg:px-20">
     <!-- Left Red Bar -->
