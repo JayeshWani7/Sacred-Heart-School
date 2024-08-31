@@ -27,7 +27,7 @@ import {
 } from "../../assets/icons/academic-sections";
 
 // Images
-import PreSchoolHero from "../../assets/images/pre-school.webp";
+import PreSchoolHero from "../../assets/images/pre-primary.webp";
 import LifeSkillsImg from "../../assets/images/pre-primary/LifeSkillsImg.png";
 import ExperientialGraphic from "../../assets/images/pre-primary/ExperientialGraphic.png";
 // Videos
@@ -47,6 +47,10 @@ const parentTestimonials = await Astro.glob(
 
 const experientialLearningImport = await Astro.glob(
   "../../assets/images/pre-primary/experiential-learning/*",
+);
+
+const lifeSkills = await Astro.glob(
+  "../../assets/images/pre-primary/life-skills/*"
 );
 
 const ImageMapper = (glob: Record<string, any>[]) => {
@@ -124,27 +128,25 @@ const mappedparentTestimonials = ImageMapper(parentTestimonials);
 
   <!-- Life Skills & Values -->
   <div id="life" class="pt-10"></div>
-  <Section class="pt-12 bg-white/40" title="Life Skills & Moral Values">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-      <div>
-        <p class="text-justify lg:max-w-[80ch] pb-4">
-          At our school, we go beyond traditional teaching methods by imparting
+  <Section title="Life Skills and Moral Values">
+    <div class="flex flex-col-reverse lg:flex-row justify-evenly">
+      <p class="rounded-lg text-black bg-white p-10 lg:w-2/5 text-justify">
+        At our school, we go beyond traditional teaching methods by imparting
           moral values through captivating stories, puppet shows, interactive
-          dramatic plays, and pretend play.
-        </p>
-        <p class="text-justify lg:max-w-[80ch]">
-          We empower our students with essential life skills, preparing them for
+          dramatic plays, and pretend play. We empower our students with essential life skills, preparing them for
           a well-rounded and successful future, viz., hand washing, personal
           hygiene, good touch and bad touch, tidying the bed, folding blankets,
           wearing shoes, helping elders, and many more.
-        </p>
+      </p>
+      
+      <div class="w-full lg:w-2/5">
+        <Carousel
+          id="1"
+          media={lifeSkills.map((file) => file.default)}
+          type="img"
+          theme="accent"
+        />
       </div>
-      <img
-        src={LifeSkillsImg.src}
-        alt="Experiential Graphic"
-        class="max-w-[8rem] lg:max-w-[16rem] m-auto"
-      />
-      <!-- ! Fix img -->
     </div>
   </Section>
 
