@@ -27,7 +27,7 @@ import {
 } from "../../assets/icons/academic-sections";
 
 // Images
-import PreSchoolHero from "../../assets/images/pre-school.webp";
+import PreSchoolHero from "../../assets/images/pre-primary.webp";
 import LifeSkillsImg from "../../assets/images/pre-primary/LifeSkillsImg.png";
 import ExperientialGraphic from "../../assets/images/pre-primary/ExperientialGraphic.png";
 // Videos
@@ -45,8 +45,8 @@ const parentTestimonials = await Astro.glob(
   "../../assets/images/pre-primary/parent-testimonials/*.png",
 );
 
-const experientialLearningImport = await Astro.glob(
-  "../../assets/images/pre-primary/experiential-learning/*",
+const fineMotorsImport = await Astro.glob(
+  "../../assets/images/pre-primary/fine-motors/*",
 );
 
 const ImageMapper = (glob: Record<string, any>[]) => {
@@ -57,7 +57,7 @@ const ImageMapper = (glob: Record<string, any>[]) => {
   return mappedImages;
 };
 
-const experientialLearning = ImageMapper(experientialLearningImport);
+const fineMotors = ImageMapper(fineMotorsImport);
 const mappedparentTestimonials = ImageMapper(parentTestimonials);
 ---
 
@@ -130,11 +130,12 @@ const mappedparentTestimonials = ImageMapper(parentTestimonials);
     class="pt-12"
   >
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 w-full pt-16">
-      <VerticalCarousel
-        media={[ActivityVid1, ActivityVid2]}
-        id={"0"}
-        theme="accent"
-      />
+      <Carousel
+          media={fineMotors}
+          id={"0"}
+          type="img"
+          theme="accent"
+        />
       <p class="text-justify lg:max-w-[80ch]">
         "Our curriculum integrates purposeful activities to enhance fine motor
         skills, including precision tasks like sand tracing, clay moulding,

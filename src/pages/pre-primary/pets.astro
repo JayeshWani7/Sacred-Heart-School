@@ -27,7 +27,7 @@ import {
 } from "../../assets/icons/academic-sections";
 
 // Images
-import PreSchoolHero from "../../assets/images/pre-school.webp";
+import PreSchoolHero from "../../assets/images/pre-primary.webp";
 import LifeSkillsImg from "../../assets/images/pre-primary/LifeSkillsImg.png";
 import ExperientialGraphic from "../../assets/images/pre-primary/ExperientialGraphic.png";
 // Videos
@@ -45,8 +45,8 @@ const parentTestimonials = await Astro.glob(
   "../../assets/images/pre-primary/parent-testimonials/*.png",
 );
 
-const experientialLearningImport = await Astro.glob(
-  "../../assets/images/pre-primary/experiential-learning/*",
+const petsTherapyImport = await Astro.glob(
+  "../../assets/images/pre-primary/pet-therapy/*",
 );
 
 const ImageMapper = (glob: Record<string, any>[]) => {
@@ -57,7 +57,7 @@ const ImageMapper = (glob: Record<string, any>[]) => {
   return mappedImages;
 };
 
-const experientialLearning = ImageMapper(experientialLearningImport);
+const petsTherapy = ImageMapper(petsTherapyImport);
 const mappedparentTestimonials = ImageMapper(parentTestimonials);
 ---
 
@@ -126,8 +126,12 @@ const mappedparentTestimonials = ImageMapper(parentTestimonials);
   <div id="pet" class="pt-10"></div>
   <Section theme="accent" title="Pet Assisted Therapy" class="pt-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-      <VerticalCarousel media={[PetTherapy3]} id={"1"} theme="accent" />
-      <div>
+      <Carousel
+          media={petsTherapy}
+          id={"0"}
+          type="img"
+          theme="accent"
+        />
         <p class="text-justify lg:max-w-[80ch]">
           The school houses a diverse array of animals, including a rich
           tapestry of creatures ranging from rabbits, ducks, goats, hens, and

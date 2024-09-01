@@ -20,14 +20,13 @@ import {
   AcademicCap,
   ExpLearning,
   Beaker,
-  ChartBar,
   Sport,
   Pet,
   Parent,
 } from "../../assets/icons/academic-sections";
 
 // Images
-import PreSchoolHero from "../../assets/images/pre-school.webp";
+import PreSchoolHero from "../../assets/images/pre-primary.webp";
 import LifeSkillsImg from "../../assets/images/pre-primary/LifeSkillsImg.png";
 import ExperientialGraphic from "../../assets/images/pre-primary/ExperientialGraphic.png";
 // Videos
@@ -45,8 +44,8 @@ const parentTestimonials = await Astro.glob(
   "../../assets/images/pre-primary/parent-testimonials/*.png",
 );
 
-const experientialLearningImport = await Astro.glob(
-  "../../assets/images/pre-primary/experiential-learning/*",
+const sportsActivities = await Astro.glob(
+  "../../assets/images/pre-primary/sports/*",
 );
 
 const ImageMapper = (glob: Record<string, any>[]) => {
@@ -57,7 +56,7 @@ const ImageMapper = (glob: Record<string, any>[]) => {
   return mappedImages;
 };
 
-const experientialLearning = ImageMapper(experientialLearningImport);
+const sportsActivity1 = ImageMapper(sportsActivities);
 const mappedparentTestimonials = ImageMapper(parentTestimonials);
 ---
 
@@ -147,16 +146,15 @@ const mappedparentTestimonials = ImageMapper(parentTestimonials);
           discipline and perseverance.
         </p>
       </div>
-      <div class="w-full flex flex-col gap-6 items-center">
-        <video
-          preload="true"
-          controls="true"
-          class="w-full aspect-video rounded-lg shadow-lg"
-          playsinline=""
-          loop="false"
-        >
-          <source src={SportsVid} type="video/mp4" />
-        </video>
+      <div class="w-full flex flex-col gap-2 items-center">
+        <div class="w-full lg:max-w-[16rem] m-auto">
+          <Carousel
+            id="0"
+            media={sportsActivity1}
+            type="img"
+            theme="accent"
+          />
+        </div>
         <div
           class="relative p-2 max-w-[24ch] text-center
         before:w-4 before:aspect-square before:absolute before:top-0 before:left-0 before:border-t-4 before:border-l-4 before:border-primary
