@@ -27,7 +27,7 @@ import {
 } from "../assets/icons/academic-sections";
 
 // Images
-import PreSchoolHero from "../assets/images/pre-school.webp";
+import PreSchoolHero from "../assets/images/pre-primary.webp";
 import LifeSkillsImg from "../assets/images/pre-primary/LifeSkillsImg.png";
 import ExperientialGraphic from "../assets/images/pre-primary/ExperientialGraphic.png";
 // Videos
@@ -44,6 +44,7 @@ import ActivityVid2 from "../assets/videos/Motor-Skills2.mp4";
 const parentTestimonials = await Astro.glob(
   "../assets/images/pre-primary/parent-testimonials/*.png",
 );
+
 
 const experientialLearningImport = await Astro.glob(
   "../assets/images/pre-primary/experiential-learning/*",
@@ -121,190 +122,8 @@ const mappedparentTestimonials = ImageMapper(parentTestimonials);
       </div>
     </div>
   </section>
+  <div class="mt-10"></div>
 
-  <!-- Academics -->
-  <div id="academics" class="pt-10"></div>
-  <Section theme="accent">
-    <CenterTitle title="Academics" theme="accent" />
-    <Accordion
-      section="pre-primary"
-      tabs={[
-        {
-          title: "Curriculum",
-          text: "The curriculum covers Literacy, Numeracy, Environmental Studies (EVS), Hindi, General Awareness, Social Skills, Dance, Sports, Music, Drawing and Craft. Our approach incorporates the well-regarded Jolly Phonics method, creating a dynamic and interactive foundation for literacy. Introduction to the Hindi language early in Nursery to facilitate language acquisition. Moreover, we design activities that encourage joyful and hands-on learning experiences for our students.",
-        },
-        {
-          title: "Subjects",
-          text: "In the Foundational Stage, encompassing Junior and Senior Kindergarten, the curriculum covers English, Hindi, Maths and Environmental Studies (EVS). Nursery education includes key components such as Literacy, Numeracy, General Awareness, and introduces Hindi early on to facilitate language acquisition. Our approach incorporates the well-regarded Jolly Phonics method, creating a dynamic and interactive foundation for literacy. Moreover, we design activities that encourage joyful and hands-on learning experiences for our students.",
-        },
-        {
-          title: "Planner",
-          text: `<a href='https://drive.google.com/file/d/1RWe_0xxZ2Rx6XoeRIaCL1i-3-MVy32tO/view?usp=sharing'>Nursery Planner</a>`,
-        },
-      ]}
-    />
-  </Section>
-
-  <!-- Experiential Learning -->
-  <div id="experential-learning"></div>
-  <Section class="pt-12 overflow-x-hidden" title="Experential Learning">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-      <div>
-        <p class="text-justify lg:max-w-[80ch] pb-4">
-          Kindergarten experiential learning extends past conventional
-          classrooms, immersing students in real-world adventures beyond the
-          school grounds. Through field trips, outdoor exploration, and
-          community involvement, children actively engage in hands-on
-          experiences that ignite curiosity and foster problem-solving skills.
-        </p>
-      </div>
-      <div class="relative z-0 my-12 lg:my-4">
-        <img
-          src={ExperientialGraphic.src}
-          alt="Experiential Graphic"
-          class="w-4/6 lg:w-1/2 absolute -top-24 lg:-top-36 -right-16 z-10 animate-[wiggle_20s_ease-in-out_infinite]"
-        />
-        <Carousel
-          media={experientialLearning}
-          id={"1"}
-          type="img"
-          theme="accent"
-        />
-      </div>
-    </div>
-  </Section>
-
-  <!-- Activities -->
-  <div id="motor-activities"></div>
-  <Section
-    theme="accent"
-    title="Fine Motor and Gross Motor Activities"
-    class="pt-12"
-  >
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 w-full pt-16">
-      <VerticalCarousel
-        media={[ActivityVid1, ActivityVid2]}
-        id={"0"}
-        theme="accent"
-      />
-      <p class="text-justify lg:max-w-[80ch]">
-        "Our curriculum integrates purposeful activities to enhance fine motor
-        skills, including precision tasks like sand tracing, clay moulding,
-        threading beads, cutting with paper scissors, and more. These activities
-        not only prepare children for academic tasks but also refine their
-        hand-eye coordination and dexterity. Simultaneously, we engage students
-        in gross motor skill activities, such as outdoor games and sensory
-        plays, which improves balance, coordination, and strength, fostering a
-        healthy and active lifestyle."
-      </p>
-    </div>
-  </Section>
-
-  <!-- Sports & Events -->
-  <div id="sports"></div>
-  <Section class="pt-12" title="Sports & Events">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-      <div>
-        <!-- text-sm md:text-lg lg:text-sm xl:text-lg md:font-medium  -->
-        <p class="text-justify lg:max-w-[80ch] pb-4">
-          Students receive comprehensive training in dance, music, and yoga from
-          our in-house professional trainers. From initial instruction to
-          costume design and extra practice sessions, every aspect of their
-          artistic development is meticulously taken care of by the school.
-          Students and teachers celebrate various occasions throughout the year,
-          including Independence Day, Earth Day, the winter party, and more,
-          fostering a sense of community and cultural appreciation among our
-          students.
-        </p>
-        <p class="text-justify lg:max-w-[80ch]">
-          Engaging in sports is vital for our kindergarteners, fostering
-          physical development, teamwork, and discipline. The sports activities
-          include races, hola hoop challenge, skipping rope, yoga, hopping,
-          jumping and ball games. Team sports where student compete between
-          divisions, teach cooperation, while adhering to rules instills
-          discipline and perseverance.
-        </p>
-      </div>
-      <div class="w-full flex flex-col gap-6 items-center">
-        <video
-          preload="true"
-          controls="true"
-          class="w-full aspect-video rounded-lg shadow-lg"
-          playsinline=""
-          loop="false"
-        >
-          <source src={SportsVid} type="video/mp4" />
-        </video>
-        <div
-          class="relative p-2 max-w-[24ch] text-center
-        before:w-4 before:aspect-square before:absolute before:top-0 before:left-0 before:border-t-4 before:border-l-4 before:border-primary
-        after:w-4 after:aspect-square after:absolute after:border-b-4 after:bottom-0 after:right-0 after:border-r-4 after:border-primary"
-        >
-          Take a look at our Annual Sports Day 23-24
-        </div>
-      </div>
-    </div>
-  </Section>
-
-  <!-- Therapy -->
-  <div id="pet"></div>
-  <Section theme="accent" title="Pet Assisted Therapy" class="pt-12">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-      <VerticalCarousel media={[PetTherapy3]} id={"1"} theme="accent" />
-      <div>
-        <p class="text-justify lg:max-w-[80ch]">
-          The school houses a diverse array of animals, including a rich
-          tapestry of creatures ranging from rabbits, ducks, goats, hens, and
-          butterflies to birds, fish, and even buffalos. Here, students not only
-          participate in pet-assisted therapy for stress reduction and empathy
-          cultivation but also engage in activities like feeding, playing, and
-          naming their animal friends, fostering a deep bond and understanding
-          between them.
-        </p>
-      </div>
-    </div>
-  </Section>
-
-  <!-- Life Skills & Values -->
-  <div id="life"></div>
-  <Section class="pt-12 bg-white/40" title="Life Skills & Moral Values">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 w-full pt-12">
-      <div>
-        <p class="text-justify lg:max-w-[80ch] pb-4">
-          At our school, we go beyond traditional teaching methods by imparting
-          moral values through captivating stories, puppet shows, interactive
-          dramatic plays, and pretend play.
-        </p>
-        <p class="text-justify lg:max-w-[80ch]">
-          We empower our students with essential life skills, preparing them for
-          a well-rounded and successful future, viz., hand washing, personal
-          hygiene, good touch and bad touch, tidying the bed, folding blankets,
-          wearing shoes, helping elders, and many more.
-        </p>
-      </div>
-      <img
-        src={LifeSkillsImg.src}
-        alt="Experiential Graphic"
-        class="max-w-[8rem] lg:max-w-[16rem] m-auto"
-      />
-      <!-- ! Fix img -->
-    </div>
-  </Section>
-
-  <!-- Testimonials -->
-  <div id="parents"></div>
-  <Section theme="accent">
-    <CenterTitle title="Parent's Testimonials" theme="accent" />
-    <p class="mx-auto md:text-lg max-w-[80ch] text-justify">
-      Parents express genuine appreciation for the impactful school activities
-      in kindergarten, noting significant improvements in their children.
-    </p>
-    <Carousel
-      media={mappedparentTestimonials}
-      id={"1"}
-      type="img"
-      theme="accent"
-    />
-  </Section>
+  
   <CTA />
 </PageLayout>
