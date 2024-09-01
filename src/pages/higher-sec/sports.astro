@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 // Layout
-import PageLayout from "../layouts/PageLayout.astro";
+import PageLayout from "../../layouts/PageLayout.astro";
 
 // Components
 import {
@@ -12,7 +12,7 @@ import {
   Carousel,
   CTA,
   SectionSubTitle
-} from "../components/layout";
+} from "../../components/layout";
 
 import {
   Dice,
@@ -24,40 +24,40 @@ import {
   Parent,
   ChartBar,
   Events,
-} from "../assets/icons/academic-sections";
+} from "../../assets/icons/academic-sections";
 
 // Types
-import type { slide } from "../components/layout/types";
-import { AcademicSection } from "../components/home";
+import type { slide } from "../../components/layout/types";
+import { AcademicSection } from "../../components/home";
 
 // Assets
-import SenoirSecondary from "../assets/images/senior-secondary/hero/hero2.png";
+import SenoirSecondary from "../../assets/images/senior-secondary/hero/hero2.png";
 const gr12res = await Astro.glob(
-  "../assets/images/senior-secondary/Urmila top rank 2024.jpg"
+  "../../assets/images/senior-secondary/Urmila top rank 2024.jpg"
 );
 const UnboundSeries = await Astro.glob(
-  "../assets/images/senior-secondary/unbound-series/*.png"
+  "../../assets/images/senior-secondary/unbound-series/*.png"
 );
 const sportsActivities = await Astro.glob(
-  "../assets/images/senior-secondary/sports/*.jpg"
+  "../../assets/images/senior-secondary/sports/*.jpg"
 );
 const learningFromTheLegend = await Astro.glob(
-  "../assets/images/senior-secondary/learning-from-legends/*.jpg"
+  "../../assets/images/senior-secondary/learning-from-legends/*.jpg"
 );
 const communityOutreachProgram = await Astro.glob(
-  "../assets/images/senior-secondary/community-outreach/*.jpg"
+  "../../assets/images/senior-secondary/community-outreach/*.jpg"
 );
 const dontBreathe = await Astro.glob(
-  "../assets/images/senior-secondary/don't-breathe/*.jpg"
+  "../../assets/images/senior-secondary/don't-breathe/*.jpg"
 );
 const heritageWalks = await Astro.glob(
-  "../assets/images/senior-secondary/heritage-walk/*.jpg"
+  "../../assets/images/senior-secondary/heritage-walk/*.jpg"
 );
 const CollegeEvents = await Astro.glob(
-  "../assets/images/senior-secondary/college-events/*.jpg"
+  "../../assets/images/senior-secondary/college-events/*.jpg"
 );
 const CareerCounselling = await Astro.glob(
-  "../assets/images/senior-secondary/career-counselling/*.jpg"
+  "../../assets/images/senior-secondary/career-counselling/*.jpg"
 );
 
 const ImageMapper = (glob: Record<string, any>[], description?: any) => {
@@ -75,7 +75,6 @@ const mappedUnboundSeries = ImageMapper(UnboundSeries);
 const mappedCollegeEvents = ImageMapper(CollegeEvents);
 const mappedCareerCounselling = ImageMapper(CareerCounselling);
 ---
-
 <PageLayout
   title="Higher Secondary"
   navtext="Home"
@@ -85,13 +84,12 @@ const mappedCareerCounselling = ImageMapper(CareerCounselling);
 >
   <p slot="hero-content">You are exploring Senior High School !!!</p>
 
-
   <section style={{paddingBottom:'42px'}} class="relative pt-10">
     <!-- Left Accents -->
 
     <!-- Right Accents -->
 
-    <div  class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40">
+    <div class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40">
         <CenterTitle title="Page Content" theme="dark" />
         
         <!-- Academic Sections -->
@@ -131,11 +129,29 @@ const mappedCareerCounselling = ImageMapper(CareerCounselling);
     </div>
 </section>
 
+
+<!-- Sports Activities -->
+<div id="sports-activities"></div>
+<Section title="Sports Activities">
+  <div class="flex flex-col-reverse lg:flex-row justify-evenly">
+    <p class="rounded-lg text-black bg-white p-10 lg:w-2/5">
+      Our high school program draws a fine balance between academics, sports and
+      various skill enriching activites. This is essential to ensure our
+      teenagers grow in a healthy environment that fosters physical fitness,
+      psychological and social well being that are crucial in modern world's
+      stressful setting. Moreover it enhances their resumes for college
+      applications demonstrating well-rounded personalities.
+    </p>
+    <div class="w-full lg:w-2/5">
+      <Carousel
+        id="1"
+        media={sportsActivities.map((file) => file.default)}
+        type="img"
+        theme="accent"
+      />
+    </div>
+  </div>
+</Section>
+
 <CTA />
 </PageLayout>
-
-<style>
-  p {
-    @apply mb-8 text-justify;
-  }
-</style>
