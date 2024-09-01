@@ -13,6 +13,19 @@ import {
 } from "../components/layout";
 import Activity from "../components/academic/primary/Activity.astro";
 
+import { AcademicSection } from "../components/home";
+import {
+  Dice,
+  AcademicCap,
+  ExpLearning,
+  Beaker,
+  ChartBar,
+  Sport,
+  Pet,
+  Parent,
+} from "../assets/icons/academic-sections";
+
+
 //images
 import PrimaryHero from "../assets/images/pre-school.webp";
 import BackToSchool from "../assets/images/schoolbag.png";
@@ -59,253 +72,41 @@ const sole = ImageMapper(soleImport);
 >
   <p slot="hero-content" class="text-lg">Empowering Minds, Nurturing Futures</p>
 
-  <!-- Academics -->
-  <Section theme="accent" class="pb-[60px]">
-    <CenterTitle title="Academics" theme="accent" />
-    <Accordion
-      section="primary"
-      tabs={[
-        {
-          title: "Curriculum",
-        },
-        {
-          title: "Subjects",
-        },
-        {
-          title: "Planner",
-        },
-      ]}
-    />
-    <!--Video section -->
-    <div class="bg-white rounded-3xl p-8 lg:p-24">
-      <CenterTitle
-        title="Exploring the Essence of Sacred Hearts: A Glimpse into Sacred Hearts School "
-      />
-      <video
-        autoplay="true"
-        preload="true"
-        controls="true"
-        loop="false"
-        class="mx-auto rounded-3xl"
-      >
-        <source src={Intro} type="video/mp4" />
-      </video>
-    </div>
-    <!-- <div
-      class="relative flex justify-center items-center bg-white h-[400px] w-[300px] rounded-md mx-auto sm:h-96 sm:w-[595px] md:h-[400px] md:w-[665px] lg:h-144 lg:w-[945px] xl:h-160 xl:w-[1050px]"
+  <section class="relative pt-10">
+    <!-- Left Accents -->
+
+    <!-- Right Accents -->
+
+    <div
+      class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40"
     >
-      <div class="flex flex-col justify-center items-center">
-        <video
-          preload="true"
-          controls="true"
-          playsinline=""
-          loop="false"
-          class="relative mx-auto h-[150px] w-[250px] bg-transparent rounded-md sm:h-[200px] sm:w-[300px] md:h-[250px] md:w-[400px] lg:h-[300px] lg:w-[600px]"
-        >
-          <source src={Intro} type="video/mp4" /></video
-        >
-        <p class="text-slate-600 mt-3 italic">Your video description here</p>
-      </div>
-    </div> -->
-  </Section>
+      <CenterTitle title="Page Content" theme="dark" />
+      <!-- With 4 Academic Sections -->
 
-  <!-- Beyond classroom -->
-  <Section class="pt-12 overflow-x-hidden">
-    <SectionTitle title="Beyond The Classroom" />
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 w-full">
-      <div class="flex flex-col pt-4">
-        <p class="text-xl md:text-2xl font-black left-bar pt-1">
-          Experiential Learning
-        </p>
-        <p class="text-justify lg:max-w-[80ch] pt-8">
-          Experiential learning stands as a dynamic and impactful approach to
-          education. By encouraging students to actively participate, reflect,
-          and apply their knowledge in real-world contexts, it not only enriches
-          the learning experience but also equips students with the skills and
-          insights necessary for success in an ever-evolving world.
-        </p>
-        <img class="h-60 w-min" src={BackToSchool.src} alt="back to school" />
-      </div>
-      <div class="flex flex-col pt-4">
-        <Carousel
-          media={experientialLearning}
-          id={"1"}
-          type="img"
-          theme="accent"
-        />
-      </div>
+      <div class="grid grid-cols-2 gap-8 lg:flex justify-evenly">
+        <!-- With 3 Academic Sections -->
+        <!-- <div class="flex justify-evenly"> -->
 
-      <Activity
-        title="Pre Conceptual"
-        description={`Comprehension of a concept is enhanced when students engage in
-        practical application and embrace a "Learn by Doing" approach.
-        Experiencing a concept first-hand proves more effective than mere
-        lecturing, as students gain a deeper understanding. Pre-conceptual
-        activities play a crucial role in facilitating a better grasp of
-        concepts by aligning with students' sensibilities.`}
-      >
-        <Carousel media={preConceptual} id={"2"} type="img" theme="accent" />
-      </Activity>
+        <AcademicSection href="/primary/academics" title="Academics">
+          <AcademicCap slot="icon" height={8} width={8} />
+        </AcademicSection>
 
-      <Activity
-        title="Integrated Learning"
-        description={`Integrated lessons go beyond traditional compartmentalization of
-        subjects, offering a more interconnected and dynamic approach to
-        education. By combining core academic subjects with subjects like art,
-        craft and sports and their hands-on or activity-based elements, these
-        lessons strive to create a well-rounded learning experience that
-        prepares students for the complexities of the real world.`}
-      >
-        <Carousel
-          media={integratedLearning}
-          id={"3"}
-          type="img"
-          theme="accent"
-        />
-      </Activity>
+        <AcademicSection href="/primary/beyond-classroom" title="Beyond Classroom">
+          <Beaker slot="icon" height={8} width={8} />
+        </AcademicSection>
 
-      <Activity
-        title="Collaborative Learning"
-        description={`Collaborative lessons planned by collaborating 2 subjects and
-          interrelating their concepts for a better understanding leads to fun
-          learning in the most innovative way. It offers a dynamic and
-          interactive approach to education, promoting teamwork, communication
-          skills, and a deeper understanding of the subject matters. As students
-          actively contribute to their learning process, collaborative lessons
-          prepare them for the collaborative nature of the real world and equip
-          them with skills that extend beyond academic knowledge.`}
-      >
-        <Carousel
-          media={collaborativeLearning}
-          id={"4"}
-          type="img"
-          theme="accent"
-        />
-      </Activity>
+       
+        <AcademicSection href="/primary/events-sports" title="Sports & Events">
+          <Sport slot="icon" height={8} width={8} />
+        </AcademicSection>
 
-      <Activity
-        title="S.O.L.E"
-        description={`Self-Organized Learning Environment @ SHS represent a transformative
-          approach to education that places learners at the centre of their own
-          learning journey. By fostering curiosity, collaboration, and critical
-          thinking, our SOLE sessions equip students with the skills necessary
-          to navigate an ever-changing world. While challenges exist, the
-          potential benefits make the exploration and implementation of
-          self-organized learning environments a worthwhile endeavour in the
-          pursuit of a more student-centric education system.`}
-      >
-        <Carousel media={sole} id={"5"} type="img" theme="accent" />
-      </Activity>
-    </div>
-  </Section>
-
-  <!-- Events & sports -->
-  <Section theme="accent" class="pt-12">
-    <SectionTitle title="Events/Competition & Sports" theme="accent" />
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 w-full pt-12">
-      <iframe
-        class="flex items-center justify-center w-full md:w-full h-[350px] rounded-xl sm:w-[500px]"
-        src="https://www.youtube.com/embed/A3_-9jT9Bsw?si=y92NmSNI9Z7ohf1d"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-      <div>
-        <p
-          class="text-lg md:text-xl lg:text-xl xl:text-2xl md:font-medium text-justify lg:max-w-[80ch] pb-4"
-        >
-          Shark Tank Competition
-        </p>
-        <p class="text-justify lg:max-w-[80ch] pb-4">
-          Empowering our Gen Z with 21st-century skills and giving them various
-          platforms to showcase their confident personalities has always been
-          our priority. The Jr. Shark Tank Competition was one such platform
-          where students got a chance to showcase their entrepreneurial traits.
-          Our finalists pitched their business models to our judges and tried to
-          crack a mock deal with them.
-        </p>
-      </div>
-
-      <div>
-        <p
-          class="text-lg md:text-xl lg:text-xl xl:text-2xl md:font-medium text-justify lg:max-w-[80ch] pb-4"
-        >
-          Math Fest
-        </p>
-        <p class="text-justify lg:max-w-[80ch] pb-4">
-          Immerse yourself in the thrilling world of numbers at our Math Fest!
-          Join the excitement with Math Pictionary, engage in the
-          adrenaline-pumping Math Relay, and ascend the pyramid of knowledge
-          mastering ascending and descending order. Explore the geometry realm
-          discovering shape properties, and embark on a numerical journey with
-          Snake & Ladders. Unleash your mathematical prowess through these
-          exhilarating activities, creating a festival of fun and learning!
-        </p>
-      </div>
-      <iframe
-        class="flex items-center justify-center md:w-full w-full h-[350px] rounded-xl sm:w-[500px]"
-        src="https://www.youtube.com/embed/KY4wa6dZep8?si=D89V-20TbcaMlwbP"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-
-      <iframe
-        class="flex items-center justify-center md:w-full w-full h-[350px] rounded-xl sm:w-[500px]"
-        src="https://www.youtube.com/embed/2oeSZ4GpW9Q?si=FnXW23q_JzSAh9QT"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-      <div>
-        <p
-          class="text-lg md:text-xl lg:text-xl xl:text-2xl md:font-medium text-justify lg:max-w-[80ch] pb-4"
-        >
-          Mystical Science Fiesta
-        </p>
-        <p class="text-justify lg:max-w-[80ch] pb-4">
-          Step into the enchanting world of the Mythical Science Fiesta, a
-          magical journey introducing young minds to the wonders of science.
-          Uncover the secrets of daily life with captivating experiments,
-          mythical scientific encounters, and interactive displays. Transform
-          mundane moments into extraordinary discoveries, sparking curiosity and
-          revealing the enchantment of science in our everyday world. A
-          fantastical adventure awaits, inspiring the scientists of tomorrow!
-        </p>
+        <AcademicSection href="/primary/parent-testamonial" title="Parent's Testimonials">
+          <Parent slot="icon" height={8} width={8} />
+        </AcademicSection>
       </div>
     </div>
-  </Section>
-
-  <!-- Testimonials -->
-  <Section>
-    <CenterTitle title="Parent's Testimonials" />
-    <TestimonialCarousel
-      testimonials={[
-        {
-          name: "Hema Gerelani",
-          text: "It was a wonderful opportunity to attend kidventure carnival at SHS school. Great planning perfect execution n enjoyment is on the top of the world. Feeling blessed to be a part of such an amazing school. Thank u Sana tr.vidhi tr.suchita tr. for always being there to encourage our kids to perform better than the best. Unstoppable school with unstoppable Teachers",
-        },
-        {
-          name: "Vikas Shrivastava",
-          text: "Best school for your child's overall growth. School takes very good care of childrens and encourage them so they can move towards a good life and career. Best school for study and all types of activity.",
-        },
-        {
-          name: "Dhanashri Kankanwar",
-          text: "We enjoyed lot with kiddos nice and very innovative event arranged by school. All teachers/staff taking care of each student very nicely. Thanks lot teacher for inviting us to such events.",
-        },
-        {
-          name: "Latha Nair",
-          text: "It was a wonderful experience to spend time with our beloved sacred heart kids. We enjoyed a lot with them by making reels and clicking photos",
-        },
-        {
-          name: "Manali Fernandes",
-          text: "Sacred Heart school Kalyan is truly the BEST gift any parent can give their child. It is an amazing institution of education which nurtures my child and is shaping him to be the best human being",
-        },
-        {
-          name: "Deepak Singh",
-          text: "Very happy with Sacred Heart School. The staff and teachers are very nice. My daughter is constantly progressing at this school The values she is learning are excellent. Thanks to commitment and dedication.",
-        },
-        {
-          name: "Dr. Krutika Kapare Patankar",
-          text: "Sacred Heart School's Nursery program is exceptional. Dedicated teachers, a nurturing environment and a strong focus on values have greatly benefited my child's early education. Highly recommended!",
-        },
-      ]}
-    />
-  </Section>
+  </section>
+  <div class="mt-10"></div>
 
   <!-- CTA button -->
   <CTA />
