@@ -1,0 +1,165 @@
+---
+import { Image } from "astro:assets";
+// Layout
+import PageLayout from "../../layouts/PageLayout.astro";
+
+// Components
+import {
+    Section,
+    CenterTitle,
+    SectionTitle,
+    CarouselSubtext,
+    AlternateCarousel,
+    Carousel,
+    CTA
+} from "../../components/layout";
+import { AcademicSection } from "../../components/home";
+import {
+  Dice,
+  AcademicCap,
+  ExpLearning,
+  Beaker,
+  ChartBar,
+  Sport,
+  Pet,
+  Parent,
+} from "../../assets/icons/academic-sections";
+
+
+// Types
+import type { slide } from "../../components/layout/types";
+
+// Assets
+import SecondaryHero from "../../assets/images/secondary/hero.png";
+import ElectiveDescription from "../../assets/images/secondary/electives/description.json";
+const IX = await Astro.glob("../../assets/images/secondary/insight-xchange/*.png");
+const gr10res = await Astro.glob("../../assets/images/secondary/grade10res/*.jpg");
+const Electives = await Astro.glob(
+    "../../assets/images/secondary/electives/*.webp",
+);
+const LearningPathways = await Astro.glob(
+    "../../assets/images/secondary/learning-pathways/*.jpg",
+);
+const integratedTech = await Astro.glob(
+    "../../assets/images/secondary/integrated-tech/*.webp",
+);
+const parentalInvolvement = await Astro.glob(
+    "../../assets/images/secondary/parental-involvement/*.jpg",
+);
+
+const ImageMapper = (glob: Record<string, any>[], description?: any) => {
+    const mappedImages = glob.map((file) => {
+        const title = file.default.src.split("/").pop().split(".")[0];
+        const img: ImageMetadata = file.default;
+        const obj: slide = { img, title };
+        if (description) obj["description"] = ElectiveDescription[title];
+        return obj;
+    });
+    return mappedImages;
+};
+
+const mappedElectives = ImageMapper(Electives, ElectiveDescription);
+const mappedLearningPathways = ImageMapper(LearningPathways);
+const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
+---
+
+<PageLayout
+    title="Secondary"
+    navtext="Home"
+    transparentNav={true}
+    buttonLink="/"
+    bgSrc={`url(${SecondaryHero.src})`}
+>
+    <p slot="hero-content">
+        Welcome to Our Secondary Section. We invite you to explore the myriad<br
+        />
+        possibilities that await in our secondary section.<br />
+        Discover the excitement of elective subjects, the practicality of life skills,
+        and the joy of lifelong learning.<br />
+        Together, let's embark on a journey of education that goes beyond the ordinary.
+    </p>
+    <section class="relative pt-10">
+        <!-- Left Accents -->
+    
+        <!-- Right Accents -->
+    
+        <div
+          class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40"
+        >
+          <CenterTitle title="Page Content" theme="dark" />
+          <!-- With 4 Academic Sections -->
+    
+          <div class="grid grid-cols-2 gap-8 lg:flex justify-evenly">
+            <!-- With 3 Academic Sections -->
+            <!-- <div class="flex justify-evenly"> -->
+            <!-- Pre-Primary -->
+            <AcademicSection href="/pre-primary/academics" title="Academics">
+              <AcademicCap slot="icon" height={8} width={8} />
+            </AcademicSection>
+    
+            <!-- Primary -->
+            <AcademicSection
+              href="/pre-primary/experential-learning"
+              title="Experential Learning"
+            >
+              <ExpLearning slot="icon" height={8} width={8} />
+            </AcademicSection>
+    
+            <!-- Secondary -->
+            <AcademicSection href="/pre-primary/motor-activities" title="Motor Activities">
+              <Beaker slot="icon" height={8} width={8} />
+            </AcademicSection>
+    
+            <!-- Higher Secondary -->
+            <AcademicSection href="/pre-primary/sports" title="Sports & Events">
+              <Sport slot="icon" height={8} width={8} />
+            </AcademicSection>
+    
+            <AcademicSection href="/pre-primary/pets" title="Pet Assisted Therapy">
+              <Pet slot="icon" height={8} width={8} />
+            </AcademicSection>
+    
+            <AcademicSection href="/pre-primary/life-skills" title="Life Skills & Moral Values">
+              <Dice slot="icon" height={8} width={8} />
+            </AcademicSection>
+    
+            <AcademicSection href="/pre-primary/parents" title="Parent's Testimonials">
+              <Parent slot="icon" height={8} width={8} />
+            </AcademicSection>
+          </div>
+        </div>
+      </section>
+      <div class="mt-10"></div>
+    <!-- Electives & Learning Pathways -->
+    <Section title="Electives-Unlocking your Potential">
+        <p>
+            Sacred Heart School is committed to empowering students to pursue
+            their interests and passions. Our elective courses go beyond being
+            traditional subjects; they act as pathways to self-discovery, skill
+            enhancement, and a holistic education that equips students for the
+            challenges of the future. Delve into exploration, actively
+            participate, and unlock your complete potential with the diverse
+            elective offerings we provide. At Sacred Heart School, each student
+            completes three elective courses tailored to their individual
+            aptitudes.
+        </p>
+        <AlternateCarousel slides={mappedElectives} id={0} />
+        <!-- <CarouselSubtext slides={mappedElectives} id="1" /> -->
+
+        <SectionTitle title="Learning Pathways" />
+        <p>
+            Join the festive spirit at Sacred Heart School, where celebrations
+            create a vibrant tapestry of unity, joy, and unforgettable memories
+            for our school community."
+        </p>
+        <AlternateCarousel slides={mappedLearningPathways} id={1} />
+        <!-- <CarouselSubtext slides={mappedLearningPathways} id="2" /> -->
+    </Section>
+    <CTA />
+</PageLayout>
+
+<style>
+    p {
+        @apply mb-8 text-justify;
+    }
+</style>
