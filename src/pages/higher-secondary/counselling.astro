@@ -99,84 +99,55 @@ const mappedCareerCounselling = ImageMapper(CareerCounselling);
                 <AcademicSection href="/higher-sec/academics" title="Academics">
                     <AcademicCap slot="icon" height={8} width={8} />
                 </AcademicSection>
-                <AcademicSection href="/higher-sec/g12result" title="Grade 12 Results">
+                <AcademicSection href="/higher-secondary/g12result" title="Grade 12 Results">
                     <Beaker slot="icon" height={8} width={8} />
                 </AcademicSection>
-                <AcademicSection href="/higher-sec/expLearning" title="Experential Learning">
+                <AcademicSection href="/higher-secondary/expLearning" title="Experential Learning">
                     <ExpLearning slot="icon" height={8} width={8} />
                 </AcademicSection>
-                <AcademicSection href="/higher-sec/shsCoach" title="SHS Integrated Coaching">
+                <AcademicSection href="/higher-secondary/shsCoach" title="SHS Integrated Coaching">
                     <ChartBar slot="icon" height={8} width={8} />
                 </AcademicSection>
             </div>
             
             <!-- Second Row -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-evenly">
-                <AcademicSection href="/higher-sec/unbound" title="The Unbound Series">
+                <AcademicSection href="/higher-secondary/unbound" title="The Unbound Series">
                     <Dice slot="icon" height={8} width={8} />
                 </AcademicSection>
-                <AcademicSection href="/higher-sec/counselling" title="Career Counselling">
+                <AcademicSection href="/higher-secondary/counselling" title="Career Counselling">
                     <Parent slot="icon" height={8} width={8} />
                 </AcademicSection>
-                <AcademicSection href="/higher-sec/events" title="College Events">
+                <AcademicSection href="/higher-secondary/events" title="College Events">
                     <Events slot="icon" height={8} width={8} />
                 </AcademicSection>
-                <AcademicSection href="/higher-sec/sports" title="Sports">
+                <AcademicSection href="/higher-secondary/sports" title="Sports">
                     <Sport slot="icon" height={8} width={8} />
                 </AcademicSection>
             </div>
         </div>
     </div>
 </section>
- <!-- SHS Integrated Coaching -->
- <div id="integrated-coaching"></div>
- <Section theme="accent" class="bg-red-100 bg-opacity-10 bg-cover bg-center">
-   <div class="text-center">
-     <p>
-       The SHS Integrated Coaching for JEE (Joint Entrance Examination), NEET
-       (National Eligibility cum Entrance Test) & SAT (Scholastic Assessment
-       Test) is available for students aspiring to pursue careers in
-       Engineering, Medical or abroad.
-     </p>
-     <p class="mt-4">Some of the key features of the program are:</p>
-   </div>
-   <div
-     class="p-8 bg-white bg-opacity-20 rounded shadow-lg backdrop-filter backdrop-blur-sm mt-4"
-   >
-     <ol class="list-decimal list-inside">
-       <li>
-         Early Introduction and Counseling in high school to provide a clear
-         understanding of the goals and the expectations.
-       </li>
-       <li class="mt-2">
-         Customized Academic Curriculum that integrates relevant subjects,
-         topics, and skill sets into the regular high school curriculum. This
-         synchronized format ensures JEE & NEET students not only perform well
-         in the entrance exams but also excel in board exams, eliminating undue
-         stress.
-       </li>
-       <li class="mt-2">
-         Specialized Coaching Faculty headed by IITian Mr. Pratik Tibrewal and
-         top academicians.
-       </li>
-       <li class="mt-2">
-         Regular Mock Tests and Assessments helps targeted preparation that's
-         required for the competitive exams.
-       </li>
-       <li class="mt-2">
-         Flexible Support for Individual Needs with varying learning styles and
-         pace. Additional tutoring and resources for those who need extra
-         support.
-       </li>
-     </ol>
-     <p class="mt-7">
-       In addition to these competitive exams, guidance and support is offered
-       for other entrance exams including <strong
-         >MH-CET, CUET, Design, Law & Management.</strong
-       >
-     </p>
-   </div>
- </Section>
+
+
+<!-- Career Counselling -->
+<div id="career-counselling"></div>
+<Section theme="accent">
+  <CenterTitle title="Career Counselling" theme="accent" />
+  <div class="text-center">
+    <p>
+      One of the major highlights of our high school program is the personalized
+      career counselling and profile building program for our students. Our
+      students have a customized career road map to help build a diverse
+      portfolio resulting in under graduate admission offers from top
+      universities in the country and abroad. Complete handholding is provided
+      by the career counseller for college admissions after Grade 12.
+    </p>
+  </div>
+  <div class="h-auto md:mx-8 lg:mx-10 xl:mx-5">
+    <AlternateCarousel slides={mappedCareerCounselling} id={5} />
+  </div>
+</Section>
 
 <CTA />
 </PageLayout>
