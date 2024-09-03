@@ -5,15 +5,17 @@ import PageLayout from "../../layouts/PageLayout.astro";
 
 // Components
 import {
-    Section,
-    CenterTitle,
-    SectionTitle,
-    CarouselSubtext,
-    AlternateCarousel,
-    Carousel,
-    CTA
+  Section,
+  CenterTitle,
+  SectionTitle,
+  CarouselSubtext,
+  AlternateCarousel,
+  Carousel,
+  CTA,
 } from "../../components/layout";
+
 import { AcademicSection } from "../../components/home";
+
 import {
   Dice,
   AcademicCap,
@@ -23,8 +25,15 @@ import {
   Sport,
   Pet,
   Parent,
+  Holistic,
+  InsightXchange,
+  Community,
+  Elective,
+  Mindful,
+  Events,
+  SportsBullet,
+  Technology
 } from "../../assets/icons/academic-sections";
-
 
 // Types
 import type { slide } from "../../components/layout/types";
@@ -32,30 +41,31 @@ import type { slide } from "../../components/layout/types";
 // Assets
 import SecondaryHero from "../../assets/images/secondary/hero.png";
 import ElectiveDescription from "../../assets/images/secondary/electives/description.json";
+import InsightExchange from "../../assets/icons/academic-sections/InsightExchange.astro";
 const IX = await Astro.glob("../../assets/images/secondary/insight-xchange/*.png");
 const gr10res = await Astro.glob("../../assets/images/secondary/grade10res/*.jpg");
 const Electives = await Astro.glob(
-    "../../assets/images/secondary/electives/*.webp",
+  "../../assets/images/secondary/electives/*.webp"
 );
 const LearningPathways = await Astro.glob(
-    "../../assets/images/secondary/learning-pathways/*.jpg",
+  "../../assets/images/secondary/learning-pathways/*.jpg"
 );
 const integratedTech = await Astro.glob(
-    "../../assets/images/secondary/integrated-tech/*.webp",
+  "../../assets/images/secondary/integrated-tech/*.webp"
 );
 const parentalInvolvement = await Astro.glob(
-    "../../assets/images/secondary/parental-involvement/*.jpg",
+  "../../assets/images/secondary/parental-involvement/*.jpg"
 );
 
 const ImageMapper = (glob: Record<string, any>[], description?: any) => {
-    const mappedImages = glob.map((file) => {
-        const title = file.default.src.split("/").pop().split(".")[0];
-        const img: ImageMetadata = file.default;
-        const obj: slide = { img, title };
-        if (description) obj["description"] = ElectiveDescription[title];
-        return obj;
-    });
-    return mappedImages;
+  const mappedImages = glob.map((file) => {
+    const title = file.default.src.split("/").pop().split(".")[0];
+    const img: ImageMetadata = file.default;
+    const obj: slide = { img, title };
+    if (description) obj["description"] = ElectiveDescription[title];
+    return obj;
+  });
+  return mappedImages;
 };
 
 const mappedElectives = ImageMapper(Electives, ElectiveDescription);
@@ -64,72 +74,109 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
 ---
 
 <PageLayout
-    title="Secondary"
-    navtext="Home"
-    transparentNav={true}
-    buttonLink="/"
-    bgSrc={`url(${SecondaryHero.src})`}
+  title="Secondary"
+  navtext="Home"
+  transparentNav={true}
+  buttonLink="/"
+  bgSrc={`url(${SecondaryHero.src})`}
 >
-    <p slot="hero-content">
-        Welcome to Our Secondary Section. We invite you to explore the myriad<br
-        />
-        possibilities that await in our secondary section.<br />
-        Discover the excitement of elective subjects, the practicality of life skills,
-        and the joy of lifelong learning.<br />
-        Together, let's embark on a journey of education that goes beyond the ordinary.
-    </p>
-    <section class="relative pt-10">
-        <!-- Left Accents -->
-    
-        <!-- Right Accents -->
-    
-        <div
-          class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40"
+  <p slot="hero-content">
+    Welcome to Our Secondary Section. We invite you to explore the myriad<br />
+    possibilities that await in our secondary section.<br />
+    Discover the excitement of elective subjects, the practicality of life skills,
+    and the joy of lifelong learning.<br />
+    Together, let's embark on a journey of education that goes beyond the ordinary.
+  </p>
+  <section class="relative pt-10">
+    <!-- Left Accents -->
+
+    <!-- Right Accents -->
+
+    <div
+      class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40"
+    >
+      <CenterTitle title="Page Content" theme="dark" />
+
+      <div
+        class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-5 justify-evenly"
+      >
+        <AcademicSection href="/secondary/academics" title="Academics">
+          <AcademicCap slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/secondary/insight-xchange"
+          title="Insight Xchange"
         >
-          <CenterTitle title="Page Content" theme="dark" />
-          <!-- With 4 Academic Sections -->
-    
-          <div class="grid grid-cols-2 gap-8 lg:flex justify-evenly">
-            <!-- With 3 Academic Sections -->
-            <!-- <div class="flex justify-evenly"> -->
-            <!-- Pre-Primary -->
-            <AcademicSection href="/pre-primary/academics" title="Academics">
-              <AcademicCap slot="icon" height={8} width={8} />
-            </AcademicSection>
-    
-            <!-- Primary -->
-            <AcademicSection
-              href="/pre-primary/experential-learning"
-              title="Experential Learning"
-            >
-              <ExpLearning slot="icon" height={8} width={8} />
-            </AcademicSection>
-    
-            <!-- Secondary -->
-            <AcademicSection href="/pre-primary/motor-activities" title="Motor Activities">
-              <Beaker slot="icon" height={8} width={8} />
-            </AcademicSection>
-    
-            <!-- Higher Secondary -->
-            <AcademicSection href="/pre-primary/sports" title="Sports & Events">
-              <Sport slot="icon" height={8} width={8} />
-            </AcademicSection>
-    
-            <AcademicSection href="/pre-primary/pets" title="Pet Assisted Therapy">
-              <Pet slot="icon" height={8} width={8} />
-            </AcademicSection>
-    
-            <AcademicSection href="/pre-primary/life-skills" title="Life Skills & Moral Values">
-              <Dice slot="icon" height={8} width={8} />
-            </AcademicSection>
-    
-            <AcademicSection href="/pre-primary/parents" title="Parent's Testimonials">
-              <Parent slot="icon" height={8} width={8} />
-            </AcademicSection>
-          </div>
-        </div>
-      </section>
-      <div class="mt-10"></div>
+          <InsightXchange slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/secondary/holistic-development"
+          title="Holistic Development"
+        >
+          <Holistic slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/secondary/experiential-learning" title="Experential Learning">
+          <ExpLearning slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/secondary/electives" title="Electives">
+          <Elective slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/secondary/technology-integration"
+          title="Technology Integration"
+        >
+          <Technology slot="icon" height={8} width={8} />
+        </AcademicSection>
+      </div>
+      <div class="mt-5"></div>
+      <div
+        class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-5 justify-evenly"
+      >
+        <AcademicSection
+          href="/secondary/parental-involvement"
+          title="Parents' Involvement"
+        >
+          <Parent slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/secondary/mindful-counselling"
+          title="Mindfull Counselling"
+        >
+          <Mindful slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/secondary/events" title="Events">
+          <Events slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/secondary/sports" title="Sports">
+          <Sport slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/secondary/sports-bulletin"
+          title="Sports Bulletin"
+        >
+          <SportsBullet slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/secondary/community-service"
+          title="Community Service"
+        >
+          <Community slot="icon" height={8} width={8} />
+        </AcademicSection>
+      </div>
+    </div>
+  </section>
+  <div class="mt-10"></div>
+
     
     <!-- Insight Xchange -->
     <Section theme="accent">
