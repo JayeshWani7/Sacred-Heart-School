@@ -1,0 +1,30 @@
+---
+import { type IconProps as Props } from "../types";
+
+const { height, width } = Astro.props as Props;
+---
+
+<svg
+    version="1.1"
+    id="SportsBulletinIcon"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 64 64"
+    fill="currentColor"
+    class={`h-${height} w-${width}`}
+>
+    <g>
+        <!-- Megaphone -->
+        <path d="M12,36 L20,28 L28,36 L20,44 Z" fill="currentColor" />
+        <rect x="28" y="30" width="10" height="12" fill="currentColor" />
+        <rect x="38" y="32" width="8" height="8" fill="currentColor" />
+        
+        <!-- Trophy -->
+        <path d="M48,20 C48,15 44,12 40,12 C36,12 32,15 32,20 C32,25 36,28 40,28 C44,28 48,25 48,20 Z" fill="none" stroke="currentColor" stroke-width="2" />
+        <path d="M40,28 C35,28 32,32 32,38 L48,38 C48,32 45,28 40,28 Z" fill="none" stroke="currentColor" stroke-width="2" />
+        <rect x="36" y="38" width="8" height="6" fill="currentColor" />
+        
+        <!-- Sound Waves -->
+        <path d="M8,24 L4,20 M4,28 L8,24 L4,32" fill="none" stroke="currentColor" stroke-width="2" />
+    </g>
+</svg>
