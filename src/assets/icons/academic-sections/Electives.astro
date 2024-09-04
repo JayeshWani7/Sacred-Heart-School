@@ -1,0 +1,26 @@
+---
+import { type IconProps as Props } from "../types";
+
+const { height, width } = Astro.props as Props;
+---
+
+<svg
+    version="1.1"
+    id="ElectivesIcon"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 64 64"
+    fill="currentColor"
+    class={`h-${height} w-${width}`}
+>
+    <g>
+        <!-- Book symbolizing learning and knowledge -->
+        <rect x="10" y="10" width="15" height="40" rx="2" ry="2" fill="#555" />
+        <rect x="25" y="10" width="15" height="40" rx="2" ry="2" fill="#777" />
+        <rect x="40" y="10" width="15" height="40" rx="2" ry="2" fill="#999" />
+
+        <!-- Checkmark symbolizing selection of electives -->
+        <path d="M25,30l-4,4l-4-4c-0.39-0.39-1.02-0.39-1.41,0l-1.18,1.18c-0.39,0.39-0.39,1.02,0,1.41l6.59,6.59
+                 c0.39,0.39,1.02,0.39,1.41,0l11.59-11.59c0.39-0.39,0.39-1.02,0-1.41l-1.18-1.18c-0.39-0.39-1.02-0.39-1.41,0L25,30z" fill="#fff"/>
+    </g>
+</svg>
