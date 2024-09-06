@@ -32,7 +32,7 @@ import {
   Mindful,
   Events,
   SportsBullet,
-  Technology
+  Technology,
 } from "../../assets/icons/academic-sections";
 
 // Types
@@ -42,8 +42,12 @@ import type { slide } from "../../components/layout/types";
 import SecondaryHero from "../../assets/images/secondary/hero.png";
 import ElectiveDescription from "../../assets/images/secondary/electives/description.json";
 import InsightExchange from "../../assets/icons/academic-sections/InsightExchange.astro";
-const IX = await Astro.glob("../../assets/images/secondary/insight-xchange/*.png");
-const gr10res = await Astro.glob("../../assets/images/secondary/grade10res/*.jpg");
+const IX = await Astro.glob(
+  "../../assets/images/secondary/insight-xchange/*.png"
+);
+const gr10res = await Astro.glob(
+  "../../assets/images/secondary/grade10res/*.jpg"
+);
 const Electives = await Astro.glob(
   "../../assets/images/secondary/electives/*.webp"
 );
@@ -51,7 +55,7 @@ const LearningPathways = await Astro.glob(
   "../../assets/images/secondary/learning-pathways/*.jpg"
 );
 const integratedTech = await Astro.glob(
-  "../../assets/images/secondary/integrated-tech/*.webp"
+  "../../pages/secondary/community-service/*.webp"
 );
 const parentalInvolvement = await Astro.glob(
   "../../assets/images/secondary/parental-involvement/*.jpg"
@@ -118,7 +122,10 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
           <Holistic slot="icon" height={8} width={8} />
         </AcademicSection>
 
-        <AcademicSection href="/secondary/experiential-learning" title="Experential Learning">
+        <AcademicSection
+          href="/secondary/experiential-learning"
+          title="Experential Learning"
+        >
           <ExpLearning slot="icon" height={8} width={8} />
         </AcademicSection>
 
@@ -177,12 +184,32 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
   </section>
   <div class="mt-10"></div>
 
-    
-    <CTA />
+  <Section title="Community Service">
+    <p>
+      Our community service initiatives are designed not only to address local
+      needs but also to foster a deep spirit of empathy, humanism, and values
+      among our students. We strive to create meaningful connections within our
+      community, ensuring that our efforts enrich both those we help and those
+      who serve.
+    </p>
+    <h1 class="font-bold text-center">
+      Brightening Lives: Celebrating Festivals with Those in Need
+    </h1>
+    <div class="mt-5"></div>
+    <div class="mx-auto md:w-1/2">
+      <Carousel
+        id="3"
+        media={integratedTech.map((file) => file.default)}
+        type="img"
+        theme="accent"
+      />
+    </div>
+  </Section>
+  <CTA />
 </PageLayout>
 
 <style>
-    p {
-        @apply mb-8 text-justify;
-    }
+  p {
+    @apply mb-8 text-justify;
+  }
 </style>
