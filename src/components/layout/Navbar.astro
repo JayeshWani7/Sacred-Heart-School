@@ -31,9 +31,7 @@ const props = Astro.props as Props;
     class="hidden md:flex flex-wrap items-center font-bold space-x-4 md:space-x-6"
   >
     <!-- Dropdown Menu Items -->
-    <li class="relative mb-4 md:mb-0 group">
-      <a class="text-white py-1" href="../">Home</a>
-    </li>
+    
     <li class="relative mb-4 md:mb-0 group">
       <a href="..#about-us" class="text-white px-4 py-1">About Us</a>
       <div
@@ -53,6 +51,9 @@ const props = Astro.props as Props;
         >
       </div>
   
+    </li>
+    <li class="relative mb-4 md:mb-0 group">
+      <a class="text-white py-1" href="/#infra">Infrastructure</a>
     </li>
     <li class="relative mb-4 md:mb-0 group">
       <a class="text-white px-4 py-1">Academics</a>
@@ -112,11 +113,7 @@ const props = Astro.props as Props;
   class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 z-40"
 >
   <div class="flex flex-col items-center justify-center h-full space-y-8">
-    <div class="w-full">
-      <div class="flex justify-between items-center w-full px-4 py-2">
-        <a class="text-white text-xl" href="../">Home</a>
-      </div>
-    </div>
+    
 
     <div class="w-full">
       <div class="flex justify-between items-center w-full px-4 py-2">
@@ -147,6 +144,11 @@ const props = Astro.props as Props;
         <a href="/#principle-desk" class="block text-black text-lg py-2"
           >Principal's Desk</a
         >
+      </div>
+    </div>
+    <div class="w-full">
+      <div class="flex justify-between items-center w-full px-4 py-2">
+        <a class="text-white text-xl" href="/#infra">Infrastructure</a>
       </div>
     </div>
 
