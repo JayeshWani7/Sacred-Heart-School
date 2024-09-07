@@ -1,0 +1,185 @@
+---
+import { Image } from "astro:assets";
+// Layout
+import PageLayout from "../../layouts/PageLayout.astro";
+
+// Components
+import {
+  Section,
+  CenterTitle,
+  CarouselSubtext,
+  AlternateCarousel,
+  Carousel,
+  CTA,
+  SectionSubTitle
+} from "../../components/layout";
+
+import {
+  Dice,
+  AcademicCap,
+  ExpLearning,
+  Beaker,
+  Sport,
+  Pet,
+  Parent,
+  ChartBar,
+  Events,
+} from "../../assets/icons/academic-sections";
+
+// Types
+import type { slide } from "../../components/layout/types";
+import { AcademicSection } from "../../components/home";
+
+// Assets
+import SenoirSecondary from "../../assets/images/senior-secondary/hero/hero2.png";
+const gr12res = await Astro.glob(
+  "../../assets/images/senior-secondary/grade12res/*.webp"
+);
+const UnboundSeries = await Astro.glob(
+  "../../assets/images/senior-secondary/unbound-series/*.webp"
+);
+const sportsActivities = await Astro.glob(
+  "../../assets/images/senior-secondary/sports/*.webp"
+);
+const learningFromTheLegend = await Astro.glob(
+  "../../assets/images/senior-secondary/learning-from-legends/*.webp"
+);
+const communityOutreachProgram = await Astro.glob(
+  "../../assets/images/senior-secondary/community-outreach/*.webp"
+);
+const dontBreathe = await Astro.glob(
+  "../../assets/images/senior-secondary/don't-breathe/*.webp"
+);
+const heritageWalks = await Astro.glob(
+  "../../assets/images/senior-secondary/heritage-walk/*.webp"
+);
+const CollegeEvents = await Astro.glob(
+  "../../assets/images/senior-secondary/college-events/*.webp"
+);
+const CareerCounselling = await Astro.glob(
+  "../../assets/images/senior-secondary/career-counselling/*.webp"
+);
+
+const ImageMapper = (glob: Record<string, any>[], description?: any) => {
+  const mappedImages = glob.map((file) => {
+    const title = file.default.src.split("/").pop().split(".")[0];
+    const img: ImageMetadata = file.default;
+    const obj: slide = { img, title };
+    if (description) obj["description"] = ElectiveDescription[title];
+    return obj;
+  });
+  return mappedImages;
+};
+
+const mappedUnboundSeries = ImageMapper(UnboundSeries);
+const mappedCollegeEvents = ImageMapper(CollegeEvents);
+const mappedCareerCounselling = ImageMapper(CareerCounselling);
+---
+<PageLayout
+  title="Higher Secondary"
+  navtext="Home"
+  transparentNav={true}
+  buttonLink="/"
+  bgSrc={`url(${SenoirSecondary.src})`}
+>
+  <p slot="hero-content">You are exploring Senior High School !!!</p>
+
+  <section style={{paddingBottom:'10px'}} class="relative pt-10">
+    <!-- Left Accents -->
+
+    <!-- Right Accents -->
+
+    <div class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40">
+        <CenterTitle title="Page Content" theme="dark" />
+        
+        <!-- Academic Sections -->
+        <div class="grid grid-cols-1 gap-8">
+            <!-- First Row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-evenly">
+                <AcademicSection href="/higher-secondary/academics" title="Academics">
+                    <AcademicCap slot="icon" height={8} width={8} />
+                </AcademicSection>
+                <AcademicSection href="/higher-secondary/g12result" title="Grade 12 Results">
+                    <Beaker slot="icon" height={8} width={8} />
+                </AcademicSection>
+                <AcademicSection href="/higher-secondary/expLearning" title="Experential Learning">
+                    <ExpLearning slot="icon" height={8} width={8} />
+                </AcademicSection>
+                <AcademicSection href="/higher-secondary/shsCoach" title="SHS Integrated Coaching">
+                    <ChartBar slot="icon" height={8} width={8} />
+                </AcademicSection>
+            </div>
+            
+            <!-- Second Row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-evenly">
+                <AcademicSection href="/higher-secondary/unbound" title="The Unbound Series">
+                    <Dice slot="icon" height={8} width={8} />
+                </AcademicSection>
+                <AcademicSection href="/higher-secondary/counselling" title="Career Counselling">
+                    <Parent slot="icon" height={8} width={8} />
+                </AcademicSection>
+                <AcademicSection href="/higher-secondary/events" title="College Events">
+                    <Events slot="icon" height={8} width={8} />
+                </AcademicSection>
+                <AcademicSection href="/higher-secondary/sports" title="Sports">
+                    <Sport slot="icon" height={8} width={8} />
+                </AcademicSection>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="academics" class="pt-10"></div>
+<Section theme="accent" class="p-10">
+  <CenterTitle title="Academics" theme="accent" />
+  <div class="p-10 rounded-3xl md:flex justify-evenly bg-white text-black">
+    <div class="w-full md:w-1/2 justify-center">
+      <h3 class="text-2xl font-bold mb-4">Curriculum</h3>
+      <p>
+        The curriculum provided by CBSE is based on the <strong
+          >National Education Policy 2020</strong
+        > and seeks to provide opportunities for students to achieve excellence
+        in learning. The focus is to:
+      </p>
+      <ul>
+        <li>
+          • Encourage the application of knowledge and skills in real-life
+          problem-solving scenarios.
+        </li>
+        <li>
+          • Promote critical and creative thinking aligned with 21st Century
+          Skills in classrooms.
+        </li>
+        <li>
+          • Learning at the school is thoughtfully curated to provide a
+          holistic mix of academic and experiential learning for our
+          adolescents to nurture them into being sensible, joyful, and
+          responsible adults of tomorrow!
+        </li>
+      </ul>
+    </div>
+    <div class="divider md:divider-horizontal divider-error py-4"></div>
+    <div class="w-full md:w-1/2">
+      <h3 class="text-2xl font-bold mb-4">Subjects</h3>
+      <p>
+        The CBSE curriculum offers an eclectic mix of subjects for the
+        students to choose from; the major ones being Physics, Chemistry,
+        Biology, Mathematics, Accountancy, Business Studies, Economics,
+        Sociology, Psychology, Computer Science, Painting, Physical Education
+        etc.
+      </p>
+      <p>
+        Students can choose from the above subjects and electives depending on
+        the career stream finalized viz: Humanities, Commerce & Science.
+      </p>
+      <p>
+        In addition to the core subjects, students have a wide choice of
+        Elective subjects viz: Design, Music, Dance, VFX, Film Making etc.
+      </p>
+    </div>
+  </div>
+</Section>
+
+
+<CTA />
+</PageLayout>

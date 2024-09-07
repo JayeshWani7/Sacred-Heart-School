@@ -1,0 +1,219 @@
+---
+import { Image } from "astro:assets";
+// Layout
+import PageLayout from "../../layouts/PageLayout.astro";
+
+// Components
+import {
+  Section,
+  CenterTitle,
+  SectionTitle,
+  CarouselSubtext,
+  AlternateCarousel,
+  Carousel,
+  CTA,
+} from "../../components/layout";
+
+import { AcademicSection } from "../../components/home";
+
+import {
+  Dice,
+  AcademicCap,
+  ExpLearning,
+  Beaker,
+  ChartBar,
+  Sport,
+  Pet,
+  Parent,
+  Holistic,
+  InsightXchange,
+  Community,
+  Elective,
+  Mindful,
+  Events,
+  SportsBullet,
+  Technology
+} from "../../assets/icons/academic-sections";
+
+// Types
+import type { slide } from "../../components/layout/types";
+
+// Assets
+import SecondaryHero from "../../assets/images/secondary/hero.png";
+import ElectiveDescription from "../../assets/images/secondary/electives/description.json";
+import InsightExchange from "../../assets/icons/academic-sections/InsightExchange.astro";
+const IX = await Astro.glob("../../assets/images/secondary/insight-xchange/*.png");
+const gr10res = await Astro.glob("../../assets/images/secondary/grade10res/*.jpg");
+const Electives = await Astro.glob(
+  "../../assets/images/secondary/electives/*.webp"
+);
+const LearningPathways = await Astro.glob(
+  "../../assets/images/secondary/learning-pathways/*.jpg"
+);
+const integratedTech = await Astro.glob(
+  "../../assets/images/secondary/integrated-tech/*.webp"
+);
+const parentalInvolvement = await Astro.glob(
+  "../../assets/images/secondary/parental-involvement/*.jpg"
+);
+
+const ImageMapper = (glob: Record<string, any>[], description?: any) => {
+  const mappedImages = glob.map((file) => {
+    const title = file.default.src.split("/").pop().split(".")[0];
+    const img: ImageMetadata = file.default;
+    const obj: slide = { img, title };
+    if (description) obj["description"] = ElectiveDescription[title];
+    return obj;
+  });
+  return mappedImages;
+};
+
+const mappedElectives = ImageMapper(Electives, ElectiveDescription);
+const mappedLearningPathways = ImageMapper(LearningPathways);
+const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
+---
+
+<PageLayout
+  title="Secondary"
+  navtext="Home"
+  transparentNav={true}
+  buttonLink="/"
+  bgSrc={`url(${SecondaryHero.src})`}
+>
+  <p slot="hero-content">
+    Welcome to Our Secondary Section. We invite you to explore the myriad<br />
+    possibilities that await in our secondary section.<br />
+    Discover the excitement of elective subjects, the practicality of life skills,
+    and the joy of lifelong learning.<br />
+    Together, let's embark on a journey of education that goes beyond the ordinary.
+  </p>
+  <section class="relative pt-10">
+    <!-- Left Accents -->
+
+    <!-- Right Accents -->
+
+    <div
+      class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40"
+    >
+      <CenterTitle title="Page Content" theme="dark" />
+
+      <div
+        class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-5 justify-evenly"
+      >
+        <AcademicSection href="/secondary/academics" title="Academics">
+          <AcademicCap slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/secondary/insight-xchange"
+          title="Insight Xchange"
+        >
+          <InsightXchange slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/secondary/holistic-development"
+          title="Holistic Development"
+        >
+          <Holistic slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/secondary/experiential-learning" title="Experential Learning">
+          <ExpLearning slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/secondary/electives" title="Electives">
+          <Elective slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/secondary/technology-integration"
+          title="Technology Integration"
+        >
+          <Technology slot="icon" height={8} width={8} />
+        </AcademicSection>
+      </div>
+      <div class="mt-5"></div>
+      <div
+        class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-5 justify-evenly"
+      >
+        <AcademicSection
+          href="/secondary/parental-involvement"
+          title="Parents' Involvement"
+        >
+          <Parent slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/secondary/mindful-counselling"
+          title="Mindfull Counselling"
+        >
+          <Mindful slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/secondary/events" title="Events">
+          <Events slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/secondary/sports" title="Sports">
+          <Sport slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/secondary/sports-bulletin"
+          title="Sports Bulletin"
+        >
+          <SportsBullet slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/secondary/community-service"
+          title="Community Service"
+        >
+          <Community slot="icon" height={8} width={8} />
+        </AcademicSection>
+      </div>
+    </div>
+  </section>
+  <div class="mt-10"></div>
+
+    <!-- Academics -->
+    <Section theme="accent">
+        <CenterTitle title="Academics" theme="accent" />
+        <div
+            class="p-10 rounded-3xl md:flex justify-evenly bg-white text-black"
+        >
+            <div class="w-full md:w-1/2">
+                <h3 class="text-2xl font-bold mb-4">Excellence in Education</h3>
+                <p>
+                    Education takes on new dimensions, inspiring students to
+                    explore, learn, and grow. Our commitment to excellence
+                    extends beyond the classroom, creating an environment that
+                    nurtures intellectual curiosity and personal development.
+                </p>
+            </div>
+            <div class="divider md:divider-horizontal divider-error py-4"></div>
+            <div class="w-full md:w-1/2">
+                <h3 class="text-2xl font-bold mb-4">Curriculum</h3>
+                <p>
+                    Our curriculum adheres to the CBSE-based framework,
+                    strategically designed to foster intellectual growth and
+                    curiosity among our students.We focus on a well-rounded and
+                    challenging academic program with the goal of preparing
+                    students for success not only in higher education but also
+                    in their endeavors beyond the educational realm. Our devoted
+                    team of experienced educators is deeply passionate about
+                    kindling a love for knowledge and providing guidance
+                    throughout each student's educational journey.
+                </p>
+            </div>
+        </div>
+    </Section>
+    <CTA />
+</PageLayout>
+
+<style>
+    p {
+        @apply mb-8 text-justify;
+    }
+</style>
