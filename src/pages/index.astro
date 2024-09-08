@@ -84,17 +84,36 @@ const heroImg = `url(${HeroImg.src})`;
     </div>
   </div>
 
-  <!-- Highlights
-    <Section class="text-white" title="Our Highlights" theme="dark">
-		<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-			<HighlightTile />
-			<HighlightTile />
-			<HighlightTile />
-			<HighlightTile />
-			<HighlightTile />
-			<HighlightTile />
-		</div>
-	</Section>  -->
+  <!-- Highlights -->
+  <Section class="text-white" title="Our Highlights">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+      <div class="bg-red-800 p-6 rounded-lg shadow-lg">
+        <h3 class="text-lg font-bold mb-2 text-white">CBSE Curriculum</h3>
+      </div>
+      
+      <div class="bg-red-800 p-6 rounded-lg shadow-lg">
+        <h3 class="text-lg font-bold mb-2 text-white">Green School</h3>
+      </div>
+      
+      <div class="bg-red-800 p-6 rounded-lg shadow-lg">
+        <h3 class="text-lg font-bold mb-2 text-white">Innovation</h3>
+        
+      </div>
+      
+      <div class="bg-red-800 p-6 rounded-lg shadow-lg">
+        <h3 class="text-lg font-bold mb-2 text-white">Design Hub</h3>
+      </div>
+      
+      <div class="bg-red-800 p-6 rounded-lg shadow-lg">
+        <h3 class="text-lg font-bold mb-2 text-white">2500+ Students placed in top universities</h3>
+      </div>
+      
+      <div class="bg-red-800 p-6 rounded-lg shadow-lg">
+        <h3 class="text-lg font-bold mb-2 text-white">20+ Years</h3>
+      </div>
+    </div>
+  </Section>
+  
 
   <!-- Academic Sections -->
   <Section theme="dark" class="relative">
@@ -147,7 +166,7 @@ const heroImg = `url(${HeroImg.src})`;
 
   <!-- About -->
    <div id="about-us">
-  <Section theme="dark">
+  <Section theme="accent">
     <DeskMessage
       title="About Us"
       image={About}
@@ -202,7 +221,7 @@ const heroImg = `url(${HeroImg.src})`;
   </Section>
 </div>
 <div id="principle-desk">
-  <Section theme="dark">
+  <Section theme="accent">
     <DeskMessage
       title="From the Principal’s Desk"
       image={Principal}
@@ -218,6 +237,7 @@ const heroImg = `url(${HeroImg.src})`;
       ]}
       name="Mrs. Vinita Raj"
     />
+    <div id="infra"></div>
     <!--
 		<DeskMessage
 			title="From the COO’s Desk"
@@ -230,8 +250,8 @@ const heroImg = `url(${HeroImg.src})`;
     -->
   </Section>
   </div>
-
-  <Section theme="dark">
+  
+  <Section theme="accent">
     <CenterTitle title="Explore our Activities & Infrastructure" theme="dark" />
     <!--Activites Section of HomePage -->
     <div id="Activities"></div>
@@ -263,7 +283,6 @@ const heroImg = `url(${HeroImg.src})`;
     </div>
 
     <!--Infrastructure Section of HomePage -->
-    <div id="Infra"></div>
     <TaglineBox
       tagline="The state-of-the-art infrastructure significantly enhances the quality of education, providing an advanced and enriched learning experience."
     />
@@ -291,10 +310,11 @@ const heroImg = `url(${HeroImg.src})`;
       </div>
     </div>
   </Section>
+</div>
 
   <CTA />
   <div id="Contact"></div>
-  <Section theme="dark">
+  <Section theme="accent">
     <ContactUs />
   </Section>
 </RootLayout>
