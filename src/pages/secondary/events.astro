@@ -40,12 +40,12 @@ import type { slide } from "../../components/layout/types";
 
 // Assets
 import SecondaryHero from "../../assets/images/secondary/hero.png";
-import ElectiveDescription from "../../assets/images/secondary/electives/description.json";
+import EventDescription from "../../assets/images/secondary/events/description.json";
 import InsightExchange from "../../assets/icons/academic-sections/InsightExchange.astro";
 const IX = await Astro.glob("../../assets/images/secondary/insight-xchange/*.png");
 const gr10res = await Astro.glob("../../assets/images/secondary/grade10res/*.jpg");
-const Electives = await Astro.glob(
-  "../../assets/images/secondary/electives/*.webp"
+const Events1 = await Astro.glob(
+  "../../assets/images/secondary/events/*.webp"
 );
 const LearningPathways = await Astro.glob(
   "../../assets/images/secondary/learning-pathways/*.jpg"
@@ -62,13 +62,13 @@ const ImageMapper = (glob: Record<string, any>[], description?: any) => {
     const title = file.default.src.split("/").pop().split(".")[0];
     const img: ImageMetadata = file.default;
     const obj: slide = { img, title };
-    if (description) obj["description"] = ElectiveDescription[title];
+    if (description) obj["description"] = EventDescription[title];
     return obj;
   });
   return mappedImages;
 };
 
-const mappedElectives = ImageMapper(Electives, ElectiveDescription);
+const mappedEvents = ImageMapper(Events1, EventDescription);
 const mappedLearningPathways = ImageMapper(LearningPathways);
 const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
 ---
@@ -176,8 +176,9 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
     </div>
   </section>
   <div class="mt-10"></div>
-
-    
+  <Section title="Events">
+        <AlternateCarousel slides={mappedEvents} id={0} />
+    </Section>
     <CTA />
 </PageLayout>
 
