@@ -9,18 +9,50 @@ import { OutlineBtn } from ".";
 // Images
 import bus from "../../assets/images/bus.webp";
 import rocket from "../../assets/icons/rocket.svg";
+
+import "../layout/styles/cta.css"
+
 ---
 
 <section
   class="bg-primary-dark flex flex-col md:flex-row justify-evenly items-center py-8 px-4 md:px-12 lg:px-32"
 >
+  <script>
+  
+  document.addEventListener('DOMContentLoaded', () => {
+  const busImage = document.getElementById('bus-image');
+  const outlineBtn = document.getElementById('outline-btn');
+  const rocket = document.getElementById('rocket');
+
+  outlineBtn.addEventListener('click', () => {
+    
+    busImage.classList.add('translate-x-80');
+    event.preventDefault();
+    const animationDuration = 500;
+    setTimeout(() => {
+        window.location.href = outlineBtn.href;
+      }, animationDuration);
+  });
+
+  outlineBtn.addEventListener('mouseover', () => {
+    // busImage.classList.add('shake');
+    rocket.classList.add('launch');
+  });
+
+  outlineBtn.addEventListener('mouseout', () => {
+    // busImage.classList.remove('shake');
+    rocket.classList.remove('launch');
+  });
+});
+
+  </script>
   <!-- Content -->
   <div class="mb-8">
     <h2 class="text-xl font-bold mb-4">
       Unlock Your Future at Sacred Heart, Kalyan!
     </h2>
     <div class="flex items-center">
-      <img class="h-8 mr-4" src={rocket.src} alt="rocket" />
+      <img class="h-8 mr-4" src={rocket.src} alt="rocket" id="rocket" />
       <p>
         Ready to embark on a journey of knowledge, growth and endless<br />
         possibilities?
@@ -29,8 +61,14 @@ import rocket from "../../assets/icons/rocket.svg";
   </div>
   <!-- Redirect Button -->
   <div class="flex flex-col items-center">
-    <Image class="w-32 -scale-x-100" src={bus} alt="bus" />
-    <OutlineBtn href="/admission">
+    <div></div>
+    <Image
+      class="w-32 -scale-x-100 transition ease-in-out "
+      id="bus-image"
+      src={bus}
+      alt="bus"
+    />
+    <OutlineBtn href="/admission" id="outline-btn">
       Apply Now
       <svg
         fill="currentColor"
