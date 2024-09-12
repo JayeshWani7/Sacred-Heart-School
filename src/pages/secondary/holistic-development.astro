@@ -47,8 +47,8 @@ const gr10res = await Astro.glob("../../assets/images/secondary/grade10res/*.jpg
 const Electives = await Astro.glob(
   "../../assets/images/secondary/electives/*.webp"
 );
-const LearningPathways = await Astro.glob(
-  "../../assets/images/secondary/learning-pathways/*.jpg"
+const HolisticDevelopment = await Astro.glob(
+  "../../assets/images/secondary/holistic-development/*.webp"
 );
 const integratedTech = await Astro.glob(
   "../../assets/images/secondary/integrated-tech/*.webp"
@@ -69,7 +69,7 @@ const ImageMapper = (glob: Record<string, any>[], description?: any) => {
 };
 
 const mappedElectives = ImageMapper(Electives, ElectiveDescription);
-const mappedLearningPathways = ImageMapper(LearningPathways);
+const mappedLearningPathways = ImageMapper(HolisticDevelopment);
 const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
 ---
 
@@ -176,7 +176,15 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
     </div>
   </section>
   <div class="mt-10"></div>
-
+  <Section title="Holistic Development">
+    <p>
+      We believe that a well-rounded education includes not only 
+      intellectual development but also the cultivation of character 
+      and a sense of responsibility.
+    </p>
+    <AlternateCarousel slides={mappedLearningPathways} id={0} />
+    
+  </Section>
     
     <CTA />
 </PageLayout>
