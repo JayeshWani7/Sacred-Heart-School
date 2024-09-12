@@ -40,12 +40,12 @@ import type { slide } from "../../components/layout/types";
 
 // Assets
 import SecondaryHero from "../../assets/images/secondary/hero.png";
-import ElectiveDescription from "../../assets/images/secondary/electives/description.json";
+import ElectiveDescription from "../../assets/images/secondary/experential-learning/description.json";
 import InsightExchange from "../../assets/icons/academic-sections/InsightExchange.astro";
 const IX = await Astro.glob("../../assets/images/secondary/insight-xchange/*.png");
 const gr10res = await Astro.glob("../../assets/images/secondary/grade10res/*.jpg");
 const Electives = await Astro.glob(
-  "../../assets/images/secondary/electives/*.webp"
+  "../../assets/images/secondary/experential-learning/*.webp"
 );
 const LearningPathways = await Astro.glob(
   "../../assets/images/secondary/learning-pathways/*.jpg"
@@ -176,7 +176,12 @@ const mappedParentalInvolvement = ImageMapper(parentalInvolvement);
     </div>
   </section>
   <div class="mt-10"></div>
-
+  <Section title="Experential Learning">
+    <p>
+      “Explore, Experience, Excel: Transformative Learning in Action”
+    </p>
+    <AlternateCarousel slides={mappedElectives} id={0} />
+  </Section>
     
     <CTA />
 </PageLayout>
