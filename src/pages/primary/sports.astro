@@ -1,0 +1,147 @@
+---
+import { ImageMetadata } from "astro";
+// Components
+import PageLayout from "../../layouts/PageLayout.astro";
+import {
+  Section,
+  Carousel,
+  CenterTitle,
+  SectionTitle,
+  Accordion,
+  CTA,
+  TestimonialCarousel,
+  AlternateCarousel
+} from "../../components/layout";
+import Activity from "../../components/academic/primary/Activity.astro";
+
+
+import { AcademicSection } from "../../components/home";
+import {
+  Dice,
+  AcademicCap,
+  ExpLearning,
+  Beaker,
+  ChartBar,
+  Sport,
+  Pet,
+  Parent,
+} from "../../assets/icons/academic-sections";
+
+
+//images
+import PrimaryHero from "../../assets/images/pre-school.webp";
+import BackToSchool from "../../assets/images/schoolbag.png";
+const collaborativeLearningImport = await Astro.glob(
+  "../../assets/images/primary/collaborative-learning/*.webp"
+);
+const experientialLearningImport = await Astro.glob(
+  "../../assets/images/primary/experiential-learning/*"
+);
+const integratedLearningImport = await Astro.glob(
+  "../../assets/images/primary/integrated-learning/*"
+);
+const preConceptualImport = await Astro.glob(
+  "../../assets/images/primary/preconceptual/*"
+);
+
+const sportsImport = await Astro.glob(
+  "../../assets/images/primary/sports/*"
+);
+import type { slide } from "../../components/layout/types";
+const soleImport = await Astro.glob("../../assets/images/primary/sole/*");
+
+
+
+
+const ImageMapper1 = (glob: Record<string, any>[], description?: any) => {
+  const mappedImages = glob.map((file) => {
+    const title = "Sports Event"
+    const img: ImageMetadata = file.default;
+    const obj: slide = { img, title };
+    if (description) obj["description"] = EventDescription[title];
+    return obj;
+  });
+  return mappedImages;
+};
+
+
+const sports = ImageMapper1(sportsImport);
+---
+
+<PageLayout
+  title="Primary"
+  navtext="Home"
+  transparentNav={true}
+  buttonLink="/"
+  bgSrc={`url(${PrimaryHero.src})`}
+>
+  <p slot="hero-content" class="text-lg">Empowering Minds, Nurturing Futures</p>
+
+    
+  <section class="relative pt-10">
+    <!-- Left Accents -->
+
+    <!-- Right Accents -->
+
+    <div
+      class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40"
+    >
+      <CenterTitle title="Page Content" theme="dark" />
+      <!-- With 4 Academic Sections -->
+
+      <div class="grid grid-cols-2 gap-8 lg:flex justify-evenly">
+        <!-- With 3 Academic Sections -->
+        <!-- <div class="flex justify-evenly"> -->
+
+        <AcademicSection href="/primary/academics" title="Academics">
+          <AcademicCap slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/primary/beyond-classroom" title="Beyond Classroom">
+          <Beaker slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+       
+        <AcademicSection href="/primary/events" title="Events">
+          <Dice slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/primary/sports" title="Sports">
+          <Sport slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/primary/parent-testamonial" title="Parent's Testimonials">
+          <Parent slot="icon" height={8} width={8} />
+        </AcademicSection>
+      </div>
+    </div>
+  </section>
+  <div class="mt-10"></div>
+
+
+  <!-- Events & sports -->
+  <Section theme="accent" class="pt-12">
+    <SectionTitle title="Sports" theme="accent" />
+    
+        <div class="text-center">
+            <p class="pb-10">
+                Our sports area offers a dynamic environment for students to learn and excel in a variety of activities. From swimming and football through our LaLiga program, to basketball with NBA training, and skating, students engage in fun and fitness-filled experiences. Our skilled instructors provide expert coaching and ensure that every student develops their athletic abilities while enjoying teamwork and sportsmanship. The sports area is where students build skills, stay active, and have a great time. 
+            </p>
+            <!-- <Carousel media={sports} id={"5"} type="img" theme="accent" /> -->
+         
+            <AlternateCarousel slides={sports} id={0} />
+         
+        </div>
+        
+        <!-- <Activity
+        title="S.O.L.E"
+        description={`Our sports area offers a dynamic environment for students to learn and excel in a variety of activities. From swimming and football through our LaLiga program, to basketball with NBA training, and skating, students engage in fun and fitness-filled experiences. Our skilled instructors provide expert coaching and ensure that every student develops their athletic abilities while enjoying teamwork and sportsmanship. The sports area is where students build skills, stay active, and have a great time. `}
+      >
+        
+      </Activity> -->
+   
+  </Section>
+
+  <CTA />
+</PageLayout>
+

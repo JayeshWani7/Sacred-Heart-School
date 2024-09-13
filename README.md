@@ -37,3 +37,5 @@ npm start
 - Jess John
 - Yashas Khot
 - Shaun Menezes
+- Jayesh Wani
+- Andre Fernandes  
