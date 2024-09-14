@@ -25,8 +25,6 @@ import {
   Parent,
 } from "../../assets/icons/academic-sections";
 
-
-
 //images
 import PrimaryHero from "../../assets/images/pre-school.webp";
 import BackToSchool from "../../assets/images/schoolbag.png";
@@ -39,9 +37,18 @@ const experientialLearningImport = await Astro.glob(
 const integratedLearningImport = await Astro.glob(
   "../../assets/images/primary/integrated-learning/*"
 );
+
+const parentalParticipationImport = await Astro.glob(
+  "../../assets/images/primary/parental-participation/*webp"
+);
 const preConceptualImport = await Astro.glob(
   "../../assets/images/primary/preconceptual/*"
 );
+
+const treeBrainImport = await Astro.glob(
+  "../../assets/images/primary/treebrain/*webp"
+);
+
 const soleImport = await Astro.glob("../../assets/images/primary/sole/*");
 
 //videos
@@ -61,6 +68,8 @@ const collaborativeLearning = ImageMapper(collaborativeLearningImport);
 const experientialLearning = ImageMapper(experientialLearningImport);
 const integratedLearning = ImageMapper(integratedLearningImport);
 const preConceptual = ImageMapper(preConceptualImport);
+const parentalParticipation = ImageMapper(parentalParticipationImport);
+const treebrain = ImageMapper(treeBrainImport);
 const sole = ImageMapper(soleImport);
 ---
 
@@ -73,7 +82,6 @@ const sole = ImageMapper(soleImport);
 >
   <p slot="hero-content" class="text-lg">Empowering Minds, Nurturing Futures</p>
 
-  
   <section class="relative pt-10">
     <!-- Left Accents -->
 
@@ -93,16 +101,25 @@ const sole = ImageMapper(soleImport);
           <AcademicCap slot="icon" height={8} width={8} />
         </AcademicSection>
 
-        <AcademicSection href="/primary/beyond-classroom" title="Beyond Classroom">
+        <AcademicSection
+          href="/primary/beyond-classroom"
+          title="Beyond Classroom"
+        >
           <Beaker slot="icon" height={8} width={8} />
         </AcademicSection>
 
-       
-        <AcademicSection href="/primary/events-sports" title="Sports & Events">
+        <AcademicSection href="/primary/events" title="Events">
+          <Dice slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/primary/sports" title="Sports">
           <Sport slot="icon" height={8} width={8} />
         </AcademicSection>
 
-        <AcademicSection href="/primary/parent-testamonial" title="Parent's Testimonials">
+        <AcademicSection
+          href="/primary/parent-testamonial"
+          title="Parent's Testimonials"
+        >
           <Parent slot="icon" height={8} width={8} />
         </AcademicSection>
       </div>
@@ -110,9 +127,8 @@ const sole = ImageMapper(soleImport);
   </section>
   <div class="mt-10"></div>
 
-
-<!-- Beyond classroom -->
-<Section class="pt-12 overflow-x-hidden">
+  <!-- Beyond classroom -->
+  <Section class="pt-12 overflow-x-hidden">
     <SectionTitle title="Beyond The Classroom" />
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 w-full">
       <div class="flex flex-col pt-4">
@@ -120,11 +136,14 @@ const sole = ImageMapper(soleImport);
           Experiential Learning
         </p>
         <p class="text-justify lg:max-w-[80ch] pt-8">
-          Experiential learning stands as a dynamic and impactful approach to
-          education. By encouraging students to actively participate, reflect,
-          and apply their knowledge in real-world contexts, it not only enriches
-          the learning experience but also equips students with the skills and
-          insights necessary for success in an ever-evolving world.
+          At Sacred Heart School, we prioritize learning through experience. Our
+          experiential learning approach immerses students in hands-on
+          activities that bring classroom lessons to life. By engaging in
+          real-world projects, experiments, and collaborative tasks, students
+          not only deepen their understanding but also develop essential skills
+          like critical thinking and creativity. This dynamic method prepares
+          students for future challenges and enriches their overall educational
+          journey.
         </p>
         <img class="h-60 w-min" src={BackToSchool.src} alt="back to school" />
       </div>
@@ -139,24 +158,17 @@ const sole = ImageMapper(soleImport);
 
       <Activity
         title="Pre Conceptual"
-        description={`Comprehension of a concept is enhanced when students engage in
-        practical application and embrace a "Learn by Doing" approach.
-        Experiencing a concept first-hand proves more effective than mere
-        lecturing, as students gain a deeper understanding. Pre-conceptual
-        activities play a crucial role in facilitating a better grasp of
-        concepts by aligning with students' sensibilities.`}
+        description={`The preconceptual activity identifies students' prior knowledge and misconceptions on a topic through interactive tasks. By exploring their initial understanding and engaging in discussions, educators can tailor instruction to address gaps and refine concepts. This approach ensures a solid foundation for new learning by connecting with students' existing knowledge. `}
       >
-        <Carousel media={preConceptual} id={"2"} type="img" theme="accent" />
+        <div style={{ height: '512px' }}>
+          <Carousel media={preConceptual} id={"2"} type="img" theme="accent" />
+        </div>
       </Activity>
 
       <Activity
         title="Integrated Learning"
-        description={`Integrated lessons go beyond traditional compartmentalization of
-        subjects, offering a more interconnected and dynamic approach to
-        education. By combining core academic subjects with subjects like art,
-        craft and sports and their hands-on or activity-based elements, these
-        lessons strive to create a well-rounded learning experience that
-        prepares students for the complexities of the real world.`}
+        description={`Integrating art with math through cube-making activities enriches learning by blending creativity with geometry. Students design and construct colorful cubes, exploring spatial relationships and geometric concepts hands-on. This engaging approach deepens their understanding of mathematical principles while fostering artistic expression and critical thinking skills.                        
+`}
       >
         <Carousel
           media={integratedLearning}
@@ -168,14 +180,7 @@ const sole = ImageMapper(soleImport);
 
       <Activity
         title="Collaborative Learning"
-        description={`Collaborative lessons planned by collaborating 2 subjects and
-          interrelating their concepts for a better understanding leads to fun
-          learning in the most innovative way. It offers a dynamic and
-          interactive approach to education, promoting teamwork, communication
-          skills, and a deeper understanding of the subject matters. As students
-          actively contribute to their learning process, collaborative lessons
-          prepare them for the collaborative nature of the real world and equip
-          them with skills that extend beyond academic knowledge.`}
+        description={`At our school, collaborative learning blends multiple subjects to offer a richer educational experience. By connecting concepts across disciplines, students gain a deeper understanding, enhance problem-solving skills, and see how different subjects interrelate. This integrated approach makes learning engaging and prepares students for real-world challenges.  `}
       >
         <Carousel
           media={collaborativeLearning}
@@ -197,6 +202,30 @@ const sole = ImageMapper(soleImport);
           pursuit of a more student-centric education system.`}
       >
         <Carousel media={sole} id={"5"} type="img" theme="accent" />
+      </Activity>
+
+      <Activity
+        title="Parental Participation"
+        description={`Parental participation in schools enhances student success by fostering a supportive learning environment. Mothers got an oppurtunity to witness the functioning of the school by attending Journee De Mere. Active involvement strengthens the home-school connection. This partnership boosts students' motivation, improves their performance, and contributes to a positive and collaborative educational experience.`}
+      >
+        <Carousel
+          media={parentalParticipation}
+          id={"6"}
+          type="img"
+          theme="accent"
+        />
+      </Activity>
+
+      <Activity
+        title="Treebrain"
+        description={`Tree Brain at Sacred Heart School is a special room where primary students learn about computers and technology. Here, kids get hands-on experience with interactive lessons. With our latest technology, students explore new digital skills and enhance their creativity. Tree Brain makes learning about computers exciting and prepares students for the future in a playful and engaging way.`}
+      >
+        <Carousel
+          media={treebrain}
+          id={"7"}
+          type="img"
+          theme="accent"
+        />
       </Activity>
     </div>
   </Section>

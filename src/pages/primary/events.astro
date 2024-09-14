@@ -1,0 +1,221 @@
+---
+import { ImageMetadata } from "astro";
+// Components
+import PageLayout from "../../layouts/PageLayout.astro";
+import {
+  Section,
+  Carousel,
+  CenterTitle,
+  SectionTitle,
+  Accordion,
+  CTA,
+  TestimonialCarousel,
+} from "../../components/layout";
+import Activity from "../../components/academic/primary/Activity.astro";
+
+import { AcademicSection } from "../../components/home";
+import {
+  Dice,
+  AcademicCap,
+  ExpLearning,
+  Beaker,
+  ChartBar,
+  Sport,
+  Pet,
+  Parent,
+} from "../../assets/icons/academic-sections";
+
+//images
+import PrimaryHero from "../../assets/images/pre-school.webp";
+import BackToSchool from "../../assets/images/schoolbag.png";
+const collaborativeLearningImport = await Astro.glob(
+  "../../assets/images/primary/collaborative-learning/*.webp"
+);
+const experientialLearningImport = await Astro.glob(
+  "../../assets/images/primary/experiential-learning/*"
+);
+const integratedLearningImport = await Astro.glob(
+  "../../assets/images/primary/integrated-learning/*"
+);
+const preConceptualImport = await Astro.glob(
+  "../../assets/images/primary/preconceptual/*"
+);
+const eventsImport = await Astro.glob(
+  "../../assets/images/primary/events/*.webp"
+);
+const soleImport = await Astro.glob("../../assets/images/primary/sole/*");
+
+//videos
+import ActivityVid1 from "../../assets/videos/Motor-Skills1.mp4";
+import ActivityVid2 from "../../assets/videos/Motor-Skills2.mp4";
+import Intro from "../../assets/videos/primary-intro.mp4";
+
+const ImageMapper = (glob: Record<string, any>[]) => {
+  const mappedImages = glob.map((file) => {
+    const img: ImageMetadata = file.default;
+    return img;
+  });
+  return mappedImages;
+};
+
+const collaborativeLearning = ImageMapper(collaborativeLearningImport);
+const experientialLearning = ImageMapper(experientialLearningImport);
+const integratedLearning = ImageMapper(integratedLearningImport);
+const preConceptual = ImageMapper(preConceptualImport);
+const sole = ImageMapper(soleImport);
+const events = ImageMapper(eventsImport);
+---
+
+<PageLayout
+  title="Primary"
+  navtext="Home"
+  transparentNav={true}
+  buttonLink="/"
+  bgSrc={`url(${PrimaryHero.src})`}
+>
+  <p slot="hero-content" class="text-lg">Empowering Minds, Nurturing Futures</p>
+
+  <section class="relative pt-10">
+    <!-- Left Accents -->
+
+    <!-- Right Accents -->
+
+    <div
+      class="bg-white/20 mx-auto md:w-3/4 2xl:w-3/4 py-10 px-14 relative z-40"
+    >
+      <CenterTitle title="Page Content" theme="dark" />
+      <!-- With 4 Academic Sections -->
+
+      <div class="grid grid-cols-2 gap-8 lg:flex justify-evenly">
+        <!-- With 3 Academic Sections -->
+        <!-- <div class="flex justify-evenly"> -->
+
+        <AcademicSection href="/primary/academics" title="Academics">
+          <AcademicCap slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/primary/beyond-classroom"
+          title="Beyond Classroom"
+        >
+          <Beaker slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/primary/events" title="Events">
+          <Dice slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection href="/primary/sports" title="Sports">
+          <Sport slot="icon" height={8} width={8} />
+        </AcademicSection>
+
+        <AcademicSection
+          href="/primary/parent-testamonial"
+          title="Parent's Testimonials"
+        >
+          <Parent slot="icon" height={8} width={8} />
+        </AcademicSection>
+      </div>
+    </div>
+  </section>
+  <div class="mt-10"></div>
+
+  <!-- Events & sports -->
+  <Section theme="accent" class="pt-12">
+    <SectionTitle title="Events & Competition" theme="accent" />
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 w-full pt-12 pb-12"
+    >
+      <iframe
+        class="flex items-center justify-center w-full md:w-full h-[350px] rounded-xl sm:w-[500px]"
+        src="https://www.youtube.com/embed/A3_-9jT9Bsw?si=y92NmSNI9Z7ohf1d"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+      <div>
+        <p
+          class="text-lg md:text-xl lg:text-xl xl:text-2xl md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        >
+          Shark Tank Competition
+        </p>
+        <p class="text-justify lg:max-w-[80ch] pb-4">
+          Empowering our Gen Z with 21st-century skills and giving them various
+          platforms to showcase their confident personalities has always been
+          our priority. The Jr. Shark Tank Competition was one such platform
+          where students got a chance to showcase their entrepreneurial traits.
+          Our finalists pitched their business models to our judges and tried to
+          crack a mock deal with them.
+        </p>
+      </div>
+
+      <div>
+        <p
+          class="text-lg md:text-xl lg:text-xl xl:text-2xl md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        >
+          Math Fest
+        </p>
+        <p class="text-justify lg:max-w-[80ch] pb-4">
+          Immerse yourself in the thrilling world of numbers at our Math Fest!
+          Join the excitement with Math Pictionary, engage in the
+          adrenaline-pumping Math Relay, and ascend the pyramid of knowledge
+          mastering ascending and descending order. Explore the geometry realm
+          discovering shape properties, and embark on a numerical journey with
+          Snake & Ladders. Unleash your mathematical prowess through these
+          exhilarating activities, creating a festival of fun and learning!
+        </p>
+      </div>
+      <iframe
+        class="flex items-center justify-center md:w-full w-full h-[350px] rounded-xl sm:w-[500px]"
+        src="https://www.youtube.com/embed/KY4wa6dZep8?si=D89V-20TbcaMlwbP"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+
+      <iframe
+        class="flex items-center justify-center md:w-full w-full h-[350px] rounded-xl sm:w-[500px]"
+        src="https://www.youtube.com/embed/2oeSZ4GpW9Q?si=FnXW23q_JzSAh9QT"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+      <div>
+        <p
+          class="text-lg md:text-xl lg:text-xl xl:text-2xl md:font-medium text-justify lg:max-w-[80ch] pb-4"
+        >
+          Mystical Science Fiesta
+        </p>
+        <p class="text-justify lg:max-w-[80ch] pb-4">
+          Step into the enchanting world of the Mythical Science Fiesta, a
+          magical journey introducing young minds to the wonders of science.
+          Uncover the secrets of daily life with captivating experiments,
+          mythical scientific encounters, and interactive displays. Transform
+          mundane moments into extraordinary discoveries, sparking curiosity and
+          revealing the enchantment of science in our everyday world. A
+          fantastical adventure awaits, inspiring the scientists of tomorrow!
+        </p>
+      </div>
+    </div>
+    <div class="pb-12">
+      <p
+        class="text-2xl sm:text-3xl lg:text-3xl font-black pt-1"
+      >
+        Other Events
+      </p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 w-full pt-12">
+        <div>
+          <p class="text-lg md:text-xl lg:text-xl xl:text-2xl md:font-medium text-justify lg:max-w-[80ch] pb-4">Recitation</p>
+          <iframe
+            class="items-center justify-center md:w-full w-[300px] h-[350px] rounded-xl sm:w-[500px]"
+            src="https://www.youtube.com/embed/vtEyP_ePvPQ?si=ULNCORqPyMHzKbXl"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+
+        <div
+          class="items-center justify-center md:w-full w-[300px] h-[350px] rounded-xl sm:w-[500px]"
+        >
+          <p class="text-lg md:text-xl lg:text-xl xl:text-2xl md:font-medium text-justify lg:max-w-[80ch] pb-4">Kargil Vijay Diwas</p>
+          <Carousel media={events} id={"1"} type="img" theme="accent" />
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <CTA />
+</PageLayout>
