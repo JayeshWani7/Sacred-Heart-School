@@ -57,8 +57,8 @@ const { section, tabs } = Astro.props as Props;
           {section.toLowerCase() === "pre-primary" && (
             <>
               {tab.title === "Curriculum" && <PrePrimaryCurriculum />}
-              {tab.title === "Subjects" && <PrePrimarySubjects />}
               {tab.title === "Planner" && <PrePrimaryPlanner />}
+              {tab.title === "Assessment" && <PrePrimarySubjects />}
             </>
           )}
           {section.toLowerCase() === "primary" && (
