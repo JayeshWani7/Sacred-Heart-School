@@ -3,8 +3,8 @@ import { Image } from "astro:assets";
 import CurriculumImg from "../../../assets/images/accordian/22.webp";
 ---
 
-<div class="flex flex-col md:flex-row justify-evenly items-center">
-    <p class="md:w-1/2 lg:w-1/2 text-black">
+<div class="flex flex-col md:flex-col justify-evenly items-center">
+    <p class="md:w-full lg:w-full text-black">
         The curriculum covers Literacy, Numeracy, Environmental Studies (EVS),
         Hindi, General Awareness, Social Skills, Dance, Sports, Music, Drawing
         and Craft. Our approach incorporates the well-regarded Jolly Phonics
@@ -14,9 +14,10 @@ import CurriculumImg from "../../../assets/images/accordian/22.webp";
         joyful and hands-on learning experiences for our students.
     </p>
     <br/>
-    <Image
+    <div><Image
         src={CurriculumImg}
         alt="Curriculum"
         class="md:w-1/2 md:h-auto lg:h-68 lg:w-auto"
-    />
+    /></div>
+    
 </div>
