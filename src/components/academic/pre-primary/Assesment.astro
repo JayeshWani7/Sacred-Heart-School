@@ -3,8 +3,8 @@ import { Image } from "astro:assets";
 import SubjectImg from "../../../assets/images/accordian/12.webp";
 ---
 
-<div class="flex flex-col md:flex-row justify-evenly items-center">
-    <p class="md:w-1/2 lg:w-1/3 text-black">
+<div class="flex flex-col md:flex-col justify-evenly items-center">
+    <p class="md:w-full lg:w-full text-black">
         Continuous assessment methods ensure a supportive and child-friendly 
         evaluation process, aligning with the NEP's vision for a well-rounded 
         and age-appropriate foundation that sparks a lifelong love for learning. 
@@ -12,11 +12,13 @@ import SubjectImg from "../../../assets/images/accordian/12.webp";
         the students portfolio and learners diary.
     </p>
     <br/>
-    <Image
+    <div>
+        <Image
         src={SubjectImg}
         alt="Curriculum"
-        class="md:w-1/2 md:h-auto lg:h-68 lg:w-auto"
+        class="md:w-full md:h-auto lg:h-68 lg:w-auto"
     />
+    </div>
 </div>
 
 <style>
