@@ -4,7 +4,7 @@ import RootLayout from "../layouts/RootLayout.astro";
 
 // Components
 import { Image } from "astro:assets";
-import { CTA, CenterTitle, Section, SocialBtn } from "../components/layout";
+import { CTA, CenterTitle, Section, SocialBtn, AlternateCarousel } from "../components/layout";
 import {
   AcademicSection,
   ContactUs,
@@ -34,6 +34,31 @@ import {
 } from "../assets/icons/academic-sections";
 
 const heroImg = `url(${HeroImg.src})`;
+
+
+import ElectiveDescription from "../assets/images/home/activities/description.json";
+
+
+const HolisticDevelopment = await Astro.glob(
+  "../assets/images/home/activities/*.webp"
+);
+const Infrastruture = await Astro.glob(
+  "../assets/images/home/infrastructure/*.webp"
+);
+const ImageMapper = (glob: Record<string, any>[], description?: any) => {
+  const mappedImages = glob.map((file) => {
+    const title = file.default.src.split("/").pop().split(".")[0];
+    const img: ImageMetadata = file.default;
+    const obj: slide = { img, title };
+    if (description) obj["description"] = ElectiveDescription[title];
+    return obj;
+  });
+  return mappedImages;
+};
+
+
+const sports = ImageMapper(HolisticDevelopment);
+const sports1 = ImageMapper(Infrastruture);
 ---
 
 <script>
@@ -259,27 +284,8 @@ const heroImg = `url(${HeroImg.src})`;
       tagline="Initiating activities that nurture teamwork, leadership, physical health, social skills, discipline, resilience, and mutual trust within and outside the school environment."
     />
 
-    <div class="flex justify-center font-sans font-normal">
-      <div
-        class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8"
-      >
-        <ImageCard
-          imageLink="/assets/images/activities/Basketball.webp"
-          cardTitle="Basketball"
-        />
-        <ImageCard
-          imageLink="/assets/images/activities/Swimming.webp"
-          cardTitle="Swimming"
-        />
-        <ImageCard
-          imageLink="/assets/images/activities/Fencing.webp"
-          cardTitle="Fencing"
-        />
-        <ImageCard
-          imageLink="/assets/images/activities/Football.webp"
-          cardTitle="Football"
-        />
-      </div>
+    <div class="items-center justify-center">
+      <AlternateCarousel slides={sports} id={0} />
     </div>
 
     <!--Infrastructure Section of HomePage -->
@@ -287,27 +293,8 @@ const heroImg = `url(${HeroImg.src})`;
       tagline="The state-of-the-art infrastructure significantly enhances the quality of education, providing an advanced and enriched learning experience."
     />
 
-    <div class="flex justify-center font-sans font-normal">
-      <div
-        class="container lg:flex lg:gap-5 m-4 md:justify-center md:items-center sm:items-center lg:h-96 xl:h-96 xl:p-8"
-      >
-        <ImageCard
-          imageLink="/assets/images/infra/DesignHub.webp"
-          cardTitle="DesignHub"
-        />
-        <ImageCard
-          imageLink="/assets/images/infra/DigitalTree.webp"
-          cardTitle="Digital Tree"
-        />
-        <ImageCard
-          imageLink="/assets/images/infra/Hydroponics.webp"
-          cardTitle="Hydroponics"
-        />
-        <ImageCard
-          imageLink="/assets/images/infra/PioneerHall.webp"
-          cardTitle="Pioneer Hall"
-        />
-      </div>
+    <div>
+      <AlternateCarousel slides={sports1} id={1} />
     </div>
   </Section>
 </div>
