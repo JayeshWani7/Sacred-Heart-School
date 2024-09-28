@@ -46,7 +46,19 @@ const Infrastruture = await Astro.glob(
   "../assets/images/home/infrastructure/*.webp"
 );
 const ImageMapper = (glob: Record<string, any>[], description?: any) => {
-  const mappedImages = glob.map((file) => {
+    // Function to shuffle an array
+    const shuffleArray = (array: any[]) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  // Shuffle the glob array
+  const shuffledGlob = shuffleArray([...glob]);
+
+  const mappedImages = shuffledGlob.map((file) => {
     const title = file.default.src.split("/").pop().split(".")[0];
     const img: ImageMetadata = file.default;
     const obj: slide = { img, title };
